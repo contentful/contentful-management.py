@@ -1,0 +1,952 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contentful Management API SDK &#8212; Contentful Management 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Contentful Management 1.0.0 documentation" href="#" />
+    <link rel="next" title="contentful_management" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contentful-management-api-sdk">
+<h1>Contentful Management API SDK<a class="headerlink" href="#contentful-management-api-sdk" title="Permalink to this headline">¶</a></h1>
+<p>Release v1.0.0.</p>
+<p><a class="reference external" href="https://www.contentful.com">Contentful</a> is a content management platform for web applications, mobile apps and connected devices.
+It allows you to create, edit &amp; manage content in the cloud and publish it anywhere via powerful API.
+Contentful offers tools for managing editorial teams and enabling cooperation between organizations.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Install Contentful Management from the Python Package Index:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">contentful_management</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="client">
+<h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<p>Create a client:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">contentful_management</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">contentful_management</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s1">&#39;MANAGEMENT_API_TOKEN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The api token can easily be created through the <a class="reference external" href="https://www.contentful.com/developers/docs/references/authentication/#the-content-management-api">management api documentation</a>.</p>
+</div>
+<div class="section" id="spaces">
+<h2>Spaces<a class="headerlink" href="#spaces" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all spaces:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">spaces</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">spaces</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one space by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">blog_space</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">spaces</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;blog_space_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">spaces</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;blog_space_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the space</span>
+
+<span class="n">blog_space</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_blog_space</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">spaces</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;default_locale&#39;</span><span class="p">:</span> <span class="s1">&#39;en-US&#39;</span><span class="p">})</span>
+<span class="c1"># default_locale is optional</span>
+</pre></div>
+</div>
+<p>In the case your user belongs to multiple organizations, you&#8217;re required to send an organization ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_blog_space</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">spaces</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;organization_id&#39;</span><span class="p">:</span> <span class="s1">&#39;my_org_id&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Updating a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">blog_space</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Ye Olde Blog&#39;</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">blog_space</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ye Olde Blog&#39;</span>
+<span class="n">blog_space</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assets">
+<h2>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all assets on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">assets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">assets</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieving an asset by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">asset</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the asset</span>
+
+<span class="n">asset</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">file_attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;en-US&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;fileName&#39;</span><span class="p">:</span> <span class="s1">&#39;file.png&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;contentType&#39;</span><span class="p">:</span> <span class="s1">&#39;image/png&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;upload&#39;</span><span class="p">:</span> <span class="s1">&#39;https://url.to/file.png&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">new_asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
+    <span class="n">file_attributes</span>
+<span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_asset</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
+    <span class="n">file_attributes</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We also support Direct File Upload, this will be explained in the Uploads section.</p>
+<p>Processing an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">process</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This will process the file for every available locale and provide you with a downloadable URL within Contentful.</p>
+<p>Updating an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">other_file_attributes</span><span class="p">)</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">asset</span><span class="o">.</span><span class="n">file</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;other_file.png&#39;</span>
+<span class="n">asset</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Deleting an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the asset</span>
+
+<span class="n">asset</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Archiving and Unarchiving an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">archive</span><span class="p">()</span>
+<span class="n">asset</span><span class="o">.</span><span class="n">unarchive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Publishing or Unpublishing an asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+<span class="n">asset</span><span class="o">.</span><span class="n">unpublish</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Checking if an asset is published:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">is_published</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="entries">
+<h2>Entries<a class="headerlink" href="#entries" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all entries on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entries</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">entries</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched content type</span>
+
+<span class="n">entries_for_content_type</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieving an entry by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">entry</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched content type</span>
+
+<span class="n">entry</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the entry</span>
+
+<span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry_attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;en-US&#39;</span><span class="p">:</span> <span class="s1">&#39;My Awesome Post&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;en-US&#39;</span><span class="p">:</span> <span class="s1">&#39;Once upon a time...&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">new_entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_entry_id&#39;</span><span class="p">,</span>
+    <span class="n">entry_attributes</span>
+<span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_entry</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_entry_id&#39;</span><span class="p">,</span>
+    <span class="n">entry_attributes</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">other_entry_attributes</span><span class="p">)</span>
+
+<span class="c1"># or directly updating it&#39;s properties</span>
+
+<span class="n">entry</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;My Super Post&#39;</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Deleting an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the entry</span>
+
+<span class="n">entry</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Archiving and Unarchiving an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">archive</span><span class="p">()</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">unarchive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Publishing or Unpublishing an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">unpublish</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Checking if an entry is published:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">is_published</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Note</strong>:</p>
+<blockquote>
+<div>Entries created with <em>empty fields</em>, will not return those fields in the response.
+Therefore, if you want to explicitly set those fields to empty (<code class="docutils literal"><span class="pre">None</span></code>) you will need to make an extra request to fetch the Content Type and fill the missing fields.</div></blockquote>
+</div>
+<div class="section" id="content-types">
+<h2>Content Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all content types on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_types</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">content_types</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieving a content type by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">content_type</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the content type</span>
+
+<span class="n">content_type</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type_attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Blog Post&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Blog Posts to be included in ...&#39;</span>
+    <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;disabled&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;localized&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Title&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;omitted&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Symbol&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;validations&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;disabled&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;localized&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Body&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;omitted&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Text&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;validations&#39;</span><span class="p">:</span> <span class="p">[]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_ct_id&#39;</span><span class="p">,</span>
+    <span class="n">content_type_attributes</span>
+<span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_ct_id&#39;</span><span class="p">,</span>
+    <span class="n">content_type_attributes</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">other_content_type_attributes</span><span class="p">)</span>
+
+<span class="c1"># or directly updating it&#39;s properties</span>
+
+<span class="n">content_type</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Not Post&#39;</span>
+<span class="n">content_type</span><span class="o">.</span><span class="n">fields</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">contentful_management</span><span class="o">.</span><span class="n">ContentTypeField</span><span class="p">({</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Author&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Link&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;linkType&#39;</span><span class="p">:</span> <span class="s1">&#39;Entry&#39;</span>
+    <span class="p">})</span>
+<span class="p">)</span>
+<span class="n">content_type</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Deleting a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the content type</span>
+
+<span class="n">content_type</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Publishing or Unpublishing a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">publish</span><span class="p">()</span>
+<span class="n">content_type</span><span class="o">.</span><span class="n">unpublish</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Checking if a content type is published:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">is_published</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Removing a field from a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">fields</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">fields</span>
+
+<span class="c1"># keep all fields but the one with &#39;author&#39; as id</span>
+
+<span class="n">content_type</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s1">&#39;author&#39;</span> <span class="p">]</span>
+<span class="n">content_type</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Validations:</p>
+<blockquote>
+<div>For information regarding available validations check the <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type">reference documentation</a>.</div></blockquote>
+</div>
+<div class="section" id="locales">
+<h2>Locales<a class="headerlink" href="#locales" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all locales on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locales</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">locales</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one locale by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a locale:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have fetched the locale</span>
+
+<span class="n">locale</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new locale:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Updating a locale:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locale</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Elvish&#39;</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">locale</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Elvish&#39;</span>
+<span class="n">locale</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="roles">
+<h2>Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all roles on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">roles</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one role by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">role</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">role</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a role:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;role_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have fetched the role</span>
+
+<span class="n">role</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new role:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">role_attributes</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Role&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;foobar role&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;permissions&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;ContentDelivery&#39;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ContentModel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;read&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Settings&#39;</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+  <span class="s1">&#39;policies&#39;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;effect&#39;</span><span class="p">:</span> <span class="s1">&#39;allow&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;actions&#39;</span><span class="p">:</span> <span class="s1">&#39;all&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;constraint&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;and&#39;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s1">&#39;equals&#39;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span> <span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;sys.type&#39;</span> <span class="p">},</span>
+              <span class="s1">&#39;Entry&#39;</span>
+            <span class="p">]</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s1">&#39;equals&#39;</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span> <span class="s1">&#39;doc&#39;</span><span class="p">:</span> <span class="s1">&#39;sys.type&#39;</span> <span class="p">},</span>
+              <span class="s1">&#39;Asset&#39;</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">new_role</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">roles</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_attributes</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_role</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">roles</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">role_attributes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating a role:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roles</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;A different Role&#39;</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">role</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;A different Role&#39;</span>
+<span class="n">role</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="webhooks">
+<h2>Webhooks<a class="headerlink" href="#webhooks" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all webhooks on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">webhook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">webhooks</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">webhooks</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one webhook by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">webhook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">webhooks</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;webhook_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">webhook</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">webhooks</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;webhook_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a webhook:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">webhooks</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;webhook_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">webhooks</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;webhook_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have fetched the webhook</span>
+
+<span class="n">webhook</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new webhook:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">webhook_attributes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Webhook&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://www.example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;httpBasicUsername&#39;</span><span class="p">:</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;httpBasicPassword&#39;</span><span class="p">:</span> <span class="s1">&#39;password&#39;</span>
+<span class="p">}</span>
+
+<span class="n">new_webhook</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">webhooks</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">webhook_attributes</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_webhook</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">webhooks</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">webhook_attributes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Updating a webhook:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">webhook</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Other Webhook&#39;</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">webhook</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Other Webhook&#39;</span>
+<span class="n">webhook</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="editor-interfaces">
+<h2>Editor Interfaces<a class="headerlink" href="#editor-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving the editor interfaces for a content type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">editor_interface</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;my_content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched content type</span>
+
+<span class="n">editor_interface</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Updating the editor interface:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;widgetId&#39;</span><span class="p">:</span> <span class="s1">&#39;singleLine&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fieldId&#39;</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;settings&#39;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">editor_interface</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;controls&#39;</span><span class="p">:</span> <span class="n">controls</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">editor_interface</span><span class="o">.</span><span class="n">controls</span> <span class="o">=</span> <span class="n">controls</span>
+<span class="n">editor_interface</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="snapshots">
+<h2>Snapshots<a class="headerlink" href="#snapshots" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all snapshots for an entry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshots</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched entry</span>
+
+<span class="n">snapshots</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">snapshots</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one snapshot by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched entry</span>
+
+<span class="n">snapshot</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">snapshots</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-keys">
+<h2>API Keys<a class="headerlink" href="#api-keys" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all API keys on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">api_keys</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">api_keys</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one API key by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">api_key</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting an API key:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have fetched the locale</span>
+
+<span class="n">api_key</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new API key:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Updating an API key:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">api_key</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Their API Key&#39;</span><span class="p">})</span>
+
+<span class="c1"># or directly editing it&#39;s properties</span>
+
+<span class="n">api_key</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Their API Key&#39;</span>
+<span class="n">api_key</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uploads">
+<h2>Uploads<a class="headerlink" href="#uploads" title="Permalink to this headline">¶</a></h2>
+<p>Retrieveing one upload by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">upload</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">uploads</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;upload_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">upload</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">uploads</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;upload_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting a upload:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">uploads</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;upload_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">uploads</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;upload_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have fetched the upload</span>
+
+<span class="n">upload</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating a new upload:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># you can use either a file-like object or a path.</span>
+<span class="c1"># If you use a path, the SDK will open it, create the upload and</span>
+<span class="c1"># close the file afterwards.</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;path/to/my/file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">new_upload</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">uploads</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_upload</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">uploads</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;path/to/file.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Associating an upload with a new asset:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># notice that the upload is converted to a link,</span>
+<span class="c1"># and the JSON representation is then sent.</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+   <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
+   <span class="p">{</span>
+     <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="s1">&#39;en-US&#39;</span><span class="p">:</span> <span class="p">{</span>
+           <span class="s1">&#39;fileName&#39;</span><span class="p">:</span> <span class="s1">&#39;some_name.png&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;contentType&#39;</span><span class="p">:</span> <span class="s1">&#39;image/png&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;uploadFrom&#39;</span><span class="p">:</span> <span class="n">upload</span><span class="o">.</span><span class="n">to_link</span><span class="p">()</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+         <span class="p">}</span>
+       <span class="p">}</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+ <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="client-configuration-options">
+<h2>Client Configuration Options<a class="headerlink" href="#client-configuration-options" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">access_token</span></code>: API Access Token.</p>
+<p><code class="docutils literal"><span class="pre">api_url</span></code>: (optional) URL of the Contentful Target API, defaults to Management API.</p>
+<p><code class="docutils literal"><span class="pre">uploads_api_url</span></code>: (optional) URL of the Contentful Upload Target API, defaults to Upload API.</p>
+<p><code class="docutils literal"><span class="pre">api_version</span></code>: (optional) Target version of the Contentful API.</p>
+<p><code class="docutils literal"><span class="pre">default_locale</span></code>: (optional) Default Locale for your Spaces, defaults to &#8216;en-US&#8217;.</p>
+<p><code class="docutils literal"><span class="pre">https</span></code>: (optional) Boolean determining wether to use https or http, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">authorization_as_header</span></code>: (optional) Boolean determining wether to send access_token through a header or via GET params, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">raw_mode</span></code>: (optional) Boolean determining wether to process the response or return it raw after each API call, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">gzip_encoded</span></code>: (optional) Boolean determining wether to accept gzip encoded results, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">raise_errors</span></code>: (optional) Boolean determining wether to raise an exception on requests that aren&#8217;t successful, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">content_type_cache</span></code>: (optional) Boolean determining wether to store a Cache of the Content Types in order to properly coerce Entry fields, defaults to True.</p>
+<p><code class="docutils literal"><span class="pre">proxy_host</span></code>: (optional) URL for Proxy, defaults to None.</p>
+<p><code class="docutils literal"><span class="pre">proxy_port</span></code>: (optional) Port for Proxy, defaults to None.</p>
+<p><code class="docutils literal"><span class="pre">proxy_username</span></code>: (optional) Username for Proxy, defaults to None.</p>
+<p><code class="docutils literal"><span class="pre">proxy_password</span></code>: (optional) Password for Proxy, defaults to None.</p>
+<p><code class="docutils literal"><span class="pre">max_rate_limit_retries</span></code>: (optional) Maximum amount of retries after RateLimitError, defaults to 1.</p>
+<p><code class="docutils literal"><span class="pre">max_rate_limit_wait</span></code>: (optional) Timeout (in seconds) for waiting for retry after RateLimitError, defaults to 60.</p>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>To use the logger, use the standard library <code class="docutils literal"><span class="pre">logging</span></code> module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="c1"># INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.contentful.com</span>
+<span class="c1"># DEBUG:requests.packages.urllib3.connectionpool:&quot;GET /spaces/cfexampleapi/entries HTTP/1.1&quot; 200 1994</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sdk-modules-reference">
+<h2>SDK Modules Reference<a class="headerlink" href="#sdk-modules-reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">contentful_management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html">contentful_management package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_key">contentful_management.api_key module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_keys_proxy">contentful_management.api_keys_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.asset">contentful_management.asset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.assets_proxy">contentful_management.assets_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.client">contentful_management.client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.client_proxy">contentful_management.client_proxy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-client-proxy">contentful.client_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type">contentful_management.content_type module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_editor_interfaces_proxy">contentful_management.content_type_editor_interfaces_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_entries_proxy">contentful_management.content_type_entries_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field">contentful_management.content_type_field module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_types">contentful_management.content_type_field_types module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_validation">contentful_management.content_type_field_validation module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_resource_proxy">contentful_management.content_type_resource_proxy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-content-type-resource-proxy">contentful.content_type_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_types_proxy">contentful_management.content_types_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interface">contentful_management.editor_interface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interfaces_proxy">contentful_management.editor_interfaces_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.entries_proxy">contentful_management.entries_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry">contentful_management.entry module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_resource_proxy">contentful_management.entry_resource_proxy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-entry-resource-proxy">contentful.entry_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_snapshots_proxy">contentful_management.entry_snapshots_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.errors">contentful_management.errors module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-errors">contentful.errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.locale">contentful_management.locale module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.locales_proxy">contentful_management.locales_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource">contentful_management.resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource_builder">contentful_management.resource_builder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.role">contentful_management.role module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.roles_proxy">contentful_management.roles_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.snapshot">contentful_management.snapshot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.snapshots_proxy">contentful_management.snapshots_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space">contentful_management.space module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_api_keys_proxy">contentful_management.space_api_keys_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_assets_proxy">contentful_management.space_assets_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_content_types_proxy">contentful_management.space_content_types_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_entries_proxy">contentful_management.space_entries_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_locales_proxy">contentful_management.space_locales_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-space-api-keys-proxy">contentful.space_api_keys_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_roles_proxy">contentful_management.space_roles_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_uploads_proxy">contentful_management.space_uploads_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.spaces_proxy">contentful_management.spaces_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.upload">contentful_management.upload module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.uploads_proxy">contentful_management.uploads_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.utils">contentful_management.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook">contentful_management.webhook module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhooks_proxy">contentful_management.webhooks_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>Copyright (c) 2017 Contentful GmbH. See <a class="reference external" href="./LICENSE">LICENSE</a> for further details.</p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Feel free to improve this tool by submitting a Pull Request.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Contentful Management API SDK</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#client">Client</a></li>
+<li><a class="reference internal" href="#spaces">Spaces</a></li>
+<li><a class="reference internal" href="#assets">Assets</a></li>
+<li><a class="reference internal" href="#entries">Entries</a></li>
+<li><a class="reference internal" href="#content-types">Content Types</a></li>
+<li><a class="reference internal" href="#locales">Locales</a></li>
+<li><a class="reference internal" href="#roles">Roles</a></li>
+<li><a class="reference internal" href="#webhooks">Webhooks</a></li>
+<li><a class="reference internal" href="#editor-interfaces">Editor Interfaces</a></li>
+<li><a class="reference internal" href="#snapshots">Snapshots</a></li>
+<li><a class="reference internal" href="#api-keys">API Keys</a></li>
+<li><a class="reference internal" href="#uploads">Uploads</a></li>
+<li><a class="reference internal" href="#client-configuration-options">Client Configuration Options</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#sdk-modules-reference">SDK Modules Reference</a></li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="modules.html" title="next chapter">contentful_management</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Contentful GmbH.
+      
+    </div>
+
+    
+    <a href="https://github.com/contentful/contentful-management.py" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

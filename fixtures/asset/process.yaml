@@ -1,0 +1,96 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['2']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+      x-contentful-version: ['1']
+    method: PUT
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/assets/file6/files/en-US/process
+  response:
+    body: {string: ''}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 15:24:02 GMT']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=5o9oHVrnQLq1Gnnv7+4fbRHFwlgAAAAAQUIPAAAAAACI8ov5BWOqldcYFKbvKnHf;
+          expires=Sat, 10 Mar 2018 11:35:37 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=UzYbclD6T3O4jCFA6lKYhQAAAAABkNi6HrZugiopgwyEqgiU; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=nnfBKSlVYABJovD9enxQBhHFwlgAAAAAE1jA4mhvcU3ofknkr6fbNA==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35921']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [dc1b489715b0f61411692e74ae3988af]
+      X-Iinfo: [5-25306983-25307006 NNNN CT(76 80 0) RT(1489159441485 114) q(0 0 2
+          -1) r(4 4) U5]
+    status: {code: 204, message: No Content}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/assets/file6
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/8VSTY+CMBS88ytIz8pHW4rl5t42MSYb0U32hrRgXQRCq8Y1/vcFBK3KbQ97482b
+        92Y6j7NhmiARPGMSBOa5rto647eqrnk+Xi40oKPMo11DA0lRWGWegtG9HRe54rkKT2XLELso5fYT
+        h3EViUw+7DU77hNYw0fB1KaGXQj90WNrw0W6UU2PTiZa66LzgBQ/zVof4YlrDFDAvsoar7bdOpBW
+        94Zkn9WfOzuJ4jQ/HtOtl3C7eT6xIXY48uPIpQzF1FtjBhFCUex4lCDixXafTCdyMTRNoIQajrkN
+        l1yHmpF2AMiTdiHB7rx+XZf1VEquejCueKQ4mzbpAOi4/thBYweG0A0wCRC1CPG/nshvJ92ULvug
+        MxP5t37OrK77ey8lr/Te1S5e8O2q+gwpYYcZfV/h+dqXH8PhyDKK+Z99LNotL0b0Uw7LH3glRZHX
+        ZNgh+5K9Juk6oesFEAcOtAimtyQ78v8m2fw5xsX4BeanagXiAwAA
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 15:24:03 GMT']
+      ETag: ['"98d3b279f06bee6e4dc161666188e921"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=bOYbvHkVReupOfeffu/AbBLFwlgAAAAAQUIPAAAAAACu5dM7iAkVPCE0wmgdlHCz;
+          expires=Sat, 10 Mar 2018 11:35:35 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=2qetb7jyeFgXe59j6lKYhQAAAAB0WWbuV0Lk1rt+rpm7EXuo; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=5eUNOdxQMCMQo/D9enxQBhLFwlgAAAAAkRMbc0ZNOgkGf2eIfzq+Ow==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35920']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['8']
+      X-Contentful-Request-Id: [7cf48e011dba93777d93511f28e624e7]
+      X-Iinfo: [10-28562032-28562054 NNNN CT(88 93 0) RT(1489159442061 87) q(0 0 2
+          -1) r(4 4) U5]
+    status: {code: 200, message: OK}
+version: 1

@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: GET
+    uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads/3pF6ACckKKcB3P60zeszce
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6WPTQuCQBCG7/4K2XPFrJaiNwuCKKLwI+hm6xRq1OJKZuF/T00j7RjssDPzvjM8
+        85RkmYhcEFN+lmlZhEGZE5XPNWvG4uWSTdWNBg8UD4Zk8PakOcfK5fLz1Q/aLkvQTzGw0kpSgOpD
+        UIcUHIWaVDOpPgKAfWvGOw8TFD2z4gCY9euYBfcZfhB7xB2iVXiJm6m6fy5rp9HsesuX+D716LPT
+        JctO0eSIpBGL+i+6h03zvxFcgckvwdjGyEt2jqEFt5Wx8Mbrgy62PRapiuIFZPMvyrABAAA=
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Connection: [keep-alive]
+      Content-Length: ['224']
+      Content-Type: [application/json; charset=utf-8]
+      Date: ['Fri, 10 Mar 2017 21:19:27 GMT']
+      Server: [Contentful]
+      Strict-Transport-Security: [max-age=15768000]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-Request-Id: [3e061298e25ec69dd7be745280ab6cb7]
+      cache-control: [no-cache]
+      content-encoding: [gzip]
+      vary: [accept-encoding]
+    status: {code: 200, message: OK}
+version: 1

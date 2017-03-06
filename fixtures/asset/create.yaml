@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: '{"fields": {"file": {"en-US": {"upload": "https://i.imgur.com/Zmum6k4.png",
+      "contentType": "image/png", "fileName": "foo.png"}}}}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['129']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/assets
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAA/8VSTW+CQBC98yvInsungIWbvTQmxsQANvGGy4Cr7ELZRUqM/71AoUXbQ5Meetnk
+        vXkz8+ZlL5Iso4RAFnPkyZcW9TiDT9RiYEroT4iWqoosj+KWQwchCu5pGlEJTatSxTnVdrSizslS
+        C5aih68mnDMBTARN0Y1HhEYpaHeabvc6or0gyfN+xFC9SuN77RoQbyaeSW/GeYtDe48PZWOa9etm
+        CTWlz84wH4lh8YJzECN5hpKTnLW8MTC4hEhAvBCd1tSNuaLPFEMPDNszDc821dmju0O34qdmGtjU
+        2c3mFWGn6bVZi8c4Qg7ltPZxkeXDcVu+BK4Tn1fucmut93O+uYtk8MKLCMOfffj9lG9GkginrK7T
+        o53Az+urIv59boP4f3PrvpJ0ld4BcJSd9AUDAAA=
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 15:21:52 GMT']
+      ETag: ['"9b421a6fdcd5d5c029cf53d2a2c72da1"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=fV0LvN01QdWV16lBZ4oML4/EwlgAAAAAQUIPAAAAAACnJODTZbUT9iPuFQN14a+a;
+          expires=Sat, 10 Mar 2018 11:35:37 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=bSS8eRbobQk3Zwg56lKYhQAAAAAYgff6kR3ToG7CA8nIG0nf; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=uPhMIxwuVDHABvD9enxQBo/EwlgAAAAAbCXyZ4826u1azq7njKxW4g==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35956']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [9b6912d4c4f9d02c4873aecfccbaff18]
+      X-Iinfo: [8-20222620-20221309 PNNN RT(1489159307929 100) q(0 0 0 -1) r(38 38)
+          U5]
+    status: {code: 201, message: Created}
+version: 1

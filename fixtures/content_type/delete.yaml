@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: DELETE
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/45JdPK7wbCQwecKOAyqcw0
+  response:
+    body: {string: ''}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 15:39:40 GMT']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=Sx/KHRvnQKuWkjF3BrN+VLzIwlgAAAAAQUIPAAAAAACYMWJx8vL0kd6eX+SpotKl;
+          expires=Sat, 10 Mar 2018 11:35:37 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=g9BRE+2d1EZbpCA56lKYhQAAAAB1lb7dyeaYrHqKLZvAbfdo; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=gN5OHrtay2lL4vT9enxQBrzIwlgAAAAAg+IQFgAkpiHlMlB3TDribA==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35826']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [907b56eaf247c348963e19e6eb0fc4ef]
+      X-Iinfo: [4-20764011-20764020 NNNN CT(80 84 0) RT(1489160379431 85) q(0 0 1
+          -1) r(6 6) U5]
+    status: {code: 204, message: No Content}
+version: 1

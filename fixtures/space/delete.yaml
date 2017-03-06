@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['0']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: DELETE
+    uri: https://api.contentful.com/spaces/6sun6p8v2zr6
+  response:
+    body: {string: ''}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [6sun6p8v2zr6]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Type: [application/octet-stream]
+      Date: ['Fri, 10 Mar 2017 21:01:29 GMT']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=iVayap/sQaGK1pPT8tPX6BwUw1gAAAAAQUIPAAAAAABI4o4Y2QTex3/bltrabEoX;
+          expires=Sat, 10 Mar 2018 15:51:58 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=tVyATzUgCGTz/NBB6lKYhQAAAACpyYAqSOcu9YuzJpdd1IW6; path=/; Domain=.contentful.com,
+        incap_ses_408_673446=HJkPTIyDkDJpU2mtZIKpBRwUw1gAAAAAQLBxABSIA9cWTk8M4GAeMg==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35968']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['8']
+      X-Contentful-Request-Id: [b0c4fc6d545a993dfa5aac42526fb3ab]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [10-90843505-90843532 NNNN CT(98 98 0) RT(1489179675977 77) q(0 0 2
+          -1) r(9 9) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 204, message: No Content}
+version: 1

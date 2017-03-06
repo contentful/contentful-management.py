@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: '{"name": "ID Create Test", "displayField": "name", "fields": [{"name":
+      "Name", "id": "name", "type": "Symbol"}], "description": "Something goes here..."}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['153']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: PUT
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/id_content_type_create_test
+  response:
+    body: {string: "{\n  \"name\": \"ID Create Test\",\n  \"displayField\": \"name\",\n
+        \ \"fields\": [\n    {\n      \"name\": \"Name\",\n      \"id\": \"name\",\n
+        \     \"type\": \"Symbol\",\n      \"localized\": false,\n      \"required\":
+        false,\n      \"disabled\": false,\n      \"omitted\": false,\n      \"validations\":
+        []\n    }\n  ],\n  \"description\": \"Something goes here...\",\n  \"sys\":
+        {\n    \"id\": \"id_content_type_create_test\",\n    \"type\": \"ContentType\",\n
+        \   \"version\": 1,\n    \"createdAt\": \"2017-03-10T15:36:41.568Z\",\n    \"createdBy\":
+        {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"User\",\n
+        \       \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"space\":
+        {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"Space\",\n
+        \       \"id\": \"facgnwwgj5fe\"\n      }\n    },\n    \"updatedAt\": \"2017-03-10T15:36:41.568Z\",\n
+        \   \"updatedBy\": {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\":
+        \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    }\n  }\n}\n"}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Length: ['919']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 15:36:41 GMT']
+      ETag: ['"a5c4caf9f52541a39dc7720d88022d99"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=JxPo4cBLQdyUeCjR5DeO7AnIwlgAAAAAQUIPAAAAAAC/1zqxuOxSd9vXXvTrby0o;
+          expires=Sat, 10 Mar 2018 11:35:38 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=9e2kIlfW+U7UUKEX6lKYhQAAAACsCHiQTT2gfNugtURsyrWr; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=aqq+eDwHw0U4G/T9enxQBgnIwlgAAAAAtf51wcP5YYaJqz3DLIpbnQ==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35846']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [52c2e911990096fd7cd6acdd2de3b065]
+      X-Iinfo: [2-9908007-9908017 NNNN CT(76 76 0) RT(1489160200493 90) q(0 0 2 -1)
+          r(6 6) U5]
+    status: {code: 201, message: Created}
+version: 1

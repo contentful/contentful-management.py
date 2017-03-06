@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>contentful_management.space &#8212; Contentful Management 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Contentful Management 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for contentful_management.space</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span>
+<span class="kn">from</span> <span class="nn">.space_content_types_proxy</span> <span class="k">import</span> <span class="n">SpaceContentTypesProxy</span>
+<span class="kn">from</span> <span class="nn">.space_entries_proxy</span> <span class="k">import</span> <span class="n">SpaceEntriesProxy</span>
+<span class="kn">from</span> <span class="nn">.space_assets_proxy</span> <span class="k">import</span> <span class="n">SpaceAssetsProxy</span>
+<span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
+<span class="kn">from</span> <span class="nn">.space_roles_proxy</span> <span class="k">import</span> <span class="n">SpaceRolesProxy</span>
+<span class="kn">from</span> <span class="nn">.space_locales_proxy</span> <span class="k">import</span> <span class="n">SpaceLocalesProxy</span>
+<span class="kn">from</span> <span class="nn">.space_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpaceApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.space_uploads_proxy</span> <span class="k">import</span> <span class="n">SpaceUploadsProxy</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">contentful.space</span>
+<span class="sd">~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">This module implements the Space class.</span>
+
+<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
+
+<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
+<span class="sd">:license: MIT, see LICENSE for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Space"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space">[docs]</a><span class="k">class</span> <span class="nc">Space</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Space</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Space.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.base_url">[docs]</a>    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">space_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the URI for the Resource&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">space_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">space_id</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="s2">&quot;spaces/</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">space_id</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Space.create_headers"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.create_headers">[docs]</a>    <span class="k">def</span> <span class="nf">create_headers</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Headers for resource creation&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="s1">&#39;organization_id&#39;</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;x-contentful-organization&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;organization_id&#39;</span><span class="p">]}</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Space.create_attributes"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.create_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">create_attributes</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attributes for resource creation&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">.</span><span class="n">name</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;defaultLocale&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;default_locale&#39;</span><span class="p">]</span>
+        <span class="p">}</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Space.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.update_attributes_map">[docs]</a>    <span class="k">def</span> <span class="nf">update_attributes_map</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Defines keys and default values for non-generic attributes&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;default_locale&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="Space.update"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Updates the Resource with attributes&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">attributes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">create_headers</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+        <span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_update_headers</span><span class="p">())</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">create_attributes</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_from_resource</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Space.reload"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.reload">[docs]</a>    <span class="k">def</span> <span class="nf">reload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reloads the Resource&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_from_resource</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Space.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Deletes the Space&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the JSON Representation of the Resource&quot;&quot;&quot;</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Space</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="Space.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Content Type management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+
+<span class="sd">        :return: :class:`SpaceContentTypesProxy &lt;contentful_management.space_content_types_proxy.SpaceContentTypesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_content_types_proxy = space.content_types()</span>
+<span class="sd">            &lt;SpaceContentTypesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Entries management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
+
+<span class="sd">        :return: :class:`SpaceEntriesProxy &lt;contentful_management.space_entries_proxy.SpaceEntriesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_entries_proxy.SpaceEntriesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_entries_proxy = space.entries()</span>
+<span class="sd">            &lt;SpaceEntriesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceEntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Assets management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
+
+<span class="sd">        :return: :class:`SpaceAssetsProxy &lt;contentful_management.space_assets_proxy.SpaceAssetsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_assets_proxy.SpaceAssetsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_assets_proxy = space.assets()</span>
+<span class="sd">            &lt;SpaceAssetsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceAssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Locale management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</span>
+
+<span class="sd">        :return: :class:`SpaceLocalesProxy &lt;contentful_management.space_locales_proxy.SpaceLocalesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_locales_proxy.SpaceLocalesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_locales_proxy = space.locales()</span>
+<span class="sd">            &lt;SpaceLocalesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceLocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.webhooks"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.webhooks">[docs]</a>    <span class="k">def</span> <span class="nf">webhooks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Webhook management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks</span>
+
+<span class="sd">        :return: :class:`SpaceWebhooksProxy &lt;contentful_management.space_webhooks_proxy.SpaceWebhooksProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_webhooks_proxy.SpaceWebhooksProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_webhooks_proxy = space.webhooks()</span>
+<span class="sd">            &lt;SpaceWebhooksProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceWebhooksProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.roles"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.roles">[docs]</a>    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Role management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles</span>
+
+<span class="sd">        :return: :class:`SpaceRolesProxy &lt;contentful_management.space_roles_proxy.SpaceRolesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_roles_proxy.SpaceRolesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_roles_proxy = space.roles()</span>
+<span class="sd">            &lt;SpaceRolesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceRolesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Api Key management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
+
+<span class="sd">        :return: :class:`SpaceApiKeysProxy &lt;contentful_management.space_api_keys_proxy.SpaceApiKeysProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_api_keys_proxy.SpaceApiKeysProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_api_keys_proxy = space.api_keys()</span>
+<span class="sd">            &lt;SpaceApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provides access to Upload management methods</span>
+
+<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads-keys</span>
+
+<span class="sd">        :return: :class:`SpaceApiKeysProxy &lt;contentful_management.space_api_keys_proxy.SpaceApiKeysProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_api_keys_proxy.SpaceApiKeysProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_uploads_proxy = space.uploads()</span>
+<span class="sd">            &lt;SpaceUploadsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceUploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;Space[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Contentful GmbH.
+      
+    </div>
+
+    
+    <a href="https://github.com/contentful/contentful-management.py" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

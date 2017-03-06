@@ -1,0 +1,108 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/foo
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA81TXU+DMBR9368gPDtCy8dG33SJicliNJsz0fhQoMzODrCFLWj2320LdHPy4Ju+
+        EDj39txzzi2fI8uyUyISTsuKFrmNLNu+0CAVJcPNNSUsVWiOt6St6DeJZEXRApnqERJ6lgct61M/
+        WwocM6KOZ5gJonh1oWpKzbBotnHBNInGe2YzS6PFllbVAAsn7zXlAwX6XbAm2WFGU6wsaqEvZiYr
+        Eln6ONJoMQf51D22aNSB1pPdMvfGT5zMirwiebVUxlpqO+EES9mXlXIKXTAZu97YhUsQIQ+iADoQ
+        Bk9nzVeNmXU2Wpvoc5vT/M2kJnEmv/VoOelBEH5aayX7C7JZ8cdlFKa7eXSz8m/jibi3u+CVW+m5
+        Ey5KnCgqs8fTCH6tY6FZ+pilyC47nKzz/X69CTIyPD6jXFR3dcyoeB2IDwIUAOT5TjAFJr6yb58V
+        tVwEl+q9zo0p/VgEhMgHCLpOOD0uwrT/i1UYNSvCRft7hp2vnUGiDqlLecHPEwPuEgTImyIQOt7k
+        mFjX/Lcu5bU7jA6jLzKLKnGFBAAA
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['420']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 16:11:59 GMT']
+      ETag: [W/"24b23582217724c61384d4fca8b5e438"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=iSmZSWxERI+CObbwimkMD0/QwlgAAAAAQUIPAAAAAABOXPhzgpyUzZ2ozSiGoBth;
+          expires=Sat, 10 Mar 2018 11:35:35 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=Kta9RaBun0VRBa656lKYhQAAAABoFYNwcsBtOVDvj8Kbpfa6; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=KqKHas0bHCAL4v39enxQBk/QwlgAAAAApsJe5wOiZrs9EviMfVqhug==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35735']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [b1b4873fa3a8aaf85a9b5d0b50e71b0a]
+      X-Iinfo: [10-29090514-29090530 NNNN CT(89 92 0) RT(1489162318879 98) q(0 0 2
+          -1) r(4 4) U5]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [gzip]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [PythonContentfulManagementClient/1.0.0]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/foo
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA81TXU+DMBR9368gPDtCy8dG33SJicliNJsz0fhQoMzODrCFLWj2320LdHPy4Ju+
+        EDj39txzzi2fI8uyUyISTsuKFrmNLNu+0CAVJcPNNSUsVWiOt6St6DeJZEXRApnqERJ6lgct61M/
+        WwocM6KOZ5gJonh1oWpKzbBotnHBNInGe2YzS6PFllbVAAsn7zXlAwX6XbAm2WFGU6wsaqEvZiYr
+        Eln6ONJoMQf51D22aNSB1pPdMvfGT5zMirwiebVUxlpqO+EES9mXlXIKXTAZu97YhUsQIQ+iADoQ
+        Bk9nzVeNmXU2Wpvoc5vT/M2kJnEmv/VoOelBEH5aayX7C7JZ8cdlFKa7eXSz8m/jibi3u+CVW+m5
+        Ey5KnCgqs8fTCH6tY6FZ+pilyC47nKzz/X69CTIyPD6jXFR3dcyoeB2IDwIUAOT5TjAFJr6yb58V
+        tVwEl+q9zo0p/VgEhMgHCLpOOD0uwrT/i1UYNSvCRft7hp2vnUGiDqlLecHPEwPuEgTImyIQOt7k
+        mFjX/Lcu5bU7jA6jLzKLKnGFBAAA
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Length: ['420']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Fri, 10 Mar 2017 16:12:03 GMT']
+      ETag: [W/"24b23582217724c61384d4fca8b5e438"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=djiZTZVES2CSQJOF0zah3VLQwlgAAAAAQUIPAAAAAAAtzU3hQOgBLJDdUnG+WNkh;
+          expires=Sat, 10 Mar 2018 11:35:37 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=AMqpO/UB0yk4WS+d6lKYhQAAAABD3TPLveRi1nX7WsoBU4F0; path=/; Domain=.contentful.com,
+        incap_ses_455_673446=z3hBB6eM22wz5v39enxQBlLQwlgAAAAAzlRFnAMwBNsFctuzR0d6iw==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35734']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [9193c4fee82384de421b4c0edca437e3]
+      X-Iinfo: [5-25761081-25756854 PNNN RT(1489162319456 241) q(0 0 0 -1) r(32 32)
+          U5]
+    status: {code: 200, message: OK}
+version: 1

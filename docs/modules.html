@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>contentful_management &#8212; Contentful Management 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Contentful Management 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="contentful_management package" href="contentful_management.html" />
+    <link rel="prev" title="Contentful Management API SDK" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contentful-management">
+<h1>contentful_management<a class="headerlink" href="#contentful-management" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contentful_management.html">contentful_management package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_key">contentful_management.api_key module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_keys_proxy">contentful_management.api_keys_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.asset">contentful_management.asset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.assets_proxy">contentful_management.assets_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.client">contentful_management.client module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.client_proxy">contentful_management.client_proxy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-client-proxy">contentful.client_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type">contentful_management.content_type module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_editor_interfaces_proxy">contentful_management.content_type_editor_interfaces_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_entries_proxy">contentful_management.content_type_entries_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field">contentful_management.content_type_field module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_types">contentful_management.content_type_field_types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_validation">contentful_management.content_type_field_validation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_resource_proxy">contentful_management.content_type_resource_proxy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-content-type-resource-proxy">contentful.content_type_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_types_proxy">contentful_management.content_types_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interface">contentful_management.editor_interface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interfaces_proxy">contentful_management.editor_interfaces_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entries_proxy">contentful_management.entries_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry">contentful_management.entry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_resource_proxy">contentful_management.entry_resource_proxy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-entry-resource-proxy">contentful.entry_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_snapshots_proxy">contentful_management.entry_snapshots_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.errors">contentful_management.errors module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-errors">contentful.errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.locale">contentful_management.locale module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.locales_proxy">contentful_management.locales_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource">contentful_management.resource module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource_builder">contentful_management.resource_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.role">contentful_management.role module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.roles_proxy">contentful_management.roles_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.snapshot">contentful_management.snapshot module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.snapshots_proxy">contentful_management.snapshots_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space">contentful_management.space module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_api_keys_proxy">contentful_management.space_api_keys_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_assets_proxy">contentful_management.space_assets_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_content_types_proxy">contentful_management.space_content_types_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_entries_proxy">contentful_management.space_entries_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_locales_proxy">contentful_management.space_locales_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-space-api-keys-proxy">contentful.space_api_keys_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_roles_proxy">contentful_management.space_roles_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_uploads_proxy">contentful_management.space_uploads_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.spaces_proxy">contentful_management.spaces_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.upload">contentful_management.upload module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.uploads_proxy">contentful_management.uploads_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.utils">contentful_management.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook">contentful_management.webhook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhooks_proxy">contentful_management.webhooks_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Contentful Management API SDK</a></li>
+      <li>Next: <a href="contentful_management.html" title="next chapter">contentful_management package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Contentful GmbH.
+      
+    </div>
+
+    
+    <a href="https://github.com/contentful/contentful-management.py" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

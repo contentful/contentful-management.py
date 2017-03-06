@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>contentful_management.space_resource_proxy &#8212; Contentful Management 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Contentful Management 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for contentful_management.space_resource_proxy</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">contentful.space_api_keys_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~</span>
+
+<span class="sd">This module implements the SpaceApiKeysProxy class.</span>
+
+<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
+
+<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
+<span class="sd">:license: MIT, see LICENSE for more details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="SpaceResourceProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceResourceProxy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base Class for Space related Resource Proxies&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_proxy_class</span><span class="p">()(</span><span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> space_id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">space_id</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Must implement&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SpaceResourceProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets all resources related to the current Space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpaceResourceProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds a single resource by ID related to the current Space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpaceResourceProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a resource with a given ID (optional) and attributes for the current Space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resource_id</span><span class="o">=</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpaceResourceProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a Resource by ID.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">resource_id</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Contentful GmbH.
+      
+    </div>
+
+    
+    <a href="https://github.com/contentful/contentful-management.py" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
