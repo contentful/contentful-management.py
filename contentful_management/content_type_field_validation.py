@@ -45,7 +45,8 @@ class ContentTypeFieldValidation(object):
 
     def __repr__(self):
         return "<ContentTypeFieldValidation {0}>".format(
-            " ".join(["{0}='{1}'".format(k, v)
-                      for k, v in self._data.items()]
+            " ".join(
+                ["{0}='{1}'".format(k, v)
+                 for k, v in self._data.items()]
             )
         )

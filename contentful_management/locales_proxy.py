@@ -24,7 +24,7 @@ class LocalesProxy(ClientProxy):
     def _resource_class(self):
         return Locale
 
-    def create(self, attributes=None):
+    def create(self, attributes=None, **kwargs):
         """Creates a Locale with given attributes."""
 
         return super(LocalesProxy, self).create(None, attributes)

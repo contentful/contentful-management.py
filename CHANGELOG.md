@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## v1.0.1
+
+* Fix issue when creating entries through a space object.
+* Increased test coverage.
+
 ## v1.0.0
 
 Initial release of the Official CMA SDK.

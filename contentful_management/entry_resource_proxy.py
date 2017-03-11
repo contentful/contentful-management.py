@@ -44,7 +44,7 @@ class EntryResourceProxy(object):
         Creates a resource with a given ID (optional) and attributes for the current Entry.
         """
 
-        return self.proxy.create(resource_id, attributes)
+        return self.proxy.create(resource_id=resource_id, attributes=attributes)
 
     def delete(self, resource_id):
         """

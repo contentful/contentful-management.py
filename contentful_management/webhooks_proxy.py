@@ -27,4 +27,4 @@ class WebhooksProxy(ClientProxy):
     def create(self, attributes=None, **kwargs):
         """Creates a Webhook with given attributes."""
 
-        return super(WebhooksProxy, self).create(None, attributes)
+        return super(WebhooksProxy, self).create(resource_id=None, attributes=attributes)

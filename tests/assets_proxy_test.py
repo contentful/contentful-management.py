@@ -30,4 +30,3 @@ class AssetsProxyTest(TestCase):
 
         self.assertFalse(asset.fields())
         self.assertTrue(asset.sys)
-

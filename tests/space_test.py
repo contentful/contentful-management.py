@@ -1,7 +1,7 @@
 import vcr
 from unittest import TestCase
 from contentful_management.space import Space
-from contentful_management.errors import NotFoundError, BadRequestError
+from contentful_management.errors import NotFoundError
 from .test_helper import CLIENT, PLAYGROUND_SPACE, PLAYGROUND_ORG
 
 BASE_SPACE_ITEM = {

@@ -42,7 +42,7 @@ class EntriesProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(EntriesProxy, self).all(query)
+        return super(EntriesProxy, self).all(query=query)
 
     def find(self, entry_id, query=None):
         """
@@ -57,9 +57,9 @@ class EntriesProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(EntriesProxy, self).find(entry_id, query)
+        return super(EntriesProxy, self).find(entry_id, query=query)
 
-    def create(self, entry_id=None, attributes=None):
+    def create(self, resource_id=None, attributes=None, **kwargs):
         """
         Creates an entry with a given ID (optional) and attributes.
         """
@@ -69,4 +69,4 @@ class EntriesProxy(ClientProxy):
                 attributes = {}
             attributes['content_type_id'] = self.content_type_id
 
-        return super(EntriesProxy, self).create(entry_id, attributes)
+        return super(EntriesProxy, self).create(resource_id=resource_id, attributes=attributes)
