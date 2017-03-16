@@ -32,3 +32,4 @@ class SnapshotsProxyTest(TestCase):
         snapshot = proxy.find('7ohZjlae5pmiCsbviCFvds')
 
         self.assertTrue(snapshot.id, '7ohZjlae5pmiCsbviCFvds')
+        self.assertEqual(snapshot.snapshot.name, 'foobar')

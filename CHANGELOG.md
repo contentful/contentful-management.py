@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+* Add `snapshot` property to Snapshot API.
+
 ## v1.0.1
 
 * Fix issue when creating entries through a space object.

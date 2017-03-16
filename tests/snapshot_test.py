@@ -13,9 +13,22 @@ SNAPSHOT_ITEM = {
             }
         }
     },
-    'fields': {
-        'name': {
-            'en-US': 'foobar'
+    'snapshot': {
+        'sys': {
+            'id': 'foo',
+            'type': 'Entry',
+            'contentType': {
+                'sys': {
+                    'type': 'Link',
+                    'linkType': 'ContentType',
+                    'id' : 'foo'
+                }
+            }
+        },
+        'fields': {
+            'name': {
+                'en-US': 'foobar'
+            }
         }
     }
 }
@@ -41,9 +54,22 @@ class SnapshotTest(TestCase):
                     }
                 }
             },
-            'fields': {
-                'name': {
-                    'en-US': 'foobar'
+            'snapshot': {
+                'sys': {
+                    'id': 'foo',
+                    'type': 'Entry',
+                    'contentType': {
+                        'sys': {
+                            'type': 'Link',
+                            'linkType': 'ContentType',
+                            'id' : 'foo'
+                        }
+                    }
+                },
+                'fields': {
+                    'name': {
+                        'en-US': 'foobar'
+                    }
                 }
             }
         })
@@ -66,3 +92,8 @@ class SnapshotTest(TestCase):
         with self.assertRaises(Exception):
             Snapshot(SNAPSHOT_ITEM).update()
 
+    def test_snapshots_snapshot_contains_an_entry(self):
+        snapshot = Snapshot(SNAPSHOT_ITEM)
+
+        self.assertEqual(snapshot.snapshot.name, 'foobar')
+        self.assertEqual(str(snapshot.snapshot), "<Entry[foo] id='foo'>")
