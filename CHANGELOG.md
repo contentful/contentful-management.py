@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.0.2
+
 * Add `snapshot` property to Snapshot API.
 
 ## v1.0.1
