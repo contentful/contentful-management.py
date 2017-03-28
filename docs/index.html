@@ -693,11 +693,11 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Creating a new API key:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_api_key</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
 
 <span class="c1"># or if you already have a fetched space</span>
 
-<span class="n">new_locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
+<span class="n">new_api_key</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>Updating an API key:</p>

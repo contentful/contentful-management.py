@@ -660,11 +660,11 @@ Deleting an API key::
 
 Creating a new API key::
 
-    new_locale = client.api_keys('my_space_id').create({'name': 'My API Key'})
+    new_api_key = client.api_keys('my_space_id').create({'name': 'My API Key'})
 
     # or if you already have a fetched space
 
-    new_locale = space.api_keys().create({'name': 'My API Key'})
+    new_api_key = space.api_keys().create({'name': 'My API Key'})
 
 Updating an API key::
 
