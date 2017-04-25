@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Changed
+
+* Reuse result from `#publish` for reloading [#1](https://github.com/contentful/contentful-management.py/issues/1)
+
 ## v1.0.2
 
 * Add `snapshot` property to Snapshot API.
