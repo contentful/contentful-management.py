@@ -298,10 +298,16 @@ class FieldsResource(Resource):
         if name not in ['raw', 'sys', 'default_locale',
                         '_client', '_fields']:
             locale = self._locale()
-            if name in self._fields.get(locale, {}):
+            if (name in self._fields.get(locale, {}) or
+                    self._is_missing_field(name)):
+                if locale not in self._fields:
+                    self._fields[locale] = {}
                 self._fields[locale][name] = value
                 return self._fields[locale][name]
         return super(FieldsResource, self).__setattr__(name, value)
+
+    def _is_missing_field(self, name):
+        return False
 
 
 class PublishResource(object):

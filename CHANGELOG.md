@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+* Added check for undefined fields from the WebApp against presence in the Content Type
+
 ## v1.0.2
 
 * Add `snapshot` property to Snapshot API.

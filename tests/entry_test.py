@@ -244,3 +244,36 @@ class EntryTest(TestCase):
             entry.save()
 
         self.assertEqual(entry.name, 'something else')
+
+    # Issues
+    def test_update_entry_field_that_was_undefined_in_the_webapp(self):
+        entry = None
+        with vcr.use_cassette('fixtures/entry/undefined_fields.yaml'):
+            entry = CLIENT.entries(PLAYGROUND_SPACE).find('33uj74Wln2Oc02CAyEY8CK')
+
+            self.assertEqual(entry.fields(), {})
+
+            with vcr.use_cassette('fixtures/entry/undefined_fields_write.yaml'):
+                entry.name = 'foo'
+
+                self.assertEqual(entry.fields()['name'], 'foo')
+
+                entry.save()
+
+                updated_entry = CLIENT.entries(PLAYGROUND_SPACE).find('33uj74Wln2Oc02CAyEY8CK')
+
+                self.assertEqual(updated_entry.fields(), {'name': 'foo'})
+
+
+    def test_update_entry_field_with_undefined_but_non_present_field(self):
+        entry = None
+        with vcr.use_cassette('fixtures/entry/undefined_fields.yaml'):
+            entry = CLIENT.entries(PLAYGROUND_SPACE).find('33uj74Wln2Oc02CAyEY8CK')
+
+            self.assertEqual(entry.fields(), {})
+
+            with vcr.use_cassette('fixtures/entry/undefined_fields_non_present.yaml'):
+                entry.non_existent = 'foo'
+
+                self.assertEqual(entry.non_existent, 'foo')
+                self.assertEqual(entry.fields(), {})
