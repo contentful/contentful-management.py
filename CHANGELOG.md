@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+* Fixed VersionMismatch parsing error [#2](https://github.com/contentful/contentful-management.py/issues/2)
+
 ## v1.0.2
 
 * Add `snapshot` property to Snapshot API.
