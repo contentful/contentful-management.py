@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Fixed
+
+* Fixed VersionMismatch parsing error [#2](https://github.com/contentful/contentful-management.py/issues/2)
+
 ### Changed
 
 * Reuse result from `#publish` for reloading [#1](https://github.com/contentful/contentful-management.py/issues/1)
