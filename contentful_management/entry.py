@@ -63,6 +63,13 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         return super(Entry, self)._coerce(value)
 
     def _is_missing_field(self, name):
+        """
+        Fields that are voided in the WebApp will be not returned in
+        API responses, therefore we need to check if they are part of
+        the Content Type to determine if they should or should not be
+        serialized.
+        """
+
         for field in self._content_type().fields:
             if snake_case(field.id) == name:
                 return True

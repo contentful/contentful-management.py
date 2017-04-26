@@ -308,6 +308,13 @@ class FieldsResource(Resource):
         return super(FieldsResource, self).__setattr__(name, value)
 
     def _is_missing_field(self, name):
+        """
+        By default, fields not appearing on responses are considered
+        as object meta-data, and they will not be added to `_fields`,
+        making them not part of the serialization when sent back to
+        the API for saving.
+        """
+
         return False
 
 
