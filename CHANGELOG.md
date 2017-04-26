@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+
+* Added check for undefined fields from the WebApp against presence in the Content Type
+
 ### Fixed
 
 * Fixed VersionMismatch parsing error [#2](https://github.com/contentful/contentful-management.py/issues/2)

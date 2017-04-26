@@ -1,5 +1,5 @@
 from .resource import FieldsResource, PublishResource, ArchiveResource
-from .utils import is_link, is_link_array
+from .utils import is_link, is_link_array, snake_case
 from .entry_snapshots_proxy import EntrySnapshotsProxy
 
 
@@ -61,6 +61,22 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
             return [self._build_link(link)
                     for link in value]
         return super(Entry, self)._coerce(value)
+
+    def _is_missing_field(self, name):
+        """
+        Fields that are voided in the WebApp will be not returned in
+        API responses, therefore we need to check if they are part of
+        the Content Type to determine if they should or should not be
+        serialized.
+        """
+
+        for field in self._content_type().fields:
+            if snake_case(field.id) == name:
+                return True
+        return False
+
+    def _content_type(self):
+        return self.sys['content_type'].resolve(self.sys['space'].id)
 
     def __repr__(self):
         return "<Entry[{0}] id='{1}'>".format(

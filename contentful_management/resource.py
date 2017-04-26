@@ -299,10 +299,23 @@ class FieldsResource(Resource):
         if name not in ['raw', 'sys', 'default_locale',
                         '_client', '_fields']:
             locale = self._locale()
-            if name in self._fields.get(locale, {}):
+            if (name in self._fields.get(locale, {}) or
+                    self._is_missing_field(name)):
+                if locale not in self._fields:
+                    self._fields[locale] = {}
                 self._fields[locale][name] = value
                 return self._fields[locale][name]
         return super(FieldsResource, self).__setattr__(name, value)
+
+    def _is_missing_field(self, name):
+        """
+        By default, fields not appearing on responses are considered
+        as object meta-data, and they will not be added to `_fields`,
+        making them not part of the serialization when sent back to
+        the API for saving.
+        """
+
+        return False
 
 
 class PublishResource(object):
