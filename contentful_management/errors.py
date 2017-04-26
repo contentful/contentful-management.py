@@ -50,6 +50,21 @@ class UnauthorizedError(HTTPError):
     pass
 
 
+class VersionMismatchError(HTTPError):
+    """
+    409
+    """
+    def __init__(self, response):
+        self.response = response
+        self.status_code = response.status_code
+        self.message = 'Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.'
+
+    def __repr__(self):
+        return self.message
+
+    __str__ = __repr__
+
+
 class RateLimitExceededError(HTTPError):
     """
     429
@@ -79,6 +94,7 @@ def get_error(response):
         401: UnauthorizedError,
         403: AccessDeniedError,
         404: NotFoundError,
+        409: VersionMismatchError,
         429: RateLimitExceededError,
         500: ServerError,
         503: ServiceUnavailableError

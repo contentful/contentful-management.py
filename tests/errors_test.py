@@ -5,6 +5,7 @@ from contentful_management.errors import (
     BadRequestError,
     AccessDeniedError,
     UnauthorizedError,
+    VersionMismatchError,
     RateLimitExceededError,
     ServerError,
     ServiceUnavailableError,
@@ -79,6 +80,15 @@ class ErrorsTest(TestCase):
         self.assertEqual(error.status_code, 401)
         self.assertEqual(str(error), 'Unauthorized')
         self.assertTrue(isinstance(error, UnauthorizedError))
+
+    def test_version_mismatch_error(self):
+        response = MockResponse(409, {})
+
+        error = get_error(response)
+
+        self.assertEqual(error.status_code, 409)
+        self.assertEqual(str(error), 'Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.')
+        self.assertTrue(isinstance(error, VersionMismatchError))
 
     def test_rate_limit_exceeded_error(self):
         response = MockResponse(429, {
