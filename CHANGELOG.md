@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.1.0
+
 ### Added
 
 * Added check for undefined fields from the WebApp against presence in the Content Type
