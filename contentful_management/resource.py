@@ -108,15 +108,16 @@ class Resource(object):
 
         return self.update()
 
-    def reload(self):
+    def reload(self, result=None):
         """Reloads the Resource"""
 
-        result = self._client._get(
-            self.__class__.base_url(
-                self.sys['space'].id,
-                self.sys['id']
+        if result is None:
+            result = self._client._get(
+                self.__class__.base_url(
+                    self.sys['space'].id,
+                    self.sys['id']
+                )
             )
-        )
 
         self._update_from_resource(result)
 
@@ -324,7 +325,7 @@ class PublishResource(object):
     def publish(self):
         """Publishes the Resource"""
 
-        self._client._put(
+        result = self._client._put(
             "{0}/published".format(
                 self.__class__.base_url(self.sys['space'].id, self.sys['id']),
             ),
@@ -332,7 +333,7 @@ class PublishResource(object):
             headers=self._update_headers()
         )
 
-        return self.reload()
+        return self.reload(result)
 
     def unpublish(self):
         """Unpublishes the Resource"""
