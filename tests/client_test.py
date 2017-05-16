@@ -53,3 +53,124 @@ class ClientTest(TestCase):
 
         self.assertEqual(error.status_code, 404)
         self.assertEqual(error.response.status_code, 404)
+
+    # X-Contentful-User-Agent Headers
+
+    def test_client_default_contentful_user_agent_headers(self):
+        client = Client(PLAYGROUND_SPACE, raise_errors=False)
+
+        from contentful_management import __version__
+        import platform
+        expected = [
+            'sdk contentful-management.py/{0};'.format(__version__),
+            'os {0}/{1};'.format(platform.system(), platform.release()),
+            'platform python/{0};'.format(platform.python_version())
+        ]
+        header = client._contentful_user_agent()
+        for e in expected:
+            self.assertTrue(e in header)
+
+        self.assertTrue('integration' not in header)
+        self.assertTrue('app' not in header)
+
+    def test_client_with_integration_name_only_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            integration_name='foobar')
+
+        header = client._contentful_user_agent()
+        self.assertTrue('integration foobar;' in header)
+        self.assertFalse('integration foobar/;' in header)
+
+    def test_client_with_integration_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            integration_name='foobar',
+            integration_version='0.1.0')
+
+        header = client._contentful_user_agent()
+        self.assertTrue('integration foobar/0.1.0;' in header)
+
+    def test_client_with_application_name_only_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            application_name='foobar')
+
+        header = client._contentful_user_agent()
+        self.assertTrue('app foobar;' in header)
+        self.assertFalse('app foobar/;' in header)
+
+    def test_client_with_application_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            application_name='foobar',
+            application_version='0.1.0')
+
+        header = client._contentful_user_agent()
+        self.assertTrue('app foobar/0.1.0' in header)
+
+    def test_client_with_integration_version_only_does_not_include_integration_in_header(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            integration_version='0.1.0')
+
+        header = client._contentful_user_agent()
+        self.assertFalse('integration /0.1.0;' in header)
+
+    def test_client_with_application_version_only_does_not_include_integration_in_header(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            application_version='0.1.0')
+
+        header = client._contentful_user_agent()
+        self.assertFalse('app /0.1.0;' in header)
+
+    def test_client_with_all_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            application_name='foobar_app',
+            application_version='1.1.0',
+            integration_name='foobar integ',
+            integration_version='0.1.0')
+
+        from contentful_management import __version__
+        import platform
+        expected = [
+            'sdk contentful-management.py/{0};'.format(__version__),
+            'os {0}/{1};'.format(platform.system(), platform.release()),
+            'platform python/{0};'.format(platform.python_version()),
+            'app foobar_app/1.1.0;',
+            'integration foobar integ/0.1.0;'
+        ]
+        header = client._contentful_user_agent()
+        for e in expected:
+            self.assertTrue(e in header)
+
+    def test_client_headers(self):
+        client = Client(
+            PLAYGROUND_SPACE,
+            raise_errors=False,
+            application_name='foobar_app',
+            application_version='1.1.0',
+            integration_name='foobar integ',
+            integration_version='0.1.0')
+
+        from contentful_management import __version__
+        import platform
+        expected = [
+            'sdk contentful-management.py/{0};'.format(__version__),
+            'os {0}/{1};'.format(platform.system(), platform.release()),
+            'platform python/{0};'.format(platform.python_version()),
+            'app foobar_app/1.1.0;',
+            'integration foobar integ/0.1.0;'
+        ]
+        header = client._request_headers()['X-Contentful-User-Agent']
+        for e in expected:
+            self.assertTrue(e in header)
