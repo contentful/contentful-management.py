@@ -769,6 +769,14 @@ Client Configuration Options
 
 ``max_rate_limit_wait``: (optional) Timeout (in seconds) for waiting for retry after RateLimitError, defaults to 60.
 
+``application_name``: (optional) User application name, defaults to None.
+
+``application_version``: (optional) User application version, defaults to None.
+
+``integration_name``: (optional) Integration name, defaults to None.
+
+``integration_version``: (optional) Integration version, defaults to None.
+
 Logging
 -------
 

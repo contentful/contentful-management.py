@@ -1,4 +1,5 @@
 import requests
+import platform
 from re import sub
 from .resource_builder import ResourceBuilder
 from .utils import ConfigurationException, retry_request
@@ -62,6 +63,10 @@ class Client(object):
         after RateLimitError, defaults to 1.
     :param max_rate_limit_wait: (optional) Timeout (in seconds) for waiting
         for retry after RateLimitError, defaults to 60.
+    :param application_name: (optional) User application name, defaults to None.
+    :param application_version: (optional) User application version, defaults to None.
+    :param integration_name: (optional) Integration name, defaults to None.
+    :param integration_version: (optional) Integration version, defaults to None.
     :return: :class:`Client <Client>` object.
     :rtype: contentful.Client
 
@@ -88,7 +93,11 @@ class Client(object):
             proxy_username=None,
             proxy_password=None,
             max_rate_limit_retries=1,
-            max_rate_limit_wait=60):
+            max_rate_limit_wait=60,
+            application_name=None,
+            application_version=None,
+            integration_name=None,
+            integration_version=None):
         self.access_token = access_token
         self.api_url = api_url
         self.uploads_api_url = uploads_api_url
@@ -104,6 +113,10 @@ class Client(object):
         self.proxy_password = proxy_password
         self.max_rate_limit_retries = max_rate_limit_retries
         self.max_rate_limit_wait = max_rate_limit_wait
+        self.application_name = application_name
+        self.application_version = application_version
+        self.integration_name = integration_name
+        self.integration_version = integration_version
 
         self._validate_configuration()
 
@@ -305,15 +318,54 @@ class Client(object):
                 'The API Version must be a positive number'
             )
 
+    def _contentful_user_agent(self):
+        """
+        Sets the X-Contentful-User-Agent header.
+        """
+        header = {}
+        from . import __version__
+        header['sdk'] = {
+            'name': 'contentful-management.py',
+            'version': __version__
+        }
+        header['app'] = {
+            'name': self.application_name,
+            'version': self.application_version
+        }
+        header['integration'] = {
+            'name': self.integration_name,
+            'version': self.integration_version
+        }
+        header['platform'] = {
+            'name': 'python',
+            'version': platform.python_version()
+        }
+        header['os'] = {
+            'name': platform.system(),
+            'version': platform.release()
+        }
+
+        def format_header(key, values):
+            header = "{0} {1}".format(key, values['name'])
+            if values['version'] is not None:
+                header = "{0}/{1}".format(header, values['version'])
+            return "{0};".format(header)
+
+        result = []
+        for k, values in header.items():
+            if not values['name']:
+                continue
+            result.append(format_header(k, values))
+
+        return ' '.join(result)
+
     def _request_headers(self):
         """
         Sets the default Request Headers.
         """
 
-        from . import __version__
         headers = {
-            'User-Agent':
-                'PythonContentfulManagementClient/{0}'.format(__version__),
+            'X-Contentful-User-Agent': self._contentful_user_agent(),
             'Content-Type':
                 'application/vnd.contentful.management.v{0}+json'.format(
                     self.api_version
