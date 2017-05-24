@@ -1,4 +1,5 @@
 import vcr
+import re
 from unittest import TestCase
 from contentful_management import Client
 from contentful_management.utils import ConfigurationException
@@ -63,12 +64,13 @@ class ClientTest(TestCase):
         import platform
         expected = [
             'sdk contentful-management.py/{0};'.format(__version__),
-            'os {0}/{1};'.format(platform.system(), platform.release()),
             'platform python/{0};'.format(platform.python_version())
         ]
         header = client._contentful_user_agent()
         for e in expected:
             self.assertTrue(e in header)
+
+        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
 
         self.assertTrue('integration' not in header)
         self.assertTrue('app' not in header)
@@ -144,7 +146,6 @@ class ClientTest(TestCase):
         import platform
         expected = [
             'sdk contentful-management.py/{0};'.format(__version__),
-            'os {0}/{1};'.format(platform.system(), platform.release()),
             'platform python/{0};'.format(platform.python_version()),
             'app foobar_app/1.1.0;',
             'integration foobar integ/0.1.0;'
@@ -152,6 +153,8 @@ class ClientTest(TestCase):
         header = client._contentful_user_agent()
         for e in expected:
             self.assertTrue(e in header)
+
+        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
 
     def test_client_headers(self):
         client = Client(
@@ -166,7 +169,6 @@ class ClientTest(TestCase):
         import platform
         expected = [
             'sdk contentful-management.py/{0};'.format(__version__),
-            'os {0}/{1};'.format(platform.system(), platform.release()),
             'platform python/{0};'.format(platform.python_version()),
             'app foobar_app/1.1.0;',
             'integration foobar integ/0.1.0;'
@@ -174,3 +176,5 @@ class ClientTest(TestCase):
         header = client._request_headers()['X-Contentful-User-Agent']
         for e in expected:
             self.assertTrue(e in header)
+
+        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
