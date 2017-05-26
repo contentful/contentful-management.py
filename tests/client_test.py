@@ -70,7 +70,7 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
 
         self.assertTrue('integration' not in header)
         self.assertTrue('app' not in header)
@@ -154,7 +154,7 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
 
     def test_client_headers(self):
         client = Client(
@@ -177,4 +177,4 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux|Unknown)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
