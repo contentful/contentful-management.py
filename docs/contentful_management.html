@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>contentful_management package &#8212; Contentful Management 1.1.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 1.2.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '1.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Contentful Management 1.1.0 documentation" href="index.html" />
+    <link rel="top" title="Contentful Management 1.2.0 documentation" href="index.html" />
     <link rel="up" title="contentful_management" href="modules.html" />
     <link rel="prev" title="contentful_management" href="modules.html" />
    
@@ -151,7 +151,7 @@ with serialized parameters.</p>
 <span id="contentful-management-client-module"></span><h2>contentful_management.client module<a class="headerlink" href="#module-contentful_management.client" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.client.Client">
-<em class="property">class </em><code class="descclassname">contentful_management.client.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>access_token</em>, <em>api_url='api.contentful.com'</em>, <em>uploads_api_url='upload.contentful.com'</em>, <em>api_version=1</em>, <em>default_locale='en-US'</em>, <em>https=True</em>, <em>raw_mode=False</em>, <em>gzip_encoded=True</em>, <em>raise_errors=True</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em>, <em>max_rate_limit_retries=1</em>, <em>max_rate_limit_wait=60</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.client.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>access_token</em>, <em>api_url='api.contentful.com'</em>, <em>uploads_api_url='upload.contentful.com'</em>, <em>api_version=1</em>, <em>default_locale='en-US'</em>, <em>https=True</em>, <em>raw_mode=False</em>, <em>gzip_encoded=True</em>, <em>raise_errors=True</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em>, <em>max_rate_limit_retries=1</em>, <em>max_rate_limit_wait=60</em>, <em>application_name=None</em>, <em>application_version=None</em>, <em>integration_name=None</em>, <em>integration_version=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Constructs the API Client.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -183,6 +183,10 @@ an exception on requests that aren&#8217;t successful, defaults to True.</li>
 after RateLimitError, defaults to 1.</li>
 <li><strong>max_rate_limit_wait</strong> &#8211; (optional) Timeout (in seconds) for waiting
 for retry after RateLimitError, defaults to 60.</li>
+<li><strong>application_name</strong> &#8211; (optional) User application name, defaults to None.</li>
+<li><strong>application_version</strong> &#8211; (optional) User application version, defaults to None.</li>
+<li><strong>integration_name</strong> &#8211; (optional) Integration name, defaults to None.</li>
+<li><strong>integration_version</strong> &#8211; (optional) Integration version, defaults to None.</li>
 </ul>
 </td>
 </tr>
