@@ -97,7 +97,8 @@ class Client(object):
             application_name=None,
             application_version=None,
             integration_name=None,
-            integration_version=None):
+            integration_version=None,
+            additional_headers=None):
         self.access_token = access_token
         self.api_url = api_url
         self.uploads_api_url = uploads_api_url
@@ -117,6 +118,7 @@ class Client(object):
         self.application_version = application_version
         self.integration_name = integration_name
         self.integration_version = integration_version
+        self.additional_headers = additional_headers or {}
 
         self._validate_configuration()
 
@@ -422,6 +424,7 @@ class Client(object):
         kwargs = request_kwargs if request_kwargs is not None else {}
 
         headers = self._request_headers()
+        headers.update(self.additional_headers)
         if 'headers' in kwargs:
             headers.update(kwargs['headers'])
         kwargs['headers'] = headers

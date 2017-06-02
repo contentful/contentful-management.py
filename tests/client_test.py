@@ -178,3 +178,12 @@ class ClientTest(TestCase):
             self.assertTrue(e in header)
 
         self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
+
+    @vcr.use_cassette('fixtures/client/additional_headers.yaml')
+    def test_client_with_additional_headers(self):
+        client = Client(PLAYGROUND_KEY, raise_errors=False, additional_headers={'fizz': 'buzz'})
+
+        error = client.entries(PLAYGROUND_SPACE).find('abc123')
+
+        self.assertIn('fizz', error.response.request.headers)
+
