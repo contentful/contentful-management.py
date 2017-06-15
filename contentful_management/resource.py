@@ -297,7 +297,7 @@ class FieldsResource(Resource):
 
     def __setattr__(self, name, value):
         if name not in ['raw', 'sys', 'default_locale',
-                        '_client', '_fields']:
+                        '_client', '_fields', '__CONTENT_TYPE__']:
             locale = self._locale()
             if (name in self._fields.get(locale, {}) or
                     self._is_missing_field(name)):

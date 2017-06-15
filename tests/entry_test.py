@@ -277,3 +277,24 @@ class EntryTest(TestCase):
 
                 self.assertEqual(entry.non_existent, 'foo')
                 self.assertEqual(entry.fields(), {})
+
+    def test_update_entry_field_with_field_that_was_not_present(self):
+        entry = None
+        with vcr.use_cassette('fixtures/entry/added_fields_1.yaml'):
+            entry = CLIENT.entries(PLAYGROUND_SPACE).find('3fTNzlQsDmge6YQEikEuME')
+
+            self.assertEqual(entry.fields(), {'name': 'A Name', 'other': 'Other Stuff'})
+
+            with vcr.use_cassette('fixtures/entry/added_fields_2.yaml'):
+                entry.different = 'A Different Field'
+
+                self.assertEqual(entry.different, 'A Different Field')
+                self.assertEqual(entry.fields(), {'name': 'A Name', 'other': 'Other Stuff', 'different': 'A Different Field'})
+
+                self.assertEqual(entry.to_json()['fields']['different']['en-US'], 'A Different Field')
+
+                entry.save()
+
+            with vcr.use_cassette('fixtures/entry/added_fields_3.yaml'):
+                entry = CLIENT.entries(PLAYGROUND_SPACE).find('3fTNzlQsDmge6YQEikEuME')
+                self.assertEqual(entry.different, 'A Different Field')
