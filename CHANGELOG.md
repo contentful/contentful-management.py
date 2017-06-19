@@ -4,6 +4,9 @@
 ### Added
 * Added `Array` wrapper [#13](https://github.com/contentful/contentful-management.py/issues/13)
 
+### Fixed
+* Fixed issue when calling `to_json()` on entries with new fields added [#10](https://github.com/contentful/contentful-management.py/issues/10)
+
 ## v1.2.0
 ### Added
 * Added `X-Contentful-User-Agent` header for more information.

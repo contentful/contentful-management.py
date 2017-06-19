@@ -20,6 +20,14 @@ contentful_management.api_keys_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful_management.array module
+----------------------------------
+
+.. automodule:: contentful_management.array
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful_management.asset module
 ----------------------------------
 

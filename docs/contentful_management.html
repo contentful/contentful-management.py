@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>contentful_management package &#8212; Contentful Management 1.2.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 1.3.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2.0',
+        VERSION:     '1.3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Contentful Management 1.2.0 documentation" href="index.html" />
+    <link rel="top" title="Contentful Management 1.3.0 documentation" href="index.html" />
     <link rel="up" title="contentful_management" href="modules.html" />
     <link rel="prev" title="contentful_management" href="modules.html" />
    
@@ -91,6 +91,35 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-contentful_management.array">
+<span id="contentful-management-array-module"></span><h2>contentful_management.array module<a class="headerlink" href="#module-contentful_management.array" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contentful-management-array">
+<h3>contentful_management.array<a class="headerlink" href="#contentful-management-array" title="Permalink to this headline">¶</a></h3>
+<p>This module implements the Array class.</p>
+<p>API Reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination">https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
+<li>2017 by Contentful GmbH.</li>
+</ol>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body"><p class="first last">MIT, see LICENSE for more details.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="contentful_management.array.Array">
+<em class="property">class </em><code class="descclassname">contentful_management.array.</code><code class="descname">Array</code><span class="sig-paren">(</span><em>json</em>, <em>items</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/array.html#Array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.array.Array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>API Reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination">https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination</a></p>
+</dd></dl>
+
+</div>
+</div>
 <div class="section" id="module-contentful_management.asset">
 <span id="contentful-management-asset-module"></span><h2>contentful_management.asset module<a class="headerlink" href="#module-contentful_management.asset" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -151,7 +180,7 @@ with serialized parameters.</p>
 <span id="contentful-management-client-module"></span><h2>contentful_management.client module<a class="headerlink" href="#module-contentful_management.client" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.client.Client">
-<em class="property">class </em><code class="descclassname">contentful_management.client.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>access_token</em>, <em>api_url='api.contentful.com'</em>, <em>uploads_api_url='upload.contentful.com'</em>, <em>api_version=1</em>, <em>default_locale='en-US'</em>, <em>https=True</em>, <em>raw_mode=False</em>, <em>gzip_encoded=True</em>, <em>raise_errors=True</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em>, <em>max_rate_limit_retries=1</em>, <em>max_rate_limit_wait=60</em>, <em>application_name=None</em>, <em>application_version=None</em>, <em>integration_name=None</em>, <em>integration_version=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.client.</code><code class="descname">Client</code><span class="sig-paren">(</span><em>access_token</em>, <em>api_url='api.contentful.com'</em>, <em>uploads_api_url='upload.contentful.com'</em>, <em>api_version=1</em>, <em>default_locale='en-US'</em>, <em>https=True</em>, <em>raw_mode=False</em>, <em>gzip_encoded=True</em>, <em>raise_errors=True</em>, <em>proxy_host=None</em>, <em>proxy_port=None</em>, <em>proxy_username=None</em>, <em>proxy_password=None</em>, <em>max_rate_limit_retries=1</em>, <em>max_rate_limit_wait=60</em>, <em>application_name=None</em>, <em>application_version=None</em>, <em>integration_name=None</em>, <em>integration_version=None</em>, <em>additional_headers=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Constructs the API Client.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -967,7 +996,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-entry-module"></span><h2>contentful_management.entry module<a class="headerlink" href="#module-contentful_management.entry" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.entry.Entry">
-<em class="property">class </em><code class="descclassname">contentful_management.entry.</code><code class="descname">Entry</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry.Entry" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.entry.</code><code class="descname">Entry</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry.Entry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a></p>
 <p>API Reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries</a></p>
 <dl class="classmethod">
@@ -2171,6 +2200,10 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-contentful_management.api_key">contentful_management.api_key module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.api_keys_proxy">contentful_management.api_keys_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.array">contentful_management.array module</a><ul>
+<li><a class="reference internal" href="#contentful-management-array">contentful_management.array</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-contentful_management.asset">contentful_management.asset module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.assets_proxy">contentful_management.assets_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.client">contentful_management.client module</a></li>
