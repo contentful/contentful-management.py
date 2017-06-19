@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v1.3.0
 ### Added
 * Added `Array` wrapper [#13](https://github.com/contentful/contentful-management.py/issues/13)
 
