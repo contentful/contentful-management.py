@@ -237,7 +237,7 @@ class Client(object):
     def roles(self, space_id):
         """Provides access to Roles management methods
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entries-collection/get-all-entries-of-a-space
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
         :return: :class:`RolesProxy <contentful_management.roles_proxy.RolesProxy>` object.
         :rtype: contentful.roles_proxy.RolesProxy
