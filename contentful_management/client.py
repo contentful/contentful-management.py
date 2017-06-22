@@ -212,7 +212,7 @@ class Client(object):
 
         Usage:
 
-            >>> locales_proxy = client.webhooks('cfexampleapi')
+            >>> webhooks_proxy = client.webhooks('cfexampleapi')
             <WebhooksProxy space_id="cfexampleapi">
         """
 
@@ -520,28 +520,28 @@ class Client(object):
 
     def _get(self, url, query=None, **kwargs):
         """
-        Wrapper for the HTTP GET Request,
+        Wrapper for the HTTP GET Request.
         """
 
         return self._request('get', url, query, **kwargs)
 
     def _post(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP POST Request,
+        Wrapper for the HTTP POST Request.
         """
 
         return self._request('post', url, attributes, **kwargs)
 
     def _put(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP PUT Request,
+        Wrapper for the HTTP PUT Request.
         """
 
         return self._request('put', url, attributes, **kwargs)
 
     def _delete(self, url, **kwargs):
         """
-        Wrapper for the HTTP DELETE Request,
+        Wrapper for the HTTP DELETE Request.
         """
 
         response = retry_request(self)(self._http_delete)(url, **kwargs)
