@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
+          os macOS/16.5.0;]
+    method: GET
+    uri: https://api.contentful.com/users/me
+  response:
+    body: {string: "{\n  \"firstName\":\"David\",\n  \"lastName\":\"Litvak Bruno\",\n
+        \ \"avatarUrl\":\"https://avatars.githubusercontent.com/u/1032706?v=3\",\n
+        \ \"email\":\"david.litvak@contentful.com\",\n  \"activated\":true,\n  \"signInCount\":23,\n
+        \ \"confirmed\":true,\n  \"sys\":{\n    \"type\":\"User\",\n    \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\",\n
+        \   \"version\":35,\n    \"createdAt\":\"2015-09-17T23:13:27Z\",\n    \"updatedAt\":\"2017-06-26T17:17:14Z\"\n
+        \ }\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['392']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Thu, 06 Jul 2017 14:18:39 GMT']
+      ETag: [W/"369a5555c2dbb33ba2c7a0a7f38ad30f"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=8GA2y2J1TJqXuwjqSO4XAL9GXlkAAAAAQUIPAAAAAADm6/FttuB2ScOm/Dh6kNOm;
+          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=9htkISLlJQTmSqMH6lKYhQAAAADw36Fxjsk/IcFy89xvCHpd; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=vtrAAfYM+X8HXaDoq52BCb9GXlkAAAAADUUzvEZe2JzzucESZcXrHQ==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-Request-Id: [580d2c0b1957892a7983f97afe871001]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [5-2995274-2995290 NNNN CT(0 0 0) RT(1499350718996 131) q(0 0 0 -1)
+          r(2 2) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

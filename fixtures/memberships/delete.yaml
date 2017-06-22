@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
+          os macOS/16.5.0;]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships/3x8XW8RsuC70XSmtlkrbLg
+  response:
+    body: {string: "{\n  \"requestId\":\"d0ba36aab237efa333c1dca3bffe3383\",\n  \"message\":\"The
+        resource could not be found.\",\n  \"sys\":{\n    \"type\":\"Error\",\n    \"id\":\"NotFound\"\n
+        \ }\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['157']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Thu, 06 Jul 2017 14:18:18 GMT']
+      Server: [Contentful]
+      Set-Cookie: ['_auth_new_session=843d1a63e612a2bad532156b7816ec65; path=/; expires=Thu,
+          20 Jul 2017 14:18:18 -0000; secure; HttpOnly', 'visid_incap_673446=t9XDfl0GS4e1wuWL3hatK6pGXlkAAAAAQUIPAAAAAABqyPTM70/BkVTJ9jBUnJ8u;
+          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=LZkpG1cW0D/z6U6g6lKYhQAAAADibyPAmA/+LQz1mUQQPqj/; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=lfMjaoURCAfrQKDoq52BCapGXlkAAAAABCiSbaqbGzfmz69Bh1EOCQ==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35996']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [d0ba36aab237efa333c1dca3bffe3383]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [9-2824675-2824737 NNNN CT(143 141 0) RT(1499350697419 146) q(0 0 3
+          -1) r(6 6) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1

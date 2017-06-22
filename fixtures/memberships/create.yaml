@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: '{"admin": false, "roles": [{"linkType": "Role", "type": "Link", "id": "1Nq88dKTNXNaxkbrRpEEw6"}],
+      "email": "david.litva+test_memberships_create@contentful.com"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Connection: [keep-alive]
+      Content-Length: ['160']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
+          os macOS/16.5.0;]
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships
+  response:
+    body: {string: "{\n  \"admin\":false,\n  \"sys\":{\n    \"type\":\"SpaceMembership\",\n
+        \   \"id\":\"6RdRdobdQzh8zKe1Hogiz4\",\n    \"version\":0,\n    \"space\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"Space\",\n
+        \       \"id\":\"facgnwwgj5fe\"\n      }\n    },\n    \"createdBy\":{\n      \"sys\":{\n
+        \       \"type\":\"Link\",\n        \"linkType\":\"User\",\n        \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"createdAt\":\"2017-07-06T14:18:17Z\",\n    \"updatedBy\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"User\",\n
+        \       \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedAt\":\"2017-07-06T14:18:17Z\"\n
+        \ },\n  \"user\":{\n    \"sys\":{\n      \"type\":\"Link\",\n      \"linkType\":\"User\",\n
+        \     \"id\":\"3xagQOg6z3bxOhPcTpgsaq\"\n    }\n  },\n  \"roles\":[\n    {\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"Role\",\n
+        \       \"id\":\"1Nq88dKTNXNaxkbrRpEEw6\"\n      }\n    }\n  ]\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [facgnwwgj5fe]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['844']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Thu, 06 Jul 2017 14:18:17 GMT']
+      ETag: [W/"1c03388bd430f009038a9d28f6f73099"]
+      Location: ['https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships/6RdRdobdQzh8zKe1Hogiz4']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=RKaFF52fRU+GgSCGI9+ef6lGXlkAAAAAQUIPAAAAAAB6UAX5Ih04BRTthMqYzwwx;
+          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=0P5qBkeYiTPVOGrC6lKYhQAAAACQ0d5PdmYEndDuNJWcRe2t; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=kDACCK4NXyzDP6Doq52BCalGXlkAAAAASjLoyU/jUlQT8NV5zUzLIA==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35997']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [249772a869c1fc4c4220c65f251fee03]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [5-2991401-2991415 NNNN CT(133 136 0) RT(1499350696661 109) q(0 0 3
+          -1) r(5 5) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+version: 1
