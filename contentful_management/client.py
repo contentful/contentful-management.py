@@ -385,6 +385,8 @@ class Client(object):
 
         if self.gzip_encoded:
             headers['Accept-Encoding'] = 'gzip'
+        else:
+            headers['Accept-Encoding'] = 'identity'
 
         return headers
 

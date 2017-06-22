@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Fixed
+* Fixed `Accept-Encoding` header when `gzip` was disabled.
+
 ## v1.3.1
 ### Added
 * Added `Array` wrapper [#13](https://github.com/contentful/contentful-management.py/issues/13)

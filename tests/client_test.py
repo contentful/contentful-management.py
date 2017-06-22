@@ -55,6 +55,16 @@ class ClientTest(TestCase):
         self.assertEqual(error.status_code, 404)
         self.assertEqual(error.response.status_code, 404)
 
+    def test_gzip_headers_enabled(self):
+        client = Client(PLAYGROUND_SPACE, raise_errors=False)
+
+        self.assertEquals(client._request_headers()['Accept-Encoding'], 'gzip')
+
+    def test_gzip_headers_disabled(self):
+        client = Client(PLAYGROUND_SPACE, gzip_encoded=False, raise_errors=False)
+
+        self.assertEquals(client._request_headers()['Accept-Encoding'], 'identity')
+
     # X-Contentful-User-Agent Headers
 
     def test_client_default_contentful_user_agent_headers(self):
