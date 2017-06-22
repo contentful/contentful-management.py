@@ -120,7 +120,8 @@ def base_path_for(resource_name):
         'Webhook': 'webhook_definitions',
         'Role': 'roles',
         'Snapshot': 'snapshots',
-        'Upload': 'uploads'
+        'Upload': 'uploads',
+        'Organization': 'organizations',
     }[resource_name]
 
 

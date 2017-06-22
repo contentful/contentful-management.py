@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
+    method: GET
+    uri: https://api.contentful.com/organizations?limit=1
+  response:
+    body: {string: "{\n  \"total\":1,\n  \"limit\":1,\n  \"skip\":0,\n  \"sys\":{\n
+        \   \"type\":\"Array\"\n  },\n  \"items\":[\n    {\n      \"name\":\"Test
+        Account 1\",\n      \"sys\":{\n        \"type\":\"Organization\",\n        \"id\":\"foobar\",\n
+        \       \"version\":0,\n        \"createdAt\":\"2017-06-22T17:03:17Z\",\n
+        \       \"updatedAt\":\"2017-06-22T17:03:17Z\"\n      }\n    }\n  ]\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['336']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Thu, 22 Jun 2017 17:24:44 GMT']
+      ETag: [W/"89c351fd4c28421b8bd3c0c2b0d91407"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=CQDgl+saS3m71693zIBSkFz9S1kAAAAAQUIPAAAAAABy+DTEjvhYQfwFoPovl6Mc;
+          expires=Fri, 22 Jun 2018 06:06:34 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=Eg35PoieKGiZiAHt6lKYhQAAAAA/Iz38NfqTBHdlzvCZF/lH; path=/; Domain=.contentful.com,
+        incap_ses_297_673446=eZxfXZq8gTupUDF3mSgfBFz9S1kAAAAAkcUrxrqmmxx2tf/GJ3srTg==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-Request-Id: [9efd2f14267270fbaec27b2c0fabbf63]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [9-15769680-15770352 NNNN CT(135 275 0) RT(1498152279370 4255) q(0
+          0 4 -1) r(7 7) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

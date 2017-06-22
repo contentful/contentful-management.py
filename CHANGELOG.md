@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added Organizations Endpoint.
 
 ## v1.3.2
 

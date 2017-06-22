@@ -1,6 +1,7 @@
 from .entry import Entry
 from .asset import Asset
 from .space import Space
+from .organization import Organization
 from .content_type import ContentType
 from .webhook import Webhook
 from .locale import Locale
@@ -47,6 +48,7 @@ class ResourceBuilder(object):
             'Asset': Asset,
             'ContentType': ContentType,
             'Space': Space,
+            'Organization': Organization,
             'ApiKey': ApiKey,
             'Locale': Locale,
             'EditorInterface': EditorInterface,
