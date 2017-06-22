@@ -56,6 +56,9 @@ coverage:
 	coverage run --source contentful_management setup.py test
 	coverage report -m
 
+watch:
+	fswatch -d -e contentful_management/__pycache__ -e tests/__pycache__ contentful_management tests | xargs -n1 make coverage
+
 docs:
 	rm -f _docs/contentful_management.rst
 	rm -f _docs/modules.rst
