@@ -1,4 +1,5 @@
 from .resource import Resource
+from .webhook_webhooks_call_proxy import WebhookWebhooksCallProxy
 
 
 """
@@ -48,6 +49,21 @@ class Webhook(Resource):
         if 'topics' not in result:
             raise Exception("Topics ('topics') must be provided for this operation.")
         return result
+
+    def calls(self):
+        """Provides access to Call overview for the given webhook
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
+
+        :return: :class:`WebhookWebhooksCallProxy <contentful_management.webhook_webhooks_calls_proxy.WebhookWebhooksCallProxy>` object.
+        :rtype: contentful.webhook_webhooks_calls_proxy.WebhookWebhooksCallProxy
+
+        Usage:
+
+            >>> webhook_webhooks_calls_proxy = entry.calls()
+            <WebhookWebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+        return WebhookWebhooksCallProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def to_json(self):
         """Returns the JSON Representation of the Resource"""

@@ -12,6 +12,7 @@ from .assets_proxy import AssetsProxy
 from .api_keys_proxy import ApiKeysProxy
 from .roles_proxy import RolesProxy
 from .webhooks_proxy import WebhooksProxy
+from .webhooks_call_proxy import WebhooksCallProxy
 from .locales_proxy import LocalesProxy
 from .editor_interfaces_proxy import EditorInterfacesProxy
 from .snapshots_proxy import SnapshotsProxy
@@ -234,6 +235,22 @@ class Client(object):
         """
 
         return WebhooksProxy(self, space_id)
+
+    def webhook_calls(self, space_id, webhook_id):
+        """Provides access to Webhooks Call information
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
+
+        :return: :class:`WebhooksProxy <contentful_management.locales_proxy.WebhooksProxy>` object.
+        :rtype: contentful.locales_proxy.WebhooksProxy
+
+        Usage:
+
+            >>> webhooks_call_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
+            <WebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+
+        return WebhooksCallProxy(self, space_id, webhook_id)
 
     def api_keys(self, space_id):
         """Provides access to Api Keys management methods

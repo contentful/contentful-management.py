@@ -122,6 +122,8 @@ def base_path_for(resource_name):
         'Snapshot': 'snapshots',
         'Upload': 'uploads',
         'Organization': 'organizations',
+        'WebhookCall': 'webhooks',
+        'WebhookHealth': 'webhooks',
     }[resource_name]
 
 

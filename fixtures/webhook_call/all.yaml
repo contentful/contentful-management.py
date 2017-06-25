@@ -4,26 +4,25 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [os macOS/16.5.0; platform python/3.5.2; sdk contentful-management.py/1.3.1;]
     method: GET
     uri: https://api.contentful.com/spaces/orzkxlxlq59d/webhooks/16ypL3XjNK6oreLPPoVBxI/calls?limit=1
   response:
     body: {string: "{\n  \"sys\": {\n    \"type\": \"Array\"\n  },\n  \"items\": [\n
-        \   {\n      \"sys\": {\n        \"id\": \"tkCScsEajYygm006Wckc6\",\n        \"type\":
+        \   {\n      \"sys\": {\n        \"id\": \"4KYbXQ9cg8CE2aqouWqY2i\",\n        \"type\":
         \"WebhookCallOverview\",\n        \"space\": {\n          \"sys\": {\n            \"type\":
         \"Link\",\n            \"linkType\": \"Space\",\n            \"id\": \"orzkxlxlq59d\"\n
         \         }\n        },\n        \"createdBy\": {\n          \"sys\": {\n
         \           \"type\": \"Link\",\n            \"linkType\": \"WebhookDefinition\",\n
         \           \"id\": \"16ypL3XjNK6oreLPPoVBxI\"\n          }\n        },\n
-        \       \"createdAt\": \"2017-06-27T00:19:21.525Z\"\n      },\n      \"statusCode\":
-        201,\n      \"responseAt\": \"2017-06-27T00:19:21.892Z\",\n      \"errors\":
-        [],\n      \"eventType\": \"publish\",\n      \"url\": \"https://circleci.com/api/v1/project/virgendeloreto/blog_source/tree/master?circle-token=20e4b04a4c4cd549f34e025a223e898c71a9ab13\",\n
-        \     \"requestAt\": \"2017-06-27T00:19:21.525Z\"\n    }\n  ],\n  \"skip\":
+        \       \"createdAt\": \"2017-06-21T22:44:42.624Z\"\n      },\n      \"statusCode\":
+        201,\n      \"responseAt\": \"2017-06-21T22:44:43.086Z\",\n      \"errors\":
+        [],\n      \"eventType\": \"publish\",\n      \"url\": \"https://circleci.com/api/v1/project/...\",\n
+        \     \"requestAt\": \"2017-06-21T22:44:42.624Z\"\n    }\n  ],\n  \"skip\":
         0,\n  \"limit\": 1,\n  \"total\": 1\n}"}
     headers:
       Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
@@ -32,25 +31,26 @@ interactions:
       Access-Control-Expose-Headers: [Etag]
       Access-Control-Max-Age: ['1728000']
       Connection: [keep-alive]
-      Content-Length: ['909']
+      Content-Length: ['910']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:40 GMT']
+      Date: ['Thu, 22 Jun 2017 21:29:55 GMT']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=BwIlpsgPT9uB+JE1LSxuk79GXlkAAAAAQUIPAAAAAAAkr8lujFGtO24m8391SPgt;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=MaMbWOypgFYox4Wj6lKYhQAAAADHrYdRjRct18O77GCnYard; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=NrT9e8BzvDTXXaDoq52BCb9GXlkAAAAAb5huLV8HHRfC4xxb9+lhtA==;
+      Set-Cookie: ['visid_incap_673446=mukjhEZ6SS+TQELv1AB6y9A2TFkAAAAAQUIPAAAAAABrCsL1UigGjngPhuo333k3;
+          expires=Fri, 22 Jun 2018 06:06:19 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=exXrXYNr4SwZDD5x6lKYhQAAAABmWggDIEgy7kxfroWcZC1k; path=/; Domain=.contentful.com,
+        incap_ses_297_673446=ZwiXMGJT2VVBFWt3mSgfBNM2TFkAAAAATN3KKbDi7K4fhzelW1Fdkw==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35988']
+      X-Contentful-RateLimit-Hour-Remaining: ['35979']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [1dead4f8a009783d6da40bd30452c45b]
-      X-Iinfo: [9-2829444-2824737 PNNN RT(1499350719429 120) q(0 0 0 -1) r(2 2) U5]
+      X-Contentful-Request-Id: [ff96c22dbac5eeec9580f22947888f62]
+      X-Iinfo: [10-20108095-20108119 NNNN CT(0 0 0) RT(1498166991884 117) q(0 0 0
+          1) r(37 37) U5]
       accept-ranges: [bytes]
       cache-control: [no-cache]
       cf-space-id: [orzkxlxlq59d]

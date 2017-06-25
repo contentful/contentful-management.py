@@ -4,12 +4,12 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
     method: GET
     uri: https://api.contentful.com/spaces/orzkxlxlq59d/webhooks/16ypL3XjNK6oreLPPoVBxI/calls/4KYbXQ9cg8CE2aqouWqY2i
   response:
@@ -19,59 +19,23 @@ interactions:
         \     }\n    },\n    \"createdBy\": {\n      \"sys\": {\n        \"type\":
         \"Link\",\n        \"linkType\": \"WebhookDefinition\",\n        \"id\": \"16ypL3XjNK6oreLPPoVBxI\"\n
         \     }\n    },\n    \"createdAt\": \"2017-06-21T22:44:42.624Z\"\n  },\n  \"request\":
-        {\n    \"url\": \"https://circleci.com/api/v1/project/virgendeloreto/blog_source/tree/master?circle-token=20e4b04a4c4cd549f34e025a223e898c71a9ab13\",\n
+        {\n    \"url\": \"https://circleci.com/api/v1/project/...\",\n
         \   \"method\": \"POST\",\n    \"headers\": {\n      \"X-Contentful-Topic\":
         \"ContentManagement.Entry.publish\",\n      \"X-Contentful-Webhook-Name\":
         \"CircleCI\",\n      \"Content-Type\": \"application/vnd.contentful.management.v1+json\"\n
-        \   },\n    \"body\": \"{\\\"sys\\\":{\\\"space\\\":{\\\"sys\\\":{\\\"type\\\":\\\"Link\\\",\\\"linkType\\\":\\\"Space\\\",\\\"id\\\":\\\"orzkxlxlq59d\\\"}},\\\"type\\\":\\\"Entry\\\",\\\"contentType\\\":{\\\"sys\\\":{\\\"type\\\":\\\"Link\\\",\\\"linkType\\\":\\\"ContentType\\\",\\\"id\\\":\\\"pagina\\\"}},\\\"id\\\":\\\"1kHJjvXqocWwwyGsQEgEUm\\\",\\\"revision\\\":2,\\\"createdAt\\\":\\\"2017-06-18T22:04:42.728Z\\\",\\\"updatedAt\\\":\\\"2017-06-21T22:44:42.396Z\\\"},\\\"fields\\\":{\\\"titulo\\\":{\\\"en-US\\\":\\\"V\xEDdeos\\\"},\\\"slug\\\":{\\\"en-US\\\":\\\"videos\\\"},\\\"adjuntos\\\":{},\\\"imagenCabecera\\\":{\\\"en-US\\\":{\\\"sys\\\":{\\\"id\\\":\\\"1AetuwDABGKscoKGUIMyUA\\\",\\\"linkType\\\":\\\"Asset\\\",\\\"type\\\":\\\"Link\\\"}}},\\\"contenido\\\":{\\\"en-US\\\":\\\"#####
-        Himno a Nuestra Se\xF1ora de Loreto\\\\n<iframe width=\\\\\\\"560\\\\\\\"
-        height=\\\\\\\"315\\\\\\\" src=\\\\\\\"https://www.youtube.com/embed/8HDdvURPpUY\\\\\\\"
-        frameborder=\\\\\\\"0\\\\\\\" allowfullscreen></iframe>\\\\n\\\\n##### Ave
-        Mar\xEDa cantado de H\xE9ctor Cantero\\\\n<iframe width=\\\\\\\"560\\\\\\\"
-        height=\\\\\\\"315\\\\\\\" src=\\\\\\\"https://www.youtube.com/embed/dtpIvGOzl-8\\\\\\\"
-        frameborder=\\\\\\\"0\\\\\\\" allowfullscreen></iframe>\\\\n\\\"}}}\"\n  },\n
-        \ \"response\": {\n    \"url\": \"https://circleci.com/api/v1/project/virgendeloreto/blog_source/tree/master?circle-token=20e4b04a4c4cd549f34e025a223e898c71a9ab13\",\n
-        \   \"body\": \"{:previous_successful_build nil, :vcs-type :github, :canceler
-        nil, :committer_name \\\"David Litvak Bruno\\\", :circle-yml {:string \\\"machine:\\\\n
-        \ ruby:\\\\n    version: 2.3.1\\\\ndependencies:\\\\n  pre:\\\\n    - gem
-        install bundler\\\\ncheckout:\\\\n  post:\\\\n    - bundle install\\\\n    -
-        bash automated_build.sh\\\\n\\\"}, :infrastructure_fail false, :job-name nil,
-        :why \\\"api\\\", :ssh-users (), :parallel 1, :retries nil, :committer_email
-        \\\"david.litvakb@gmail.com\\\", :build-parameters {}, :vcs_tag nil, :username
-        \\\"virgendeloreto\\\", :start_time nil, :build_num 118, :timedout false,
-        :stop_time nil, :all-commit-details-truncated false, :author_date \\\"2017-06-18T01:16:50Z\\\",
-        :dont-build nil, :build_time_millis nil, :outcome nil, :all-commit-details
-        [{:commit_url \\\"https://github.com/virgendeloreto/blog_source/commit/db38574ddfbe575726a53933819a7f90b754d0d4\\\",
-        :committer_name \\\"David Litvak Bruno\\\", :committer_email \\\"david.litvakb@gmail.com\\\",
-        :author_date \\\"2017-06-18T01:16:50Z\\\", :author_login \\\"dlitvakb\\\",
-        :committer_login \\\"dlitvakb\\\", :commit \\\"db38574ddfbe575726a53933819a7f90b754d0d4\\\",
-        :author_name \\\"David Litvak Bruno\\\", :author_email \\\"david.litvakb@gmail.com\\\",
-        :committer_date \\\"2017-06-18T01:16:50Z\\\", :body \\\"\\\", :subject \\\"Ordenar
-        adjuntos alfabeticamente\\\"}], :lifecycle :not_running, :node nil, :retry-of
-        nil, :picard nil, :no-dependency-cache false, :vcs_revision \\\"db38574ddfbe575726a53933819a7f90b754d0d4\\\",
-        :canceled false, :build_url \\\"https://circleci.com/gh/virgendeloreto/blog_source/118\\\",
-        :messages (), :vcs_url \\\"https://github.com/virgendeloreto/blog_source\\\",
-        :status :not_running, :previous {:build_num 117, :status :no_tests, :build_time_millis
-        251547}, :compare nil, :author_name \\\"David Litvak Bruno\\\", :author_email
-        \\\"david.litvakb@gmail.com\\\", :committer_date \\\"2017-06-18T01:16:50Z\\\",
-        :ssh-disabled false, :oss true, :branch \\\"master\\\", :reponame \\\"blog_source\\\",
-        :body \\\"\\\", :user {:is-user true, :login \\\"dlitvakb\\\", :avatar-url
-        \\\"https://avatars2.githubusercontent.com/u/1032706?v=3\\\", :name \\\"David
-        Litvak Bruno\\\", :vcs-type :github, :id 1032706}, :subject \\\"Ordenar adjuntos
-        alfabeticamente\\\", :is-first-green-build false, :fail-reason nil, :failed
-        nil, :platform \\\"1.0\\\", :usage-queued-at #object[org.joda.time.DateTime
-        0x27308005 \\\"2017-06-21T22:44:26.109Z\\\"]}\",\n    \"headers\": {\n      \"date\":
-        \"Wed, 21 Jun 2017 22:44:26 GMT\",\n      \"location\": \"https://circleci.com/api/v1/project/virgendeloreto/blog_source/118\",\n
-        \     \"server\": \"nginx\",\n      \"set-cookie\": [\n        \"ring-session=1B84w6qwBJONkP8FVyM1YbVl3ceO3KjnOVYCNTLH0Z3t2bF7PUJdZrEfxdBEutDjnvaI7ZSMFBgWX01z%2BJZaGlD1g26SSDRGkUzlW5aP%2BZ5MctZiDHMEs3%2FS8HNlvbcxpmpRWf6wYPIlkVoI6dBQqrywsqk8iatxm572Zz5M0yd95HNZu31gLhHWNl4KFM7UYzg9k9kcY6bZq%2Fo9%2FFgYMnZtm6JNVtuhD04AsxA2drk%3D--hHTRgJ301ln54R54j5IeJGr4Iv0Iq9ZSmV9ztELdJzI%3D;Path=/;HttpOnly;Expires=Thu,
-        21 Jun 2018 21:58:20 +0000;Max-Age=31536000;Secure\"\n      ],\n      \"strict-transport-security\":
-        \"max-age=15724800\",\n      \"x-circleci-identity\": \"i-06b16fc165b0d7d3e\",\n
-        \     \"x-circleci-request-id\": \"4baf66ac-7be6-4481-93b6-f5682323c12d\",\n
+        \   },\n    \"body\": \"{\\\"sys\\\":{\\\"space\\\":{ ... }
+        \"\n  },\n
+        \ \"response\": {\n    \"url\": \"https://circleci.com/api/v1/project/...\",\n
+        \   \"body\": \"{:previous_successful_build nil, ...\",\n    \"headers\": {\n      \"date\":
+        \"Wed, 21 Jun 2017 22:44:26 GMT\",\n      \"location\": \"https://circleci.com/api/v1/...\",\n
+        \     \"server\": \"nginx\",\n      \"strict-transport-security\":
+        \"max-age=15724800\",\n
         \     \"x-circleci-scopes\": \":write-settings, :view-builds, :read-settings,
         :trigger-builds, :all, :status, :none\",\n      \"x-frame-options\": \"DENY\",\n
         \     \"x-route\": \"/tree/:branch, :branch, [^,;?]+\",\n      \"content-length\":
         \"2221\",\n      \"connection\": \"Close\"\n    },\n    \"statusCode\": 201\n
         \ },\n  \"statusCode\": 201,\n  \"responseAt\": \"2017-06-21T22:44:43.086Z\",\n
-        \ \"errors\": [],\n  \"eventType\": \"publish\",\n  \"url\": \"https://circleci.com/api/v1/project/virgendeloreto/blog_source/tree/master?circle-token=20e4b04a4c4cd549f34e025a223e898c71a9ab13\",\n
+        \ \"errors\": [],\n  \"eventType\": \"publish\",\n  \"url\": \"https://circleci.com/api/v1/project/...\",\n
         \ \"requestAt\": \"2017-06-21T22:44:42.624Z\"\n}"}
     headers:
       Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
@@ -82,23 +46,24 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['5638']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:40 GMT']
+      Date: ['Thu, 22 Jun 2017 21:32:47 GMT']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=qWHCBmxfR0S561rUjipaVcBGXlkAAAAAQUIPAAAAAADQQkD14AnrW03ls07Cr+ny;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=k/I5QYqpZCfAnHix6lKYhQAAAACdwbX0hhvUF1PBSJf8frpo; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=bKS3ffyztjVrXqDoq52BCcBGXlkAAAAAwSDng7+t8V9D5kfge0IGWw==;
+      Set-Cookie: ['visid_incap_673446=C1QutbGkShyKeEd4UDpAiX83TFkAAAAAQUIPAAAAAACq0CrKPBeWw0TjNlVLLit8;
+          expires=Fri, 22 Jun 2018 06:06:34 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=rV/lJNUNkihZ/jdL6lKYhQAAAACKUDXV2rWUt4q9PObJ3nyN; path=/; Domain=.contentful.com,
+        incap_ses_297_673446=xMJJW2VXaV/ouGt3mSgfBH83TFkAAAAA2heu6dEwDcfp3IrqRucCqA==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35987']
+      X-Contentful-RateLimit-Hour-Remaining: ['35991']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
-      X-Contentful-RateLimit-Second-Remaining: ['8']
-      X-Contentful-Request-Id: [8b3701393bc6f9c2cea2b252f6d92e62]
-      X-Iinfo: [4-2591788-2591009 PNNN RT(1499350719888 143) q(0 0 0 -1) r(2 2) U5]
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [2a295c0edfeac12ebb1584cca9bb1e77]
+      X-Iinfo: [5-17076094-17076105 NNNN CT(133 136 0) RT(1498167163635 124) q(0 0
+          3 -1) r(36 36) U5]
       accept-ranges: [bytes]
       cache-control: [no-cache]
       cf-space-id: [orzkxlxlq59d]

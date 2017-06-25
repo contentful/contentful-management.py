@@ -4,6 +4,7 @@ from .space import Space
 from .organization import Organization
 from .content_type import ContentType
 from .webhook import Webhook
+from .webhook_call import WebhookCall
 from .locale import Locale
 from .role import Role
 from .editor_interface import EditorInterface
@@ -53,6 +54,8 @@ class ResourceBuilder(object):
             'Locale': Locale,
             'EditorInterface': EditorInterface,
             'WebhookDefinition': Webhook,
+            'WebhookCallOverview': WebhookCall,
+            'WebhookCallDetails': WebhookCall,
             'Role': Role,
             'Snapshot': Snapshot,
             'Upload': Upload
@@ -66,3 +69,4 @@ class ResourceBuilder(object):
                 default_locale=self.default_locale,
                 client=self.client
             )
+        raise Exception("Resource not buildable")

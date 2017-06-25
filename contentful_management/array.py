@@ -39,4 +39,3 @@ class Array(object):
             self.limit,
             self.skip
         )
-

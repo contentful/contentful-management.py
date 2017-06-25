@@ -1,4 +1,4 @@
-.PHONY: clean-pyc clean-build docs clean
+.PHONY: coverage
 
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
@@ -21,6 +21,7 @@ help:
 	@echo "test - run tests quickly with the default Python"
 	@echo "test-all - run tests on every Python version with tox"
 	@echo "coverage - check code coverage quickly with the default Python"
+	@echo "watch - run code coverage whenever a file changes with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
 	@echo "dist - package"
@@ -52,7 +53,7 @@ test:
 test-all:
 	tox
 
-coverage:
+coverage: lint
 	coverage run --source contentful_management setup.py test
 	coverage report -m
 

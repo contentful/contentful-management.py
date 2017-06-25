@@ -26,6 +26,13 @@ class WebhookTest(TestCase):
 
         self.assertEqual(str(webhook), "<Webhook[Testhook] id='foo'>")
 
+    def test_webhook_calls(self):
+        webhook = Webhook(WEBHOOK_ITEM)
+
+        calls_proxy = webhook.calls()
+
+        self.assertEqual(str(calls_proxy), "<WebhookWebhooksCallProxy space_id='foobar' webhook_id='foo'>")
+
     def test_webhook_to_json(self):
         webhook = Webhook(WEBHOOK_ITEM)
 
@@ -88,7 +95,7 @@ class WebhookTest(TestCase):
         self.assertEqual(webhook.name, 'Not Klingon')
 
     @vcr.use_cassette('fixtures/webhook/find_2.yaml')
-    def _test_delete_webhook(self):
+    def test_delete_webhook(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).find('2xzNZ8gOsq0sz4ueoytkeW')
 
         with vcr.use_cassette('fixtures/webhook/delete.yaml'):
