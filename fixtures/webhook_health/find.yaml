@@ -4,7 +4,7 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-fc47e13307c8243e01427a76917a69f2fe00da457f382a2be5b47cd328011cda]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]

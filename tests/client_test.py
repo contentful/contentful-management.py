@@ -13,7 +13,22 @@ class ClientTest(TestCase):
     def test_client_snapshots(self):
         proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'foo')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy space_id='{0}' entry_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+
+    def test_client_snapshots_content_type(self):
+        proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'foo', 'content_types')
+
+        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+
+    def test_client_entry_snapshots(self):
+        proxy = CLIENT.entry_snapshots(PLAYGROUND_SPACE, 'foo')
+
+        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+
+    def test_client_content_type_snapshots(self):
+        proxy = CLIENT.content_type_snapshots(PLAYGROUND_SPACE, 'foo')
+
+        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):
@@ -58,12 +73,12 @@ class ClientTest(TestCase):
     def test_gzip_headers_enabled(self):
         client = Client(PLAYGROUND_SPACE, raise_errors=False)
 
-        self.assertEquals(client._request_headers()['Accept-Encoding'], 'gzip')
+        self.assertEqual(client._request_headers()['Accept-Encoding'], 'gzip')
 
     def test_gzip_headers_disabled(self):
         client = Client(PLAYGROUND_SPACE, gzip_encoded=False, raise_errors=False)
 
-        self.assertEquals(client._request_headers()['Accept-Encoding'], 'identity')
+        self.assertEqual(client._request_headers()['Accept-Encoding'], 'identity')
 
     # X-Contentful-User-Agent Headers
 

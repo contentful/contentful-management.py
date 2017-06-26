@@ -25,7 +25,7 @@ class WebhookWebhooksHealthProxyTest(TestCase):
 
         webhook_health = proxy.find()
 
-        self.assertEquals(str(webhook_health), "<WebhookHealth[16ypL3XjNK6oreLPPoVBxI] total=151 healthy=151>")
+        self.assertEqual(str(webhook_health), "<WebhookHealth[16ypL3XjNK6oreLPPoVBxI] total=151 healthy=151>")
 
     @vcr.use_cassette('fixtures/webhook_health/find.yaml')
     def test_webhook_webhooks_health_proxy_find(self):
@@ -33,4 +33,4 @@ class WebhookWebhooksHealthProxyTest(TestCase):
 
         webhook_health = proxy.find()
 
-        self.assertEquals(str(webhook_health), "<WebhookHealth[16ypL3XjNK6oreLPPoVBxI] total=151 healthy=151>")
+        self.assertEqual(str(webhook_health), "<WebhookHealth[16ypL3XjNK6oreLPPoVBxI] total=151 healthy=151>")

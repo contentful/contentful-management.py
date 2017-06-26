@@ -4,7 +4,7 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
@@ -58,24 +58,24 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['2541']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:16 GMT']
+      Date: ['Mon, 26 Jun 2017 17:11:58 GMT']
       ETag: ['"c483101201275f9b2cbbfc3af8d823c1"']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=Lb5xe5TCRKqW6yXRkrVUqKJGXlkAAAAAQUIPAAAAAAA8EGHduRz2Oc8JQyX1hziy;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=A0tpY3mtnHv6NMKf6lKYhQAAAABZDQDFMdfUvQvj7QU7yaov; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=ug+NGivAlACwN6Doq52BCadGXlkAAAAAjtxpyaukto4YqMbvUkk9gA==;
+      Set-Cookie: ['visid_incap_673446=RfHchLcNRIm5N0rlXTLL9l5AUVkAAAAAQUIPAAAAAADe4sBNLWdtR9bNFtYfY28q;
+          expires=Tue, 26 Jun 2018 16:51:48 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=zLdhBoS71Xv9AX7Q6lKYhQAAAAAq+zyZr2tRHNE03/IOXqlT; path=/; Domain=.contentful.com,
+        incap_ses_684_673446=CmlvcNnruyMXkqDT9xB+CV5AUVkAAAAA++hMiQMQX6T2K623KlEdyA==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35999']
+      X-Contentful-RateLimit-Hour-Remaining: ['35966']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [1ccb1437a7f546ba4e6968d08dbdf799]
-      X-Iinfo: [9-2823300-2823320 NNNN CT(139 287 0) RT(1499350690658 100) q(0 0 4
-          1) r(51 51) U5]
+      X-Contentful-Request-Id: [c082deb8445a16fdcda54e209b90de21]
+      X-Iinfo: [9-224869-225003 NNNN CT(143 139 0) RT(1498497117005 582) q(0 0 3 -1)
+          r(6 6) U5]
     status: {code: 200, message: OK}
 version: 1

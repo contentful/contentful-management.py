@@ -317,7 +317,7 @@ class Client(object):
 
         return EditorInterfacesProxy(self, space_id, content_type_id)
 
-    def snapshots(self, space_id, entry_id):
+    def snapshots(self, space_id, resource_id, resource_kind='entries'):
         """Provides access to Snapshot management methods
 
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
@@ -327,11 +327,46 @@ class Client(object):
 
         Usage:
 
-            >>> snapshots_proxy = client.snapshots('cfexampleapi', 'nyancat')
-            <SnapshotsProxy space_id="cfexampleapi" entry_id="nyancat">
+            >>> entry_snapshots_proxy = client.snapshots('cfexampleapi', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+
+            >>> content_type_snapshots_proxy = client.snapshots('cfexampleapi', 'cat', 'content_types')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
         """
 
-        return SnapshotsProxy(self, space_id, entry_id)
+        return SnapshotsProxy(self, space_id, resource_id, resource_kind)
+
+    def entry_snapshots(self, space_id, entry_id):
+        """Provides access to Snapshot management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+
+        :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
+        :rtype: contentful.snapshots_proxy.SnapshotsProxy
+
+        Usage:
+
+            >>> entry_snapshots_proxy = client.entry_snapshots('cfexampleapi', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+        """
+
+        return SnapshotsProxy(self, space_id, entry_id, 'entries')
+
+    def content_type_snapshots(self, space_id, content_type_id):
+        """Provides access to Snapshot management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+
+        :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
+        :rtype: contentful.snapshots_proxy.SnapshotsProxy
+
+        Usage:
+
+            >>> content_type_snapshots_proxy = client.content_type_snapshots('cfexampleapi', 'cat')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
+        """
+
+        return SnapshotsProxy(self, space_id, content_type_id, 'content_types')
 
     def uploads(self, space_id):
         """Provides access to Upload management methods

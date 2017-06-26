@@ -19,7 +19,7 @@ class EntryResourceProxy(object):
         return "<{0} space_id='{1}' entry_id='{2}'>".format(
             self.__class__.__name__,
             self.proxy.space_id,
-            self.proxy.entry_id
+            self.proxy.parent_resource_id
         )
 
     def _resource_proxy_class(self):
