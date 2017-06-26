@@ -76,3 +76,11 @@ class UploadTest(TestCase):
         upload = CLIENT.uploads(PLAYGROUND_SPACE).find('3pF6ACckKKcB3P60zeszce')
 
         self.assertEqual(upload.id, '3pF6ACckKKcB3P60zeszce')
+
+    @vcr.use_cassette('fixtures/upload/delete.yaml')
+    def test_delete_upload(self):
+        upload = CLIENT.uploads(PLAYGROUND_SPACE).create('README.rst')
+        CLIENT.uploads(PLAYGROUND_SPACE).delete(upload.id)
+
+        with self.assertRaises(NotFoundError):
+            CLIENT.uploads(PLAYGROUND_SPACE).find(upload.id)

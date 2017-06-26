@@ -342,19 +342,19 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Length: ['18991']
       Content-Type: [application/octet-stream]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
     method: POST
     uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads
   response:
-    body: {string: "{\n  \"sys\": {\n    \"id\": \"2RDktfh9rAZjtE4Cdov27d\",\n    \"type\":
-        \"Upload\",\n    \"createdAt\": \"2017-07-06T14:18:38.000Z\",\n    \"expiresAt\":
-        \"2017-07-08T00:00:00.000Z\",\n    \"space\": {\n      \"sys\": {\n        \"type\":
+    body: {string: "{\n  \"sys\": {\n    \"id\": \"01MRWtgnfwegImSG9Z8x0s\",\n    \"type\":
+        \"Upload\",\n    \"createdAt\": \"2017-06-26T15:40:33.000Z\",\n    \"expiresAt\":
+        \"2017-06-28T00:00:00.000Z\",\n    \"space\": {\n      \"sys\": {\n        \"type\":
         \"Link\",\n        \"linkType\": \"Space\",\n        \"id\": \"facgnwwgj5fe\"\n
         \     }\n    },\n    \"createdBy\": {\n      \"sys\": {\n        \"type\":
         \"Link\",\n        \"linkType\": \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n
@@ -366,11 +366,11 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['432']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:37 GMT']
+      Date: ['Mon, 26 Jun 2017 15:40:32 GMT']
       Server: [Contentful]
       Strict-Transport-Security: [max-age=15768000]
       X-Content-Type-Options: [nosniff]
-      X-Contentful-Request-Id: [12074e0ce41938a8fd9dd2d8f11db910]
+      X-Contentful-Request-Id: [331a40d4bac776265507617ba6e7e3b4]
       cache-control: [no-cache]
       vary: [accept-encoding]
     status: {code: 201, message: Created}
@@ -379,15 +379,15 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
     method: DELETE
-    uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads/2RDktfh9rAZjtE4Cdov27d
+    uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads/01MRWtgnfwegImSG9Z8x0s
   response:
     body: {string: ''}
     headers:
@@ -396,11 +396,11 @@ interactions:
       Access-Control-Expose-Headers: [Etag]
       Connection: [keep-alive]
       Content-Type: [application/octet-stream]
-      Date: ['Thu, 06 Jul 2017 14:18:38 GMT']
+      Date: ['Mon, 26 Jun 2017 15:40:33 GMT']
       Server: [Contentful]
       Strict-Transport-Security: [max-age=15768000]
       X-Content-Type-Options: [nosniff]
-      X-Contentful-Request-Id: [1e5c91fc735f9094268d24109a5cdecf]
+      X-Contentful-Request-Id: [83c3da3bcdbc5b79c18ca5d351405a0e]
       cache-control: [no-cache]
     status: {code: 204, message: No Content}
 - request:
@@ -408,14 +408,14 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
     method: GET
-    uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads/2RDktfh9rAZjtE4Cdov27d
+    uri: https://upload.contentful.com/spaces/facgnwwgj5fe/uploads/01MRWtgnfwegImSG9Z8x0s
   response:
     body: {string: "{\n  \"sys\": {\n    \"type\": \"Error\",\n    \"id\": \"NotFound\"\n
         \ },\n  \"message\": \"The resource could not be found.\",\n  \"details\":
@@ -427,11 +427,11 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['158']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:39 GMT']
+      Date: ['Mon, 26 Jun 2017 15:40:38 GMT']
       Server: [Contentful]
       Strict-Transport-Security: [max-age=15768000]
       X-Content-Type-Options: [nosniff]
-      X-Contentful-Request-Id: [8305a5847b7dba9cb9a57558cc02c4a1]
+      X-Contentful-Request-Id: [769db4d0bc70b3ce081ce876641dc6aa]
       cache-control: [no-cache]
       vary: [accept-encoding]
     status: {code: 404, message: Not Found}

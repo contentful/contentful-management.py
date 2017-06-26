@@ -226,7 +226,7 @@ class Client(object):
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
 
         :return: :class:`WebhooksProxy <contentful_management.locales_proxy.WebhooksProxy>` object.
-        :rtype: contentful.locales_proxy.WebhooksProxy
+        :rtype: contentful.webhooks_proxy.WebhooksProxy
 
         Usage:
 
@@ -241,8 +241,8 @@ class Client(object):
 
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
 
-        :return: :class:`WebhooksProxy <contentful_management.locales_proxy.WebhooksProxy>` object.
-        :rtype: contentful.locales_proxy.WebhooksProxy
+        :return: :class:`WebhooksProxy <contentful_management.webhooks_call_proxy.WebhooksCallProxy>` object.
+        :rtype: contentful.webhooks_call_proxy.WebhooksProxy
 
         Usage:
 
