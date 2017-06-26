@@ -124,6 +124,7 @@ def base_path_for(resource_name):
         'Organization': 'organizations',
         'WebhookCall': 'webhooks',
         'WebhookHealth': 'webhooks',
+        'UIExtension': 'extensions'
     }[resource_name]
 
 

@@ -8,6 +8,7 @@ from .webhook_call import WebhookCall
 from .webhook_health import WebhookHealth
 from .locale import Locale
 from .role import Role
+from .ui_extension import UIExtension
 from .editor_interface import EditorInterface
 from .api_key import ApiKey
 from .snapshot import Snapshot
@@ -59,6 +60,7 @@ class ResourceBuilder(object):
             'WebhookCallDetails': WebhookCall,
             'Webhook': WebhookHealth,
             'Role': Role,
+            'UIExtension': UIExtension,
             'Snapshot': Snapshot,
             'Upload': Upload
         }

@@ -11,6 +11,7 @@ from .entries_proxy import EntriesProxy
 from .assets_proxy import AssetsProxy
 from .api_keys_proxy import ApiKeysProxy
 from .roles_proxy import RolesProxy
+from .ui_extensions_proxy import UIExtensionsProxy
 from .webhooks_proxy import WebhooksProxy
 from .webhooks_call_proxy import WebhooksCallProxy
 from .webhooks_health_proxy import WebhooksHealthProxy
@@ -300,6 +301,22 @@ class Client(object):
         """
 
         return RolesProxy(self, space_id)
+
+    def ui_extensions(self, space_id):
+        """Provides access to UI Extensions management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+
+        :return: :class:`UIExtensionsProxy <contentful_management.ui_extensions_proxy.UIExtensionsProxy>` object.
+        :rtype: contentful.ui_extensions_proxy.UIExtensionsProxy
+
+        Usage:
+
+            >>> ui_extensions_proxy = client.ui_extensions('cfexampleapi')
+            <UIExtensionsProxy space_id="cfexampleapi">
+        """
+
+        return UIExtensionsProxy(self, space_id)
 
     def editor_interfaces(self, space_id, content_type_id):
         """Provides access to Editor Interfaces management methods
