@@ -33,6 +33,13 @@ class WebhookTest(TestCase):
 
         self.assertEqual(str(calls_proxy), "<WebhookWebhooksCallProxy space_id='foobar' webhook_id='foo'>")
 
+    def test_webhook_health(self):
+        webhook = Webhook(WEBHOOK_ITEM)
+
+        health_proxy = webhook.health()
+
+        self.assertEqual(str(health_proxy), "<WebhookWebhooksHealthProxy space_id='foobar' webhook_id='foo'>")
+
     def test_webhook_to_json(self):
         webhook = Webhook(WEBHOOK_ITEM)
 

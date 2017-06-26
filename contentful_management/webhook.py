@@ -1,5 +1,6 @@
 from .resource import Resource
 from .webhook_webhooks_call_proxy import WebhookWebhooksCallProxy
+from .webhook_webhooks_health_proxy import WebhookWebhooksHealthProxy
 
 
 """
@@ -64,6 +65,21 @@ class Webhook(Resource):
             <WebhookWebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
         return WebhookWebhooksCallProxy(self._client, self.sys['space'].id, self.sys['id'])
+
+    def health(self):
+        """Provides access to Health overview for the given webhook
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+
+        :return: :class:`WebhookWebhooksHealthProxy <contentful_management.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy>` object.
+        :rtype: contentful.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy
+
+        Usage:
+
+            >>> webhook_webhooks_health_proxy = entry.health()
+            <WebhookWebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+        return WebhookWebhooksHealthProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def to_json(self):
         """Returns the JSON Representation of the Resource"""

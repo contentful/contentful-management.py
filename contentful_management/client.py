@@ -13,6 +13,7 @@ from .api_keys_proxy import ApiKeysProxy
 from .roles_proxy import RolesProxy
 from .webhooks_proxy import WebhooksProxy
 from .webhooks_call_proxy import WebhooksCallProxy
+from .webhooks_health_proxy import WebhooksHealthProxy
 from .locales_proxy import LocalesProxy
 from .editor_interfaces_proxy import EditorInterfacesProxy
 from .snapshots_proxy import SnapshotsProxy
@@ -251,6 +252,22 @@ class Client(object):
         """
 
         return WebhooksCallProxy(self, space_id, webhook_id)
+
+    def webhook_health(self, space_id, webhook_id):
+        """Provides access to Webhooks Health information
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+
+        :return: :class:`WebhooksHealthProxy <contentful_management.webhooks_health_proxy.WebhooksHealthProxy>` object.
+        :rtype: contentful.webhooks_health_proxy.WebhooksHealthProxy
+
+        Usage:
+
+            >>> webhooks_health_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
+            <WebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+
+        return WebhooksHealthProxy(self, space_id, webhook_id)
 
     def api_keys(self, space_id):
         """Provides access to Api Keys management methods

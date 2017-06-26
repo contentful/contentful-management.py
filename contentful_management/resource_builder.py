@@ -5,6 +5,7 @@ from .organization import Organization
 from .content_type import ContentType
 from .webhook import Webhook
 from .webhook_call import WebhookCall
+from .webhook_health import WebhookHealth
 from .locale import Locale
 from .role import Role
 from .editor_interface import EditorInterface
@@ -56,6 +57,7 @@ class ResourceBuilder(object):
             'WebhookDefinition': Webhook,
             'WebhookCallOverview': WebhookCall,
             'WebhookCallDetails': WebhookCall,
+            'Webhook': WebhookHealth,
             'Role': Role,
             'Snapshot': Snapshot,
             'Upload': Upload

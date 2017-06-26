@@ -4,12 +4,12 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [os macOS/16.5.0; sdk contentful-management.py/1.3.1;
+          platform python/3.5.2;]
     method: GET
     uri: https://api.contentful.com/spaces/orzkxlxlq59d/webhooks/16ypL3XjNK6oreLPPoVBxI/health
   response:
@@ -18,8 +18,8 @@ interactions:
         \       \"linkType\": \"Space\",\n        \"id\": \"orzkxlxlq59d\"\n      }\n
         \   },\n    \"createdBy\": {\n      \"sys\": {\n        \"type\": \"Link\",\n
         \       \"linkType\": \"WebhookDefinition\",\n        \"id\": \"16ypL3XjNK6oreLPPoVBxI\"\n
-        \     }\n    }\n  },\n  \"calls\": {\n    \"total\": 168,\n    \"healthy\":
-        168\n  }\n}"}
+        \     }\n    }\n  },\n  \"calls\": {\n    \"total\": 151,\n    \"healthy\":
+        151\n  }\n}"}
     headers:
       Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
       Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
@@ -29,23 +29,24 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['411']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:41 GMT']
+      Date: ['Mon, 26 Jun 2017 14:53:56 GMT']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=+QLF9VkTR8Wc6uBNJZUvf8BGXlkAAAAAQUIPAAAAAADbiLorzqcVnBfJrD0Jzddw;
-          expires=Fri, 06 Jul 2018 04:34:30 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=2WOKKtYs3Vu+fmca6lKYhQAAAACNJ8HjX9eHuVeJf0vWmdM3; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=QUkxYjYBc01EX6Doq52BCcBGXlkAAAAA+OqrslW0/GM1y8l7eTXI8A==;
+      Set-Cookie: ['visid_incap_673446=MDg/Gq8+SZuVTzgyGcx3iv8fUVkAAAAAQUIPAAAAAABDObtX11eTEFehYZaG+1SV;
+          expires=Mon, 25 Jun 2018 15:12:22 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=viKcNv+0llaFBpRV6lKYhQAAAABYBuixvF3AzIZ9nPk571M/; path=/; Domain=.contentful.com,
+        incap_ses_684_673446=NGYtbiOf9jTtw2iA9RB+CQQgUVkAAAAAmTi1MtMhdmMvCrtQGTDKiQ==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35986']
+      X-Contentful-RateLimit-Hour-Remaining: ['35999']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [2b351d489a40c828e224d6c3e20c6322]
-      X-Iinfo: [10-3347960-3346750 PNNN RT(1499350720631 115) q(0 0 0 -1) r(2 2) U5]
+      X-Contentful-Request-Id: [a61f34214b629f6f44626e44036fa0f2]
+      X-Iinfo: [4-7929868-7929974 NNNN CT(140 139 0) RT(1498488830438 692) q(0 0 3
+          2) r(49 49) U5]
       accept-ranges: [bytes]
       cache-control: [no-cache]
       cf-space-id: [orzkxlxlq59d]
