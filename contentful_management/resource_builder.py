@@ -11,6 +11,7 @@ from .role import Role
 from .ui_extension import UIExtension
 from .editor_interface import EditorInterface
 from .api_key import ApiKey
+from .personal_access_token import PersonalAccessToken
 from .snapshot import Snapshot
 from .upload import Upload
 from .array import Array
@@ -53,6 +54,7 @@ class ResourceBuilder(object):
             'Space': Space,
             'Organization': Organization,
             'ApiKey': ApiKey,
+            'PersonalAccessToken': PersonalAccessToken,
             'Locale': Locale,
             'EditorInterface': EditorInterface,
             'WebhookDefinition': Webhook,

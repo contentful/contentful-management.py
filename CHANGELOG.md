@@ -3,6 +3,10 @@
 ## Unreleased
 ### Added
 * Added Organizations Endpoint.
+* Added Webhook Calls and Health Endpoints.
+* Added Content Type Snapshots Endpoints.
+* Added UI Extensions Endpoints.
+* Added Personal Access Tokens Endpoints.
 
 ## v1.3.2
 

@@ -10,6 +10,7 @@ from .content_types_proxy import ContentTypesProxy
 from .entries_proxy import EntriesProxy
 from .assets_proxy import AssetsProxy
 from .api_keys_proxy import ApiKeysProxy
+from .personal_access_tokens_proxy import PersonalAccessTokensProxy
 from .roles_proxy import RolesProxy
 from .ui_extensions_proxy import UIExtensionsProxy
 from .webhooks_proxy import WebhooksProxy
@@ -285,6 +286,22 @@ class Client(object):
         """
 
         return ApiKeysProxy(self, space_id)
+
+    def personal_access_tokens(self):
+        """Provides access to Personal Access Tokens management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+
+        :return: :class:`PersonalAccessTokensProxy <contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy>` object.
+        :rtype: contentful.personal_access_tokens_proxy.PersonalAccessTokensProxy
+
+        Usage:
+
+            >>> personal_access_tokens_proxy = client.personal_access_tokens()
+            <PersonalAccessTokensProxy>
+        """
+
+        return PersonalAccessTokensProxy(self)
 
     def roles(self, space_id):
         """Provides access to Roles management methods
