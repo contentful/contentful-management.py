@@ -119,11 +119,7 @@ def base_path_for(resource_name):
         'Locale': 'locales',
         'Webhook': 'webhook_definitions',
         'Role': 'roles',
-        'Snapshot': 'snapshots',
         'Upload': 'uploads',
-        'Organization': 'organizations',
-        'WebhookCall': 'webhooks',
-        'WebhookHealth': 'webhooks',
         'UIExtension': 'extensions'
     }[resource_name]
 
