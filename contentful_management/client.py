@@ -6,6 +6,7 @@ from .utils import ConfigurationException, retry_request
 from .errors import get_error, RateLimitExceededError
 from .spaces_proxy import SpacesProxy
 from .organizations_proxy import OrganizationsProxy
+from .users_proxy import UsersProxy
 from .content_types_proxy import ContentTypesProxy
 from .entries_proxy import EntriesProxy
 from .assets_proxy import AssetsProxy
@@ -148,7 +149,7 @@ class Client(object):
 
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
 
-        :return: :class:`OrganizationsProxy <contentful_management.spaces_proxy.OrganizationsProxy>` object.
+        :return: :class:`OrganizationsProxy <contentful_management.organizations_proxy.OrganizationsProxy>` object.
         :rtype: contentful.organizations_proxy.OrganizationsProxy
 
         Usage:
@@ -158,6 +159,22 @@ class Client(object):
         """
 
         return OrganizationsProxy(self)
+
+    def users(self):
+        """Provides access to User management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
+
+        :return: :class:`UsersProxy <contentful_management.users_proxy.UsersProxy>` object.
+        :rtype: contentful.users_proxy.UsersProxy
+
+        Usage:
+
+            >>> users_proxy = client.UsersProxy()
+            <UsersProxy>
+        """
+
+        return UsersProxy(self)
 
     def content_types(self, space_id):
         """Provides access to Content Types management methods

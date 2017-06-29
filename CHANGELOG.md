@@ -7,6 +7,7 @@
 * Added Content Type Snapshots Endpoints.
 * Added UI Extensions Endpoints.
 * Added Personal Access Tokens Endpoints.
+* Added Users Endpoint.
 
 ## v1.3.2
 

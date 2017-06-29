@@ -14,6 +14,7 @@ from .api_key import ApiKey
 from .personal_access_token import PersonalAccessToken
 from .snapshot import Snapshot
 from .upload import Upload
+from .user import User
 from .array import Array
 
 
@@ -64,7 +65,8 @@ class ResourceBuilder(object):
             'Role': Role,
             'Extension': UIExtension,
             'Snapshot': Snapshot,
-            'Upload': Upload
+            'Upload': Upload,
+            'User': User
         }
 
         item_type = item['sys']['type']

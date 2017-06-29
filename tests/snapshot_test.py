@@ -93,10 +93,6 @@ CONTENT_TYPE_SNAPSHOT_ITEM = {
 }
 
 class SnapshotTest(TestCase):
-    def __init__(self, *args, **kwargs):
-        super(SnapshotTest, self).__init__(*args, **kwargs)
-        self.maxDiff = None
-
     def test_snapshot(self):
         entry_snapshot = Snapshot(ENTRY_SNAPSHOT_ITEM)
         self.assertEqual(str(entry_snapshot), "<Snapshot[Entry] id='foo'>")

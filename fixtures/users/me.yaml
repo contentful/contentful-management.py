@@ -4,12 +4,12 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [os macOS/16.5.0; sdk contentful-management.py/1.3.1;
+          platform python/3.5.2;]
     method: GET
     uri: https://api.contentful.com/users/me
   response:
@@ -30,21 +30,21 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['392']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:39 GMT']
+      Date: ['Thu, 29 Jun 2017 17:46:26 GMT']
       ETag: [W/"369a5555c2dbb33ba2c7a0a7f38ad30f"]
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=8GA2y2J1TJqXuwjqSO4XAL9GXlkAAAAAQUIPAAAAAADm6/FttuB2ScOm/Dh6kNOm;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=9htkISLlJQTmSqMH6lKYhQAAAADw36Fxjsk/IcFy89xvCHpd; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=vtrAAfYM+X8HXaDoq52BCb9GXlkAAAAADUUzvEZe2JzzucESZcXrHQ==;
+      Set-Cookie: ['visid_incap_673446=zHS+3DXNR32yjY4U+508WPE8VVkAAAAAQUIPAAAAAAAqlomPbWCx4aTB/uM3Yh03;
+          expires=Fri, 29 Jun 2018 08:43:46 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=GfbdGEjxPgIcbiML6lKYhQAAAADc5piJJ6MJCbAwq94cyQja; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=VEuNS34/kTV9ywuXqZ2BCfE8VVkAAAAAQNKnXlb9KLdtv6i4xyLgXw==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
-      X-Contentful-Request-Id: [580d2c0b1957892a7983f97afe871001]
+      X-Contentful-Request-Id: [9c86ccfb88357fe0669af251b56afb4e]
       X-Frame-Options: [ALLOWALL]
-      X-Iinfo: [5-2995274-2995290 NNNN CT(0 0 0) RT(1499350718996 131) q(0 0 0 -1)
-          r(2 2) U5]
+      X-Iinfo: [10-30909098-30909124 NNNN CT(133 134 0) RT(1498758385095 103) q(0
+          0 3 0) r(5 5) U5]
       X-XSS-Protection: [1; mode=block]
     status: {code: 200, message: OK}
 version: 1

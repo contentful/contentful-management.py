@@ -134,8 +134,6 @@ class UIExtensionTest(TestCase):
         self.assertEqual(ui_extension_srcdoc.extension['srcdoc'], '<html>foo</html>')
 
     def test_ui_extension_to_json(self):
-        self.maxDiff = None
-
         ui_extension_src = UIExtension(UI_EXTENSION_ITEM_SRC)
 
         self.assertEqual(ui_extension_src.to_json(), {
