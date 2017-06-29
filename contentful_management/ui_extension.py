@@ -1,4 +1,5 @@
 from .resource import Resource
+from copy import deepcopy
 
 
 """
@@ -21,15 +22,16 @@ class UIExtension(Resource):
 
     def __init__(self, item, **kwargs):
         super(UIExtension, self).__init__(item, **kwargs)
-        self.extension = item.get('extension', {})
+        self.extension = deepcopy(item.get('extension', {}))
 
     @property
     def source(self):
-        return self.extension.get('src', '')
+        return self.extension.get('src', '') or self.extension.get('srcdoc', '')
 
     @source.setter
     def source(self, value):
-        self.extension['src'] = value
+        key = 'src' if value.startswith('http') else 'srcdoc'
+        self.extension[key] = value
 
     @property
     def name(self):

@@ -30,6 +30,11 @@ class ClientTest(TestCase):
 
         self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
+    def test_client_ui_extensions(self):
+        proxy = CLIENT.ui_extensions(PLAYGROUND_SPACE)
+
+        self.assertEqual(str(proxy), "<UIExtensionsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):
             Client(None)

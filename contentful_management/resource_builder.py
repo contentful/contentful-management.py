@@ -62,7 +62,7 @@ class ResourceBuilder(object):
             'WebhookCallDetails': WebhookCall,
             'Webhook': WebhookHealth,
             'Role': Role,
-            'UIExtension': UIExtension,
+            'Extension': UIExtension,
             'Snapshot': Snapshot,
             'Upload': Upload
         }

@@ -4,13 +4,12 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Length: ['0']
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
-          os macOS/16.5.0;]
+      X-Contentful-User-Agent: [platform python/3.5.2; os macOS/16.5.0; sdk contentful-management.py/1.3.1;]
     method: DELETE
     uri: https://api.contentful.com/spaces/facgnwwgj5fe/extensions/test-extension
   response:
@@ -24,22 +23,23 @@ interactions:
       CF-Space-Id: [facgnwwgj5fe]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:34 GMT']
+      Date: ['Thu, 29 Jun 2017 16:21:39 GMT']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=Mi0EMf6GQAeR1mCtt6HH5LlGXlkAAAAAQUIPAAAAAAAGrL0ZyBqREndGCB46pOC7;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=NJ5ELfEBjAsz5M+36lKYhQAAAACeDgA+5saku2EZjbngE9R9; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=s2YsNP7k7ma8VaDoq52BCblGXlkAAAAAgwBXKKccA4JLDeNjpL72Bg==;
+      Set-Cookie: ['visid_incap_673446=u7A+z5VcQEaQdxtzWoziOxMpVVkAAAAAQUIPAAAAAABASjGuxGFskP7prSB7kCYz;
+          expires=Fri, 29 Jun 2018 08:43:47 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=5AUvcws+9kC968d36lKYhQAAAAD2eO8EYoCsP1/FCXVlAGau; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=O7wfYTy3Vy+/H/KWqZ2BCRMpVVkAAAAAlHgm63ti+pGrGqNjlBZZkQ==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35991']
+      X-Contentful-RateLimit-Hour-Remaining: ['35989']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [001344975f44412ab09abaa8c22d8ecb]
-      X-Iinfo: [9-2827939-2823320 PNNN RT(1499350713252 124) q(0 0 0 -1) r(3 3) U5]
+      X-Contentful-Request-Id: [5aa4d8c203127b6460a00c0553e91454]
+      X-Iinfo: [3-20150069-20150094 NNNN CT(134 267 0) RT(1498753298336 154) q(0 0
+          4 -1) r(9 9) U5]
     status: {code: 204, message: No Content}
 version: 1

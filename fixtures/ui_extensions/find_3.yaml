@@ -4,7 +4,7 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
@@ -13,15 +13,15 @@ interactions:
     method: GET
     uri: https://api.contentful.com/spaces/facgnwwgj5fe/extensions/test-extension
   response:
-    body: {string: "{\n  \"extension\": {\n    \"name\": \"Test Extension\",\n    \"fieldTypes\":
-        [\n      {\n        \"type\": \"Symbol\"\n      }\n    ],\n    \"srcdoc\":
-        \"<html>foobar</html>\",\n    \"sidebar\": false\n  },\n  \"sys\": {\n    \"id\":
-        \"test-extension\",\n    \"type\": \"Extension\",\n    \"version\": 1,\n    \"createdAt\":
-        \"2017-07-06T14:18:29.527Z\",\n    \"createdBy\": {\n      \"sys\": {\n        \"type\":
+    body: {string: "{\n  \"extension\": {\n    \"fieldTypes\": [\n      {\n        \"type\":
+        \"Symbol\"\n      }\n    ],\n    \"srcdoc\": \"<html>foobar</html>\",\n    \"name\":
+        \"Update Test Extension\",\n    \"sidebar\": false\n  },\n  \"sys\": {\n    \"id\":
+        \"test-extension\",\n    \"type\": \"Extension\",\n    \"version\": 2,\n    \"createdAt\":
+        \"2017-06-29T16:16:07.774Z\",\n    \"createdBy\": {\n      \"sys\": {\n        \"type\":
         \"Link\",\n        \"linkType\": \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n
         \     }\n    },\n    \"space\": {\n      \"sys\": {\n        \"type\": \"Link\",\n
         \       \"linkType\": \"Space\",\n        \"id\": \"facgnwwgj5fe\"\n      }\n
-        \   },\n    \"updatedAt\": \"2017-07-06T14:18:29.527Z\",\n    \"updatedBy\":
+        \   },\n    \"updatedAt\": \"2017-06-29T16:19:13.555Z\",\n    \"updatedBy\":
         {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"User\",\n
         \       \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    }\n  }\n}\n"}
     headers:
@@ -32,26 +32,26 @@ interactions:
       Access-Control-Max-Age: ['1728000']
       CF-Space-Id: [facgnwwgj5fe]
       Connection: [keep-alive]
-      Content-Length: ['764']
+      Content-Length: ['771']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:33 GMT']
-      ETag: ['"eb2d1da83597d03674bf2c4f8f212ee0"']
+      Date: ['Thu, 29 Jun 2017 16:19:14 GMT']
+      ETag: ['"5a2bb142a88ce6f18541121a29ff9612"']
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=sriLsDQZSuun6HTsXJUTkblGXlkAAAAAQUIPAAAAAACMgofA5smZMHkfjz3s/kZk;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=o7/KCGuT02qRzDgJ6lKYhQAAAAAPI+fJTV53Dyh+IDnEGBaZ; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=TjXveCy/+3sYVaDoq52BCblGXlkAAAAAh4oV2Yj8qUf8qyVdqTZ9tA==;
+      Set-Cookie: ['visid_incap_673446=/mon7+qrSDSf7QkdmQBR6IIoVVkAAAAAQUIPAAAAAAAe3s270yhg2cDRja83UHY7;
+          expires=Fri, 29 Jun 2018 08:43:46 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=fl2gWz4MZGZoOHIj6lKYhQAAAADAIgsBGoqo5XmCNElwmeMT; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=gs7kcA5IsUHRivGWqZ2BCYIoVVkAAAAA34x0qkFBtzsabq3XV7LDig==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35992']
+      X-Contentful-RateLimit-Hour-Remaining: ['35990']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [2c7bfb8c66512f24f1a9a44bc193b0dd]
-      X-Iinfo: [1-869950-869996 NNNN CT(0 0 0) RT(1499350709187 114) q(0 0 0 -1) r(38
-          38) U5]
+      X-Contentful-Request-Id: [da0b743cd16845ac2f952bbab6fdee57]
+      X-Iinfo: [8-23350517-23350538 NNNN CT(140 140 0) RT(1498753153678 128) q(0 0
+          2 -1) r(5 5) U5]
     status: {code: 200, message: OK}
 version: 1
