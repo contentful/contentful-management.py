@@ -1,6 +1,7 @@
 from .entry import Entry
 from .asset import Asset
 from .space import Space
+from .space_membership import SpaceMembership
 from .organization import Organization
 from .content_type import ContentType
 from .webhook import Webhook
@@ -53,6 +54,7 @@ class ResourceBuilder(object):
             'Asset': Asset,
             'ContentType': ContentType,
             'Space': Space,
+            'SpaceMembership': SpaceMembership,
             'Organization': Organization,
             'ApiKey': ApiKey,
             'PersonalAccessToken': PersonalAccessToken,

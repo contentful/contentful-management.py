@@ -8,6 +8,7 @@
 * Added UI Extensions Endpoints.
 * Added Personal Access Tokens Endpoints.
 * Added Users Endpoint.
+* Added Space Memberships Endpoints.
 
 ## v1.3.2
 

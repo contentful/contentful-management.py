@@ -4,11 +4,11 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [identity]
-      Authorization: [Bearer CFPAT-c45d3251222230891f7502f3a27de152e5c59860e6decd023867160fb5f1b831]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [python-requests/2.18.1]
-      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; platform python/3.5.2;
+      X-Contentful-User-Agent: [platform python/3.5.2; sdk contentful-management.py/1.3.1;
           os macOS/16.5.0;]
     method: GET
     uri: https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships/1NI22o8oAxT9Jnu2J9wJSu
@@ -36,26 +36,26 @@ interactions:
       Connection: [keep-alive]
       Content-Length: ['718']
       Content-Type: [application/vnd.contentful.management.v1+json]
-      Date: ['Thu, 06 Jul 2017 14:18:19 GMT']
+      Date: ['Mon, 03 Jul 2017 14:34:54 GMT']
       ETag: [W/"81a83a3caf5c2829b0cf422b77082076"]
       Server: [Contentful]
-      Set-Cookie: ['visid_incap_673446=jZmYWICFQkC0FIsQIvZXvqpGXlkAAAAAQUIPAAAAAACLm+4nHmQrfQV3vYHKRsRz;
-          expires=Fri, 06 Jul 2018 04:34:29 GMT; path=/; Domain=.contentful.com',
-        nlbi_673446=/tiNYXX4oGH5B+dO6lKYhQAAAACbpb29lG5lu47uwaOTqKbf; path=/; Domain=.contentful.com,
-        incap_ses_685_673446=P5YyU/KE8CIeQqDoq52BCapGXlkAAAAAqXxQd48TRCIEYYnu6b2Www==;
+      Set-Cookie: ['visid_incap_673446=y+H/8g9JSvioU6x0sOXfDg1WWlkAAAAAQUIPAAAAAAB6vOiX3D8+N4dFGKdOhWoy;
+          expires=Tue, 03 Jul 2018 08:43:51 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=YKD1VSyXeW351DPq6lKYhQAAAADjV1xHoD193qTIVmtmJsIO; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=AicRDQAuWCMF+/KaqZ2BCQ1WWlkAAAAA1TMvJ9w1wXmIxMIjslXrCQ==;
           path=/; Domain=.contentful.com]
       Strict-Transport-Security: [max-age=15768000]
       X-CDN: [Incapsula]
       X-Content-Type-Options: [nosniff]
       X-Contentful-RateLimit-Hour-Limit: ['36000']
-      X-Contentful-RateLimit-Hour-Remaining: ['35995']
+      X-Contentful-RateLimit-Hour-Remaining: ['35998']
       X-Contentful-RateLimit-Reset: ['0']
       X-Contentful-RateLimit-Second-Limit: ['10']
       X-Contentful-RateLimit-Second-Remaining: ['9']
-      X-Contentful-Request-Id: [f0596de0ad81a6237369ebb97d006e03]
+      X-Contentful-Request-Id: [d59b83fbd2076eb25a3ecf04935c6334]
       X-Frame-Options: [ALLOWALL]
-      X-Iinfo: [5-2991658-2991683 NNNN CT(138 139 0) RT(1499350698321 138) q(0 0 3
-          -1) r(5 5) U5]
+      X-Iinfo: [3-50598717-50598739 NNNN CT(140 140 0) RT(1499092493156 165) q(0 0
+          3 -1) r(5 5) U5]
       X-XSS-Protection: [1; mode=block]
     status: {code: 200, message: OK}
 version: 1

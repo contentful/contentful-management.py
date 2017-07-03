@@ -112,6 +112,7 @@ def base_path_for(resource_name):
 
     return {
         'Space': 'spaces',
+        'SpaceMembership': 'space_memberships',
         'ContentType': 'content_types',
         'Entry': 'entries',
         'Asset': 'assets',

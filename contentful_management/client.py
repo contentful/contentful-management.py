@@ -5,6 +5,7 @@ from .resource_builder import ResourceBuilder
 from .utils import ConfigurationException, retry_request
 from .errors import get_error, RateLimitExceededError
 from .spaces_proxy import SpacesProxy
+from .space_memberships_proxy import SpaceMembershipsProxy
 from .organizations_proxy import OrganizationsProxy
 from .users_proxy import UsersProxy
 from .content_types_proxy import ContentTypesProxy
@@ -143,6 +144,22 @@ class Client(object):
         """
 
         return SpacesProxy(self)
+
+    def memberships(self, space_id):
+        """Provides access to Space Membership management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
+
+        :return: :class:`SpaceMembershipsProxy <contentful_management.space_memberships_proxy.SpaceMembershipsProxy>` object.
+        :rtype: contentful.space_memberships_proxy.SpaceMembershipsProxy
+
+        Usage:
+
+            >>> space_memberships_proxy = client.memberships('cfexampleapi')
+            <SpaceMembershipsProxy space_id="cfexampleapi">
+        """
+
+        return SpaceMembershipsProxy(self, space_id)
 
     def organizations(self):
         """Provides access to Organization management methods
