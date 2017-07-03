@@ -182,3 +182,18 @@ class ContentTypeTest(TestCase):
         proxy = content_type.editor_interfaces()
 
         self.assertEqual(str(proxy), "<ContentTypeEditorInterfacesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+
+    # Integration Tests
+    @vcr.use_cassette('fixtures/content_type/issue_17.yaml')
+    def test_content_type_not_properly_updating(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('cat')
+
+        self.assertEqual(content_type.name, 'Cat')
+
+        content_type.name = 'Foo Cat'
+        content_type.save()
+
+
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('cat')
+
+        self.assertEqual(content_type.name, 'Foo Cat')

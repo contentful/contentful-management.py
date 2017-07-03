@@ -4,6 +4,8 @@
 
 ### Fixed
 * Fixed `Accept-Encoding` header when `gzip` was disabled.
+* Fixed docstrings.
+* Fixed Content Type Field IDs not being correctly serialized [#17](https://github.com/contentful/contentful-management.py/issues/17)
 
 ## v1.3.1
 ### Added
