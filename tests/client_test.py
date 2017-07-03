@@ -35,6 +35,11 @@ class ClientTest(TestCase):
 
         self.assertEqual(str(proxy), "<UIExtensionsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
+    def test_client_users(self):
+        proxy = CLIENT.users()
+
+        self.assertEqual(str(proxy), "<UsersProxy>")
+
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):
             Client(None)
