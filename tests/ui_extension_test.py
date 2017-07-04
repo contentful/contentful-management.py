@@ -96,7 +96,7 @@ class UIExtensionTest(TestCase):
     def test_ui_extension(self):
         ui_extension_src = UIExtension(UI_EXTENSION_ITEM_SRC)
 
-        self.assertEqual(str(ui_extension_src), "<UIExtension[My awesome extension] id='0xvkPW9FdQ1kkWlWZ8ga4x'>")
+        self.assertEqual(str(ui_extension_src), "<UIExtension[My awesome extension] id='0xvkPW9FdQ1kkWlWZ8ga4x' field_types=['Symbol', 'Text']>")
 
     def test_ui_extension_extension_getters(self):
         ui_extension_src = UIExtension(UI_EXTENSION_ITEM_SRC)
@@ -242,17 +242,17 @@ class UIExtensionTest(TestCase):
         ui_extensions = CLIENT.ui_extensions('arqlnkt58eul').all()
 
         self.assertTrue(ui_extensions)
-        self.assertEqual(str(ui_extensions[0]), "<UIExtension[My awesome extension by srcDoc] id='2ZJduY1pKEma6G8Y2ImqYU'>")
+        self.assertEqual(str(ui_extensions[0]), "<UIExtension[My awesome extension by srcDoc] id='2ZJduY1pKEma6G8Y2ImqYU' field_types=['Symbol', 'Text']>")
         self.assertEqual(ui_extensions[0].source, ui_extensions[0].extension['srcdoc'])
 
-        self.assertEqual(str(ui_extensions[2]), "<UIExtension[Hello World Editor] id='hello-world'>")
+        self.assertEqual(str(ui_extensions[2]), "<UIExtension[Hello World Editor] id='hello-world' field_types=['Text']>")
         self.assertEqual(ui_extensions[2].source, ui_extensions[2].extension['src'])
 
     @vcr.use_cassette('fixtures/ui_extensions/find.yaml')
     def test_ui_extensions_find(self):
         ui_extension = CLIENT.ui_extensions('arqlnkt58eul').find('2ZJduY1pKEma6G8Y2ImqYU')
 
-        self.assertEqual(str(ui_extension), "<UIExtension[My awesome extension by srcDoc] id='2ZJduY1pKEma6G8Y2ImqYU'>")
+        self.assertEqual(str(ui_extension), "<UIExtension[My awesome extension by srcDoc] id='2ZJduY1pKEma6G8Y2ImqYU' field_types=['Symbol', 'Text']>")
 
     @vcr.use_cassette('fixtures/ui_extensions/create.yaml')
     def test_ui_extensions_create(self):
@@ -265,13 +265,13 @@ class UIExtensionTest(TestCase):
             }
         })
 
-        self.assertEqual(str(ui_extension), "<UIExtension[Test Extension] id='test-extension'>")
+        self.assertEqual(str(ui_extension), "<UIExtension[Test Extension] id='test-extension' field_types=['Symbol']>")
 
     @vcr.use_cassette('fixtures/ui_extensions/find_2.yaml')
     def test_ui_extensions_update(self):
         ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE).find('test-extension')
 
-        self.assertEqual(str(ui_extension), "<UIExtension[Test Extension] id='test-extension'>")
+        self.assertEqual(str(ui_extension), "<UIExtension[Test Extension] id='test-extension' field_types=['Symbol']>")
 
         with vcr.use_cassette('fixtures/ui_extensions/update.yaml'):
             ui_extension.name = 'Update Test Extension'
@@ -279,7 +279,7 @@ class UIExtensionTest(TestCase):
 
         with vcr.use_cassette('fixtures/ui_extensions/find_3.yaml'):
             ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE).find('test-extension')
-            self.assertEqual(str(ui_extension), "<UIExtension[Update Test Extension] id='test-extension'>")
+            self.assertEqual(str(ui_extension), "<UIExtension[Update Test Extension] id='test-extension' field_types=['Symbol']>")
 
     @vcr.use_cassette('fixtures/ui_extensions/find_3.yaml')
     def test_ui_extensions_delete(self):

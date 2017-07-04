@@ -75,7 +75,14 @@ class UIExtension(Resource):
         return result
 
     def __repr__(self):
-        return "<UIExtension[{0}] id='{1}'>".format(
+        return "<UIExtension[{0}] id='{1}' field_types=[{2}]>".format(
             self.name,
-            self.sys.get('id', '')
+            self.sys.get('id', ''),
+            ', '.join(
+                "'{0}'".format(t)
+                for t in [
+                    ft['type']
+                    for ft in self.field_types
+                ]
+            )
         )
