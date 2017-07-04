@@ -61,7 +61,7 @@ class Webhook(Resource):
 
         Usage:
 
-            >>> webhook_webhooks_call_proxy = entry.calls()
+            >>> webhook_webhooks_call_proxy = webhook.calls()
             <WebhookWebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
         return WebhookWebhooksCallProxy(self._client, self.sys['space'].id, self.sys['id'])
@@ -76,7 +76,7 @@ class Webhook(Resource):
 
         Usage:
 
-            >>> webhook_webhooks_health_proxy = entry.health()
+            >>> webhook_webhooks_health_proxy = webhook.health()
             <WebhookWebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
         """
         return WebhookWebhooksHealthProxy(self._client, self.sys['space'].id, self.sys['id'])
