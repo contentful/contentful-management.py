@@ -176,6 +176,14 @@ class ContentTypeTest(TestCase):
         self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/content_type/find.yaml')
+    def test_content_type_snapshots(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
+
+        proxy = content_type.snapshots()
+
+        self.assertEqual(str(proxy), "<ContentTypeSnapshotsProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+
+    @vcr.use_cassette('fixtures/content_type/find.yaml')
     def test_content_type_editor_interfaces(self):
         content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
 
