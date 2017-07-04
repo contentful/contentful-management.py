@@ -28,6 +28,10 @@ class Snapshot(Resource):
             'Entry': Entry,
             'ContentType': ContentType
         }
+
+        if self.sys['snapshot_entity_type'] not in entity_type:
+            raise Exception("Object '{0}' not buildable".format(self.sys['snapshot_entity_type']))
+
         self.snapshot = entity_type[self.sys['snapshot_entity_type']](item['snapshot'], **kwargs)
 
     @classmethod

@@ -92,6 +92,27 @@ CONTENT_TYPE_SNAPSHOT_ITEM = {
     }
 }
 
+UNBUILDABLE_SNAPSHOT_ITEM = {
+    'sys': {
+        'id': 'foo',
+        'type': 'Snapshot',
+        'snapshotEntityType': 'NotBuildable',
+        'space': {
+            'sys': {
+                'id': 'foobar',
+                'type': 'Link',
+                'linkType': 'Space'
+            }
+        }
+    },
+    'snapshot': {
+        'sys': {
+            'id': 'foo',
+            'type': 'NotBuildable'
+        }
+    }
+}
+
 class SnapshotTest(TestCase):
     def test_snapshot(self):
         entry_snapshot = Snapshot(ENTRY_SNAPSHOT_ITEM)
@@ -99,6 +120,10 @@ class SnapshotTest(TestCase):
 
         ct_snapshot = Snapshot(CONTENT_TYPE_SNAPSHOT_ITEM)
         self.assertEqual(str(ct_snapshot), "<Snapshot[ContentType] id='cat'>")
+
+    def test_unbuildable_snapshot(self):
+        with self.assertRaisesRegexp(Exception, "Object 'NotBuildable' not buildable"):
+            Snapshot(UNBUILDABLE_SNAPSHOT_ITEM)
 
     def test_snapshot_to_json(self):
         entry_snapshot = Snapshot(ENTRY_SNAPSHOT_ITEM)
