@@ -24,6 +24,7 @@ class SnapshotsProxyTest(TestCase):
 
         self.assertTrue(snapshots)
         self.assertTrue(snapshots[0].id)
+        self.assertEqual(str(snapshots[0]), "<Snapshot[Entry] id='7ohZjlae5pmiCsbviCFvds'>")
 
     @vcr.use_cassette('fixtures/snapshot/find.yaml')
     def test_snapshots_proxy_find_entry(self):
@@ -42,6 +43,7 @@ class SnapshotsProxyTest(TestCase):
 
         self.assertTrue(snapshots)
         self.assertTrue(snapshots[0].id)
+        self.assertEqual(str(snapshots[0]), "<Snapshot[ContentType] id='5bfy52PVk8HwBfXURLOsWJ'>")
 
     @vcr.use_cassette('fixtures/snapshot/content_type_find.yaml')
     def test_snapshots_proxy_find_content_type(self):
