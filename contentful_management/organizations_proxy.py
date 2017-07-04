@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class OrganizationsProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
     """
 
     def __init__(self, client):
