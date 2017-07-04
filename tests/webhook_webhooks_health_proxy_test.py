@@ -23,7 +23,7 @@ class WebhookWebhooksHealthProxyTest(TestCase):
     def test_webhook_webhooks_health_proxy_all(self):
         proxy = WebhookWebhooksHealthProxy(CLIENT, 'orzkxlxlq59d', '16ypL3XjNK6oreLPPoVBxI')
 
-        webhook_health = proxy.find()
+        webhook_health = proxy.all()
 
         self.assertEqual(str(webhook_health), "<WebhookHealth[16ypL3XjNK6oreLPPoVBxI] total=151 healthy=151>")
 
