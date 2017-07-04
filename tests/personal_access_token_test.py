@@ -15,7 +15,7 @@ PERSONAL_ACCESS_TOKEN_WITH_TOKEN = {
     "scopes": [
         "content_management_manage"
     ],
-    "token": "46d42a80f96db00393ffa867a753de126e658484dd8a20d209bcb7efcf3761b9"
+    "token": "CFPAT-THIS-WONT-WORK"
 }
 
 PERSONAL_ACCESS_TOKEN_WITHOUT_TOKEN = {
@@ -29,6 +29,21 @@ PERSONAL_ACCESS_TOKEN_WITHOUT_TOKEN = {
     "revokedAt": None,
     "scopes": [
         "content_management_manage"
+    ]
+}
+
+PERSONAL_ACCESS_TOKEN_MULTIPLE_SCOPES = {
+    "sys": {
+        "type": "PersonalAccessToken",
+        "id": "exampletokenid",
+        "createdAt": "2015-05-18T11:29:46.809Z",
+        "updatedAt": "2015-05-18T11:29:46.809Z"
+    },
+    "name": "My Token",
+    "revokedAt": None,
+    "scopes": [
+        "content_management_manage",
+        "content_management_read"
     ]
 }
 
@@ -50,11 +65,14 @@ class PersonalAccessTokenTest(TestCase):
     def test_personal_access_token(self):
         with_token = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_WITH_TOKEN)
         self.assertEqual(str(with_token), "<PersonalAccessToken[My Token] id='exampletokenid' scopes=['content_management_manage'] revoked=False>")
-        self.assertEqual(with_token.token, '46d42a80f96db00393ffa867a753de126e658484dd8a20d209bcb7efcf3761b9')
+        self.assertEqual(with_token.token, 'CFPAT-THIS-WONT-WORK')
 
         without_token = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_WITHOUT_TOKEN)
         self.assertEqual(str(without_token), "<PersonalAccessToken[My Token] id='exampletokenid' scopes=['content_management_manage'] revoked=False>")
         self.assertFalse(without_token.token)
+
+        multiple_scopes = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_MULTIPLE_SCOPES)
+        self.assertEqual(str(multiple_scopes), "<PersonalAccessToken[My Token] id='exampletokenid' scopes=['content_management_manage', 'content_management_read'] revoked=False>")
 
         revoked = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_REVOKED)
         self.assertEqual(str(revoked), "<PersonalAccessToken[My Token] id='exampletokenid' scopes=['content_management_manage'] revoked=True>")
