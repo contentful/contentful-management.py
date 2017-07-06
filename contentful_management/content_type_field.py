@@ -40,7 +40,7 @@ class ContentTypeField(object):
 
         result = {
             'name': self.name,
-            'id': self.id,
+            'id': self._real_id(),
             'type': self.type,
             'localized': self.localized,
             'omitted': self.omitted,
@@ -66,6 +66,11 @@ class ContentTypeField(object):
         """Gets the proper coercion type"""
 
         return globals()["{0}Field".format(self.type)](self.items)
+
+    def _real_id(self):
+        """Gets the real field ID"""
+
+        return self.raw['id']
 
     def __repr__(self):
         return "<ContentTypeField[{0}] id='{1}' type='{2}'>".format(

@@ -117,7 +117,6 @@ def base_path_for(resource_name):
         'Asset': 'assets',
         'ApiKey': 'api_keys',
         'Locale': 'locales',
-        'EditorInterface': 'editor_interfaces',
         'Webhook': 'webhook_definitions',
         'Role': 'roles',
         'Snapshot': 'snapshots',

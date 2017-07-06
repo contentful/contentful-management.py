@@ -212,7 +212,7 @@ class Client(object):
 
         Usage:
 
-            >>> locales_proxy = client.webhooks('cfexampleapi')
+            >>> webhooks_proxy = client.webhooks('cfexampleapi')
             <WebhooksProxy space_id="cfexampleapi">
         """
 
@@ -237,7 +237,7 @@ class Client(object):
     def roles(self, space_id):
         """Provides access to Roles management methods
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries/entries-collection/get-all-entries-of-a-space
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
         :return: :class:`RolesProxy <contentful_management.roles_proxy.RolesProxy>` object.
         :rtype: contentful.roles_proxy.RolesProxy
@@ -385,6 +385,8 @@ class Client(object):
 
         if self.gzip_encoded:
             headers['Accept-Encoding'] = 'gzip'
+        else:
+            headers['Accept-Encoding'] = 'identity'
 
         return headers
 
@@ -518,28 +520,28 @@ class Client(object):
 
     def _get(self, url, query=None, **kwargs):
         """
-        Wrapper for the HTTP GET Request,
+        Wrapper for the HTTP GET Request.
         """
 
         return self._request('get', url, query, **kwargs)
 
     def _post(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP POST Request,
+        Wrapper for the HTTP POST Request.
         """
 
         return self._request('post', url, attributes, **kwargs)
 
     def _put(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP PUT Request,
+        Wrapper for the HTTP PUT Request.
         """
 
         return self._request('put', url, attributes, **kwargs)
 
     def _delete(self, url, **kwargs):
         """
-        Wrapper for the HTTP DELETE Request,
+        Wrapper for the HTTP DELETE Request.
         """
 
         response = retry_request(self)(self._http_delete)(url, **kwargs)
