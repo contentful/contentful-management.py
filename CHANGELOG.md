@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v1.3.2
+
 ### Fixed
 * Fixed `Accept-Encoding` header when `gzip` was disabled.
 * Fixed docstrings.
