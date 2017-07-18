@@ -208,6 +208,7 @@ Deleting an entry::
 Creating an entry::
 
     entry_attributes = {
+        'content_type_id': 'target_content_type',
         'fields': {
             'title': {
                 'en-US': 'My Awesome Post'
