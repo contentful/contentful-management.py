@@ -3,12 +3,12 @@ from .personal_access_token import PersonalAccessToken
 
 
 """
-contentful.personal_access_token_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.personal_access_token_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the PersonalAccessTokensProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class PersonalAccessTokensProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
     """
 
     def __init__(self, client):
@@ -37,7 +37,9 @@ class PersonalAccessTokensProxy(ClientProxy):
         return super(PersonalAccessTokensProxy, self).create(None, attributes)
 
     def delete(self, token_id, *args, **kwargs):
-        """Revokes a Personal Access Token."""
+        """
+        Revokes a personal access token.
+        """
 
         return self.client._put(
             "{0}/revoked".format(
@@ -49,6 +51,8 @@ class PersonalAccessTokensProxy(ClientProxy):
         )
 
     def revoke(self, token_id, *args, **kwargs):
-        """Revokes a Personal Access Token."""
+        """
+        Revokes a personal access token.
+        """
 
         return self.delete(token_id, *args, **kwargs)

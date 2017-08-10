@@ -2,12 +2,12 @@ from .resource import Resource
 
 
 """
-contentful.User
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.user
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the User class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class User(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
     """
 
     def __init__(self, item, **kwargs):
@@ -31,7 +31,9 @@ class User(Resource):
 
     @classmethod
     def base_url(klass, **kwargs):
-        """Returns the URI for the Resource"""
+        """
+        Returns the URI for the user.
+        """
 
         return "users/me"
 

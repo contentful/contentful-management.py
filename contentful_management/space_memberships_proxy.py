@@ -3,12 +3,12 @@ from .space_membership import SpaceMembership
 
 
 """
-contentful.space_memberships_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_memberships_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the SpaceMembershipsProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -21,6 +21,8 @@ class SpaceMembershipsProxy(ClientProxy):
         return SpaceMembership
 
     def create(self, attributes=None, **kwargs):
-        """Creates a Space Membership with given attributes."""
+        """
+        Creates a space membership with given attributes.
+        """
 
         return super(SpaceMembershipsProxy, self).create(None, attributes)

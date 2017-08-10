@@ -3,12 +3,12 @@ from .space import Space
 
 
 """
-contentful.spaces_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.spaces_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the SpacesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class SpacesProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
     """
 
     def __init__(self, client):
@@ -32,14 +32,14 @@ class SpacesProxy(ClientProxy):
 
     def all(self, query=None, **kwargs):
         """
-        Gets all Spaces.
+        Gets all spaces.
         """
 
         return super(SpacesProxy, self).all(query=query)
 
     def find(self, space_id, query=None, **kwargs):
         """
-        Gets a Space by ID.
+        Gets a space by ID.
         """
 
         try:
@@ -50,7 +50,7 @@ class SpacesProxy(ClientProxy):
 
     def create(self, attributes=None, **kwargs):
         """
-        Creates a Space with given attributes.
+        Creates a space with given attributes.
         """
 
         if attributes is None:
@@ -62,7 +62,7 @@ class SpacesProxy(ClientProxy):
 
     def delete(self, space_id):
         """
-        Deletes a Space by ID.
+        Deletes a space by ID.
         """
 
         try:

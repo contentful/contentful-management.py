@@ -3,12 +3,12 @@ from .roles_proxy import RolesProxy
 
 
 """
-contentful.space_roles_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_roles_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the SpaceRolesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class SpaceRolesProxy(SpaceResourceProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
     """
 
     def _resource_proxy_class(self):

@@ -33,3 +33,12 @@ class ContentTypeEditorInterfacesProxyTest(TestCase):
 
         self.assertTrue(editor_interface)
         self.assertTrue(editor_interface.id)
+
+    @vcr.use_cassette('fixtures/editor_interface/all.yaml')
+    def test_content_type_editor_interfaces_proxy_default(self):
+        proxy = ContentTypeEditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+
+        editor_interface = proxy.default()
+
+        self.assertTrue(editor_interface)
+        self.assertTrue(editor_interface.id)

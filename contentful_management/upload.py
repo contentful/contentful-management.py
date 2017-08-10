@@ -2,12 +2,12 @@ from .resource import Resource
 
 
 """
-contentful.Upload
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.upload
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Upload class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Upload(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
     """
 
     def __init__(self, item, **kwargs):
@@ -24,7 +24,9 @@ class Upload(Resource):
 
     @classmethod
     def create_headers(klass, _attributes):
-        """Headers for resource creation"""
+        """
+        Headers for upload creation.
+        """
 
         return {
             'Content-Type': 'application/octet-stream'

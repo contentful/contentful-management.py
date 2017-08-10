@@ -1,19 +1,19 @@
 """
-contentful.errors
-~~~~~~~~~~~~~~~~~
+contentful_management.errors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Error classes.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/errors
+API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/errors
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class HTTPError(Exception):
     """
-    Base HTTP Error Class
+    Base HTTP error class.
     """
 
     def __init__(self, response):
@@ -87,7 +87,9 @@ class ServiceUnavailableError(HTTPError):
 
 
 def get_error(response):
-    """Gets Error by HTTP Status Code"""
+    """
+    Gets Error by HTTP status code.
+    """
 
     errors = {
         400: BadRequestError,

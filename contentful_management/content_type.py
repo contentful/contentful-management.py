@@ -6,12 +6,12 @@ from .content_type_editor_interfaces_proxy import ContentTypeEditorInterfacesPro
 
 
 """
-contentful.content_type
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentType class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -20,7 +20,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class ContentType(Resource, PublishResource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
     """
 
     def __init__(self, item, **kwargs):
@@ -33,7 +33,9 @@ class ContentType(Resource, PublishResource):
 
     @classmethod
     def base_url(klass, space_id, resource_id=None, public=False, **kwargs):
-        """Returns the URI for the Resource"""
+        """
+        Returns the URI for the content type.
+        """
 
         if public:
             return "spaces/{0}/public/content_types".format(space_id)
@@ -45,7 +47,9 @@ class ContentType(Resource, PublishResource):
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for resource creation"""
+        """
+        Attributes for content type creation.
+        """
 
         result = super(ContentType, klass).create_attributes(attributes, previous_object)
 
@@ -55,7 +59,9 @@ class ContentType(Resource, PublishResource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Attributes for object mapping"""
+        """
+        Attributes for object mapping.
+        """
 
         return {
             'name': '',
@@ -65,7 +71,9 @@ class ContentType(Resource, PublishResource):
         }
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """
+        Returns the JSON representation of the content type.
+        """
 
         result = super(ContentType, self).to_json()
         result.update({
@@ -77,9 +85,10 @@ class ContentType(Resource, PublishResource):
         return result
 
     def entries(self):
-        """Provides access to Entries management methods for the given Content Type
+        """
+        Provides access to entry management methods for the given content type.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
         :return: :class:`ContentTypeEntriesProxy <contentful_management.content_type_entries_proxy.ContentTypeEntriesProxy>` object.
         :rtype: contentful.content_type_entries_proxy.ContentTypeEntriesProxy
@@ -92,9 +101,10 @@ class ContentType(Resource, PublishResource):
         return ContentTypeEntriesProxy(self._client, self.space.id, self.id)
 
     def editor_interfaces(self):
-        """Provides access to Editor Interfaces management methods for the given Content Type
+        """
+        Provides access to editor interface management methods for the given content type.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
 
         :return: :class:`ContentTypeEditorInterfacesProxy <contentful_management.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy>` object.
         :rtype: contentful.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy
@@ -107,9 +117,10 @@ class ContentType(Resource, PublishResource):
         return ContentTypeEditorInterfacesProxy(self._client, self.space.id, self.id)
 
     def snapshots(self):
-        """Provides access to Snapshots management methods for the given Content Type
+        """
+        Provides access to snapshot management methods for the given content type.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
 
         :return: :class:`ContentTypeSnapshotsProxy <contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy>` object.
         :rtype: contentful.content_type_snapshots_proxy.ContentTypeSnapshotsProxy

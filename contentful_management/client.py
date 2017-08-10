@@ -31,12 +31,12 @@ except ImportError:
 
 """
 contentful_management.client
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Contentful Management API Client,
 allowing interaction with every method present in it.
 
-Complete API Documentation: https://www.contentful.com/developers/docs/references/content-management-api
+Complete API documentation: https://www.contentful.com/developers/docs/references/content-management-api
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -44,15 +44,15 @@ Complete API Documentation: https://www.contentful.com/developers/docs/reference
 
 
 class Client(object):
-    """Constructs the API Client.
+    """Constructs the API client.
 
-    :param access_token: API Access Token.
-    :param api_url: (optional) URL of the Contentful Target API,
+    :param access_token: API access token.
+    :param api_url: (optional) URL of the Contentful API,
         defaults to Management API.
-    :param uploads_api_url: (optional) URL of the Contentful Upload Target API,
+    :param uploads_api_url: (optional) URL of the Contentful upload API,
         defaults to Upload API.
     :param api_version: (optional) Target version of the Contentful API.
-    :param default_locale: (optional) Default Locale for your Spaces,
+    :param default_locale: (optional) Default locale for your spaces,
         defaults to 'en-US'.
     :param https: (optional) Boolean determining wether to use https
         or http, defaults to True.
@@ -130,9 +130,10 @@ class Client(object):
         self._validate_configuration()
 
     def spaces(self):
-        """Provides access to Space management methods
+        """
+        Provides access to space management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
 
         :return: :class:`SpacesProxy <contentful_management.spaces_proxy.SpacesProxy>` object.
         :rtype: contentful.spaces_proxy.SpacesProxy
@@ -146,9 +147,10 @@ class Client(object):
         return SpacesProxy(self)
 
     def memberships(self, space_id):
-        """Provides access to Space Membership management methods
+        """
+        Provides access to space membership management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
 
         :return: :class:`SpaceMembershipsProxy <contentful_management.space_memberships_proxy.SpaceMembershipsProxy>` object.
         :rtype: contentful.space_memberships_proxy.SpaceMembershipsProxy
@@ -162,9 +164,10 @@ class Client(object):
         return SpaceMembershipsProxy(self, space_id)
 
     def organizations(self):
-        """Provides access to Organization management methods
+        """
+        Provides access to organization management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
 
         :return: :class:`OrganizationsProxy <contentful_management.organizations_proxy.OrganizationsProxy>` object.
         :rtype: contentful.organizations_proxy.OrganizationsProxy
@@ -178,9 +181,10 @@ class Client(object):
         return OrganizationsProxy(self)
 
     def users(self):
-        """Provides access to User management methods
+        """
+        Provides access to user management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
 
         :return: :class:`UsersProxy <contentful_management.users_proxy.UsersProxy>` object.
         :rtype: contentful.users_proxy.UsersProxy
@@ -194,9 +198,10 @@ class Client(object):
         return UsersProxy(self)
 
     def content_types(self, space_id):
-        """Provides access to Content Types management methods
+        """
+        Provides access to content type management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
 
         :return: :class:`ContentTypesProxy <contentful_management.content_types_proxy.ContentTypesProxy>` object.
         :rtype: contentful.content_types_proxy.ContentTypesProxy
@@ -210,9 +215,10 @@ class Client(object):
         return ContentTypesProxy(self, space_id)
 
     def entries(self, space_id):
-        """Provides access to Entries management methods
+        """
+        Provides access to entry management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
         :return: :class:`EntriesProxy <contentful_management.entries_proxy.EntriesProxy>` object.
         :rtype: contentful.entries_proxy.EntriesProxy
@@ -226,9 +232,10 @@ class Client(object):
         return EntriesProxy(self, space_id)
 
     def assets(self, space_id):
-        """Provides access to Assets management methods
+        """
+        Provides access to asset management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
         :return: :class:`AssetsProxy <contentful_management.assets_proxy.AssetsProxy>` object.
         :rtype: contentful.assets_proxy.AssetsProxy
@@ -242,9 +249,10 @@ class Client(object):
         return AssetsProxy(self, space_id)
 
     def locales(self, space_id):
-        """Provides access to Locales management methods
+        """
+        Provides access to locale management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
 
         :return: :class:`LocalesProxy <contentful_management.locales_proxy.LocalesProxy>` object.
         :rtype: contentful.locales_proxy.LocalesProxy
@@ -258,9 +266,10 @@ class Client(object):
         return LocalesProxy(self, space_id)
 
     def webhooks(self, space_id):
-        """Provides access to Webhooks management methods
+        """
+        Provides access to webhook management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
 
         :return: :class:`WebhooksProxy <contentful_management.locales_proxy.WebhooksProxy>` object.
         :rtype: contentful.webhooks_proxy.WebhooksProxy
@@ -274,9 +283,10 @@ class Client(object):
         return WebhooksProxy(self, space_id)
 
     def webhook_calls(self, space_id, webhook_id):
-        """Provides access to Webhooks Call information
+        """
+        Provides access to webhook call information.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
 
         :return: :class:`WebhooksProxy <contentful_management.webhooks_call_proxy.WebhooksCallProxy>` object.
         :rtype: contentful.webhooks_call_proxy.WebhooksProxy
@@ -290,9 +300,10 @@ class Client(object):
         return WebhooksCallProxy(self, space_id, webhook_id)
 
     def webhook_health(self, space_id, webhook_id):
-        """Provides access to Webhooks Health information
+        """
+        Provides access to webhook health information.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
 
         :return: :class:`WebhooksHealthProxy <contentful_management.webhooks_health_proxy.WebhooksHealthProxy>` object.
         :rtype: contentful.webhooks_health_proxy.WebhooksHealthProxy
@@ -306,9 +317,10 @@ class Client(object):
         return WebhooksHealthProxy(self, space_id, webhook_id)
 
     def api_keys(self, space_id):
-        """Provides access to Api Keys management methods
+        """
+        Provides access to API key management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
 
         :return: :class:`ApiKeysProxy <contentful_management.api_keys_proxy.ApiKeysProxy>` object.
         :rtype: contentful.api_keys_proxy.ApiKeysProxy
@@ -322,9 +334,10 @@ class Client(object):
         return ApiKeysProxy(self, space_id)
 
     def personal_access_tokens(self):
-        """Provides access to Personal Access Tokens management methods
+        """
+        Provides access to personal access token management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
 
         :return: :class:`PersonalAccessTokensProxy <contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy>` object.
         :rtype: contentful.personal_access_tokens_proxy.PersonalAccessTokensProxy
@@ -338,9 +351,10 @@ class Client(object):
         return PersonalAccessTokensProxy(self)
 
     def roles(self, space_id):
-        """Provides access to Roles management methods
+        """
+        Provides access to role management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
         :return: :class:`RolesProxy <contentful_management.roles_proxy.RolesProxy>` object.
         :rtype: contentful.roles_proxy.RolesProxy
@@ -354,9 +368,10 @@ class Client(object):
         return RolesProxy(self, space_id)
 
     def ui_extensions(self, space_id):
-        """Provides access to UI Extensions management methods
+        """
+        Provides access to UI extensions management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
 
         :return: :class:`UIExtensionsProxy <contentful_management.ui_extensions_proxy.UIExtensionsProxy>` object.
         :rtype: contentful.ui_extensions_proxy.UIExtensionsProxy
@@ -370,9 +385,10 @@ class Client(object):
         return UIExtensionsProxy(self, space_id)
 
     def editor_interfaces(self, space_id, content_type_id):
-        """Provides access to Editor Interfaces management methods
+        """
+        Provides access to editor interfaces management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
 
         :return: :class:`EditorInterfacesProxy <contentful_management.editor_interfaces_proxy.EditorInterfacesProxy>` object.
         :rtype: contentful.editor_interfaces_proxy.EditorInterfacesProxy
@@ -386,9 +402,10 @@ class Client(object):
         return EditorInterfacesProxy(self, space_id, content_type_id)
 
     def snapshots(self, space_id, resource_id, resource_kind='entries'):
-        """Provides access to Snapshot management methods
+        """
+        Provides access to snapshot management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
         :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
         :rtype: contentful.snapshots_proxy.SnapshotsProxy
@@ -405,9 +422,10 @@ class Client(object):
         return SnapshotsProxy(self, space_id, resource_id, resource_kind)
 
     def entry_snapshots(self, space_id, entry_id):
-        """Provides access to Snapshot management methods
+        """
+        Provides access to entry snapshot management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
         :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
         :rtype: contentful.snapshots_proxy.SnapshotsProxy
@@ -421,9 +439,10 @@ class Client(object):
         return SnapshotsProxy(self, space_id, entry_id, 'entries')
 
     def content_type_snapshots(self, space_id, content_type_id):
-        """Provides access to Snapshot management methods
+        """
+        Provides access to content type snapshot management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
         :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
         :rtype: contentful.snapshots_proxy.SnapshotsProxy
@@ -437,9 +456,10 @@ class Client(object):
         return SnapshotsProxy(self, space_id, content_type_id, 'content_types')
 
     def uploads(self, space_id):
-        """Provides access to Upload management methods
+        """
+        Provides access to upload management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 
         :return: :class:`UploadsProxy <contentful_management.uploads_proxy.UploadsProxy>` object.
         :rtype: contentful.uploads_proxy.UploadsProxy
@@ -525,7 +545,7 @@ class Client(object):
 
     def _request_headers(self):
         """
-        Sets the default Request Headers.
+        Sets the default request headers.
         """
 
         headers = {
@@ -546,7 +566,7 @@ class Client(object):
 
     def _url(self, url, file_upload=False):
         """
-        Creates the Request URL.
+        Creates the request URL.
         """
 
         host = self.api_url
@@ -564,8 +584,8 @@ class Client(object):
 
     def _normalize_query(self, query):
         """
-        Converts Arrays in the query to comma
-        separaters lists for proper API handling.
+        Converts arrays in the query to comma
+        separated lists for proper API handling.
         """
 
         for k, v in query.items():
@@ -574,7 +594,7 @@ class Client(object):
 
     def _http_request(self, method, url, request_kwargs=None):
         """
-        Performs the requested HTTP Request.
+        Performs the requested HTTP request.
         """
 
         kwargs = request_kwargs if request_kwargs is not None else {}
@@ -603,7 +623,7 @@ class Client(object):
 
     def _http_get(self, url, query, **kwargs):
         """
-        Performs the HTTP GET Request.
+        Performs the HTTP GET request.
         """
 
         self._normalize_query(query)
@@ -614,7 +634,7 @@ class Client(object):
 
     def _http_post(self, url, data, **kwargs):
         """
-        Performs the HTTP POST Request.
+        Performs the HTTP POST request.
         """
 
         if not kwargs.get('file_upload', False):
@@ -626,7 +646,7 @@ class Client(object):
 
     def _http_put(self, url, data, **kwargs):
         """
-        Performs the HTTP PUT Request.
+        Performs the HTTP PUT request.
         """
 
         kwargs.update({'data': json.dumps(data)})
@@ -635,16 +655,16 @@ class Client(object):
 
     def _http_delete(self, url, _data, **kwargs):
         """
-        Performs the HTTP DELETE Request.
+        Performs the HTTP DELETE request.
         """
 
         return self._http_request('delete', url, kwargs)
 
     def _request(self, method, url, query_or_data=None, **kwargs):
         """
-        Wrapper for the HTTP Requests,
-        Rate Limit Backoff is handled here,
-        Responses are Processed with ResourceBuilder.
+        Wrapper for the HTTP requests,
+        rate limit backoff is handled here,
+        responses are processed with ResourceBuilder.
         """
 
         if query_or_data is None:
@@ -674,28 +694,28 @@ class Client(object):
 
     def _get(self, url, query=None, **kwargs):
         """
-        Wrapper for the HTTP GET Request.
+        Wrapper for the HTTP GET request.
         """
 
         return self._request('get', url, query, **kwargs)
 
     def _post(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP POST Request.
+        Wrapper for the HTTP POST request.
         """
 
         return self._request('post', url, attributes, **kwargs)
 
     def _put(self, url, attributes=None, **kwargs):
         """
-        Wrapper for the HTTP PUT Request.
+        Wrapper for the HTTP PUT request.
         """
 
         return self._request('put', url, attributes, **kwargs)
 
     def _delete(self, url, **kwargs):
         """
-        Wrapper for the HTTP DELETE Request.
+        Wrapper for the HTTP DELETE request.
         """
 
         response = retry_request(self)(self._http_delete)(url, **kwargs)
@@ -713,14 +733,14 @@ class Client(object):
 
     def _has_proxy(self):
         """
-        Checks if a Proxy was set.
+        Checks if a proxy was set.
         """
 
         return self.proxy_host
 
     def _proxy_parameters(self):
         """
-        Builds Proxy parameters dict from
+        Builds proxy parameters dict from
         client options.
         """
 
