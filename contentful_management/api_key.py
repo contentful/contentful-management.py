@@ -27,7 +27,9 @@ class ApiKey(Resource):
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for resource creation."""
+        """
+        Attributes for resource creation.
+        """
 
         if previous_object is not None:
             return {
@@ -41,7 +43,9 @@ class ApiKey(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes."""
+        """
+        Defines keys and default values for non-generic attributes.
+        """
 
         return {
             'name': '',
@@ -50,7 +54,9 @@ class ApiKey(Resource):
         }
 
     def to_json(self):
-        """Returns the JSON representation of the API key."""
+        """
+        Returns the JSON representation of the API key.
+        """
 
         result = super(ApiKey, self).to_json()
         result.update({

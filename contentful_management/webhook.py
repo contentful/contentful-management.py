@@ -31,7 +31,9 @@ class Webhook(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes."""
+        """
+        Defines keys and default values for non-generic attributes.
+        """
 
         return {
             'name': '',
@@ -43,7 +45,9 @@ class Webhook(Resource):
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for webhook creation."""
+        """
+        Attributes for webhook creation.
+        """
 
         result = super(Webhook, klass).create_attributes(attributes, previous_object)
 
@@ -68,7 +72,8 @@ class Webhook(Resource):
         return WebhookWebhooksCallProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def health(self):
-        """Provides access to health overview for the given webhook.
+        """
+        Provides access to health overview for the given webhook.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
 
@@ -83,7 +88,9 @@ class Webhook(Resource):
         return WebhookWebhooksHealthProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def to_json(self):
-        """Returns the JSON representation of the webhook."""
+        """
+        Returns the JSON representation of the webhook.
+        """
 
         result = super(Webhook, self).to_json()
         result.update({

@@ -31,7 +31,9 @@ class Locale(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Attributes for object mapping."""
+        """
+        Attributes for object mapping.
+        """
 
         return {
             'code': '',
@@ -44,7 +46,9 @@ class Locale(Resource):
         }
 
     def to_json(self):
-        """Returns the JSON representation of the locale."""
+        """
+        Returns the JSON representation of the locale.
+        """
 
         result = super(Locale, self).to_json()
         result.update({

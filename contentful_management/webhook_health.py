@@ -27,7 +27,9 @@ class WebhookHealth(Resource):
 
     @classmethod
     def base_url(klass, space_id, webhook_id, **kwargs):
-        """Returns the URI for the webhook health."""
+        """
+        Returns the URI for the webhook health.
+        """
 
         return "spaces/{0}/webhooks/{1}/health".format(
             space_id,

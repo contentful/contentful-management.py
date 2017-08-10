@@ -24,7 +24,9 @@ class Upload(Resource):
 
     @classmethod
     def create_headers(klass, _attributes):
-        """Headers for upload creation."""
+        """
+        Headers for upload creation.
+        """
 
         return {
             'Content-Type': 'application/octet-stream'

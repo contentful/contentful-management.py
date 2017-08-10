@@ -21,6 +21,8 @@ class SpaceMembershipsProxy(ClientProxy):
         return SpaceMembership
 
     def create(self, attributes=None, **kwargs):
-        """Creates a space membership with given attributes."""
+        """
+        Creates a space membership with given attributes.
+        """
 
         return super(SpaceMembershipsProxy, self).create(None, attributes)

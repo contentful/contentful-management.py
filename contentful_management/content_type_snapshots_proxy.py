@@ -27,12 +27,16 @@ class ContentTypeSnapshotsProxy(ContentTypeResourceProxy):
         return SnapshotsProxy
 
     def create(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

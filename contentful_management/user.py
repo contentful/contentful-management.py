@@ -31,7 +31,9 @@ class User(Resource):
 
     @classmethod
     def base_url(klass, **kwargs):
-        """Returns the URI for the user."""
+        """
+        Returns the URI for the user.
+        """
 
         return "users/me"
 

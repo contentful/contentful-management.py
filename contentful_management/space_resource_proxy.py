@@ -10,7 +10,9 @@ This module implements the SpaceResourceProxy class.
 
 
 class SpaceResourceProxy(object):
-    """Base Class for Space related Resource Proxies"""
+    """
+    Base class for space related resource proxies.
+    """
 
     def __init__(self, client, space_id):
         self.proxy = self._resource_proxy_class()(client, space_id)

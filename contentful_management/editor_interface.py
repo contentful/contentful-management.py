@@ -25,7 +25,9 @@ class EditorInterface(Resource):
 
     @classmethod
     def base_url(self, space_id, content_type_id, **kwargs):
-        """URL handler."""
+        """
+        Returns the URI for the editor interface.
+        """
 
         return "spaces/{0}/content_types/{1}/editor_interface".format(
             space_id,
@@ -34,12 +36,16 @@ class EditorInterface(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Attributes for object mapping."""
+        """
+        Attributes for object mapping.
+        """
 
         return {'controls': []}
 
     def to_json(self):
-        """Returns the JSON representation of the editor interface."""
+        """
+        Returns the JSON representation of the editor interface.
+        """
 
         result = super(EditorInterface, self).to_json()
         result.update({'controls': self.controls})

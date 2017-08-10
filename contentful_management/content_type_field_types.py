@@ -18,13 +18,17 @@ This module implements the field coercion classes.
 
 
 class BasicField(object):
-    """Base coercion class."""
+    """
+    Base coercion class.
+    """
 
     def __init__(self, items=None):
         self._items = items
 
     def coerce(self, value):
-        """Just returns the value."""
+        """
+        Just returns the value.
+        """
 
         return value
 
@@ -35,51 +39,73 @@ class BasicField(object):
 
 
 class SymbolField(BasicField):
-    """Symbol coercion class."""
+    """
+    Symbol coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to str."""
+        """
+        Coerces value to str.
+        """
 
         return unicode_class()(value)
 
 
 class TextField(SymbolField):
-    """Text coercion class."""
+    """
+    Text coercion class.
+    """
     pass
 
 
 class IntegerField(BasicField):
-    """Integer coercion class."""
+    """
+    Integer coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to int."""
+        """
+        Coerces value to int.
+        """
 
         return int(value) if value is not None else None
 
 
 class NumberField(BasicField):
-    """Number coercion class."""
+    """
+    Number coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to float."""
+        """
+        Coerces value to float.
+        """
 
         return float(value) if value is not None else None
 
 
 class DateField(BasicField):
-    """Date coercion class."""
+    """
+    Date coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces ISO8601 date to :class:`datetime.datetime` object."""
+        """
+        Coerces ISO8601 date to :class:`datetime.datetime` object.
+        """
 
         return dateutil.parser.parse(value)
 
 
 class BooleanField(BasicField):
-    """Boolean coercion class."""
+    """
+    Boolean coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to boolean."""
+        """
+        Coerces value to boolean.
+        """
 
         return bool(value)
 
@@ -96,7 +122,8 @@ class LinkField(BasicField):
 
 
 class ArrayField(BasicField):
-    """Array coercion class.
+    """
+    Array coercion class.
 
     Coerces items in collection with it's proper coercion class.
     """
@@ -106,7 +133,9 @@ class ArrayField(BasicField):
         self._coercion = self._get_coercion()
 
     def coerce(self, value):
-        """Coerces array items with proper coercion."""
+        """
+        Coerces array items with proper coercion.
+        """
 
         result = []
         for v in value:
@@ -118,19 +147,27 @@ class ArrayField(BasicField):
 
 
 class ObjectField(BasicField):
-    """Object coercion class."""
+    """
+    Object coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to JSON."""
+        """
+        Coerces value to JSON.
+        """
 
         return json.loads(json.dumps(value))
 
 
 class LocationField(BasicField):
-    """Location coercion class."""
+    """
+    Location coercion class.
+    """
 
     def coerce(self, value):
-        """Coerces value to location hash"""
+        """
+        Coerces value to location hash.
+        """
 
         return {
             'lat': float(value.get('lat', value.get('latitude'))),

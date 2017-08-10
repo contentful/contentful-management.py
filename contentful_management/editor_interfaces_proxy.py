@@ -50,12 +50,16 @@ class EditorInterfacesProxy(ClientProxy):
         return self.all()
 
     def create(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

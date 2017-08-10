@@ -40,11 +40,15 @@ class WebhookResourceProxy(object):
         return self.proxy.find(resource_id, query)
 
     def create(self, resource_id=None, attributes=None):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, resource_id):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")

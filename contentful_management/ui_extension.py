@@ -59,14 +59,18 @@ class UIExtension(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes."""
+        """
+        Defines keys and default values for non-generic attributes.
+        """
 
         return {
             'extension': {}
         }
 
     def to_json(self):
-        """Returns the JSON Representation of the UI extension."""
+        """
+        Returns the JSON Representation of the UI extension.
+        """
 
         result = super(UIExtension, self).to_json()
         result.update({

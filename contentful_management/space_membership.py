@@ -26,7 +26,9 @@ class SpaceMembership(Resource):
         self.user = item.get('user', None)
 
     def to_json(self):
-        """Returns the JSON representation of the space membership."""
+        """
+        Returns the JSON representation of the space membership.
+        """
 
         result = super(SpaceMembership, self).to_json()
         result.update({

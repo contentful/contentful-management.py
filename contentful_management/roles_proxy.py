@@ -25,6 +25,8 @@ class RolesProxy(ClientProxy):
         return Role
 
     def create(self, attributes=None, **kwargs):
-        """Creates a role with given attributes."""
+        """
+        Creates a role with given attributes.
+        """
 
         return super(RolesProxy, self).create(None, attributes)

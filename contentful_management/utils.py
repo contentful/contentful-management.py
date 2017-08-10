@@ -40,7 +40,7 @@ def unicode_class():
 
 def snake_case(a_string):
     """
-    Returns a snake cased version of a string.
+    Returns a snake-cased version of a string.
 
     :param a_string: any :class:`str` object.
 
@@ -55,7 +55,7 @@ def snake_case(a_string):
 
 def camel_case(snake_str):
     """
-    Returns a camel cased version of a string.
+    Returns a camel-cased version of a string.
 
     :param a_string: any :class:`str` object.
 
@@ -114,7 +114,9 @@ def is_link_array(value):
 
 
 def base_path_for(resource_name):
-    """Returns the path for a specified resource name."""
+    """
+    Returns the path for a specified resource name.
+    """
 
     return {
         'Space': 'spaces',
@@ -157,7 +159,9 @@ def normalize_select(query):
 
 
 def str_type():
-    """Returns the correct string type for the current Python version."""
+    """
+    Returns the correct string type for the current Python version.
+    """
 
     if sys.version_info[0] >= 3:
         return str
@@ -167,7 +171,9 @@ def str_type():
 
 
 class ConfigurationException(Exception):
-    """Configuration error class"""
+    """
+    Configuration error class.
+    """
 
     pass
 

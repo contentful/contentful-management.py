@@ -31,7 +31,9 @@ This module implements the ResourceBuilder class.
 
 
 class ResourceBuilder(object):
-    """Creates objects of the proper resource type."""
+    """
+    Creates objects of the proper resource type.
+    """
 
     def __init__(self, client, default_locale, json):
         self.client = client
@@ -39,7 +41,9 @@ class ResourceBuilder(object):
         self.json = json
 
     def build(self):
-        """Creates the objects from the JSON response."""
+        """
+        Creates the objects from the JSON response.
+        """
 
         if self.json['sys']['type'] == 'Array':
             return self._build_array()

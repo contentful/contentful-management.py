@@ -36,7 +36,9 @@ class Snapshot(Resource):
 
     @classmethod
     def base_url(klass, space_id, parent_resource_id, resource_url='entries', resource_id=None):
-        """Returns the URI for the snapshot."""
+        """
+        Returns the URI for the snapshot.
+        """
 
         return "spaces/{0}/{1}/{2}/snapshots/{3}".format(
             space_id,
@@ -46,7 +48,9 @@ class Snapshot(Resource):
         )
 
     def to_json(self):
-        """Returns the JSON representation of the snapshot."""
+        """
+        Returns the JSON representation of the snapshot.
+        """
 
         result = super(Snapshot, self).to_json()
         result.update({
@@ -61,11 +65,15 @@ class Snapshot(Resource):
         )
 
     def save(self):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def update(self, _attributes=None):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")

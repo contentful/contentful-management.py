@@ -47,9 +47,9 @@ class Client(object):
     """Constructs the API client.
 
     :param access_token: API access token.
-    :param api_url: (optional) URL of the Contentful target API,
+    :param api_url: (optional) URL of the Contentful API,
         defaults to Management API.
-    :param uploads_api_url: (optional) URL of the Contentful upload target API,
+    :param uploads_api_url: (optional) URL of the Contentful upload API,
         defaults to Upload API.
     :param api_version: (optional) Target version of the Contentful API.
     :param default_locale: (optional) Default locale for your spaces,
@@ -130,7 +130,8 @@ class Client(object):
         self._validate_configuration()
 
     def spaces(self):
-        """Provides access to space management methods.
+        """
+        Provides access to space management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
 
@@ -146,7 +147,8 @@ class Client(object):
         return SpacesProxy(self)
 
     def memberships(self, space_id):
-        """Provides access to space membership management methods.
+        """
+        Provides access to space membership management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
 
@@ -162,7 +164,8 @@ class Client(object):
         return SpaceMembershipsProxy(self, space_id)
 
     def organizations(self):
-        """Provides access to organization management methods.
+        """
+        Provides access to organization management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
 
@@ -178,7 +181,8 @@ class Client(object):
         return OrganizationsProxy(self)
 
     def users(self):
-        """Provides access to user management methods.
+        """
+        Provides access to user management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
 
@@ -194,7 +198,8 @@ class Client(object):
         return UsersProxy(self)
 
     def content_types(self, space_id):
-        """Provides access to content type management methods.
+        """
+        Provides access to content type management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
 
@@ -210,7 +215,8 @@ class Client(object):
         return ContentTypesProxy(self, space_id)
 
     def entries(self, space_id):
-        """Provides access to entry management methods.
+        """
+        Provides access to entry management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
@@ -226,7 +232,8 @@ class Client(object):
         return EntriesProxy(self, space_id)
 
     def assets(self, space_id):
-        """Provides access to asset management methods.
+        """
+        Provides access to asset management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
@@ -242,7 +249,8 @@ class Client(object):
         return AssetsProxy(self, space_id)
 
     def locales(self, space_id):
-        """Provides access to locale management methods.
+        """
+        Provides access to locale management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
 
@@ -258,7 +266,8 @@ class Client(object):
         return LocalesProxy(self, space_id)
 
     def webhooks(self, space_id):
-        """Provides access to webhook management methods.
+        """
+        Provides access to webhook management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
 
@@ -274,7 +283,8 @@ class Client(object):
         return WebhooksProxy(self, space_id)
 
     def webhook_calls(self, space_id, webhook_id):
-        """Provides access to webhook call information.
+        """
+        Provides access to webhook call information.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
 
@@ -290,7 +300,8 @@ class Client(object):
         return WebhooksCallProxy(self, space_id, webhook_id)
 
     def webhook_health(self, space_id, webhook_id):
-        """Provides access to webhook health information.
+        """
+        Provides access to webhook health information.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
 
@@ -306,7 +317,8 @@ class Client(object):
         return WebhooksHealthProxy(self, space_id, webhook_id)
 
     def api_keys(self, space_id):
-        """Provides access to api key management methods.
+        """
+        Provides access to API key management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
 
@@ -322,7 +334,8 @@ class Client(object):
         return ApiKeysProxy(self, space_id)
 
     def personal_access_tokens(self):
-        """Provides access to personal access token management methods.
+        """
+        Provides access to personal access token management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
 
@@ -338,7 +351,8 @@ class Client(object):
         return PersonalAccessTokensProxy(self)
 
     def roles(self, space_id):
-        """Provides access to role management methods.
+        """
+        Provides access to role management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
@@ -354,7 +368,8 @@ class Client(object):
         return RolesProxy(self, space_id)
 
     def ui_extensions(self, space_id):
-        """Provides access to UI extensions management methods.
+        """
+        Provides access to UI extensions management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
 
@@ -370,7 +385,8 @@ class Client(object):
         return UIExtensionsProxy(self, space_id)
 
     def editor_interfaces(self, space_id, content_type_id):
-        """Provides access to editor interfaces management methods.
+        """
+        Provides access to editor interfaces management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
 
@@ -386,7 +402,8 @@ class Client(object):
         return EditorInterfacesProxy(self, space_id, content_type_id)
 
     def snapshots(self, space_id, resource_id, resource_kind='entries'):
-        """Provides access to snapshot management methods.
+        """
+        Provides access to snapshot management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
@@ -405,7 +422,8 @@ class Client(object):
         return SnapshotsProxy(self, space_id, resource_id, resource_kind)
 
     def entry_snapshots(self, space_id, entry_id):
-        """Provides access to entry snapshot management methods.
+        """
+        Provides access to entry snapshot management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
@@ -421,7 +439,8 @@ class Client(object):
         return SnapshotsProxy(self, space_id, entry_id, 'entries')
 
     def content_type_snapshots(self, space_id, content_type_id):
-        """Provides access to content type snapshot management methods.
+        """
+        Provides access to content type snapshot management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
@@ -437,7 +456,8 @@ class Client(object):
         return SnapshotsProxy(self, space_id, content_type_id, 'content_types')
 
     def uploads(self, space_id):
-        """Provides access to upload management methods.
+        """
+        Provides access to upload management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 

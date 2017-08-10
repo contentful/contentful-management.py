@@ -87,7 +87,9 @@ class ServiceUnavailableError(HTTPError):
 
 
 def get_error(response):
-    """Gets Error by HTTP status code."""
+    """
+    Gets Error by HTTP status code.
+    """
 
     errors = {
         400: BadRequestError,

@@ -37,7 +37,9 @@ class PersonalAccessTokensProxy(ClientProxy):
         return super(PersonalAccessTokensProxy, self).create(None, attributes)
 
     def delete(self, token_id, *args, **kwargs):
-        """Revokes a personal access token."""
+        """
+        Revokes a personal access token.
+        """
 
         return self.client._put(
             "{0}/revoked".format(
@@ -49,6 +51,8 @@ class PersonalAccessTokensProxy(ClientProxy):
         )
 
     def revoke(self, token_id, *args, **kwargs):
-        """Revokes a personal access token."""
+        """
+        Revokes a personal access token.
+        """
 
         return self.delete(token_id, *args, **kwargs)

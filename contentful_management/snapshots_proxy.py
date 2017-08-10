@@ -26,12 +26,16 @@ class SnapshotsProxy(ClientProxy):
         return Snapshot
 
     def create(*args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(*args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

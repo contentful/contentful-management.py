@@ -24,26 +24,36 @@ class ContentTypeEditorInterfacesProxy(ContentTypeResourceProxy):
         return EditorInterfacesProxy
 
     def all(self):
-        """Gets the default editor interface."""
+        """
+        Gets the default editor interface.
+        """
 
         return self.proxy.all()
 
     def find(self, *args, **kwargs):
-        """Gets the default editor interface."""
+        """
+        Gets the default editor interface.
+        """
 
         return self.proxy.find()
 
     def default(self):
-        """Gets the default editor interface."""
+        """
+        Gets the default editor interface.
+        """
 
         return self.proxy.default()
 
     def create(self, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")

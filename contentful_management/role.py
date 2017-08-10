@@ -28,7 +28,9 @@ class Role(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes."""
+        """
+        Defines keys and default values for non-generic attributes.
+        """
 
         return {
             'name': '',
@@ -38,7 +40,9 @@ class Role(Resource):
         }
 
     def to_json(self):
-        """Returns the JSON representation of the role."""
+        """
+        Returns the JSON representation of the role.
+        """
 
         result = super(Role, self).to_json()
         result.update({

@@ -32,7 +32,9 @@ class PersonalAccessToken(Resource):
 
     @classmethod
     def base_url(klass, resource_id=None, **kwargs):
-        """Returns the URI for the personal access token."""
+        """
+        Returns the URI for the personal access token.
+        """
 
         return "users/me/access_tokens/{0}".format(
             resource_id if resource_id is not None else ''

@@ -26,7 +26,9 @@ class ContentTypeFieldValidation(object):
             self._data[snake_case(k)] = v
 
     def to_json(self):
-        """Returns the JSON Representation of the content type field validation."""
+        """
+        Returns the JSON Representation of the content type field validation.
+        """
 
         result = {}
         for k, v in self._data.items():

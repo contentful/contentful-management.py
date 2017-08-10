@@ -24,27 +24,37 @@ class UsersProxy(ClientProxy):
         return User
 
     def create(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def all(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def find(self, *args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def me(self):
-        """Returns the current user information."""
+        """
+        Returns the current user information.
+        """
 
         return self.client._get(self._url())
 

@@ -25,7 +25,9 @@ class Organization(Resource):
 
     @classmethod
     def base_url(klass, *args, **kwargs):
-        """Returns the URI for the organization."""
+        """
+        Returns the URI for the organization.
+        """
 
         return "organizations"
 

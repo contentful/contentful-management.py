@@ -38,16 +38,22 @@ class OrganizationsProxy(ClientProxy):
         return super(OrganizationsProxy, self).all(query=query)
 
     def find(self, organization_id, query=None, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not supported")
 
     def create(self, attributes=None, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not supported")
 
     def delete(self, organization_id):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not supported")

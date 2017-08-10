@@ -26,12 +26,16 @@ class UploadsProxy(ClientProxy):
         return Upload
 
     def all(*args, **kwargs):
-        """Not supported."""
+        """
+        Not supported.
+        """
 
         raise Exception("Not supported")
 
     def create(self, file_or_path, **kwargs):
-        """Creates an upload for the given file or path."""
+        """
+        Creates an upload for the given file or path.
+        """
 
         opened = False
         if isinstance(file_or_path, str_type()):
@@ -52,11 +56,15 @@ class UploadsProxy(ClientProxy):
                 file_or_path.close()
 
     def find(self, upload_id, **kwargs):
-        """Finds an upload by ID."""
+        """
+        Finds an upload by ID.
+        """
 
         return super(UploadsProxy, self).find(upload_id, file_upload=True)
 
     def delete(self, upload_id):
-        """Deletes an upload by ID."""
+        """
+        Deletes an upload by ID.
+        """
 
         return super(UploadsProxy, self).delete(upload_id, file_upload=True)

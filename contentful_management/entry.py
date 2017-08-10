@@ -23,7 +23,9 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
 
     @classmethod
     def create_headers(klass, attributes):
-        """Headers for entry creation."""
+        """
+        Headers for entry creation.
+        """
 
         if 'content_type_id' not in attributes:
             raise Exception("Content Type ID ('content_type_id') must be provided for this operation.")
@@ -34,7 +36,8 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         super(Entry, self).__init__(*args, **kwargs)
 
     def snapshots(self):
-        """Provides access to snapshot management methods for the given entry.
+        """
+        Provides access to snapshot management methods for the given entry.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
@@ -49,7 +52,9 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         return EntrySnapshotsProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def update(self, attributes=None):
-        """Updates the entry with attributes."""
+        """
+        Updates the entry with attributes.
+        """
 
         if attributes is None:
             attributes = {}

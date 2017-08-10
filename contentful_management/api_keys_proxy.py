@@ -21,6 +21,8 @@ class ApiKeysProxy(ClientProxy):
         return ApiKey
 
     def create(self, attributes=None, **kwargs):
-        """Creates an API key with given attributes."""
+        """
+        Creates an API key with given attributes.
+        """
 
         return super(ApiKeysProxy, self).create(None, attributes)
