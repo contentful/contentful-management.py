@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.client &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.client &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -50,12 +46,19 @@
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">ConfigurationException</span><span class="p">,</span> <span class="n">retry_request</span>
 <span class="kn">from</span> <span class="nn">.errors</span> <span class="k">import</span> <span class="n">get_error</span><span class="p">,</span> <span class="n">RateLimitExceededError</span>
 <span class="kn">from</span> <span class="nn">.spaces_proxy</span> <span class="k">import</span> <span class="n">SpacesProxy</span>
+<span class="kn">from</span> <span class="nn">.space_memberships_proxy</span> <span class="k">import</span> <span class="n">SpaceMembershipsProxy</span>
+<span class="kn">from</span> <span class="nn">.organizations_proxy</span> <span class="k">import</span> <span class="n">OrganizationsProxy</span>
+<span class="kn">from</span> <span class="nn">.users_proxy</span> <span class="k">import</span> <span class="n">UsersProxy</span>
 <span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
 <span class="kn">from</span> <span class="nn">.entries_proxy</span> <span class="k">import</span> <span class="n">EntriesProxy</span>
 <span class="kn">from</span> <span class="nn">.assets_proxy</span> <span class="k">import</span> <span class="n">AssetsProxy</span>
 <span class="kn">from</span> <span class="nn">.api_keys_proxy</span> <span class="k">import</span> <span class="n">ApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.personal_access_tokens_proxy</span> <span class="k">import</span> <span class="n">PersonalAccessTokensProxy</span>
 <span class="kn">from</span> <span class="nn">.roles_proxy</span> <span class="k">import</span> <span class="n">RolesProxy</span>
+<span class="kn">from</span> <span class="nn">.ui_extensions_proxy</span> <span class="k">import</span> <span class="n">UIExtensionsProxy</span>
 <span class="kn">from</span> <span class="nn">.webhooks_proxy</span> <span class="k">import</span> <span class="n">WebhooksProxy</span>
+<span class="kn">from</span> <span class="nn">.webhooks_call_proxy</span> <span class="k">import</span> <span class="n">WebhooksCallProxy</span>
+<span class="kn">from</span> <span class="nn">.webhooks_health_proxy</span> <span class="k">import</span> <span class="n">WebhooksHealthProxy</span>
 <span class="kn">from</span> <span class="nn">.locales_proxy</span> <span class="k">import</span> <span class="n">LocalesProxy</span>
 <span class="kn">from</span> <span class="nn">.editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">EditorInterfacesProxy</span>
 <span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="k">import</span> <span class="n">SnapshotsProxy</span>
@@ -69,12 +72,12 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">contentful_management.client</span>
-<span class="sd">~~~~~~~~~~~~~~~~~</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the Contentful Management API Client,</span>
 <span class="sd">allowing interaction with every method present in it.</span>
 
-<span class="sd">Complete API Documentation: https://www.contentful.com/developers/docs/references/content-management-api</span>
+<span class="sd">Complete API documentation: https://www.contentful.com/developers/docs/references/content-management-api</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
@@ -82,15 +85,15 @@
 
 
 <div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Constructs the API Client.</span>
+    <span class="sd">&quot;&quot;&quot;Constructs the API client.</span>
 
-<span class="sd">    :param access_token: API Access Token.</span>
-<span class="sd">    :param api_url: (optional) URL of the Contentful Target API,</span>
+<span class="sd">    :param access_token: API access token.</span>
+<span class="sd">    :param api_url: (optional) URL of the Contentful API,</span>
 <span class="sd">        defaults to Management API.</span>
-<span class="sd">    :param uploads_api_url: (optional) URL of the Contentful Upload Target API,</span>
+<span class="sd">    :param uploads_api_url: (optional) URL of the Contentful upload API,</span>
 <span class="sd">        defaults to Upload API.</span>
 <span class="sd">    :param api_version: (optional) Target version of the Contentful API.</span>
-<span class="sd">    :param default_locale: (optional) Default Locale for your Spaces,</span>
+<span class="sd">    :param default_locale: (optional) Default locale for your spaces,</span>
 <span class="sd">        defaults to &#39;en-US&#39;.</span>
 <span class="sd">    :param https: (optional) Boolean determining wether to use https</span>
 <span class="sd">        or http, defaults to True.</span>
@@ -168,9 +171,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_configuration</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Client.spaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.spaces">[docs]</a>    <span class="k">def</span> <span class="nf">spaces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Space management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to space management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
 
 <span class="sd">        :return: :class:`SpacesProxy &lt;contentful_management.spaces_proxy.SpacesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.spaces_proxy.SpacesProxy</span>
@@ -183,10 +187,62 @@
 
         <span class="k">return</span> <span class="n">SpacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Content Types management methods</span>
+<div class="viewcode-block" id="Client.memberships"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.memberships">[docs]</a>    <span class="k">def</span> <span class="nf">memberships</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to space membership management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships</span>
+
+<span class="sd">        :return: :class:`SpaceMembershipsProxy &lt;contentful_management.space_memberships_proxy.SpaceMembershipsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_memberships_proxy.SpaceMembershipsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_memberships_proxy = client.memberships(&#39;cfexampleapi&#39;)</span>
+<span class="sd">            &lt;SpaceMembershipsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">SpaceMembershipsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.organizations"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.organizations">[docs]</a>    <span class="k">def</span> <span class="nf">organizations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to organization management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations</span>
+
+<span class="sd">        :return: :class:`OrganizationsProxy &lt;contentful_management.organizations_proxy.OrganizationsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.organizations_proxy.OrganizationsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; organizations_proxy = client.organizations()</span>
+<span class="sd">            &lt;OrganizationsProxy&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">OrganizationsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.users"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to user management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users</span>
+
+<span class="sd">        :return: :class:`UsersProxy &lt;contentful_management.users_proxy.UsersProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.users_proxy.UsersProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; users_proxy = client.UsersProxy()</span>
+<span class="sd">            &lt;UsersProxy&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">UsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to content type management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
 
 <span class="sd">        :return: :class:`ContentTypesProxy &lt;contentful_management.content_types_proxy.ContentTypesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.content_types_proxy.ContentTypesProxy</span>
@@ -200,9 +256,10 @@
         <span class="k">return</span> <span class="n">ContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Entries management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to entry management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 
 <span class="sd">        :return: :class:`EntriesProxy &lt;contentful_management.entries_proxy.EntriesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.entries_proxy.EntriesProxy</span>
@@ -216,9 +273,10 @@
         <span class="k">return</span> <span class="n">EntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Assets management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to asset management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
 
 <span class="sd">        :return: :class:`AssetsProxy &lt;contentful_management.assets_proxy.AssetsProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.assets_proxy.AssetsProxy</span>
@@ -232,9 +290,10 @@
         <span class="k">return</span> <span class="n">AssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Locales management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to locale management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</span>
 
 <span class="sd">        :return: :class:`LocalesProxy &lt;contentful_management.locales_proxy.LocalesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.locales_proxy.LocalesProxy</span>
@@ -248,12 +307,13 @@
         <span class="k">return</span> <span class="n">LocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.webhooks"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhooks">[docs]</a>    <span class="k">def</span> <span class="nf">webhooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Webhooks management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to webhook management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks</span>
 
 <span class="sd">        :return: :class:`WebhooksProxy &lt;contentful_management.locales_proxy.WebhooksProxy&gt;` object.</span>
-<span class="sd">        :rtype: contentful.locales_proxy.WebhooksProxy</span>
+<span class="sd">        :rtype: contentful.webhooks_proxy.WebhooksProxy</span>
 
 <span class="sd">        Usage:</span>
 
@@ -263,10 +323,45 @@
 
         <span class="k">return</span> <span class="n">WebhooksProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Api Keys management methods</span>
+<div class="viewcode-block" id="Client.webhook_calls"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhook_calls">[docs]</a>    <span class="k">def</span> <span class="nf">webhook_calls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to webhook call information.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls</span>
+
+<span class="sd">        :return: :class:`WebhooksProxy &lt;contentful_management.webhooks_call_proxy.WebhooksCallProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.webhooks_call_proxy.WebhooksProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; webhooks_call_proxy = client.webhook_calls(&#39;cfexampleapi&#39;, &#39;my_webhook&#39;)</span>
+<span class="sd">            &lt;WebhooksCallProxy space_id=&quot;cfexampleapi&quot; webhook_id=&quot;my_webhook&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">WebhooksCallProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.webhook_health"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhook_health">[docs]</a>    <span class="k">def</span> <span class="nf">webhook_health</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to webhook health information.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health</span>
+
+<span class="sd">        :return: :class:`WebhooksHealthProxy &lt;contentful_management.webhooks_health_proxy.WebhooksHealthProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.webhooks_health_proxy.WebhooksHealthProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; webhooks_health_proxy = client.webhook_calls(&#39;cfexampleapi&#39;, &#39;my_webhook&#39;)</span>
+<span class="sd">            &lt;WebhooksHealthProxy space_id=&quot;cfexampleapi&quot; webhook_id=&quot;my_webhook&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">WebhooksHealthProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to API key management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
 
 <span class="sd">        :return: :class:`ApiKeysProxy &lt;contentful_management.api_keys_proxy.ApiKeysProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.api_keys_proxy.ApiKeysProxy</span>
@@ -279,10 +374,28 @@
 
         <span class="k">return</span> <span class="n">ApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.roles"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.roles">[docs]</a>    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Roles management methods</span>
+<div class="viewcode-block" id="Client.personal_access_tokens"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.personal_access_tokens">[docs]</a>    <span class="k">def</span> <span class="nf">personal_access_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to personal access token management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens</span>
+
+<span class="sd">        :return: :class:`PersonalAccessTokensProxy &lt;contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.personal_access_tokens_proxy.PersonalAccessTokensProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; personal_access_tokens_proxy = client.personal_access_tokens()</span>
+<span class="sd">            &lt;PersonalAccessTokensProxy&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">PersonalAccessTokensProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.roles"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.roles">[docs]</a>    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to role management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles</span>
 
 <span class="sd">        :return: :class:`RolesProxy &lt;contentful_management.roles_proxy.RolesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.roles_proxy.RolesProxy</span>
@@ -295,10 +408,28 @@
 
         <span class="k">return</span> <span class="n">RolesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Editor Interfaces management methods</span>
+<div class="viewcode-block" id="Client.ui_extensions"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.ui_extensions">[docs]</a>    <span class="k">def</span> <span class="nf">ui_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to UI extensions management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</span>
+
+<span class="sd">        :return: :class:`UIExtensionsProxy &lt;contentful_management.ui_extensions_proxy.UIExtensionsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.ui_extensions_proxy.UIExtensionsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; ui_extensions_proxy = client.ui_extensions(&#39;cfexampleapi&#39;)</span>
+<span class="sd">            &lt;UIExtensionsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">UIExtensionsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to editor interfaces management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</span>
 
 <span class="sd">        :return: :class:`EditorInterfacesProxy &lt;contentful_management.editor_interfaces_proxy.EditorInterfacesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.editor_interfaces_proxy.EditorInterfacesProxy</span>
@@ -311,26 +442,65 @@
 
         <span class="k">return</span> <span class="n">EditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Snapshot management methods</span>
+<div class="viewcode-block" id="Client.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="o">=</span><span class="s1">&#39;entries&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to snapshot management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
 
 <span class="sd">        :return: :class:`SnapshotsProxy &lt;contentful_management.snapshots_proxy.SnapshotsProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.snapshots_proxy.SnapshotsProxy</span>
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;nyancat&#39;)</span>
-<span class="sd">            &lt;SnapshotsProxy space_id=&quot;cfexampleapi&quot; entry_id=&quot;nyancat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;nyancat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+
+<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;cat&#39;, &#39;content_types&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.entry_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entry_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">entry_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to entry snapshot management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
+
+<span class="sd">        :return: :class:`SnapshotsProxy &lt;contentful_management.snapshots_proxy.SnapshotsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.snapshots_proxy.SnapshotsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.entry_snapshots(&#39;cfexampleapi&#39;, &#39;nyancat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">,</span> <span class="s1">&#39;entries&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.content_type_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_type_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">content_type_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to content type snapshot management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
+
+<span class="sd">        :return: :class:`SnapshotsProxy &lt;contentful_management.snapshots_proxy.SnapshotsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.snapshots_proxy.SnapshotsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.content_type_snapshots(&#39;cfexampleapi&#39;, &#39;cat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Upload management methods</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to upload management methods.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads</span>
 
 <span class="sd">        :return: :class:`UploadsProxy &lt;contentful_management.uploads_proxy.UploadsProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.uploads_proxy.UploadsProxy</span>
@@ -416,7 +586,7 @@
 
     <span class="k">def</span> <span class="nf">_request_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Sets the default Request Headers.</span>
+<span class="sd">        Sets the default request headers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
@@ -437,7 +607,7 @@
 
     <span class="k">def</span> <span class="nf">_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">file_upload</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates the Request URL.</span>
+<span class="sd">        Creates the request URL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">host</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_url</span>
@@ -455,8 +625,8 @@
 
     <span class="k">def</span> <span class="nf">_normalize_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Converts Arrays in the query to comma</span>
-<span class="sd">        separaters lists for proper API handling.</span>
+<span class="sd">        Converts arrays in the query to comma</span>
+<span class="sd">        separated lists for proper API handling.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">query</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -465,7 +635,7 @@
 
     <span class="k">def</span> <span class="nf">_http_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">request_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs the requested HTTP Request.</span>
+<span class="sd">        Performs the requested HTTP request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">kwargs</span> <span class="o">=</span> <span class="n">request_kwargs</span> <span class="k">if</span> <span class="n">request_kwargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
@@ -494,7 +664,7 @@
 
     <span class="k">def</span> <span class="nf">_http_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs the HTTP GET Request.</span>
+<span class="sd">        Performs the HTTP GET request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_normalize_query</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
@@ -505,7 +675,7 @@
 
     <span class="k">def</span> <span class="nf">_http_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs the HTTP POST Request.</span>
+<span class="sd">        Performs the HTTP POST request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;file_upload&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
@@ -517,7 +687,7 @@
 
     <span class="k">def</span> <span class="nf">_http_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs the HTTP PUT Request.</span>
+<span class="sd">        Performs the HTTP PUT request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)})</span>
@@ -526,16 +696,16 @@
 
     <span class="k">def</span> <span class="nf">_http_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">_data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs the HTTP DELETE Request.</span>
+<span class="sd">        Performs the HTTP DELETE request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query_or_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper for the HTTP Requests,</span>
-<span class="sd">        Rate Limit Backoff is handled here,</span>
-<span class="sd">        Responses are Processed with ResourceBuilder.</span>
+<span class="sd">        Wrapper for the HTTP requests,</span>
+<span class="sd">        rate limit backoff is handled here,</span>
+<span class="sd">        responses are processed with ResourceBuilder.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">query_or_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -565,28 +735,28 @@
 
     <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper for the HTTP GET Request.</span>
+<span class="sd">        Wrapper for the HTTP GET request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper for the HTTP POST Request.</span>
+<span class="sd">        Wrapper for the HTTP POST request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper for the HTTP PUT Request.</span>
+<span class="sd">        Wrapper for the HTTP PUT request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Wrapper for the HTTP DELETE Request.</span>
+<span class="sd">        Wrapper for the HTTP DELETE request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">response</span> <span class="o">=</span> <span class="n">retry_request</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">_http_delete</span><span class="p">)(</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -604,14 +774,14 @@
 
     <span class="k">def</span> <span class="nf">_has_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Checks if a Proxy was set.</span>
+<span class="sd">        Checks if a proxy was set.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_host</span>
 
     <span class="k">def</span> <span class="nf">_proxy_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Builds Proxy parameters dict from</span>
+<span class="sd">        Builds proxy parameters dict from</span>
 <span class="sd">        client options.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -625,7 +795,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_username</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_password</span><span class="p">:</span>
             <span class="n">proxy</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">{0}</span><span class="s1">:</span><span class="si">{1}</span><span class="s1">@&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proxy_username</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_password</span><span class="p">)</span>
 
-        <span class="n">proxy</span> <span class="o">+=</span> <span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https?(://)?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_host</span><span class="p">)</span>
+        <span class="n">proxy</span> <span class="o">+=</span> <span class="n">sub</span><span class="p">(</span><span class="s1">r&#39;https?(://)?&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_host</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_port</span><span class="p">:</span>
             <span class="n">proxy</span> <span class="o">+=</span> <span class="s1">&#39;:</span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proxy_port</span><span class="p">)</span>

@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.content_type &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.content_type &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -46,16 +42,17 @@
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span>
 <span class="kn">from</span> <span class="nn">.content_type_field</span> <span class="k">import</span> <span class="n">ContentTypeField</span>
 <span class="kn">from</span> <span class="nn">.content_type_entries_proxy</span> <span class="k">import</span> <span class="n">ContentTypeEntriesProxy</span>
+<span class="kn">from</span> <span class="nn">.content_type_snapshots_proxy</span> <span class="k">import</span> <span class="n">ContentTypeSnapshotsProxy</span>
 <span class="kn">from</span> <span class="nn">.content_type_editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">ContentTypeEditorInterfacesProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.content_type</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.content_type</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the ContentType class.</span>
 
-<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
@@ -64,20 +61,22 @@
 
 <div class="viewcode-block" id="ContentType"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType">[docs]</a><span class="k">class</span> <span class="nc">ContentType</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">display_field</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;displayField&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="n">ContentTypeField</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
                        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fields&#39;</span><span class="p">,</span> <span class="p">[])]</span>
 
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ContentType.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.base_url">[docs]</a>    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the URI for the Resource&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ContentType.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.base_url">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URI for the content type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;spaces/</span><span class="si">{0}</span><span class="s2">/public/content_types&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">space_id</span><span class="p">)</span>
@@ -87,9 +86,11 @@
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span></div>
 
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ContentType.create_attributes"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.create_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">create_attributes</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attributes for resource creation&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ContentType.create_attributes"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.create_attributes">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_attributes</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attributes for content type creation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span><span class="o">.</span><span class="n">create_attributes</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="n">previous_object</span><span class="p">)</span>
 
@@ -97,9 +98,11 @@
             <span class="n">result</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ContentType.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.update_attributes_map">[docs]</a>    <span class="k">def</span> <span class="nf">update_attributes_map</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attributes for object mapping&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ContentType.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.update_attributes_map">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update_attributes_map</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attributes for object mapping.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
@@ -109,7 +112,9 @@
         <span class="p">}</span></div>
 
 <div class="viewcode-block" id="ContentType.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the JSON Representation of the Resource&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the JSON representation of the content type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
         <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
@@ -121,9 +126,10 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="ContentType.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Entries management methods for the given Content Type</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to entry management methods for the given content type.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 
 <span class="sd">        :return: :class:`ContentTypeEntriesProxy &lt;contentful_management.content_type_entries_proxy.ContentTypeEntriesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.content_type_entries_proxy.ContentTypeEntriesProxy</span>
@@ -136,9 +142,10 @@
         <span class="k">return</span> <span class="n">ContentTypeEntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContentType.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Provides access to Editor Interfaces management methods for the given Content Type</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to editor interface management methods for the given content type.</span>
 
-<span class="sd">        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</span>
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</span>
 
 <span class="sd">        :return: :class:`ContentTypeEditorInterfacesProxy &lt;contentful_management.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy&gt;` object.</span>
 <span class="sd">        :rtype: contentful.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy</span>
@@ -149,6 +156,22 @@
 <span class="sd">            &lt;ContentTypeEditorInterfacesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ContentTypeEditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ContentType.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to snapshot management methods for the given content type.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection</span>
+
+<span class="sd">        :return: :class:`ContentTypeSnapshotsProxy &lt;contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.content_type_snapshots_proxy.ContentTypeSnapshotsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = content_type.entries()</span>
+<span class="sd">            &lt;ContentTypeSnapshotsProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ContentTypeSnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;ContentType[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.utils &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.utils &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -58,8 +54,8 @@
             <span class="k">pass</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.utils</span>
-<span class="sd">~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.utils</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements utilities.</span>
 
@@ -68,13 +64,15 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
-<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="unicode_class"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.unicode_class">[docs]</a><span class="k">def</span> <span class="nf">unicode_class</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Returns the class that allows for unicode encoded strings</span>
-<span class="sd">    depends on the Python version.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the class that allows for unicode encoded strings</span>
+<span class="sd">    depends on the Python version.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">str</span>
@@ -82,7 +80,8 @@
 
 
 <div class="viewcode-block" id="snake_case"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.snake_case">[docs]</a><span class="k">def</span> <span class="nf">snake_case</span><span class="p">(</span><span class="n">a_string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a snake cased version of a string.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a snake-cased version of a string.</span>
 
 <span class="sd">    :param a_string: any :class:`str` object.</span>
 
@@ -91,12 +90,13 @@
 <span class="sd">        &quot;foo_bar&quot;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">partial</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">a_string</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+    <span class="n">partial</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">,</span> <span class="s1">r&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">a_string</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="s1">r&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="camel_case"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.camel_case">[docs]</a><span class="k">def</span> <span class="nf">camel_case</span><span class="p">(</span><span class="n">snake_str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns a camel cased version of a string.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a camel-cased version of a string.</span>
 
 <span class="sd">    :param a_string: any :class:`str` object.</span>
 
@@ -112,7 +112,8 @@
 
 
 <div class="viewcode-block" id="is_link"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.is_link">[docs]</a><span class="k">def</span> <span class="nf">is_link</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Checks if value is link or not.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if value is link or not.</span>
 
 <span class="sd">    :param value: any object.</span>
 <span class="sd">    :return: Boolean</span>
@@ -132,7 +133,8 @@
 
 
 <div class="viewcode-block" id="is_link_array"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.is_link_array">[docs]</a><span class="k">def</span> <span class="nf">is_link_array</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Checks if value is an array of links.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if value is an array of links.</span>
 
 <span class="sd">    :param value: any object.</span>
 <span class="sd">    :return: Boolean</span>
@@ -153,10 +155,13 @@
 
 
 <div class="viewcode-block" id="base_path_for"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.base_path_for">[docs]</a><span class="k">def</span> <span class="nf">base_path_for</span><span class="p">(</span><span class="n">resource_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Returns the path for a specified resource name&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the path for a specified resource name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="p">{</span>
         <span class="s1">&#39;Space&#39;</span><span class="p">:</span> <span class="s1">&#39;spaces&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;SpaceMembership&#39;</span><span class="p">:</span> <span class="s1">&#39;space_memberships&#39;</span><span class="p">,</span>
         <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="s1">&#39;content_types&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Entry&#39;</span><span class="p">:</span> <span class="s1">&#39;entries&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Asset&#39;</span><span class="p">:</span> <span class="s1">&#39;assets&#39;</span><span class="p">,</span>
@@ -164,8 +169,8 @@
         <span class="s1">&#39;Locale&#39;</span><span class="p">:</span> <span class="s1">&#39;locales&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Webhook&#39;</span><span class="p">:</span> <span class="s1">&#39;webhook_definitions&#39;</span><span class="p">,</span>
         <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="s1">&#39;roles&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;Snapshot&#39;</span><span class="p">:</span> <span class="s1">&#39;snapshots&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;Upload&#39;</span><span class="p">:</span> <span class="s1">&#39;uploads&#39;</span>
+        <span class="s1">&#39;Upload&#39;</span><span class="p">:</span> <span class="s1">&#39;uploads&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;UIExtension&#39;</span><span class="p">:</span> <span class="s1">&#39;extensions&#39;</span>
     <span class="p">}[</span><span class="n">resource_name</span><span class="p">]</span></div>
 
 
@@ -195,7 +200,9 @@
 
 
 <div class="viewcode-block" id="str_type"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.str_type">[docs]</a><span class="k">def</span> <span class="nf">str_type</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Returns the correct string type for the current Python version.&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the correct string type for the current Python version.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
         <span class="k">return</span> <span class="nb">str</span>
@@ -205,14 +212,16 @@
 
 
 <div class="viewcode-block" id="ConfigurationException"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.ConfigurationException">[docs]</a><span class="k">class</span> <span class="nc">ConfigurationException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Configuration Error Class&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configuration error class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">pass</span></div>
 
 
 <div class="viewcode-block" id="retry_request"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.retry_request">[docs]</a><span class="k">class</span> <span class="nc">retry_request</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Decorator to retry function calls in case they raise rate limit exceptions</span>
+<span class="sd">    Decorator to retry function calls in case they raise rate limit exceptions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">RATE_LIMIT_RESET_HEADER_KEY</span> <span class="o">=</span> <span class="s1">&#39;x-contentful-ratelimit-reset&#39;</span>

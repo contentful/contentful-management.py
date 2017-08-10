@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.entry_resource_proxy &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.entry_resource_proxy &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -44,8 +40,8 @@
             
   <h1>Source code for contentful_management.entry_resource_proxy</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.entry_resource_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.entry_resource_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the EntryResourceProxy class.</span>
 
@@ -62,9 +58,9 @@
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> space_id=&#39;</span><span class="si">{1}</span><span class="s2">&#39; entry_id=&#39;</span><span class="si">{2}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">space_id</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">entry_id</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">parent_resource_id</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -72,28 +68,28 @@
 
 <div class="viewcode-block" id="EntryResourceProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.entry_resource_proxy.EntryResourceProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets all resources related to the current Entry.</span>
+<span class="sd">        Gets all resources related to the current entry.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EntryResourceProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.entry_resource_proxy.EntryResourceProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Finds a single resource by ID related to the current Entry.</span>
+<span class="sd">        Finds a single resource by ID related to the current entry.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EntryResourceProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.entry_resource_proxy.EntryResourceProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a resource with a given ID (optional) and attributes for the current Entry.</span>
+<span class="sd">        Creates a resource with a given ID (optional) and attributes for the current entry.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resource_id</span><span class="o">=</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="EntryResourceProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.entry_resource_proxy.EntryResourceProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Deletes a Resource by ID.</span>
+<span class="sd">        Deletes a resource by ID.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">resource_id</span><span class="p">)</span></div></div>

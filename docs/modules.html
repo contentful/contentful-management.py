@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +23,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="index.html" />
     <link rel="next" title="contentful_management package" href="contentful_management.html" />
     <link rel="prev" title="Contentful Management API SDK" href="index.html" />
    
@@ -35,7 +32,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -59,7 +56,7 @@
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.assets_proxy">contentful_management.assets_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.client">contentful_management.client module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.client_proxy">contentful_management.client_proxy module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-client-proxy">contentful.client_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-client-proxy">contentful_management.client_proxy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type">contentful_management.content_type module</a></li>
@@ -69,25 +66,30 @@
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_types">contentful_management.content_type_field_types module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_field_validation">contentful_management.content_type_field_validation module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_resource_proxy">contentful_management.content_type_resource_proxy module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-content-type-resource-proxy">contentful.content_type_resource_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-content-type-resource-proxy">contentful_management.content_type_resource_proxy</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_type_snapshots_proxy">contentful_management.content_type_snapshots_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.content_types_proxy">contentful_management.content_types_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interface">contentful_management.editor_interface module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.editor_interfaces_proxy">contentful_management.editor_interfaces_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entries_proxy">contentful_management.entries_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry">contentful_management.entry module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_resource_proxy">contentful_management.entry_resource_proxy module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-entry-resource-proxy">contentful.entry_resource_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-entry-resource-proxy">contentful_management.entry_resource_proxy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_snapshots_proxy">contentful_management.entry_snapshots_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.errors">contentful_management.errors module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-errors">contentful.errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-errors">contentful_management.errors</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.locale">contentful_management.locale module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.locales_proxy">contentful_management.locales_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.organization">contentful_management.organization module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_token">contentful_management.personal_access_token module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource">contentful_management.resource module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource_builder">contentful_management.resource_builder module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.role">contentful_management.role module</a></li>
@@ -100,18 +102,34 @@
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_content_types_proxy">contentful_management.space_content_types_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_entries_proxy">contentful_management.space_entries_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_locales_proxy">contentful_management.space_locales_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-space-api-keys-proxy">contentful.space_api_keys_proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-space-api-keys-proxy">contentful_management.space_api_keys_proxy</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_roles_proxy">contentful_management.space_roles_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_uploads_proxy">contentful_management.space_uploads_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.spaces_proxy">contentful_management.spaces_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.ui_extension">contentful_management.ui_extension module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.ui_extensions_proxy">contentful_management.ui_extensions_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.upload">contentful_management.upload module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.uploads_proxy">contentful_management.uploads_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.user">contentful_management.user module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.users_proxy">contentful_management.users_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.utils">contentful_management.utils module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook">contentful_management.webhook module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook_call">contentful_management.webhook_call module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook_health">contentful_management.webhook_health module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook_resource_proxy">contentful_management.webhook_resource_proxy module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#contentful-management-webhook-resource-proxy">contentful_management.webhook_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook_webhooks_call_proxy">contentful_management.webhook_webhooks_call_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhook_webhooks_health_proxy">contentful_management.webhook_webhooks_health_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhooks_call_proxy">contentful_management.webhooks_call_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhooks_health_proxy">contentful_management.webhooks_health_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management.webhooks_proxy">contentful_management.webhooks_proxy module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contentful_management.html#module-contentful_management">Module contents</a></li>
 </ul>

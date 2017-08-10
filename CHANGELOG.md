@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v1.4.0
 ### Added
 * Added Organizations Endpoint.
 * Added Webhook Calls and Health Endpoints.

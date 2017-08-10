@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.resource_builder &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.resource_builder &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -46,30 +42,39 @@
 <span></span><span class="kn">from</span> <span class="nn">.entry</span> <span class="k">import</span> <span class="n">Entry</span>
 <span class="kn">from</span> <span class="nn">.asset</span> <span class="k">import</span> <span class="n">Asset</span>
 <span class="kn">from</span> <span class="nn">.space</span> <span class="k">import</span> <span class="n">Space</span>
+<span class="kn">from</span> <span class="nn">.space_membership</span> <span class="k">import</span> <span class="n">SpaceMembership</span>
+<span class="kn">from</span> <span class="nn">.organization</span> <span class="k">import</span> <span class="n">Organization</span>
 <span class="kn">from</span> <span class="nn">.content_type</span> <span class="k">import</span> <span class="n">ContentType</span>
 <span class="kn">from</span> <span class="nn">.webhook</span> <span class="k">import</span> <span class="n">Webhook</span>
+<span class="kn">from</span> <span class="nn">.webhook_call</span> <span class="k">import</span> <span class="n">WebhookCall</span>
+<span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="k">import</span> <span class="n">WebhookHealth</span>
 <span class="kn">from</span> <span class="nn">.locale</span> <span class="k">import</span> <span class="n">Locale</span>
 <span class="kn">from</span> <span class="nn">.role</span> <span class="k">import</span> <span class="n">Role</span>
+<span class="kn">from</span> <span class="nn">.ui_extension</span> <span class="k">import</span> <span class="n">UIExtension</span>
 <span class="kn">from</span> <span class="nn">.editor_interface</span> <span class="k">import</span> <span class="n">EditorInterface</span>
 <span class="kn">from</span> <span class="nn">.api_key</span> <span class="k">import</span> <span class="n">ApiKey</span>
+<span class="kn">from</span> <span class="nn">.personal_access_token</span> <span class="k">import</span> <span class="n">PersonalAccessToken</span>
 <span class="kn">from</span> <span class="nn">.snapshot</span> <span class="k">import</span> <span class="n">Snapshot</span>
 <span class="kn">from</span> <span class="nn">.upload</span> <span class="k">import</span> <span class="n">Upload</span>
+<span class="kn">from</span> <span class="nn">.user</span> <span class="k">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">.array</span> <span class="k">import</span> <span class="n">Array</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.resource_builder</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.resource_builder</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the Resource Builder class.</span>
+<span class="sd">This module implements the ResourceBuilder class.</span>
 
-<span class="sd">:copyright: (c) 2016 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="ResourceBuilder"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.resource_builder.ResourceBuilder">[docs]</a><span class="k">class</span> <span class="nc">ResourceBuilder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Creates objects of the proper Resource Type&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates objects of the proper resource type.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">default_locale</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
@@ -77,7 +82,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="n">json</span>
 
 <div class="viewcode-block" id="ResourceBuilder.build"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.resource_builder.ResourceBuilder.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates the objects from the JSON response&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates the objects from the JSON response.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span><span class="p">[</span><span class="s1">&#39;sys&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Array&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_array</span><span class="p">()</span>
@@ -92,13 +99,21 @@
             <span class="s1">&#39;Asset&#39;</span><span class="p">:</span> <span class="n">Asset</span><span class="p">,</span>
             <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="n">ContentType</span><span class="p">,</span>
             <span class="s1">&#39;Space&#39;</span><span class="p">:</span> <span class="n">Space</span><span class="p">,</span>
+            <span class="s1">&#39;SpaceMembership&#39;</span><span class="p">:</span> <span class="n">SpaceMembership</span><span class="p">,</span>
+            <span class="s1">&#39;Organization&#39;</span><span class="p">:</span> <span class="n">Organization</span><span class="p">,</span>
             <span class="s1">&#39;ApiKey&#39;</span><span class="p">:</span> <span class="n">ApiKey</span><span class="p">,</span>
+            <span class="s1">&#39;PersonalAccessToken&#39;</span><span class="p">:</span> <span class="n">PersonalAccessToken</span><span class="p">,</span>
             <span class="s1">&#39;Locale&#39;</span><span class="p">:</span> <span class="n">Locale</span><span class="p">,</span>
             <span class="s1">&#39;EditorInterface&#39;</span><span class="p">:</span> <span class="n">EditorInterface</span><span class="p">,</span>
             <span class="s1">&#39;WebhookDefinition&#39;</span><span class="p">:</span> <span class="n">Webhook</span><span class="p">,</span>
+            <span class="s1">&#39;WebhookCallOverview&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
+            <span class="s1">&#39;WebhookCallDetails&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
+            <span class="s1">&#39;Webhook&#39;</span><span class="p">:</span> <span class="n">WebhookHealth</span><span class="p">,</span>
             <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="n">Role</span><span class="p">,</span>
+            <span class="s1">&#39;Extension&#39;</span><span class="p">:</span> <span class="n">UIExtension</span><span class="p">,</span>
             <span class="s1">&#39;Snapshot&#39;</span><span class="p">:</span> <span class="n">Snapshot</span><span class="p">,</span>
-            <span class="s1">&#39;Upload&#39;</span><span class="p">:</span> <span class="n">Upload</span>
+            <span class="s1">&#39;Upload&#39;</span><span class="p">:</span> <span class="n">Upload</span><span class="p">,</span>
+            <span class="s1">&#39;User&#39;</span><span class="p">:</span> <span class="n">User</span>
         <span class="p">}</span>
 
         <span class="n">item_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;sys&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>
@@ -108,7 +123,8 @@
                 <span class="n">item</span><span class="p">,</span>
                 <span class="n">default_locale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">default_locale</span><span class="p">,</span>
                 <span class="n">client</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span>
-            <span class="p">)</span></div>
+            <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Resource not buildable&quot;</span><span class="p">)</span></div>
 </pre></div>
 
           </div>

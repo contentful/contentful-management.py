@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.editor_interface &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.editor_interface &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -47,51 +43,57 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.editor_interface</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.editor_interface</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the EditorInterface class.</span>
 
-<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces</span>
 
-<span class="sd">:copyright: (c) 2016 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="EditorInterface"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface">[docs]</a><span class="k">class</span> <span class="nc">EditorInterface</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">EditorInterface</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">EditorInterface</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">controls</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;controls&#39;</span><span class="p">,</span> <span class="p">[])</span>
 
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="EditorInterface.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface.base_url">[docs]</a>    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;URL Handler&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="EditorInterface.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface.base_url">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the URI for the editor interface.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="s2">&quot;spaces/</span><span class="si">{0}</span><span class="s2">/content_types/</span><span class="si">{1}</span><span class="s2">/editor_interface&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">space_id</span><span class="p">,</span>
             <span class="n">content_type_id</span>
         <span class="p">)</span></div>
 
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="EditorInterface.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface.update_attributes_map">[docs]</a>    <span class="k">def</span> <span class="nf">update_attributes_map</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attributes for object mapping&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="EditorInterface.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface.update_attributes_map">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">update_attributes_map</span><span class="p">(</span><span class="n">klass</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attributes for object mapping.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;controls&#39;</span><span class="p">:</span> <span class="p">[]}</span></div>
 
 <div class="viewcode-block" id="EditorInterface.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.editor_interface.EditorInterface.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the JSON Representation of the Resource&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the JSON representation of the editor interface.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">EditorInterface</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
         <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;controls&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">controls</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
     <span class="k">def</span> <span class="nf">_update_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">content_type</span><span class="o">.</span><span class="n">id</span>
         <span class="p">)</span>

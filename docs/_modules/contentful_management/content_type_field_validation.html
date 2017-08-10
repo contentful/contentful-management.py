@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.content_type_field_validation &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.content_type_field_validation &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -47,21 +43,21 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.content_type_field_validation</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.content_type_field_validation</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the ContentTypeFieldValidation class.</span>
 
-<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
 
-<span class="sd">:copyright: (c) 2016 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
 <div class="viewcode-block" id="ContentTypeFieldValidation"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_field_validation.ContentTypeFieldValidation">[docs]</a><span class="k">class</span> <span class="nc">ContentTypeFieldValidation</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validation_data</span><span class="p">):</span>
@@ -71,7 +67,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">snake_case</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">v</span>
 
 <div class="viewcode-block" id="ContentTypeFieldValidation.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_field_validation.ContentTypeFieldValidation.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the JSON Representation of the Resource&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the JSON Representation of the content type field validation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -81,12 +79,12 @@
     <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentTypeFieldValidation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentTypeFieldValidation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">,</span> <span class="s1">&#39;_data&#39;</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ContentTypeFieldValidation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ContentTypeFieldValidation</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;ContentTypeFieldValidation </span><span class="si">{0}</span><span class="s2">&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

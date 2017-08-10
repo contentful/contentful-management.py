@@ -1,23 +1,21 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>contentful_management.content_type_field &#8212; Contentful Management 1.3.2 documentation</title>
-    
+    <title>contentful_management.content_type_field &#8212; Contentful Management 1.4.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.3.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
@@ -25,8 +23,6 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="top" title="Contentful Management 1.3.2 documentation" href="../../index.html" />
-    <link rel="up" title="Module code" href="../index.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -34,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
+  <body>
   
 
     <div class="document">
@@ -44,16 +40,16 @@
             
   <h1>Source code for contentful_management.content_type_field</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">snake_case</span>
-<span class="kn">from</span> <span class="nn">.content_type_field_types</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401</span>
+<span class="kn">from</span> <span class="nn">.content_type_field_types</span> <span class="k">import</span> <span class="o">*</span>  <span class="c1"># noqa: F403, F401</span>
 <span class="kn">from</span> <span class="nn">.content_type_field_validation</span> <span class="k">import</span> <span class="n">ContentTypeFieldValidation</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful.content_type_field</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.content_type_field</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
 <span class="sd">This module implements the ContentTypeField class.</span>
 
-<span class="sd">API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
@@ -62,7 +58,7 @@
 
 <div class="viewcode-block" id="ContentTypeField"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_field.ContentTypeField">[docs]</a><span class="k">class</span> <span class="nc">ContentTypeField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_data</span><span class="p">):</span>
@@ -81,7 +77,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_coercion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_coercion</span><span class="p">()</span>
 
 <div class="viewcode-block" id="ContentTypeField.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_field.ContentTypeField.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the JSON Representation of the Resource&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the JSON Representation of the content type field.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
@@ -103,17 +101,21 @@
         <span class="k">return</span> <span class="n">result</span></div>
 
 <div class="viewcode-block" id="ContentTypeField.coerce"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_field.ContentTypeField.coerce">[docs]</a>    <span class="k">def</span> <span class="nf">coerce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Coerces the value to the proper type.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Coerces the value to the proper type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coercion</span><span class="o">.</span><span class="n">coerce</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_get_coercion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets the proper coercion type&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the proper coercion type.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">Field&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">)](</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_real_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets the real field ID&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Gets the real field ID.&quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
 
