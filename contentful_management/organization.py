@@ -2,12 +2,12 @@ from .resource import Resource
 
 
 """
-contentful.organization
-~~~~~~~~~~~~~~~~
+contentful_management.organization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Organization class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Organization(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
     """
 
     def __init__(self, item, **kwargs):
@@ -25,7 +25,7 @@ class Organization(Resource):
 
     @classmethod
     def base_url(klass, *args, **kwargs):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the organization."""
 
         return "organizations"
 

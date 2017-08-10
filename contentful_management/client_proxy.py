@@ -1,6 +1,6 @@
 """
-contentful.client_proxy
-~~~~~~~~~~~~~~~~
+contentful_management.client_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ClientProxy class.
 
@@ -10,7 +10,7 @@ This module implements the ClientProxy class.
 
 
 class ClientProxy(object):
-    """Base Class for Proxies"""
+    """Base class for proxies."""
 
     def __init__(self, client, space_id):
         self.client = client
@@ -27,7 +27,7 @@ class ClientProxy(object):
         raise Exception("Must Implement")
 
     def all(self, query=None):
-        """Gets resource collection for _resource_class"""
+        """Gets resource collection for _resource_class."""
 
         if query is None:
             query = {}
@@ -37,7 +37,7 @@ class ClientProxy(object):
         )
 
     def find(self, resource_id, query=None, **kwargs):
-        """Gets a single resource"""
+        """Gets a single resource."""
 
         if query is None:
             query = {}
@@ -48,7 +48,7 @@ class ClientProxy(object):
         )
 
     def create(self, resource_id=None, attributes=None):
-        """Creates a resource with the given ID (optional) and Attributes"""
+        """Creates a resource with the given ID (optional) and attributes."""
 
         if attributes is None:
             attributes = {}
@@ -70,7 +70,7 @@ class ClientProxy(object):
         return result
 
     def delete(self, resource_id, **kwargs):
-        """Deletes a resource by ID"""
+        """Deletes a resource by ID."""
 
         return self.client._delete(self._url(resource_id), **kwargs)
 

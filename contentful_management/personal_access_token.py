@@ -3,12 +3,12 @@ from .resource import Resource
 
 
 """
-contentful.PersonalAccessToken
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.PersonalAccessToken
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the PersonalAccessToken class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class PersonalAccessToken(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
     """
 
     def __init__(self, item, **kwargs):
@@ -32,7 +32,7 @@ class PersonalAccessToken(Resource):
 
     @classmethod
     def base_url(klass, resource_id=None, **kwargs):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the personal access token."""
 
         return "users/me/access_tokens/{0}".format(
             resource_id if resource_id is not None else ''

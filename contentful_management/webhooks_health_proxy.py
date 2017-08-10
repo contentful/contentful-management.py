@@ -2,6 +2,19 @@ from .client_proxy import ClientProxy
 from .webhook_health import WebhookHealth
 
 
+"""
+contentful_management.webhooks_health_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the WebhooksHealthProxy class.
+
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+
+:copyright: (c) 2017 by Contentful GmbH.
+:license: MIT, see LICENSE for more details.
+"""
+
+
 class WebhooksHealthProxy(ClientProxy):
     def __init__(self, client, space_id, webhook_id):
         super(WebhooksHealthProxy, self).__init__(client, space_id)
@@ -13,18 +26,18 @@ class WebhooksHealthProxy(ClientProxy):
 
     def find(self, *args, **kwargs):
         """
-        Gets the Webhook Health.
+        Gets the webhook health.
         """
 
         return self.all()
 
     def create(self, *args, **kwargs):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")
 

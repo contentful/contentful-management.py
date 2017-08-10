@@ -2,12 +2,12 @@ from .resource import Resource
 
 
 """
-contentful.locale
-~~~~~~~~~~~~~~~~~
+contentful_management.locale
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Locale class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Locale(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
     """
 
     def __init__(self, item, **kwargs):
@@ -31,7 +31,7 @@ class Locale(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Attributes for object mapping"""
+        """Attributes for object mapping."""
 
         return {
             'code': '',
@@ -44,7 +44,7 @@ class Locale(Resource):
         }
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON representation of the locale."""
 
         result = super(Locale, self).to_json()
         result.update({

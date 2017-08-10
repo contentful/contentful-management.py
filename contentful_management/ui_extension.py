@@ -3,12 +3,12 @@ from copy import deepcopy
 
 
 """
-contentful.ui_extension
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.ui_extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the UIExtension class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class UIExtension(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
     """
 
     def __init__(self, item, **kwargs):
@@ -59,14 +59,14 @@ class UIExtension(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes"""
+        """Defines keys and default values for non-generic attributes."""
 
         return {
             'extension': {}
         }
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON Representation of the UI extension."""
 
         result = super(UIExtension, self).to_json()
         result.update({

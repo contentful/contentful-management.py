@@ -20,18 +20,18 @@ from .array import Array
 
 
 """
-contentful.resource_builder
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.resource_builder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the Resource Builder class.
+This module implements the ResourceBuilder class.
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class ResourceBuilder(object):
-    """Creates objects of the proper Resource Type"""
+    """Creates objects of the proper resource type."""
 
     def __init__(self, client, default_locale, json):
         self.client = client
@@ -39,7 +39,7 @@ class ResourceBuilder(object):
         self.json = json
 
     def build(self):
-        """Creates the objects from the JSON response"""
+        """Creates the objects from the JSON response."""
 
         if self.json['sys']['type'] == 'Array':
             return self._build_array()

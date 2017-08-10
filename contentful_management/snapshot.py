@@ -2,21 +2,21 @@ from .resource import Resource
 
 
 """
-contentful.Snapshot
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.snapshot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Snapshot class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class Snapshot(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
     """
 
     def __init__(self, item, **kwargs):
@@ -36,7 +36,7 @@ class Snapshot(Resource):
 
     @classmethod
     def base_url(klass, space_id, parent_resource_id, resource_url='entries', resource_id=None):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the snapshot."""
 
         return "spaces/{0}/{1}/{2}/snapshots/{3}".format(
             space_id,
@@ -46,7 +46,7 @@ class Snapshot(Resource):
         )
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON representation of the snapshot."""
 
         result = super(Snapshot, self).to_json()
         result.update({

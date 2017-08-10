@@ -1,10 +1,8 @@
 """
-contentful.space_api_keys_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_api_keys_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the SpaceApiKeysProxy class.
-
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
+This module implements the SpaceResourceProxy class.
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -28,28 +26,28 @@ class SpaceResourceProxy(object):
 
     def all(self, query=None):
         """
-        Gets all resources related to the current Space.
+        Gets all resources related to the current space.
         """
 
         return self.proxy.all(query)
 
     def find(self, resource_id, query=None):
         """
-        Finds a single resource by ID related to the current Space.
+        Finds a single resource by ID related to the current space.
         """
 
         return self.proxy.find(resource_id, query=query)
 
     def create(self, resource_id=None, attributes=None):
         """
-        Creates a resource with a given ID (optional) and attributes for the current Space.
+        Creates a resource with a given ID (optional) and attributes for the current space.
         """
 
         return self.proxy.create(resource_id=resource_id, attributes=attributes)
 
     def delete(self, resource_id):
         """
-        Deletes a Resource by ID.
+        Deletes a resource by ID.
         """
 
         return self.proxy.delete(resource_id)

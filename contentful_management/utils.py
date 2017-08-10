@@ -13,8 +13,8 @@ except ImportError:
             pass
 
 """
-contentful.utils
-~~~~~~~~~~~~~~~~
+contentful_management.utils
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements utilities.
 
@@ -28,8 +28,10 @@ log = logging.getLogger(__name__)
 
 
 def unicode_class():
-    """Returns the class that allows for unicode encoded strings
-    depends on the Python version."""
+    """
+    Returns the class that allows for unicode encoded strings
+    depends on the Python version.
+    """
 
     if sys.version_info[0] >= 3:
         return str
@@ -37,7 +39,8 @@ def unicode_class():
 
 
 def snake_case(a_string):
-    """Returns a snake cased version of a string.
+    """
+    Returns a snake cased version of a string.
 
     :param a_string: any :class:`str` object.
 
@@ -51,7 +54,8 @@ def snake_case(a_string):
 
 
 def camel_case(snake_str):
-    """Returns a camel cased version of a string.
+    """
+    Returns a camel cased version of a string.
 
     :param a_string: any :class:`str` object.
 
@@ -67,7 +71,8 @@ def camel_case(snake_str):
 
 
 def is_link(value):
-    """Checks if value is link or not.
+    """
+    Checks if value is link or not.
 
     :param value: any object.
     :return: Boolean
@@ -87,7 +92,8 @@ def is_link(value):
 
 
 def is_link_array(value):
-    """Checks if value is an array of links.
+    """
+    Checks if value is an array of links.
 
     :param value: any object.
     :return: Boolean
@@ -108,7 +114,7 @@ def is_link_array(value):
 
 
 def base_path_for(resource_name):
-    """Returns the path for a specified resource name"""
+    """Returns the path for a specified resource name."""
 
     return {
         'Space': 'spaces',
@@ -161,14 +167,14 @@ def str_type():
 
 
 class ConfigurationException(Exception):
-    """Configuration Error Class"""
+    """Configuration error class"""
 
     pass
 
 
 class retry_request(object):
     """
-    Decorator to retry function calls in case they raise rate limit exceptions
+    Decorator to retry function calls in case they raise rate limit exceptions.
     """
 
     RATE_LIMIT_RESET_HEADER_KEY = 'x-contentful-ratelimit-reset'

@@ -2,21 +2,21 @@ from .utils import snake_case, camel_case
 
 
 """
-contentful.content_type_field_validation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_type_field_validation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentTypeFieldValidation class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class ContentTypeFieldValidation(object):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
     """
 
     def __init__(self, validation_data):
@@ -26,7 +26,7 @@ class ContentTypeFieldValidation(object):
             self._data[snake_case(k)] = v
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON Representation of the content type field validation."""
 
         result = {}
         for k, v in self._data.items():

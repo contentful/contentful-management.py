@@ -4,26 +4,26 @@ from .entry_snapshots_proxy import EntrySnapshotsProxy
 
 
 """
-contentful.entry
-~~~~~~~~~~~~~~~~
+contentful_management.entry
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Entry class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
+API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class Entry(FieldsResource, PublishResource, ArchiveResource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
+    API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
     """
 
     @classmethod
     def create_headers(klass, attributes):
-        """Headers for resource creation"""
+        """Headers for entry creation."""
 
         if 'content_type_id' not in attributes:
             raise Exception("Content Type ID ('content_type_id') must be provided for this operation.")
@@ -34,9 +34,9 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         super(Entry, self).__init__(*args, **kwargs)
 
     def snapshots(self):
-        """Provides access to Snapshot management methods for the given Entry
+        """Provides access to snapshot management methods for the given entry.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
         :return: :class:`EntrySnapshotsProxy <contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy>` object.
         :rtype: contentful.entry_snapshots_proxy.EntrySnapshotsProxy
@@ -49,7 +49,7 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         return EntrySnapshotsProxy(self._client, self.sys['space'].id, self.sys['id'])
 
     def update(self, attributes=None):
-        """Updates the Entry with attributes"""
+        """Updates the entry with attributes."""
 
         if attributes is None:
             attributes = {}
@@ -75,7 +75,7 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         """
         Fields that are voided in the WebApp will be not returned in
         API responses, therefore we need to check if they are part of
-        the Content Type to determine if they should or should not be
+        the content type to determine if they should or should not be
         serialized.
         """
 

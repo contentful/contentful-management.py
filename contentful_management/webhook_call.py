@@ -4,12 +4,12 @@ from .resource import Resource
 
 
 """
-contentful.WebhookCall
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.webhook_call
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the WebhookCall class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-call-overview
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-call-overview
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -18,7 +18,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class WebhookCall(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-call-overview
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-call-overview
     """
 
     def __init__(self, item, **kwargs):
@@ -40,7 +40,7 @@ class WebhookCall(Resource):
 
     @classmethod
     def base_url(klass, space_id, webhook_id, resource_id=None):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the webhook call."""
 
         return "spaces/{0}/webhooks/{1}/calls/{2}".format(
             space_id,

@@ -4,12 +4,12 @@ from .utils import normalize_select
 
 
 """
-contentful.assets_proxy
-~~~~~~~~~~~~~~~~
+contentful_management.assets_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the AssetsProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -18,7 +18,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class AssetsProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
     """
 
     @property
@@ -27,7 +27,7 @@ class AssetsProxy(ClientProxy):
 
     def all(self, query=None, **kwargs):
         """
-        Gets all assets of a Space.
+        Gets all assets of a space.
         """
 
         if query is None:

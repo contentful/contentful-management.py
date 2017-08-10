@@ -2,12 +2,12 @@ from .resource import FieldsResource, PublishResource, ArchiveResource
 
 
 """
-contentful.asset
-~~~~~~~~~~~~~~~~
+contentful_management.asset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Asset class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,12 +16,12 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Asset(FieldsResource, PublishResource, ArchiveResource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
     """
 
     def url(self, **kwargs):
         """
-        Returns a formatted URL for the Asset's File
+        Returns a formatted URL for the asset's File
         with serialized parameters.
 
         Usage:
@@ -41,9 +41,9 @@ class Asset(FieldsResource, PublishResource, ArchiveResource):
 
     def process(self):
         """
-        Calls the Process endpoint for all locales of the asset.
+        Calls the process endpoint for all locales of the asset.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets/asset-processing
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets/asset-processing
         """
 
         for locale in self._fields.keys():

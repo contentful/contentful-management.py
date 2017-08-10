@@ -1,6 +1,6 @@
 """
-contentful.content_type_resource_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_type_resource_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentTypeResourceProxy class.
 
@@ -10,7 +10,7 @@ This module implements the ContentTypeResourceProxy class.
 
 
 class ContentTypeResourceProxy(object):
-    """Base Class for Content Type related Resource Proxies"""
+    """Base class for content type related resource proxies."""
 
     def __init__(self, client, space_id, content_type_id):
         self.proxy = self._resource_proxy_class()(client, space_id, content_type_id)
@@ -27,28 +27,28 @@ class ContentTypeResourceProxy(object):
 
     def all(self, query=None):
         """
-        Gets all resources related to the current Content Type.
+        Gets all resources related to the current content type.
         """
 
         return self.proxy.all(query)
 
     def find(self, resource_id, query=None):
         """
-        Finds a single resource by ID related to the current Content Type.
+        Finds a single resource by ID related to the current content type.
         """
 
         return self.proxy.find(resource_id, query)
 
     def create(self, resource_id=None, attributes=None):
         """
-        Creates a resource with a given ID (optional) and attributes for the current Content Type.
+        Creates a resource with a given ID (optional) and attributes for the current content type.
         """
 
         return self.proxy.create(resource_id=resource_id, attributes=attributes)
 
     def delete(self, resource_id):
         """
-        Deletes a Resource by ID.
+        Deletes a resource by ID.
         """
 
         return self.proxy.delete(resource_id)

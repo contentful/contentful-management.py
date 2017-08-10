@@ -3,12 +3,12 @@ from .assets_proxy import AssetsProxy
 
 
 """
-contentful.space_assets_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_assets_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the SpaceAssetsProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class SpaceAssetsProxy(SpaceResourceProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
     """
 
     def _resource_proxy_class(self):

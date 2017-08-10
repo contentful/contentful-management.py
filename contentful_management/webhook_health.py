@@ -2,12 +2,12 @@ from .resource import Resource
 
 
 """
-contentful.WebhookHealth
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.webhook_health
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the WebhookHealth class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,7 +16,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class WebhookHealth(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
     """
 
     def __init__(self, item, **kwargs):
@@ -27,7 +27,7 @@ class WebhookHealth(Resource):
 
     @classmethod
     def base_url(klass, space_id, webhook_id, **kwargs):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the webhook health."""
 
         return "spaces/{0}/webhooks/{1}/health".format(
             space_id,

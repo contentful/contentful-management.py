@@ -8,25 +8,25 @@ from .utils import base_path_for
 
 
 """
-contentful.resource
-~~~~~~~~~~~~~~~~~~~
+contentful_management.resource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the Resource, FieldResource and Link classes.
+This module implements the Resource, FieldResource, PublishResource, ArchiveResource and Link classes.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
+API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
 
-:copyright: (c) 2016 by Contentful GmbH.
+:copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
 class Resource(object):
     """
-    Base Resource Class
+    Base resource class.
 
     Implements common resource attributes.
 
-    API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
+    API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
     """
 
     def __init__(self, item, default_locale='en-US', client=None):
@@ -37,7 +37,7 @@ class Resource(object):
 
     @classmethod
     def base_url(klass, space_id='', resource_id=None, **kwargs):
-        """Returns the URI for the Resource"""
+        """Returns the URI for the resource."""
 
         url = "spaces/{0}/{1}".format(
             space_id,
@@ -51,7 +51,7 @@ class Resource(object):
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for resource creation"""
+        """Attributes for resource creation."""
 
         result = {}
 
@@ -64,18 +64,18 @@ class Resource(object):
 
     @classmethod
     def create_headers(klass, attributes):
-        """Headers for resource creation"""
+        """Headers for resource creation."""
 
         return {}
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes"""
+        """Defines keys and default values for non-generic attributes."""
 
         return {}
 
     def delete(self):
-        """Deletes the Resource"""
+        """Deletes the resource."""
 
         return self._client._delete(
             self.__class__.base_url(
@@ -85,7 +85,7 @@ class Resource(object):
         )
 
     def update(self, attributes=None):
-        """Updates the Resource with attributes"""
+        """Updates the resource with attributes."""
 
         if attributes is None:
             attributes = {}
@@ -104,12 +104,12 @@ class Resource(object):
         return self
 
     def save(self):
-        """Saves the current state of the Resource"""
+        """Saves the current state of the resource."""
 
         return self.update()
 
     def reload(self, result=None):
-        """Reloads the Resource"""
+        """Reloads the resource."""
 
         if result is None:
             result = self._client._get(
@@ -124,14 +124,14 @@ class Resource(object):
         return self
 
     def to_link(self):
-        """Returns a Link for the Resource"""
+        """Returns a link for the resource."""
 
         link_type = self.link_type if self.type == 'Link' else self.type
 
         return Link({'sys': {'linkType': link_type, 'id': self.sys.get('id')}}, client=self._client)
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON representation of the resource."""
 
         result = {
             'sys': {}
@@ -194,14 +194,14 @@ class Resource(object):
 
 class FieldsResource(Resource):
     """
-    Fields Resource Class
+    Fields resource class.
 
-    Implements locale handling for Resource fields.
+    Implements locale handling for resource fields.
     """
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for resource creation"""
+        """Attributes for resource creation."""
 
         if 'fields' not in attributes:
             if previous_object is None:
@@ -215,7 +215,7 @@ class FieldsResource(Resource):
         self._fields = self._hydrate_fields(item)
 
     def fields(self, locale=None):
-        """Get fields for a specific locale
+        """Get fields for a specific locale.
 
         :param locale: (optional) Locale to fetch, defaults to default_locale.
         """
@@ -225,7 +225,7 @@ class FieldsResource(Resource):
         return self._fields.get(locale, {})
 
     def fields_with_locales(self):
-        """Get fields with locales per field"""
+        """Get fields with locales per field."""
 
         result = {}
         for locale, fields in self._fields.items():
@@ -237,7 +237,7 @@ class FieldsResource(Resource):
         return result
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON Representation of the resource."""
 
         result = super(FieldsResource, self).to_json()
         result['fields'] = self.fields_with_locales()
@@ -245,7 +245,7 @@ class FieldsResource(Resource):
 
     @property
     def locale(self):
-        """Returns the Resource's locale"""
+        """Returns the resource locale."""
 
         return self.sys.get('locale', None)
 
@@ -320,17 +320,17 @@ class FieldsResource(Resource):
 
 class PublishResource(object):
     """
-    Allows for Resource Publish/Unpublish.
+    Allows for resource publish/unpublish.
     """
 
     @property
     def is_published(self):
-        """Checks if Resource is Published"""
+        """Checks if resource is published."""
 
         return bool(self.sys.get('published_at', False))
 
     def publish(self):
-        """Publishes the Resource"""
+        """Publishes the resource."""
 
         result = self._client._put(
             "{0}/published".format(
@@ -343,7 +343,7 @@ class PublishResource(object):
         return self.reload(result)
 
     def unpublish(self):
-        """Unpublishes the Resource"""
+        """Unpublishes the resource."""
 
         self._client._delete(
             "{0}/published".format(
@@ -357,17 +357,17 @@ class PublishResource(object):
 
 class ArchiveResource(object):
     """
-    Allows for Resource Archive/Unarchive.
+    Allows for resource archive/unarchive.
     """
 
     @property
     def is_archived(self):
-        """Checks if Resource is Archived"""
+        """Checks if Resource is archived."""
 
         return bool(self.sys.get('archived_version', False))
 
     def archive(self):
-        """Archives the Resource"""
+        """Archives the resource."""
 
         self._client._put(
             "{0}/archived".format(
@@ -380,7 +380,7 @@ class ArchiveResource(object):
         return self.reload()
 
     def unarchive(self):
-        """Unarchives the Resource"""
+        """Unarchives the resource."""
 
         self._client._delete(
             "{0}/archived".format(
@@ -395,11 +395,11 @@ class ArchiveResource(object):
 class Link(Resource):
     """Link Class
 
-    API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links
+    API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links
     """
 
     def resolve(self, space_id=None):
-        """Resolves Link to a specific Resource"""
+        """Resolves link to a specific resource."""
 
         proxy_method = getattr(
             self._client,
@@ -411,7 +411,7 @@ class Link(Resource):
             return proxy_method(space_id).find(self.id)
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """Returns the JSON representation of the link."""
 
         return {
             'sys': {

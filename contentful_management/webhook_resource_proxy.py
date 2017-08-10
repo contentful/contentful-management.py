@@ -1,6 +1,6 @@
 """
-contentful.webhook_resource_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.webhook_resource_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the WebhookResourceProxy class.
 
@@ -27,24 +27,24 @@ class WebhookResourceProxy(object):
 
     def all(self, query=None):
         """
-        Gets all resources related to the current Webhook.
+        Gets all resources related to the current webhook.
         """
 
         return self.proxy.all(query)
 
     def find(self, resource_id, query=None):
         """
-        Finds a single resource by ID related to the current Webhook.
+        Finds a single resource by ID related to the current webhook.
         """
 
         return self.proxy.find(resource_id, query)
 
     def create(self, resource_id=None, attributes=None):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")
 
     def delete(self, resource_id):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")

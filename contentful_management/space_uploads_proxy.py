@@ -3,12 +3,12 @@ from .uploads_proxy import UploadsProxy
 
 
 """
-contentful.space_uploads_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_uploads_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the SpaceUploadsProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class SpaceUploadsProxy(SpaceResourceProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
     """
 
     def _resource_proxy_class(self):

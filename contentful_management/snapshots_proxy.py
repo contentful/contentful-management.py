@@ -2,6 +2,19 @@ from .client_proxy import ClientProxy
 from .snapshot import Snapshot
 
 
+"""
+contentful_management.snapshots_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the SnapshotsProxy class.
+
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+
+:copyright: (c) 2017 by Contentful GmbH.
+:license: MIT, see LICENSE for more details.
+"""
+
+
 class SnapshotsProxy(ClientProxy):
     def __init__(self, client, space_id, parent_resource_id, resource_kind='entries'):
         super(SnapshotsProxy, self).__init__(client, space_id)
@@ -13,12 +26,12 @@ class SnapshotsProxy(ClientProxy):
         return Snapshot
 
     def create(*args, **kwargs):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")
 
     def delete(*args, **kwargs):
-        """Not Supported"""
+        """Not supported."""
 
         raise Exception("Not Supported")
 
