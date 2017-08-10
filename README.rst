@@ -66,6 +66,99 @@ Updating a space::
     blog_space.name = 'Ye Olde Blog'
     blog_space.save()
 
+Space Memberships
+-----------------
+
+Retrieving all memberships on a space::
+
+    memberships = client.memberships('my_space_id').all()
+
+    # or if you already have a fetched space
+
+    memberships = space.memberships().all()
+
+Retrieveing one membership by ID::
+
+    membership = client.memberships('my_space_id').find('membership_id')
+
+    # or if you already have a fetched space
+
+    membership = space.memberships().find('api_key_id')
+
+Deleting an membership::
+
+    client.memberships('my_space_id').delete('membership_id')
+
+    # or if you already have a fetched space
+
+    space.memberships().delete('api_key_id')
+
+    # or if you already have fetched the membership
+
+    memberships.delete()
+
+Creating a new membership::
+
+    memberships = client.memberships('my_space_id').create({
+        "admin": False,
+        "roles": [
+            {
+                "type": "Link",
+                "linkType": "Role",
+                "id": "1Nq88dKTNXNaxkbrRpEEw6"
+            }
+        ],
+        "email": "test@example.com"
+    })
+
+
+    # or if you already have a fetched space
+
+    memberships = space.memberships().create({
+        "admin": False,
+        "roles": [
+            {
+                "type": "Link",
+                "linkType": "Role",
+                "id": "1Nq88dKTNXNaxkbrRpEEw6"
+            }
+        ],
+        "email": "test@example.com"
+    })
+
+Updating a membership::
+
+    memberships.update({
+        "admin": False,
+        "roles": [
+            {
+                "type": "Link",
+                "linkType": "Role",
+                "id": "1Nq88dKTNXNaxkbrRpEEw6"
+            }
+        ]
+    })
+
+
+    # or directly editing it's properties
+
+    memberships.admin = True
+    memberships.save()
+
+Organizations
+-------------
+
+Retrieving all Organizations you belong to::
+
+    organizations = client.organizations().all()
+
+Users
+-----
+
+Retrieving your User information::
+
+    user = client.users().me()
+
 Assets
 ------
 
@@ -582,6 +675,105 @@ Updating a webhook::
     webhook.name = 'Other Webhook'
     webhook.save()
 
+Webhook Calls
+-------------
+
+Retrieving all Webhook Calls on a space::
+
+    calls = client.webhook_calls('my_space_id', 'webhook_id').all()
+
+    # or if you already have a fetched webhook
+
+    calls = webhook.calls().all()
+
+Retrieveing Webhook Call Details by ID::
+
+    call = client.webhook_calls('my_space_id', 'webhook_id').find('call_id')
+
+    # or if you already have a fetched webhook
+
+    call = webhook.calls().find('call_id')
+
+Webhook Health
+--------------
+
+Retrieving Webhook Health::
+
+    health = client.webhook_health('my_space_id', 'webhook_id').find()
+
+    # or if you already have a fetched webhook
+
+    health = webhook.health().find()
+
+UI Extensions
+-------------
+
+Retrieving all UI Extenisons on a space::
+
+    ui_extensions = client.ui_extensions('my_space_id').all()
+
+    # or if you already have a fetched space
+
+    ui_extensions = space.ui_extensions().all()
+
+Retrieveing one UI Extension by ID::
+
+    ui_extension = client.ui_extensions('my_space_id').find('ui_extension_id')
+
+    # or if you already have a fetched space
+
+    ui_extension = space.ui_extensions().find('ui_extension_id')
+
+Deleting an UI Extension::
+
+    client.ui_extensions('my_space_id').delete('ui_extension_id')
+
+    # or if you already have a fetched space
+
+    space.ui_extensions().delete('ui_extension_id')
+
+    # or if you already have fetched the UI Extension
+
+    ui_extension.delete()
+
+Creating a new UI Extension::
+
+    new_ui_extension = client.ui_extensions('my_space_id').create('test-extension', {
+        "extension": {
+            "name": "Test Extension",
+            "srcdoc": "<html>foobar</html>",
+            "fieldTypes": [{'type': 'Symbol'}],
+            "sidebar": False
+        }
+    })
+
+    # or if you already have a fetched space
+
+    new_ui_extension = space.ui_extensions().create('test-extension', {
+        "extension": {
+            "name": "Test Extension",
+            "srcdoc": "<html>foobar</html>",
+            "fieldTypes": [{'type': 'Symbol'}],
+            "sidebar": False
+        }
+    })
+
+Updating an UI Extension::
+
+    ui_extension.update({
+        "extension": {
+            "name": "Test Extension",
+            "srcdoc": "<html>foobar</html>",
+            "fieldTypes": [{'type': 'Symbol'}],
+            "sidebar": False
+        }
+    })
+
+    # or directly editing it's properties
+
+    ui_extension.name = 'Their API Key'
+    ui_extension.save()
+
 Editor Interfaces
 -----------------
 
@@ -591,7 +783,7 @@ Retrieving the editor interfaces for a content type::
 
     # or if you already have a fetched content type
 
-    editor_interface = content_type.locales().find()
+    editor_interface = content_type.editor_interfaces().find()
 
 Updating the editor interface::
 
@@ -610,8 +802,8 @@ Updating the editor interface::
     editor_interface.controls = controls
     editor_interface.save()
 
-Snapshots
----------
+Entry Snapshots
+---------------
 
 Retrieving all snapshots for an entry::
 
@@ -628,6 +820,25 @@ Retrieveing one snapshot by ID::
     # or if you already have a fetched entry
 
     snapshot = entry.snapshots().find('snapshot_id')
+
+Content Type Snapshots
+----------------------
+
+Retrieving all snapshots for a content type::
+
+    snapshots = client.content_type_snapshots('my_space_id', 'content_type_id').all()
+
+    # or if you already have a fetched content type
+
+    snapshots = content_type.snapshots().all()
+
+Retrieveing one snapshot by ID::
+
+    snapshot = client.content_type_snapshots('my_space_id', 'content_type_id').find('snapshot_id')
+
+    # or if you already have a fetched content_type
+
+    snapshot = content_type.snapshots().find('snapshot_id')
 
 API Keys
 --------
@@ -656,7 +867,7 @@ Deleting an API key::
 
     space.api_keys().delete('api_key_id')
 
-    # or if you already have fetched the locale
+    # or if you already have fetched the API key
 
     api_key.delete()
 
@@ -676,6 +887,45 @@ Updating an API key::
 
     api_key.name = 'Their API Key'
     api_key.save()
+
+Personal Access Tokens
+----------------------
+
+Retrieving all Personal Access Tokens on a space::
+
+    personal_access_tokens = client.personal_access_tokens('my_space_id').all()
+
+    # or if you already have a fetched space
+
+    personal_access_tokens = space.personal_access_tokens().all()
+
+Retrieveing one Personal Access Token by ID::
+
+    personal_access_token = client.personal_access_tokens('my_space_id').find('personal_access_token_id')
+
+    # or if you already have a fetched space
+
+    personal_access_token = space.personal_access_tokens().find('personal_access_token_id')
+
+Revoking a Personal Access Token::
+
+    client.personal_access_tokens('my_space_id').revoke('personal_access_token_id')
+
+    # or if you already have a fetched space
+
+    space.personal_access_tokens().revoke('personal_access_token_id')
+
+    # or if you already have fetched the Personal Access Token
+
+    personal_access_tokens.delete()
+
+Creating a new Personal Access Token::
+
+    new_personal_access_token = client.personal_access_tokens('my_space_id').create({'name': 'My API Key'})
+
+    # or if you already have a fetched space
+
+    new_personal_access_token = space.personal_access_tokens().create({'name': 'My Token', 'scopes': ['content_management_manage']})
 
 Uploads
 -------

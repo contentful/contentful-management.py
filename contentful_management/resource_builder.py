@@ -1,14 +1,21 @@
 from .entry import Entry
 from .asset import Asset
 from .space import Space
+from .space_membership import SpaceMembership
+from .organization import Organization
 from .content_type import ContentType
 from .webhook import Webhook
+from .webhook_call import WebhookCall
+from .webhook_health import WebhookHealth
 from .locale import Locale
 from .role import Role
+from .ui_extension import UIExtension
 from .editor_interface import EditorInterface
 from .api_key import ApiKey
+from .personal_access_token import PersonalAccessToken
 from .snapshot import Snapshot
 from .upload import Upload
+from .user import User
 from .array import Array
 
 
@@ -47,13 +54,21 @@ class ResourceBuilder(object):
             'Asset': Asset,
             'ContentType': ContentType,
             'Space': Space,
+            'SpaceMembership': SpaceMembership,
+            'Organization': Organization,
             'ApiKey': ApiKey,
+            'PersonalAccessToken': PersonalAccessToken,
             'Locale': Locale,
             'EditorInterface': EditorInterface,
             'WebhookDefinition': Webhook,
+            'WebhookCallOverview': WebhookCall,
+            'WebhookCallDetails': WebhookCall,
+            'Webhook': WebhookHealth,
             'Role': Role,
+            'Extension': UIExtension,
             'Snapshot': Snapshot,
-            'Upload': Upload
+            'Upload': Upload,
+            'User': User
         }
 
         item_type = item['sys']['type']
@@ -64,3 +79,4 @@ class ResourceBuilder(object):
                 default_locale=self.default_locale,
                 client=self.client
             )
+        raise Exception("Resource not buildable")

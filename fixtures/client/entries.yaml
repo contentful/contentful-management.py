@@ -4,7 +4,7 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: [gzip]
-      Authorization: [Bearer 54c3bca8c03b2419ee869399f5f7ed9c3360025a66eb5b3e2826300f22887e40]
+      Authorization: [Bearer foobar]
       Connection: [keep-alive]
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]

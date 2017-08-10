@@ -5,12 +5,19 @@ from .resource_builder import ResourceBuilder
 from .utils import ConfigurationException, retry_request
 from .errors import get_error, RateLimitExceededError
 from .spaces_proxy import SpacesProxy
+from .space_memberships_proxy import SpaceMembershipsProxy
+from .organizations_proxy import OrganizationsProxy
+from .users_proxy import UsersProxy
 from .content_types_proxy import ContentTypesProxy
 from .entries_proxy import EntriesProxy
 from .assets_proxy import AssetsProxy
 from .api_keys_proxy import ApiKeysProxy
+from .personal_access_tokens_proxy import PersonalAccessTokensProxy
 from .roles_proxy import RolesProxy
+from .ui_extensions_proxy import UIExtensionsProxy
 from .webhooks_proxy import WebhooksProxy
+from .webhooks_call_proxy import WebhooksCallProxy
+from .webhooks_health_proxy import WebhooksHealthProxy
 from .locales_proxy import LocalesProxy
 from .editor_interfaces_proxy import EditorInterfacesProxy
 from .snapshots_proxy import SnapshotsProxy
@@ -138,6 +145,54 @@ class Client(object):
 
         return SpacesProxy(self)
 
+    def memberships(self, space_id):
+        """Provides access to Space Membership management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
+
+        :return: :class:`SpaceMembershipsProxy <contentful_management.space_memberships_proxy.SpaceMembershipsProxy>` object.
+        :rtype: contentful.space_memberships_proxy.SpaceMembershipsProxy
+
+        Usage:
+
+            >>> space_memberships_proxy = client.memberships('cfexampleapi')
+            <SpaceMembershipsProxy space_id="cfexampleapi">
+        """
+
+        return SpaceMembershipsProxy(self, space_id)
+
+    def organizations(self):
+        """Provides access to Organization management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations
+
+        :return: :class:`OrganizationsProxy <contentful_management.organizations_proxy.OrganizationsProxy>` object.
+        :rtype: contentful.organizations_proxy.OrganizationsProxy
+
+        Usage:
+
+            >>> organizations_proxy = client.organizations()
+            <OrganizationsProxy>
+        """
+
+        return OrganizationsProxy(self)
+
+    def users(self):
+        """Provides access to User management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users
+
+        :return: :class:`UsersProxy <contentful_management.users_proxy.UsersProxy>` object.
+        :rtype: contentful.users_proxy.UsersProxy
+
+        Usage:
+
+            >>> users_proxy = client.UsersProxy()
+            <UsersProxy>
+        """
+
+        return UsersProxy(self)
+
     def content_types(self, space_id):
         """Provides access to Content Types management methods
 
@@ -208,7 +263,7 @@ class Client(object):
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
 
         :return: :class:`WebhooksProxy <contentful_management.locales_proxy.WebhooksProxy>` object.
-        :rtype: contentful.locales_proxy.WebhooksProxy
+        :rtype: contentful.webhooks_proxy.WebhooksProxy
 
         Usage:
 
@@ -217,6 +272,38 @@ class Client(object):
         """
 
         return WebhooksProxy(self, space_id)
+
+    def webhook_calls(self, space_id, webhook_id):
+        """Provides access to Webhooks Call information
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls
+
+        :return: :class:`WebhooksProxy <contentful_management.webhooks_call_proxy.WebhooksCallProxy>` object.
+        :rtype: contentful.webhooks_call_proxy.WebhooksProxy
+
+        Usage:
+
+            >>> webhooks_call_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
+            <WebhooksCallProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+
+        return WebhooksCallProxy(self, space_id, webhook_id)
+
+    def webhook_health(self, space_id, webhook_id):
+        """Provides access to Webhooks Health information
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+
+        :return: :class:`WebhooksHealthProxy <contentful_management.webhooks_health_proxy.WebhooksHealthProxy>` object.
+        :rtype: contentful.webhooks_health_proxy.WebhooksHealthProxy
+
+        Usage:
+
+            >>> webhooks_health_proxy = client.webhook_calls('cfexampleapi', 'my_webhook')
+            <WebhooksHealthProxy space_id="cfexampleapi" webhook_id="my_webhook">
+        """
+
+        return WebhooksHealthProxy(self, space_id, webhook_id)
 
     def api_keys(self, space_id):
         """Provides access to Api Keys management methods
@@ -234,6 +321,22 @@ class Client(object):
 
         return ApiKeysProxy(self, space_id)
 
+    def personal_access_tokens(self):
+        """Provides access to Personal Access Tokens management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens
+
+        :return: :class:`PersonalAccessTokensProxy <contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy>` object.
+        :rtype: contentful.personal_access_tokens_proxy.PersonalAccessTokensProxy
+
+        Usage:
+
+            >>> personal_access_tokens_proxy = client.personal_access_tokens()
+            <PersonalAccessTokensProxy>
+        """
+
+        return PersonalAccessTokensProxy(self)
+
     def roles(self, space_id):
         """Provides access to Roles management methods
 
@@ -249,6 +352,22 @@ class Client(object):
         """
 
         return RolesProxy(self, space_id)
+
+    def ui_extensions(self, space_id):
+        """Provides access to UI Extensions management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+
+        :return: :class:`UIExtensionsProxy <contentful_management.ui_extensions_proxy.UIExtensionsProxy>` object.
+        :rtype: contentful.ui_extensions_proxy.UIExtensionsProxy
+
+        Usage:
+
+            >>> ui_extensions_proxy = client.ui_extensions('cfexampleapi')
+            <UIExtensionsProxy space_id="cfexampleapi">
+        """
+
+        return UIExtensionsProxy(self, space_id)
 
     def editor_interfaces(self, space_id, content_type_id):
         """Provides access to Editor Interfaces management methods
@@ -266,7 +385,7 @@ class Client(object):
 
         return EditorInterfacesProxy(self, space_id, content_type_id)
 
-    def snapshots(self, space_id, entry_id):
+    def snapshots(self, space_id, resource_id, resource_kind='entries'):
         """Provides access to Snapshot management methods
 
         API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
@@ -276,11 +395,46 @@ class Client(object):
 
         Usage:
 
-            >>> snapshots_proxy = client.snapshots('cfexampleapi', 'nyancat')
-            <SnapshotsProxy space_id="cfexampleapi" entry_id="nyancat">
+            >>> entry_snapshots_proxy = client.snapshots('cfexampleapi', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+
+            >>> content_type_snapshots_proxy = client.snapshots('cfexampleapi', 'cat', 'content_types')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
         """
 
-        return SnapshotsProxy(self, space_id, entry_id)
+        return SnapshotsProxy(self, space_id, resource_id, resource_kind)
+
+    def entry_snapshots(self, space_id, entry_id):
+        """Provides access to Snapshot management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+
+        :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
+        :rtype: contentful.snapshots_proxy.SnapshotsProxy
+
+        Usage:
+
+            >>> entry_snapshots_proxy = client.entry_snapshots('cfexampleapi', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+        """
+
+        return SnapshotsProxy(self, space_id, entry_id, 'entries')
+
+    def content_type_snapshots(self, space_id, content_type_id):
+        """Provides access to Snapshot management methods
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
+
+        :return: :class:`SnapshotsProxy <contentful_management.snapshots_proxy.SnapshotsProxy>` object.
+        :rtype: contentful.snapshots_proxy.SnapshotsProxy
+
+        Usage:
+
+            >>> content_type_snapshots_proxy = client.content_type_snapshots('cfexampleapi', 'cat')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
+        """
+
+        return SnapshotsProxy(self, space_id, content_type_id, 'content_types')
 
     def uploads(self, space_id):
         """Provides access to Upload management methods

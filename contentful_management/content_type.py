@@ -1,6 +1,7 @@
 from .resource import Resource, PublishResource
 from .content_type_field import ContentTypeField
 from .content_type_entries_proxy import ContentTypeEntriesProxy
+from .content_type_snapshots_proxy import ContentTypeSnapshotsProxy
 from .content_type_editor_interfaces_proxy import ContentTypeEditorInterfacesProxy
 
 
@@ -104,6 +105,21 @@ class ContentType(Resource, PublishResource):
             <ContentTypeEditorInterfacesProxy space_id="cfexampleapi" content_type_id="cat">
         """
         return ContentTypeEditorInterfacesProxy(self._client, self.space.id, self.id)
+
+    def snapshots(self):
+        """Provides access to Snapshots management methods for the given Content Type
+
+        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+
+        :return: :class:`ContentTypeSnapshotsProxy <contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy>` object.
+        :rtype: contentful.content_type_snapshots_proxy.ContentTypeSnapshotsProxy
+
+        Usage:
+
+            >>> content_type_snapshots_proxy = content_type.entries()
+            <ContentTypeSnapshotsProxy space_id="cfexampleapi" content_type_id="cat">
+        """
+        return ContentTypeSnapshotsProxy(self._client, self.space.id, self.id)
 
     def __repr__(self):
         return "<ContentType[{0}] id='{1}'>".format(

@@ -1,0 +1,44 @@
+from .content_type_resource_proxy import ContentTypeResourceProxy
+from .snapshots_proxy import SnapshotsProxy
+
+
+"""
+contentful.content_type_snapshots_proxy
+~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the ContentTypeEntriesProxy class.
+
+API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+
+:copyright: (c) 2017 by Contentful GmbH.
+:license: MIT, see LICENSE for more details.
+"""
+
+
+class ContentTypeSnapshotsProxy(ContentTypeResourceProxy):
+    """
+    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+    """
+
+    def __init__(self, client, space_id, content_type_id):
+        self.proxy = self._resource_proxy_class()(client, space_id, content_type_id, resource_kind='content_types')
+
+    def _resource_proxy_class(self):
+        return SnapshotsProxy
+
+    def create(self, *args, **kwargs):
+        """Not Supported"""
+
+        raise Exception("Not Supported")
+
+    def delete(self, *args, **kwargs):
+        """Not Supported"""
+
+        raise Exception("Not Supported")
+
+    def __repr__(self):
+        return "<{0} space_id='{1}' content_type_id='{2}'>".format(
+            self.__class__.__name__,
+            self.proxy.space_id,
+            self.proxy.parent_resource_id
+        )

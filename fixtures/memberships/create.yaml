@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: '{"email": "david.litva+test_memberships_create@contentful.com", "roles":
+      [{"type": "Link", "id": "1Nq88dKTNXNaxkbrRpEEw6", "linkType": "Role"}], "admin":
+      false}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Length: ['160']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.3.1; os macOS/16.5.0;
+          platform python/3.5.2;]
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships
+  response:
+    body: {string: "{\n  \"admin\":false,\n  \"sys\":{\n    \"type\":\"SpaceMembership\",\n
+        \   \"id\":\"3x8XW8RsuC70XSmtlkrbLg\",\n    \"version\":0,\n    \"space\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"Space\",\n
+        \       \"id\":\"facgnwwgj5fe\"\n      }\n    },\n    \"createdBy\":{\n      \"sys\":{\n
+        \       \"type\":\"Link\",\n        \"linkType\":\"User\",\n        \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"createdAt\":\"2017-07-03T14:40:16Z\",\n    \"updatedBy\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"User\",\n
+        \       \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedAt\":\"2017-07-03T14:40:16Z\"\n
+        \ },\n  \"user\":{\n    \"sys\":{\n      \"type\":\"Link\",\n      \"linkType\":\"User\",\n
+        \     \"id\":\"3xagQOg6z3bxOhPcTpgsaq\"\n    }\n  },\n  \"roles\":[\n    {\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"Role\",\n
+        \       \"id\":\"1Nq88dKTNXNaxkbrRpEEw6\"\n      }\n    }\n  ]\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [facgnwwgj5fe]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['844']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Mon, 03 Jul 2017 14:40:16 GMT']
+      ETag: [W/"1b7f0e6cb2b36843b1bd88825dd3ee8e"]
+      Location: ['https://api.contentful.com/spaces/facgnwwgj5fe/space_memberships/3x8XW8RsuC70XSmtlkrbLg']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=Oan5GcD2QEqFylNHItm5M1BXWlkAAAAAQUIPAAAAAAAEApDhaI9dRHeP1RbcNmuV;
+          expires=Tue, 03 Jul 2018 08:43:50 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=pEkSB+LK7RHSR7Y66lKYhQAAAACfUEyNtWgBpKBjxk2hhyo2; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=B/CrJklLaRWOfPSaqZ2BCVBXWlkAAAAAhqMJa/E4hIU9W1aKSsRoIg==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35995']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [f8a0d61e38438990c27184c82d8864d8]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [6-36025417-36025441 NNNN CT(138 272 0) RT(1499092815354 152) q(0 0
+          4 -1) r(10 10) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+version: 1

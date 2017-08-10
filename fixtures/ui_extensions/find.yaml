@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer foobar]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.18.1]
+      X-Contentful-User-Agent: [platform python/3.5.2; os macOS/16.5.0; sdk contentful-management.py/1.3.1;]
+    method: GET
+    uri: https://api.contentful.com/spaces/arqlnkt58eul/extensions/2ZJduY1pKEma6G8Y2ImqYU
+  response:
+    body: {string: "{\n  \"extension\": {\n    \"srcdoc\": \"<!doctype html><html
+        lang='en'><head><meta charset='UTF-8'/><title>Sample Editor Extension</title><link
+        rel='stylesheet' href='https://contentful.github.io/ui-extensions-sdk/cf-extension.css'><script
+        src='https://contentful.github.io/ui-extensions-sdk/cf-extension-api.js'></script></head><body><div
+        id='content'></div><script>window.contentfulExtension.init(function (extension)
+        {window.alert(extension);var value = extension.field.getValue();extension.field.setValue('Hello
+        world!');extension.field.onValueChanged(function(value) {if (value !== currentValue)
+        {extension.field.setValue('Hello world!');}});});</script></body></html>\",\n
+        \   \"name\": \"My awesome extension by srcDoc\",\n    \"fieldTypes\": [\n
+        \     {\n        \"type\": \"Symbol\"\n      },\n      {\n        \"type\":
+        \"Text\"\n      }\n    ],\n    \"sidebar\": false\n  },\n  \"sys\": {\n    \"id\":
+        \"2ZJduY1pKEma6G8Y2ImqYU\",\n    \"type\": \"Extension\",\n    \"version\":
+        1,\n    \"createdAt\": \"2017-06-29T11:04:33.874Z\",\n    \"createdBy\": {\n
+        \     \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"User\",\n
+        \       \"id\": \"7uJNojWP0gbuP7Pplz7Syo\"\n      }\n    },\n    \"space\":
+        {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"Space\",\n
+        \       \"id\": \"arqlnkt58eul\"\n      }\n    },\n    \"updatedAt\": \"2017-06-29T11:04:33.874Z\",\n
+        \   \"updatedBy\": {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\":
+        \"User\",\n        \"id\": \"7uJNojWP0gbuP7Pplz7Syo\"\n      }\n    }\n  }\n}\n"}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [arqlnkt58eul]
+      Connection: [keep-alive]
+      Content-Length: ['1442']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Thu, 29 Jun 2017 16:07:23 GMT']
+      ETag: ['"99ea76707e6a1fc674843e1499562353"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=bcZBRsFqT9qrwt109gOgirolVVkAAAAAQUIPAAAAAABIvcy5W/7vluzQpNgSFxuV;
+          expires=Fri, 29 Jun 2018 08:43:48 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=ZqvAKGmnNwFi5ZP16lKYhQAAAABUY9ZhCwYUDmcx0fiGVtME; path=/; Domain=.contentful.com,
+        incap_ses_685_673446=3ZN+J7scTGsYt+6WqZ2BCbolVVkAAAAA6rNmD4x7HBBPUbnBZld/3w==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35988']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [12aa35358c6105b427fc42fbd673e0a6]
+      X-Iinfo: [2-11963810-11963818 NNNN CT(143 295 0) RT(1498752438958 136) q(0 0
+          5 -1) r(39 39) U5]
+    status: {code: 200, message: OK}
+version: 1

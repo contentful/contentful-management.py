@@ -7,7 +7,7 @@ contentful.Snapshot
 
 This module implements the Snapshot class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-types
+API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
 
 :copyright: (c) 2016 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -16,22 +16,32 @@ API Reference: https://www.contentful.com/developers/docs/references/content-del
 
 class Snapshot(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-types
+    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
     """
 
     def __init__(self, item, **kwargs):
         super(Snapshot, self).__init__(item, **kwargs)
 
         from .entry import Entry
-        self.snapshot = Entry(item['snapshot'], **kwargs)
+        from .content_type import ContentType
+        entity_type = {
+            'Entry': Entry,
+            'ContentType': ContentType
+        }
+
+        if self.sys['snapshot_entity_type'] not in entity_type:
+            raise Exception("Object '{0}' not buildable".format(self.sys['snapshot_entity_type']))
+
+        self.snapshot = entity_type[self.sys['snapshot_entity_type']](item['snapshot'], **kwargs)
 
     @classmethod
-    def base_url(klass, space_id, entry_id, resource_id=None):
+    def base_url(klass, space_id, parent_resource_id, resource_url='entries', resource_id=None):
         """Returns the URI for the Resource"""
 
-        return "spaces/{0}/entries/{1}/snapshots/{2}".format(
+        return "spaces/{0}/{1}/{2}/snapshots/{3}".format(
             space_id,
-            entry_id,
+            resource_url,
+            parent_resource_id,
             resource_id if resource_id is not None else ''
         )
 
@@ -45,7 +55,8 @@ class Snapshot(Resource):
         return result
 
     def __repr__(self):
-        return "<Snapshot id='{0}'>".format(
+        return "<Snapshot[{0}] id='{1}'>".format(
+            self.sys.get('snapshot_entity_type', ''),
             self.sys.get('id', '')
         )
 
