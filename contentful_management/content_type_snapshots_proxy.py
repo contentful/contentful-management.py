@@ -3,12 +3,12 @@ from .snapshots_proxy import SnapshotsProxy
 
 
 """
-contentful.content_type_snapshots_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_type_snapshots_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentTypeEntriesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class ContentTypeSnapshotsProxy(ContentTypeResourceProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection
     """
 
     def __init__(self, client, space_id, content_type_id):
@@ -27,12 +27,16 @@ class ContentTypeSnapshotsProxy(ContentTypeResourceProxy):
         return SnapshotsProxy
 
     def create(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

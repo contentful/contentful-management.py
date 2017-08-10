@@ -2,6 +2,19 @@ from .client_proxy import ClientProxy
 from .webhook_call import WebhookCall
 
 
+"""
+contentful_management.webhooks_call_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module implements the WebhooksCallProxy class.
+
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-call-overview
+
+:copyright: (c) 2017 by Contentful GmbH.
+:license: MIT, see LICENSE for more details.
+"""
+
+
 class WebhooksCallProxy(ClientProxy):
     def __init__(self, client, space_id, webhook_id):
         super(WebhooksCallProxy, self).__init__(client, space_id)
@@ -12,12 +25,16 @@ class WebhooksCallProxy(ClientProxy):
         return WebhookCall
 
     def create(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

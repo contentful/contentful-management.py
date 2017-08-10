@@ -1,6 +1,6 @@
 """
-contentful.entry_resource_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.entry_resource_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the EntryResourceProxy class.
 
@@ -27,28 +27,28 @@ class EntryResourceProxy(object):
 
     def all(self, query=None):
         """
-        Gets all resources related to the current Entry.
+        Gets all resources related to the current entry.
         """
 
         return self.proxy.all(query)
 
     def find(self, resource_id, query=None):
         """
-        Finds a single resource by ID related to the current Entry.
+        Finds a single resource by ID related to the current entry.
         """
 
         return self.proxy.find(resource_id, query)
 
     def create(self, resource_id=None, attributes=None):
         """
-        Creates a resource with a given ID (optional) and attributes for the current Entry.
+        Creates a resource with a given ID (optional) and attributes for the current entry.
         """
 
         return self.proxy.create(resource_id=resource_id, attributes=attributes)
 
     def delete(self, resource_id):
         """
-        Deletes a Resource by ID.
+        Deletes a resource by ID.
         """
 
         return self.proxy.delete(resource_id)

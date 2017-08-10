@@ -3,12 +3,12 @@ from .editor_interface import EditorInterface
 
 
 """
-contentful.editor_interfaces_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.editor_interfaces_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the EditorInterfacesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class EditorInterfacesProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
     """
 
     def __init__(self, client, space_id, content_type_id=None):
@@ -30,25 +30,36 @@ class EditorInterfacesProxy(ClientProxy):
 
     def all(self):
         """
-        Gets the default Editor Interface.
+        Gets the default editor interface.
         """
 
         return super(EditorInterfacesProxy, self).all()
 
     def find(self):
         """
-        Gets the default Editor Interface.
+        Gets the default editor interface.
+        """
+
+        return self.all()
+
+    def default(self):
+        """
+        Gets the default editor interface.
         """
 
         return self.all()
 
     def create(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 
     def delete(self, *args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not Supported")
 

@@ -1,10 +1,10 @@
 """
 contentful_management.array
-~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Array class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -13,7 +13,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Array(object):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/introduction/collection-resources-and-pagination
     """
 
     def __init__(self, json, items):

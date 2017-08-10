@@ -3,12 +3,12 @@ from .content_type import ContentType
 
 
 """
-contentful.content_types_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_types_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentTypesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class ContentTypesProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
     """
 
     @property
@@ -26,9 +26,9 @@ class ContentTypesProxy(ClientProxy):
 
     def all_published(self):
         """
-        Gets all the Published Content Types for a Space.
+        Gets all the published content types for a space.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/activated-content-type-collection
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/activated-content-type-collection
         """
 
         return self.client._get(

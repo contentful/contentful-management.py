@@ -10,12 +10,12 @@ from .space_uploads_proxy import SpaceUploadsProxy
 
 
 """
-contentful.space
-~~~~~~~~~~~~~~~~
+contentful_management.space
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the Space class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -24,7 +24,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class Space(Resource):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
     """
 
     def __init__(self, item, **kwargs):
@@ -33,7 +33,9 @@ class Space(Resource):
 
     @classmethod
     def base_url(klass, space_id=None, **kwargs):
-        """Returns the URI for the Resource"""
+        """
+        Returns the URI for the space.
+        """
 
         if space_id is None:
             space_id = ''
@@ -41,7 +43,9 @@ class Space(Resource):
 
     @classmethod
     def create_headers(klass, attributes):
-        """Headers for resource creation"""
+        """
+        Headers for space creation.
+        """
 
         if 'organization_id' in attributes:
             return {'x-contentful-organization': attributes['organization_id']}
@@ -49,7 +53,7 @@ class Space(Resource):
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
-        """Attributes for resource creation"""
+        """Attributes for space creation."""
 
         if previous_object is not None:
             return {'name': attributes.get('name', previous_object.name)}
@@ -60,7 +64,9 @@ class Space(Resource):
 
     @classmethod
     def update_attributes_map(klass):
-        """Defines keys and default values for non-generic attributes"""
+        """
+        Defines keys and default values for non-generic attributes.
+        """
 
         return {
             'name': '',
@@ -68,7 +74,7 @@ class Space(Resource):
         }
 
     def update(self, attributes=None):
-        """Updates the Resource with attributes"""
+        """Updates the space with attributes."""
 
         if attributes is None:
             attributes = {}
@@ -89,7 +95,9 @@ class Space(Resource):
         return self
 
     def reload(self):
-        """Reloads the Resource"""
+        """
+        Reloads the space.
+        """
 
         result = self._client._get(
             self.__class__.base_url(
@@ -102,7 +110,9 @@ class Space(Resource):
         return self
 
     def delete(self):
-        """Deletes the Space"""
+        """
+        Deletes the space
+        """
 
         return self._client._delete(
             self.__class__.base_url(
@@ -111,16 +121,19 @@ class Space(Resource):
         )
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """
+        Returns the JSON representation of the space.
+        """
 
         result = super(Space, self).to_json()
         result.update({'name': self.name})
         return result
 
     def content_types(self):
-        """Provides access to Content Type management methods
+        """
+        Provides access to content type management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
 
         :return: :class:`SpaceContentTypesProxy <contentful_management.space_content_types_proxy.SpaceContentTypesProxy>` object.
         :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy
@@ -133,9 +146,10 @@ class Space(Resource):
         return SpaceContentTypesProxy(self._client, self.id)
 
     def entries(self):
-        """Provides access to Entries management methods
+        """
+        Provides access to entry management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
         :return: :class:`SpaceEntriesProxy <contentful_management.space_entries_proxy.SpaceEntriesProxy>` object.
         :rtype: contentful.space_entries_proxy.SpaceEntriesProxy
@@ -148,9 +162,10 @@ class Space(Resource):
         return SpaceEntriesProxy(self._client, self.id)
 
     def assets(self):
-        """Provides access to Assets management methods
+        """
+        Provides access to asset management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
 
         :return: :class:`SpaceAssetsProxy <contentful_management.space_assets_proxy.SpaceAssetsProxy>` object.
         :rtype: contentful.space_assets_proxy.SpaceAssetsProxy
@@ -163,9 +178,10 @@ class Space(Resource):
         return SpaceAssetsProxy(self._client, self.id)
 
     def locales(self):
-        """Provides access to Locale management methods
+        """
+        Provides access to locale management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
 
         :return: :class:`SpaceLocalesProxy <contentful_management.space_locales_proxy.SpaceLocalesProxy>` object.
         :rtype: contentful.space_locales_proxy.SpaceLocalesProxy
@@ -178,9 +194,10 @@ class Space(Resource):
         return SpaceLocalesProxy(self._client, self.id)
 
     def webhooks(self):
-        """Provides access to Webhook management methods
+        """
+        Provides access to webhook management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks
 
         :return: :class:`SpaceWebhooksProxy <contentful_management.space_webhooks_proxy.SpaceWebhooksProxy>` object.
         :rtype: contentful.space_webhooks_proxy.SpaceWebhooksProxy
@@ -193,9 +210,10 @@ class Space(Resource):
         return SpaceWebhooksProxy(self._client, self.id)
 
     def roles(self):
-        """Provides access to Role management methods
+        """
+        Provides access to role management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles
 
         :return: :class:`SpaceRolesProxy <contentful_management.space_roles_proxy.SpaceRolesProxy>` object.
         :rtype: contentful.space_roles_proxy.SpaceRolesProxy
@@ -208,9 +226,10 @@ class Space(Resource):
         return SpaceRolesProxy(self._client, self.id)
 
     def api_keys(self):
-        """Provides access to Api Key management methods
+        """
+        Provides access to api key management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
 
         :return: :class:`SpaceApiKeysProxy <contentful_management.space_api_keys_proxy.SpaceApiKeysProxy>` object.
         :rtype: contentful.space_api_keys_proxy.SpaceApiKeysProxy
@@ -223,9 +242,10 @@ class Space(Resource):
         return SpaceApiKeysProxy(self._client, self.id)
 
     def uploads(self):
-        """Provides access to Upload management methods
+        """
+        Provides access to upload management methods.
 
-        API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads-keys
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 
         :return: :class:`SpaceApiKeysProxy <contentful_management.space_api_keys_proxy.SpaceApiKeysProxy>` object.
         :rtype: contentful.space_api_keys_proxy.SpaceApiKeysProxy

@@ -4,12 +4,12 @@ from .utils import normalize_select
 
 
 """
-contentful.entries_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.entries_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the EntriesProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -18,7 +18,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class EntriesProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
     """
 
     def __init__(self, client, space_id, content_type_id=None):
@@ -31,7 +31,7 @@ class EntriesProxy(ClientProxy):
 
     def all(self, query=None):
         """
-        Gets all entries of a Space.
+        Gets all entries of a space.
         """
 
         if query is None:

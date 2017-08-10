@@ -4,12 +4,12 @@ from .utils import str_type
 
 
 """
-contentful.uploads_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.uploads_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the UploadsProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -18,7 +18,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class UploadsProxy(ClientProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads
     """
 
     @property
@@ -26,12 +26,16 @@ class UploadsProxy(ClientProxy):
         return Upload
 
     def all(*args, **kwargs):
-        """Not Supported"""
+        """
+        Not supported.
+        """
 
         raise Exception("Not supported")
 
     def create(self, file_or_path, **kwargs):
-        """Creates an Upload for the given file or path."""
+        """
+        Creates an upload for the given file or path.
+        """
 
         opened = False
         if isinstance(file_or_path, str_type()):
@@ -52,11 +56,15 @@ class UploadsProxy(ClientProxy):
                 file_or_path.close()
 
     def find(self, upload_id, **kwargs):
-        """Finds an Upload by ID."""
+        """
+        Finds an upload by ID.
+        """
 
         return super(UploadsProxy, self).find(upload_id, file_upload=True)
 
     def delete(self, upload_id):
-        """Deletes an Upload by ID."""
+        """
+        Deletes an upload by ID.
+        """
 
         return super(UploadsProxy, self).delete(upload_id, file_upload=True)

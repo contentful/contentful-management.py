@@ -3,12 +3,12 @@ from .webhooks_health_proxy import WebhooksHealthProxy
 
 
 """
-contentful.webhooks_health_proxy
-~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.webhook_webhooks_health_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the WebhookWebhooksHealthProxy class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class WebhookWebhooksHealthProxy(WebhookResourceProxy):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health
     """
 
     def _resource_proxy_class(self):
@@ -25,7 +25,7 @@ class WebhookWebhooksHealthProxy(WebhookResourceProxy):
 
     def find(self, *args, **kwargs):
         """
-        Gets Webhook Health.
+        Gets webhook health.
         """
 
         return self.all()

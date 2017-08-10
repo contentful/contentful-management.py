@@ -3,12 +3,12 @@ from .content_type_field_types import *  # noqa: F403, F401
 from .content_type_field_validation import ContentTypeFieldValidation
 
 """
-contentful.content_type_field
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.content_type_field
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This module implements the ContentTypeField class.
 
-API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
 
 :copyright: (c) 2017 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
@@ -17,7 +17,7 @@ API Reference: https://www.contentful.com/developers/docs/references/content-man
 
 class ContentTypeField(object):
     """
-    API Reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type
     """
 
     def __init__(self, field_data):
@@ -36,7 +36,9 @@ class ContentTypeField(object):
         self._coercion = self._get_coercion()
 
     def to_json(self):
-        """Returns the JSON Representation of the Resource"""
+        """
+        Returns the JSON Representation of the content type field.
+        """
 
         result = {
             'name': self.name,
@@ -58,17 +60,21 @@ class ContentTypeField(object):
         return result
 
     def coerce(self, value):
-        """Coerces the value to the proper type."""
+        """
+        Coerces the value to the proper type.
+        """
 
         return self._coercion.coerce(value)
 
     def _get_coercion(self):
-        """Gets the proper coercion type"""
+        """
+        Gets the proper coercion type.
+        """
 
         return globals()["{0}Field".format(self.type)](self.items)
 
     def _real_id(self):
-        """Gets the real field ID"""
+        """Gets the real field ID."""
 
         return self.raw['id']
 
