@@ -257,7 +257,7 @@ Publishing or Unpublishing an asset::
 
 Checking if an asset is published::
 
-    asset.is_published()
+    asset.is_published
 
 Entries
 -------
