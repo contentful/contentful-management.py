@@ -2,7 +2,11 @@
 
 ## Unreleased
 
+### Added
+* Added better error messages for all error types.
+
 ## v1.4.0
+
 ### Added
 * Added Organizations Endpoint.
 * Added Webhook Calls and Health Endpoints.
@@ -20,6 +24,7 @@
 * Fixed Content Type Field IDs not being correctly serialized [#17](https://github.com/contentful/contentful-management.py/issues/17)
 
 ## v1.3.1
+
 ### Added
 * Added `Array` wrapper [#13](https://github.com/contentful/contentful-management.py/issues/13)
 
@@ -27,6 +32,7 @@
 * Fixed issue when calling `to_json()` on entries with new fields added [#10](https://github.com/contentful/contentful-management.py/issues/10)
 
 ## v1.2.0
+
 ### Added
 * Added `X-Contentful-User-Agent` header for more information.
 
