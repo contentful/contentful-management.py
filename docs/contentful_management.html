@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 1.4.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 1.5.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.4.0',
+        VERSION:     '1.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="contentful_management" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -1385,6 +1386,13 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 <dl class="exception">
+<dt id="contentful_management.errors.BadGatewayError">
+<em class="property">exception </em><code class="descclassname">contentful_management.errors.</code><code class="descname">BadGatewayError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/errors.html#BadGatewayError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.errors.BadGatewayError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.errors.HTTPError" title="contentful_management.errors.HTTPError"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.errors.HTTPError</span></code></a></p>
+<p>502</p>
+</dd></dl>
+
+<dl class="exception">
 <dt id="contentful_management.errors.BadRequestError">
 <em class="property">exception </em><code class="descclassname">contentful_management.errors.</code><code class="descname">BadRequestError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/errors.html#BadRequestError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.errors.BadRequestError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.errors.HTTPError" title="contentful_management.errors.HTTPError"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.errors.HTTPError</span></code></a></p>
@@ -1410,6 +1418,17 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <em class="property">exception </em><code class="descclassname">contentful_management.errors.</code><code class="descname">RateLimitExceededError</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/errors.html#RateLimitExceededError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.errors.RateLimitExceededError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.errors.HTTPError" title="contentful_management.errors.HTTPError"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.errors.HTTPError</span></code></a></p>
 <p>429</p>
+<dl class="attribute">
+<dt id="contentful_management.errors.RateLimitExceededError.RATE_LIMIT_RESET_HEADER_KEY">
+<code class="descname">RATE_LIMIT_RESET_HEADER_KEY</code><em class="property"> = 'x-contentful-ratelimit-reset'</em><a class="headerlink" href="#contentful_management.errors.RateLimitExceededError.RATE_LIMIT_RESET_HEADER_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.errors.RateLimitExceededError.reset_time">
+<code class="descname">reset_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/errors.html#RateLimitExceededError.reset_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.errors.RateLimitExceededError.reset_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the reset time in seconds until next available request.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="exception">
@@ -2565,6 +2584,13 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="contentful_management.utils.json_error_class">
+<code class="descclassname">contentful_management.utils.</code><code class="descname">json_error_class</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#json_error_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.json_error_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the class for JSON decode errors
+depends on the Python version.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="contentful_management.utils.normalize_select">
 <code class="descclassname">contentful_management.utils.</code><code class="descname">normalize_select</code><span class="sig-paren">(</span><em>query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#normalize_select"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.normalize_select" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the query contains the :select operator, we enforce :sys properties.
@@ -2612,6 +2638,13 @@ accross our SDKs.</p>
 <dt id="contentful_management.utils.str_type">
 <code class="descclassname">contentful_management.utils.</code><code class="descname">str_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#str_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.str_type" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the correct string type for the current Python version.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="contentful_management.utils.string_class">
+<code class="descclassname">contentful_management.utils.</code><code class="descname">string_class</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#string_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.string_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the parent class for strings
+depends on the Python version.</p>
 </dd></dl>
 
 <dl class="function">
@@ -2981,6 +3014,9 @@ depends on the Python version.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">contentful_management</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">contentful_management</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>

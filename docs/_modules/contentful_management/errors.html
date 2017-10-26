@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.errors &#8212; Contentful Management 1.4.0 documentation</title>
+    <title>contentful_management.errors &#8212; Contentful Management 1.5.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.4.0',
+        VERSION:     '1.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -58,73 +58,180 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;message&#39;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
 
+        <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_best_available_message</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
-<div class="viewcode-block" id="NotFoundError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.NotFoundError">[docs]</a><span class="k">class</span> <span class="nc">NotFoundError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    404</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The following error was received: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_handle_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_has_additional_error_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_additional_error_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">_best_available_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">json_error_class</span>
+
+        <span class="n">response_json</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">error_message</span> <span class="o">=</span> <span class="p">[</span>
+          <span class="s2">&quot;HTTP status code: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+            <span class="n">message</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">details</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;details&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">request_id</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;requestId&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Message: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Message: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_error_message</span><span class="p">()))</span>
+            <span class="k">if</span> <span class="n">details</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Details: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle_details</span><span class="p">(</span><span class="n">details</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">request_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Request ID: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">request_id</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">json_error_class</span><span class="p">():</span>
+            <span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Message: </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_error_message</span><span class="p">()))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_additional_error_info</span><span class="p">():</span>
+            <span class="n">error_message</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_additional_error_info</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="BadRequestError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.BadRequestError">[docs]</a><span class="k">class</span> <span class="nc">BadRequestError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    400</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
 
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The request was malformed or missing a required parameter.&quot;</span>
 
-<div class="viewcode-block" id="AccessDeniedError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.AccessDeniedError">[docs]</a><span class="k">class</span> <span class="nc">AccessDeniedError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    403</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+    <span class="k">def</span> <span class="nf">_handle_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">string_class</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="n">string_class</span><span class="p">()):</span>
+            <span class="k">return</span> <span class="n">details</span>
+
+        <span class="k">def</span> <span class="nf">_handle_detail</span><span class="p">(</span><span class="n">detail</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">detail</span><span class="p">,</span> <span class="n">string_class</span><span class="p">()):</span>
+                <span class="k">return</span> <span class="n">detail</span>
+            <span class="k">return</span> <span class="n">detail</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;details&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">inner_details</span> <span class="o">=</span> <span class="p">[</span><span class="n">_handle_detail</span><span class="p">(</span><span class="n">detail</span><span class="p">)</span> <span class="k">for</span> <span class="n">detail</span> <span class="ow">in</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;errors&#39;</span><span class="p">]]</span>
+        <span class="n">inner_details</span> <span class="o">=</span> <span class="p">[</span><span class="n">detail</span> <span class="k">for</span> <span class="n">detail</span> <span class="ow">in</span> <span class="n">inner_details</span> <span class="k">if</span> <span class="n">detail</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># This works in both Py2 and Py3</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inner_details</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="UnauthorizedError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.UnauthorizedError">[docs]</a><span class="k">class</span> <span class="nc">UnauthorizedError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    401</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The authorization token was invalid.&quot;</span></div>
+
+
+<div class="viewcode-block" id="AccessDeniedError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.AccessDeniedError">[docs]</a><span class="k">class</span> <span class="nc">AccessDeniedError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    403</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The specified token does not have access to the requested resource.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_handle_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">Reasons:</span><span class="se">\n\t\t</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\t\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;reasons&#39;</span><span class="p">]))</span></div>
+
+
+<div class="viewcode-block" id="NotFoundError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.NotFoundError">[docs]</a><span class="k">class</span> <span class="nc">NotFoundError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    404</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The requested resource or endpoint could not be found.&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_handle_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">string_class</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="n">string_class</span><span class="p">()):</span>
+            <span class="k">return</span> <span class="n">details</span>
+
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;The requested </span><span class="si">{0}</span><span class="s2"> could not be found.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+        <span class="n">resource_id</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">resource_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot; ID: </span><span class="si">{0}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">resource_id</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">message</span></div>
 
 
 <div class="viewcode-block" id="VersionMismatchError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.VersionMismatchError">[docs]</a><span class="k">class</span> <span class="nc">VersionMismatchError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    409</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="n">response</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.&#39;</span>
-
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span>
-
-    <span class="n">__str__</span> <span class="o">=</span> <span class="n">__repr__</span></div>
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.&#39;</span></div>
 
 
 <div class="viewcode-block" id="RateLimitExceededError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.RateLimitExceededError">[docs]</a><span class="k">class</span> <span class="nc">RateLimitExceededError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    429</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+
+    <span class="n">RATE_LIMIT_RESET_HEADER_KEY</span> <span class="o">=</span> <span class="s1">&#39;x-contentful-ratelimit-reset&#39;</span>
+
+    <span class="k">def</span> <span class="nf">_has_reset_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">RATE_LIMIT_RESET_HEADER_KEY</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span>
+
+<div class="viewcode-block" id="RateLimitExceededError.reset_time"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.RateLimitExceededError.reset_time">[docs]</a>    <span class="k">def</span> <span class="nf">reset_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the reset time in seconds until next available request.&quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">RATE_LIMIT_RESET_HEADER_KEY</span>
+        <span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="nf">_has_additional_error_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_reset_time</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_additional_error_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;Time until reset (seconds): </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reset_time</span><span class="p">())]</span>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Rate limit exceeded. Too many requests.&quot;</span></div>
 
 
 <div class="viewcode-block" id="ServerError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.ServerError">[docs]</a><span class="k">class</span> <span class="nc">ServerError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    500</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Internal server error.&quot;</span></div>
+
+
+<div class="viewcode-block" id="BadGatewayError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.BadGatewayError">[docs]</a><span class="k">class</span> <span class="nc">BadGatewayError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    502</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The requested space is hibernated.&quot;</span></div>
 
 
 <div class="viewcode-block" id="ServiceUnavailableError"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.ServiceUnavailableError">[docs]</a><span class="k">class</span> <span class="nc">ServiceUnavailableError</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    503</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">pass</span></div>
+
+    <span class="k">def</span> <span class="nf">_default_error_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;The request was malformed or missing a required parameter.&quot;</span></div>
 
 
 <div class="viewcode-block" id="get_error"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.errors.get_error">[docs]</a><span class="k">def</span> <span class="nf">get_error</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
@@ -140,6 +247,7 @@
         <span class="mi">409</span><span class="p">:</span> <span class="n">VersionMismatchError</span><span class="p">,</span>
         <span class="mi">429</span><span class="p">:</span> <span class="n">RateLimitExceededError</span><span class="p">,</span>
         <span class="mi">500</span><span class="p">:</span> <span class="n">ServerError</span><span class="p">,</span>
+        <span class="mi">502</span><span class="p">:</span> <span class="n">BadGatewayError</span><span class="p">,</span>
         <span class="mi">503</span><span class="p">:</span> <span class="n">ServiceUnavailableError</span>
     <span class="p">}</span>
 
