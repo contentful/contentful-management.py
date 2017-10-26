@@ -1039,6 +1039,14 @@ To use the logger, use the standard library ``logging`` module::
     # INFO:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): api.contentful.com
     # DEBUG:requests.packages.urllib3.connectionpool:"GET /spaces/cfexampleapi/entries HTTP/1.1" 200 1994
 
+SDK Modules Reference
+---------------------
+
+.. toctree::
+    :maxdepth: 4
+
+    modules
+
 License
 -------
 

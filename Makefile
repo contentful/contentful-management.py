@@ -1,4 +1,4 @@
-.PHONY: coverage
+.PHONY: clean-pyc clean-build docs clean
 
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
