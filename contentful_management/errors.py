@@ -139,6 +139,29 @@ class VersionMismatchError(HTTPError):
         return 'Version mismatch error. The version you specified was incorrect. This may be due to someone else editing the content.'
 
 
+class UnprocessableEntityError(HTTPError):
+    """
+    422
+    """
+    def _default_error_message(self):
+        return 'The resource you sent in the body is invalid.'
+
+    def _handle_error(self, error):
+        return "\t* Name: {0} - Path: '{1}' - Value: '{2}'".format(
+            error['name'],
+            error['path'],
+            error['value']
+        )
+
+    def _handle_details(self, details):
+        errors = []
+
+        for error in details['errors']:
+            errors.append(self._handle_error(error))
+
+        return '\n{0}'.format('\n'.join(errors))
+
+
 class RateLimitExceededError(HTTPError):
     """
     429
@@ -204,6 +227,7 @@ def get_error(response):
         403: AccessDeniedError,
         404: NotFoundError,
         409: VersionMismatchError,
+        422: UnprocessableEntityError,
         429: RateLimitExceededError,
         500: ServerError,
         502: BadGatewayError,
