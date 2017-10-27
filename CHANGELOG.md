@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v1.5.1
+
 ### Added
 * Added error handling for 422 errors.
 
