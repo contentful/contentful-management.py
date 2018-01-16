@@ -22,6 +22,7 @@ from .locales_proxy import LocalesProxy
 from .editor_interfaces_proxy import EditorInterfacesProxy
 from .snapshots_proxy import SnapshotsProxy
 from .uploads_proxy import UploadsProxy
+from .environments_proxy import EnvironmentsProxy
 
 try:
     import multijson as json
@@ -471,6 +472,23 @@ class Client(object):
         """
 
         return UploadsProxy(self, space_id)
+
+    def environments(self, space_id):
+        """
+        Provides access to environment management methods.
+
+        API reference: TBD
+
+        :return: :class:`TBD` object.
+        :rtype: contentful.environments_proxy.EnvironmentsProxy
+
+        Usage:
+
+            >>> environments_proxy = client.environments('cfexampleapi')
+            <EnvironmentsProxy space_id="cfexampleapi">
+        """
+
+        return EnvironmentsProxy(self, space_id)
 
     def _validate_configuration(self):
         """
