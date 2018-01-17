@@ -7,6 +7,7 @@ from .space_roles_proxy import SpaceRolesProxy
 from .space_locales_proxy import SpaceLocalesProxy
 from .space_api_keys_proxy import SpaceApiKeysProxy
 from .space_uploads_proxy import SpaceUploadsProxy
+from .space_environments_proxy import SpaceEnvironmentsProxy
 
 
 """
@@ -256,6 +257,24 @@ class Space(Resource):
             <SpaceUploadsProxy space_id="cfexampleapi">
         """
         return SpaceUploadsProxy(self._client, self.id)
+
+    def environments(self):
+        """
+        Provides access to environment management methods.
+
+        API reference: TBD
+
+        :return: :class:`TBD` object.
+        :rtype: contentful.environments_space_proxy.SpaceEnvironmentsProxy
+
+        Usage:
+
+            >>> space_environments_proxy = space.environments()
+            <SpaceEnvironmentsProxy space_id="cfexampleapi">
+        """
+
+        return SpaceEnvironmentsProxy(self._client, self.id)
+
 
     def __repr__(self):
         return "<Space[{0}] id='{1}'>".format(
