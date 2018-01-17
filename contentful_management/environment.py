@@ -28,7 +28,7 @@ class Environment(Resource):
         """
         Returns the URI for the environment.
         """
-        return "spaces/{0}/environment/{resource_id}".format(space_id)
+        return "spaces/{0}/environments/{1}".format(space_id, resource_id)
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
