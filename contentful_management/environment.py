@@ -1,5 +1,5 @@
 from .resource import Resource
-
+from .environment_content_types_proxy import EnvironmentContentTypesProxy
 
 """
 contentful_management.environment
@@ -22,6 +22,7 @@ class Environment(Resource):
     def __init__(self, item, **kwargs):
         super(Environment, self).__init__(item, **kwargs)
         self.name = item.get('name', '')
+        self.space_id = item['sys']['space']['sys']['id']
 
     @classmethod
     def base_url(klass, space_id, resource_id=None, **kwargs):
@@ -49,3 +50,19 @@ class Environment(Resource):
             'name': self.name
         })
         return result
+
+    def content_types(self):
+        """
+        Provides access to content type management methods for content types of an environment.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
+
+        :return: :class:`SpaceContentTypesProxy <contentful_management.space_content_types_proxy.SpaceContentTypesProxy>` object.
+        :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy
+
+        Usage:
+
+            >>> space_content_types_proxy = space.content_types()
+            <SpaceContentTypesProxy space_id="cfexampleapi">
+        """
+        return EnvironmentContentTypesProxy(self._client, self.space_id, self.name)

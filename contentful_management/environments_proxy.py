@@ -18,6 +18,10 @@ class EnvironmentsProxy(ClientProxy):
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/
     """
     
+    def __init__(self, client, space_id, ):
+        self.client = client
+        self.space_id = space_id
+
     @property
     def _resource_class(self):
         return Environment

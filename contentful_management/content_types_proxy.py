@@ -34,3 +34,6 @@ class ContentTypesProxy(ClientProxy):
         return self.client._get(
             self._url(public=True)
         )
+    
+    def _url(self, resource_id='', environment=None, **kwargs):
+        return self._resource_class.base_url(self.space_id, resource_id=resource_id, environment=environment, **kwargs)

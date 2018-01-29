@@ -36,13 +36,19 @@ class Resource(object):
         self.sys = self._hydrate_sys(item)
 
     @classmethod
-    def base_url(klass, space_id='', resource_id=None, **kwargs):
+    def base_url(klass, space_id='', resource_id=None, environment=None, **kwargs):
         """
         Returns the URI for the resource.
         """
 
-        url = "spaces/{0}/{1}".format(
-            space_id,
+        url = "spaces/{0}".format(
+            space_id)
+
+        if environment:
+            url = url = "{0}/environments/{1}".format(url, environment)
+
+        url = "{0}/{1}".format(
+            url,
             base_path_for(klass.__name__)
         )
 

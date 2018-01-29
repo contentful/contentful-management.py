@@ -28,7 +28,7 @@ class ClientProxy(object):
     def _resource_class(self):
         raise Exception("Must Implement")
 
-    def all(self, query=None):
+    def all(self, query=None, environment=None):
         """
         Gets resource collection for _resource_class.
         """
@@ -36,7 +36,7 @@ class ClientProxy(object):
         if query is None:
             query = {}
         return self.client._get(
-            self._url(),
+            self._url(environment=environment),
             query
         )
 
