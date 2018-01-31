@@ -1,5 +1,6 @@
 from .resource import Resource
 from .environment_content_types_proxy import EnvironmentContentTypesProxy
+from .environment_entries_proxy import EnvironmentEntriesProxy
 
 """
 contentful_management.environment
@@ -57,12 +58,29 @@ class Environment(Resource):
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
 
-        :return: :class:`SpaceContentTypesProxy <contentful_management.space_content_types_proxy.SpaceContentTypesProxy>` object.
-        :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy
+        :return: :class:`EnvironmentContentTypesProxy <contentful_management.space_content_types_proxy.EnvironmentContentTypesProxy>` object.
+        :rtype: contentful.space_content_types_proxy.EnvironmentContentTypesProxy
 
         Usage:
 
-            >>> space_content_types_proxy = space.content_types()
-            <SpaceContentTypesProxy space_id="cfexampleapi">
+            >>> space_content_types_proxy = space.environment("master").content_types()
+            <EnvironmentContentTypesProxy space_id="cfexampleapi" environment="master">
         """
         return EnvironmentContentTypesProxy(self._client, self.space_id, self.name)
+
+    def entries(self):
+        """
+        Provides access to entry management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
+
+        :return: :class:`EnvironmentEntriesProxy <contentful_management.environment_entries_proxy.EnvironmentEntriesProxy>` object.
+        :rtype: contentful.environment_entries_proxy.EnvironmentEntriesProxy
+
+        Usage:
+
+            >>> environment_entries_proxy = space.environment("master").entries()
+            <EnvironmentEntriesProxy space_id="cfexampleapi" environment="master">
+        """
+        return EnvironmentEntriesProxy(self._client, self.space_id, self.name)
+        

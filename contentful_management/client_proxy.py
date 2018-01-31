@@ -40,18 +40,18 @@ class ClientProxy(object):
             query
         )
 
-    def find(self, resource_id, query=None, **kwargs):
+    def find(self, resource_id, query=None, environment=None, **kwargs):
         """Gets a single resource."""
 
         if query is None:
             query = {}
         return self.client._get(
-            self._url(resource_id),
+            self._url(resource_id, environment=environment),
             query,
             **kwargs
         )
 
-    def create(self, resource_id=None, attributes=None):
+    def create(self, resource_id=None, attributes=None, environment=None):
         """
         Creates a resource with the given ID (optional) and attributes.
         """
@@ -62,25 +62,25 @@ class ClientProxy(object):
         result = None
         if not resource_id:
             result = self.client._post(
-                self._url(resource_id),
+                self._url(resource_id, environment=environment),
                 self._resource_class.create_attributes(attributes),
                 headers=self._resource_class.create_headers(attributes)
             )
         else:
             result = self.client._put(
-                self._url(resource_id),
+                self._url(resource_id, environment=environment),
                 self._resource_class.create_attributes(attributes),
                 headers=self._resource_class.create_headers(attributes)
             )
 
         return result
 
-    def delete(self, resource_id, **kwargs):
+    def delete(self, resource_id, environment=None, **kwargs):
         """
         Deletes a resource by ID.
         """
 
-        return self.client._delete(self._url(resource_id), **kwargs)
+        return self.client._delete(self._url(resource_id, environment=environment), **kwargs)
 
     def _url(self, resource_id='', **kwargs):
         return self._resource_class.base_url(self.space_id, resource_id=resource_id, **kwargs)
