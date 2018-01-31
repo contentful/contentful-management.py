@@ -1,6 +1,7 @@
 from .resource import Resource
 from .environment_content_types_proxy import EnvironmentContentTypesProxy
 from .environment_entries_proxy import EnvironmentEntriesProxy
+from .environment_assets_proxy import EnvironmentAssetsProxy
 
 """
 contentful_management.environment
@@ -84,3 +85,18 @@ class Environment(Resource):
         """
         return EnvironmentEntriesProxy(self._client, self.space_id, self.name)
         
+    def assets(self):
+        """
+        Provides access to asset management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
+
+        :return: :class:`EnvironmentAssetsProxy <contentful_management.environment_assets_proxy.EnvironmentAssetsProxy>` object.
+        :rtype: contentful.environment_assets_proxy.EnvironmentAssetsProxy
+
+        Usage:
+
+            >>> environment_assets_proxy = space.environment("master").assets()
+            <EnvironmentAssetsProxy space_id="cfexampleapi" environment="master">
+        """
+        return EnvironmentAssetsProxy(self._client, self.space_id, self.name)
