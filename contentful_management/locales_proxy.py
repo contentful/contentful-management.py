@@ -24,7 +24,7 @@ class LocalesProxy(ClientProxy):
     def _resource_class(self):
         return Locale
 
-    def create(self, attributes=None, **kwargs):
+    def create(self, attributes=None, environment=None, **kwargs):
         """
         Creates a locale with given attributes.
         """

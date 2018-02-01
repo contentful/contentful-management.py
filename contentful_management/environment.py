@@ -100,3 +100,19 @@ class Environment(Resource):
             <EnvironmentAssetsProxy space_id="cfexampleapi" environment="master">
         """
         return EnvironmentAssetsProxy(self._client, self.space_id, self.name)
+
+    def locales(self):
+         """
+        Provides access to locale management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
+
+        :return: :class:`EnvironmentLocalesProxy <contentful_management.environment_locales_proxy.EnvironmentLocalesProxy>` object.
+        :rtype: contentful.environment_locales_proxy.EnvironmentLocalesProxy
+
+        Usage:
+
+            >>> environment_locales_proxy = space.environment("master").locales()
+            <EnvironmentLocalesProxy space_id="cfexampleapi" environment="master">
+        """
+        return EnvironmentLocalesProxy(self._client, self.id)
