@@ -29,4 +29,4 @@ class LocalesProxy(ClientProxy):
         Creates a locale with given attributes.
         """
 
-        return super(LocalesProxy, self).create(None, attributes)
+        return super(LocalesProxy, self).create(None, environment=environment, attributes)

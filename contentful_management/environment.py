@@ -2,6 +2,8 @@ from .resource import Resource
 from .environment_content_types_proxy import EnvironmentContentTypesProxy
 from .environment_entries_proxy import EnvironmentEntriesProxy
 from .environment_assets_proxy import EnvironmentAssetsProxy
+from .environment_locales_proxy import EnvironmentLocalesProxy
+from .environment_ui_extensions_proxy import EnvironmentUIExtensionsProxy
 
 """
 contentful_management.environment
@@ -64,7 +66,7 @@ class Environment(Resource):
 
         Usage:
 
-            >>> space_content_types_proxy = space.environment("master").content_types()
+            >>> space_content_types_proxy = environment.content_types()
             <EnvironmentContentTypesProxy space_id="cfexampleapi" environment="master">
         """
         return EnvironmentContentTypesProxy(self._client, self.space_id, self.name)
@@ -80,7 +82,7 @@ class Environment(Resource):
 
         Usage:
 
-            >>> environment_entries_proxy = space.environment("master").entries()
+            >>> environment_entries_proxy = environment.entries()
             <EnvironmentEntriesProxy space_id="cfexampleapi" environment="master">
         """
         return EnvironmentEntriesProxy(self._client, self.space_id, self.name)
@@ -96,13 +98,13 @@ class Environment(Resource):
 
         Usage:
 
-            >>> environment_assets_proxy = space.environment("master").assets()
+            >>> environment_assets_proxy = environment.assets()
             <EnvironmentAssetsProxy space_id="cfexampleapi" environment="master">
         """
         return EnvironmentAssetsProxy(self._client, self.space_id, self.name)
 
     def locales(self):
-         """
+        """
         Provides access to locale management methods.
 
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
@@ -112,7 +114,23 @@ class Environment(Resource):
 
         Usage:
 
-            >>> environment_locales_proxy = space.environment("master").locales()
+            >>> environment_locales_proxy = environment.locales()
             <EnvironmentLocalesProxy space_id="cfexampleapi" environment="master">
         """
-        return EnvironmentLocalesProxy(self._client, self.id)
+        return EnvironmentLocalesProxy(self._client, self.id, self.name)
+
+    def ui_extensions(self):
+        """
+        Provides access to UI extensions management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
+
+        :return: :class:`EnvironmentUIExtensionsProxy <contentful_management.ui_extensions_proxy.EnvironmentUIExtensionsProxy>` object.
+        :rtype: contentful.ui_extensions_proxy.EnvironmentUIExtensionsProxy
+
+        Usage:
+
+            >>> ui_extensions_proxy = environment.ui_extensions()
+            <EnvironmentUIExtensionsProxy space_id="cfexampleapi" environment="master">
+        """
+        return EnvironmentUIExtensionsProxy(self.client, self.id, self.name)
