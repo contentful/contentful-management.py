@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Fixed
+* Fixed issue when displaying UnprocessableEntityError that had no `value` attribute in it's `errors` array [#27](https://github.com/contentful/contentful-management.py/issues/27)
+
 ## v1.5.1
 
 ### Added

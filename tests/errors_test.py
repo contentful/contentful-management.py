@@ -276,6 +276,37 @@ class ErrorsTest(TestCase):
         self.assertEqual(str(error), message)
         self.assertTrue(isinstance(error, UnprocessableEntityError))
 
+    def test_unprocessable_entity_error_without_value(self):
+        response = MockResponse(422, {
+            "requestId": "044bb23356babe4f11a3f7f1e77c762a",
+            "message":"The resource you sent in the body is invalid.",
+            "details":{
+                "errors":[
+                    {
+                        "name":"taken",
+                        "path":"display_code"
+                    }
+                ]
+            },
+            "sys":{
+                "type":"Error",
+                "id":"ValidationFailed"
+            }
+        })
+
+        error = get_error(response)
+
+        self.assertEqual(error.status_code, 422)
+        message = "\n".join([
+            "HTTP status code: 422",
+            "Message: The resource you sent in the body is invalid.",
+            "Details: ",
+            "\t* Name: taken - Path: 'display_code'",
+            "Request ID: 044bb23356babe4f11a3f7f1e77c762a"
+        ])
+        self.assertEqual(str(error), message)
+        self.assertTrue(isinstance(error, UnprocessableEntityError))
+
     def test_rate_limit_exceeded_error(self):
         response = MockResponse(429, {
             'message': 'Rate Limit Exceeded'
