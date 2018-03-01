@@ -9,7 +9,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.2]
     method: GET
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/foo
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/foo
   response:
     body:
       string: !!binary |
@@ -65,7 +65,7 @@ interactions:
       x-contentful-content-type: [foo]
       x-contentful-version: ['6']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/entries/33uj74Wln2Oc02CAyEY8CK
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/33uj74Wln2Oc02CAyEY8CK
   response:
     body:
       string: !!binary |
@@ -117,7 +117,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.2]
     method: GET
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/entries/33uj74Wln2Oc02CAyEY8CK
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/33uj74Wln2Oc02CAyEY8CK
   response:
     body:
       string: !!binary |

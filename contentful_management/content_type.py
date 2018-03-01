@@ -1,4 +1,4 @@
-from .resource import Resource, PublishResource
+from .resource import Resource, PublishResource, EnvironmentAwareResource
 from .content_type_field import ContentTypeField
 from .content_type_entries_proxy import ContentTypeEntriesProxy
 from .content_type_snapshots_proxy import ContentTypeSnapshotsProxy
@@ -18,7 +18,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class ContentType(Resource, PublishResource):
+class ContentType(Resource, PublishResource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
     """
@@ -32,20 +32,20 @@ class ContentType(Resource, PublishResource):
                        for field in item.get('fields', [])]
 
     @classmethod
-    def base_url(klass, space_id, resource_id=None, public=False, environment=None, **kwargs):
+    def base_url(klass, space_id, resource_id=None, public=False, environment_id=None, **kwargs):
         """
         Returns the URI for the content type.
         """
 
         if public:
             environment_slug = ""
-            if(environment):
-                environment_slug = "/environments/{0}".format(environment)
+            if environment_id is not None:
+                environment_slug = "/environments/{0}".format(environment_id)
             return "spaces/{0}{1}/public/content_types".format(space_id, environment_slug)
         return super(ContentType, klass).base_url(
             space_id,
             resource_id=resource_id,
-            environment = environment,
+            environment_id=environment_id,
             **kwargs
         )
 
@@ -100,9 +100,9 @@ class ContentType(Resource, PublishResource):
         Usage:
 
             >>> content_type_entries_proxy = content_type.entries()
-            <ContentTypeEntriesProxy space_id="cfexampleapi" content_type_id="cat">
+            <ContentTypeEntriesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeEntriesProxy(self._client, self.space.id, self.id)
+        return ContentTypeEntriesProxy(self._client, self.space.id, self._environment_id, self.id)
 
     def editor_interfaces(self):
         """
@@ -116,9 +116,9 @@ class ContentType(Resource, PublishResource):
         Usage:
 
             >>> content_type_editor_interfaces_proxy = content_type.editor_interfaces()
-            <ContentTypeEditorInterfacesProxy space_id="cfexampleapi" content_type_id="cat">
+            <ContentTypeEditorInterfacesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeEditorInterfacesProxy(self._client, self.space.id, self.id)
+        return ContentTypeEditorInterfacesProxy(self._client, self.space.id, self._environment_id, self.id)
 
     def snapshots(self):
         """
@@ -132,9 +132,9 @@ class ContentType(Resource, PublishResource):
         Usage:
 
             >>> content_type_snapshots_proxy = content_type.entries()
-            <ContentTypeSnapshotsProxy space_id="cfexampleapi" content_type_id="cat">
+            <ContentTypeSnapshotsProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
-        return ContentTypeSnapshotsProxy(self._client, self.space.id, self.id)
+        return ContentTypeSnapshotsProxy(self._client, self.space.id, self._environment_id, self.id)
 
     def __repr__(self):
         return "<ContentType[{0}] id='{1}'>".format(

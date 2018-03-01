@@ -1,4 +1,4 @@
-from .resource import FieldsResource, PublishResource, ArchiveResource
+from .resource import FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource
 from .utils import is_link, is_link_array, snake_case
 from .entry_snapshots_proxy import EntrySnapshotsProxy
 
@@ -16,7 +16,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-del
 """
 
 
-class Entry(FieldsResource, PublishResource, ArchiveResource):
+class Entry(FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
     """
@@ -47,9 +47,9 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
         Usage:
 
             >>> entry_snapshots_proxy = entry.snapshots()
-            <EntrySnapshotsProxy space_id="cfexampleapi" entry_id="nyancat">
+            <EntrySnapshotsProxy space_id="cfexampleapi" environment_id="master" entry_id="nyancat">
         """
-        return EntrySnapshotsProxy(self._client, self.sys['space'].id, self.sys['id'])
+        return EntrySnapshotsProxy(self._client, self.sys['space'].id, self._environment_id, self.sys['id'])
 
     def update(self, attributes=None):
         """
@@ -88,7 +88,7 @@ class Entry(FieldsResource, PublishResource, ArchiveResource):
 
     def _content_type(self):
         if self.__CONTENT_TYPE__ is None:
-            self.__CONTENT_TYPE__ = self.sys['content_type'].resolve(self.sys['space'].id)
+            self.__CONTENT_TYPE__ = self.sys['content_type'].resolve(self.sys['space'].id, environment_id=self._environment_id)
         return self.__CONTENT_TYPE__
 
     def _real_field_id_for(self, field_id):

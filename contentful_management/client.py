@@ -192,13 +192,13 @@ class Client(object):
 
         Usage:
 
-            >>> users_proxy = client.UsersProxy()
+            >>> users_proxy = client.users()
             <UsersProxy>
         """
 
         return UsersProxy(self)
 
-    def content_types(self, space_id):
+    def content_types(self, space_id, environment_id):
         """
         Provides access to content type management methods.
 
@@ -209,13 +209,13 @@ class Client(object):
 
         Usage:
 
-            >>> content_types_proxy = client.content_types('cfexampleapi')
-            <ContentTypesProxy space_id="cfexampleapi">
+            >>> content_types_proxy = client.content_types('cfexampleapi', 'master')
+            <ContentTypesProxy space_id="cfexampleapi" environment_id="master">
         """
 
-        return ContentTypesProxy(self, space_id)
+        return ContentTypesProxy(self, space_id, environment_id)
 
-    def entries(self, space_id):
+    def entries(self, space_id, environment_id):
         """
         Provides access to entry management methods.
 
@@ -226,13 +226,13 @@ class Client(object):
 
         Usage:
 
-            >>> entries_proxy = client.entries('cfexampleapi')
-            <EntriesProxy space_id="cfexampleapi">
+            >>> entries_proxy = client.entries('cfexampleapi', 'master')
+            <EntriesProxy space_id="cfexampleapi" environment_id="master">
         """
 
-        return EntriesProxy(self, space_id)
+        return EntriesProxy(self, space_id, environment_id)
 
-    def assets(self, space_id):
+    def assets(self, space_id, environment_id):
         """
         Provides access to asset management methods.
 
@@ -243,13 +243,13 @@ class Client(object):
 
         Usage:
 
-            >>> assets_proxy = client.assets('cfexampleapi')
-            <AssetsProxy space_id="cfexampleapi">
+            >>> assets_proxy = client.assets('cfexampleapi', 'master')
+            <AssetsProxy space_id="cfexampleapi" environment_id="master">
         """
 
-        return AssetsProxy(self, space_id)
+        return AssetsProxy(self, space_id, environment_id)
 
-    def locales(self, space_id):
+    def locales(self, space_id, environment_id):
         """
         Provides access to locale management methods.
 
@@ -260,11 +260,11 @@ class Client(object):
 
         Usage:
 
-            >>> locales_proxy = client.locales('cfexampleapi')
-            <LocalesProxy space_id="cfexampleapi">
+            >>> locales_proxy = client.locales('cfexampleapi', 'master')
+            <LocalesProxy space_id="cfexampleapi" environment_id="master">
         """
 
-        return LocalesProxy(self, space_id)
+        return LocalesProxy(self, space_id, environment_id)
 
     def webhooks(self, space_id):
         """
@@ -368,7 +368,7 @@ class Client(object):
 
         return RolesProxy(self, space_id)
 
-    def ui_extensions(self, space_id):
+    def ui_extensions(self, space_id, environment_id):
         """
         Provides access to UI extensions management methods.
 
@@ -379,13 +379,13 @@ class Client(object):
 
         Usage:
 
-            >>> ui_extensions_proxy = client.ui_extensions('cfexampleapi')
-            <UIExtensionsProxy space_id="cfexampleapi">
+            >>> ui_extensions_proxy = client.ui_extensions('cfexampleapi', 'master')
+            <UIExtensionsProxy space_id="cfexampleapi" environment_id="master">
         """
 
-        return UIExtensionsProxy(self, space_id)
+        return UIExtensionsProxy(self, space_id, environment_id)
 
-    def editor_interfaces(self, space_id, content_type_id):
+    def editor_interfaces(self, space_id, environment_id, content_type_id):
         """
         Provides access to editor interfaces management methods.
 
@@ -396,13 +396,13 @@ class Client(object):
 
         Usage:
 
-            >>> editor_interfaces_proxy = client.editor_interfaces('cfexampleapi', 'cat')
-            <EditorInterfacesProxy space_id="cfexampleapi" content_type_id="cat">
+            >>> editor_interfaces_proxy = client.editor_interfaces('cfexampleapi', 'master', 'cat')
+            <EditorInterfacesProxy space_id="cfexampleapi" environment_id="master" content_type_id="cat">
         """
 
-        return EditorInterfacesProxy(self, space_id, content_type_id)
+        return EditorInterfacesProxy(self, space_id, environment_id, content_type_id)
 
-    def snapshots(self, space_id, resource_id, resource_kind='entries'):
+    def snapshots(self, space_id, environment_id, resource_id, resource_kind='entries'):
         """
         Provides access to snapshot management methods.
 
@@ -413,16 +413,16 @@ class Client(object):
 
         Usage:
 
-            >>> entry_snapshots_proxy = client.snapshots('cfexampleapi', 'nyancat')
-            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+            >>> entry_snapshots_proxy = client.snapshots('cfexampleapi', 'master', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" environment_id="master" parent_resource_id="nyancat">
 
-            >>> content_type_snapshots_proxy = client.snapshots('cfexampleapi', 'cat', 'content_types')
-            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
+            >>> content_type_snapshots_proxy = client.snapshots('cfexampleapi', 'master', 'cat', 'content_types')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" environment_id="master" parent_resource_id="cat">
         """
 
-        return SnapshotsProxy(self, space_id, resource_id, resource_kind)
+        return SnapshotsProxy(self, space_id, environment_id, resource_id, resource_kind)
 
-    def entry_snapshots(self, space_id, entry_id):
+    def entry_snapshots(self, space_id, environment_id, entry_id):
         """
         Provides access to entry snapshot management methods.
 
@@ -433,13 +433,13 @@ class Client(object):
 
         Usage:
 
-            >>> entry_snapshots_proxy = client.entry_snapshots('cfexampleapi', 'nyancat')
-            <SnapshotsProxy[entries] space_id="cfexampleapi" parent_resource_id="nyancat">
+            >>> entry_snapshots_proxy = client.entry_snapshots('cfexampleapi', 'master', 'nyancat')
+            <SnapshotsProxy[entries] space_id="cfexampleapi" environment_id="master" parent_resource_id="nyancat">
         """
 
-        return SnapshotsProxy(self, space_id, entry_id, 'entries')
+        return SnapshotsProxy(self, space_id, environment_id, entry_id, 'entries')
 
-    def content_type_snapshots(self, space_id, content_type_id):
+    def content_type_snapshots(self, space_id, environment_id, content_type_id):
         """
         Provides access to content type snapshot management methods.
 
@@ -450,11 +450,11 @@ class Client(object):
 
         Usage:
 
-            >>> content_type_snapshots_proxy = client.content_type_snapshots('cfexampleapi', 'cat')
-            <SnapshotsProxy[content_types] space_id="cfexampleapi" parent_resource_id="cat">
+            >>> content_type_snapshots_proxy = client.content_type_snapshots('cfexampleapi', 'master', 'cat')
+            <SnapshotsProxy[content_types] space_id="cfexampleapi" environment_id="master" parent_resource_id="cat">
         """
 
-        return SnapshotsProxy(self, space_id, content_type_id, 'content_types')
+        return SnapshotsProxy(self, space_id, environment_id, content_type_id, 'content_types')
 
     def uploads(self, space_id):
         """

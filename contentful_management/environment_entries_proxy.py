@@ -6,7 +6,7 @@ from .entries_proxy import EntriesProxy
 contentful_management.environment_entries_proxy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the SpaceEntriesProxy class.
+This module implements the EnvironmentEntriesProxy class.
 
 API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 

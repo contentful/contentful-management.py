@@ -11,7 +11,7 @@ interactions:
       User-Agent: [PythonContentfulManagementClient/1.0.0]
       x-contentful-content-type: [foo]
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/entries/id_create_content_type_empty
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/id_create_content_type_empty
   response:
     body: {string: "{\n  \"fields\": {},\n  \"sys\": {\n    \"id\": \"id_create_content_type_empty\",\n
         \   \"type\": \"Entry\",\n    \"version\": 1,\n    \"createdAt\": \"2017-03-10T15:44:46.785Z\",\n

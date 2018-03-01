@@ -30,10 +30,6 @@ from .roles_proxy_test import *
 from .snapshot_test import *
 from .snapshots_proxy_test import *
 from .space_api_keys_proxy_test import *
-from .space_assets_proxy_test import *
-from .space_content_types_proxy_test import *
-from .space_entries_proxy_test import *
-from .space_locales_proxy_test import *
 from .space_resource_proxy_test import *
 from .space_roles_proxy_test import *
 from .space_test import *

@@ -13,14 +13,14 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 :license: MIT, see LICENSE for more details.
 """
 
+
 class EnvironmentsProxy(ClientProxy):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/
     """
-    
-    def __init__(self, client, space_id, ):
-        self.client = client
-        self.space_id = space_id
+
+    def __init__(self, client, space_id):
+        super(EnvironmentsProxy, self).__init__(client, space_id)
 
     @property
     def _resource_class(self):
@@ -40,12 +40,12 @@ class EnvironmentsProxy(ClientProxy):
 
         return super(EnvironmentsProxy, self).find(environment_id, query=query)
 
-    def create(self, attributes=None):
+    def create(self, environment_id=None, attributes=None):
         """
-        Creates an environment with given attributes.
+        Creates an environment with a given ID (optional) and attributes.
         """
 
-        return super(EnvironmentsProxy, self).create(None, attributes)
+        return super(EnvironmentsProxy, self).create(environment_id, attributes)
 
     def delete(self, environment_id):
         """

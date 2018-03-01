@@ -157,32 +157,81 @@ Retrieving your User information::
 
     user = client.users().me()
 
+Environments
+------------
+
+Retrieving all environments on a space::
+
+    environments = client.environments('my_space_id').all()
+
+    # or if you already have a fetched space
+
+    environments = space.environments().all()
+
+Retrieving an environment by ID::
+
+    environment = client.environments('my_space_id').find('environment_id')
+
+    # or if you already have a fetched space
+
+    environment = space.environments().find('environment_id')
+
+Deleting an environment::
+
+    client.environments('my_space_id').delete('environment_id')
+
+    # or if you already have a fetched space
+
+    space.environments().delete('environment_id')
+
+    # or if you already fetched the environment
+
+    environment.delete()
+
+Creating an environment::
+
+    new_environment = client.environments('my_space_id').create(
+        'new_environment_id',
+        {
+            'name': 'New Environment'
+        }
+    )
+
+    # or if you already have a fetched space
+
+    new_environment = space.environments().create(
+        'new_environment_id',
+        {
+            'name': 'New Environment'
+        }
+    )
+
 Assets
 ------
 
 Retrieving all assets on a space::
 
-    assets = client.assets('my_space_id').all()
+    assets = client.assets('my_space_id', 'environment_id').all()
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    assets = space.assets().all()
+    assets = environment.assets().all()
 
 Retrieving an asset by ID::
 
-    asset = client.assets('my_space_id').find('asset_id')
+    asset = client.assets('my_space_id', 'environment_id').find('asset_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    asset = space.assets().find('asset_id')
+    asset = environment.assets().find('asset_id')
 
 Deleting an asset::
 
-    client.assets('my_space_id').delete('asset_id')
+    client.assets('my_space_id', 'environment_id').delete('asset_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.assets().delete('asset_id')
+    environment.assets().delete('asset_id')
 
     # or if you already fetched the asset
 
@@ -202,14 +251,14 @@ Creating an asset::
         }
     }
 
-    new_asset = client.assets('my_space_id').create(
+    new_asset = client.assets('my_space_id', 'environment_id').create(
         'new_asset_id',
         file_attributes
     )
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    new_asset = space.assets().create(
+    new_asset = environment.assets().create(
         'new_asset_id',
         file_attributes
     )
@@ -233,11 +282,11 @@ Updating an asset::
 
 Deleting an asset::
 
-    client.assets('my_space_id').delete('asset_id')
+    client.assets('my_space_id', 'environment_id').delete('asset_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.assets().delete('asset_id')
+    environment.assets().delete('asset_id')
 
     # or if you already fetched the asset
 
@@ -262,11 +311,11 @@ Entries
 
 Retrieving all entries on a space::
 
-    entries = client.entries('my_space_id').all()
+    entries = client.entries('my_space_id', 'environment_id').all()
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    entries = space.entries().all()
+    entries = environment.entries().all()
 
     # or if you already have a fetched content type
 
@@ -274,11 +323,11 @@ Retrieving all entries on a space::
 
 Retrieving an entry by ID::
 
-    entry = client.entries('my_space_id').find('entry_id')
+    entry = client.entries('my_space_id', 'environment_id').find('entry_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    entry = space.entries().find('entry_id')
+    entry = environment.entries().find('entry_id')
 
     # or if you already have a fetched content type
 
@@ -286,11 +335,11 @@ Retrieving an entry by ID::
 
 Deleting an entry::
 
-    client.entries('my_space_id').delete('entry_id')
+    client.entries('my_space_id', 'environment_id').delete('entry_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.entries().delete('entry_id')
+    environment.entries().delete('entry_id')
 
     # or if you already fetched the entry
 
@@ -310,14 +359,14 @@ Creating an entry::
         }
     }
 
-    new_entry = client.entries('my_space_id').create(
+    new_entry = client.entries('my_space_id', 'environment_id').create(
         'new_entry_id',
         entry_attributes
     )
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    new_entry = space.entries().create(
+    new_entry = environment.entries().create(
         'new_entry_id',
         entry_attributes
     )
@@ -333,11 +382,11 @@ Updating an entry::
 
 Deleting an entry::
 
-    client.entries('my_space_id').delete('entry_id')
+    client.entries('my_space_id', 'environment_id').delete('entry_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.entries().delete('entry_id')
+    environment.entries().delete('entry_id')
 
     # or if you already fetched the entry
 
@@ -368,27 +417,27 @@ Content Types
 
 Retrieving all content types on a space::
 
-    content_types = client.content_types('my_space_id').all()
+    content_types = client.content_types('my_space_id', 'environment_id').all()
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    content_types = space.content_types().all()
+    content_types = environment.content_types().all()
 
 Retrieving a content type by ID::
 
-    content_type = client.content_types('my_space_id').find('content_type_id')
+    content_type = client.content_types('my_space_id', 'environment_id').find('content_type_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    content_type = space.content_types().find('content_type_id')
+    content_type = environment.content_types().find('content_type_id')
 
 Deleting a content type::
 
-    client.content_types('my_space_id').delete('content_type_id')
+    client.content_types('my_space_id', 'environment_id').delete('content_type_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.content_types().delete('content_type_id')
+    environment.content_types().delete('content_type_id')
 
     # or if you already fetched the content type
 
@@ -427,14 +476,14 @@ Creating a content type::
         ]
     }
 
-    new_content_type = client.content_types('my_space_id').create(
+    new_content_type = client.content_types('my_space_id', 'environment_id').create(
         'new_ct_id',
         content_type_attributes
     )
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    new_content_type = space.content_types().create(
+    new_content_type = environment.content_types().create(
         'new_ct_id',
         content_type_attributes
     )
@@ -458,11 +507,11 @@ Updating a content type::
 
 Deleting a content type::
 
-    client.content_types('my_space_id').delete('content_type_id')
+    client.content_types('my_space_id', 'environment_id').delete('content_type_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.content_types().delete('content_type_id')
+    environment.content_types().delete('content_type_id')
 
     # or if you already fetched the content type
 
@@ -495,27 +544,27 @@ Locales
 
 Retrieving all locales on a space::
 
-    locales = client.locales('my_space_id').all()
+    locales = client.locales('my_space_id', 'environment_id').all()
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    locales = space.locales().all()
+    locales = environment.locales().all()
 
 Retrieveing one locale by ID::
 
-    locale = client.locales('my_space_id').find('locale_id')
+    locale = client.locales('my_space_id', 'environment_id').find('locale_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    locale = space.locales().find('locale_id')
+    locale = environment.locales().find('locale_id')
 
 Deleting a locale::
 
-    client.locales('my_space_id').delete('locale_id')
+    client.locales('my_space_id', 'environment_id').delete('locale_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.locales().delete('locale_id')
+    environment.locales().delete('locale_id')
 
     # or if you already have fetched the locale
 
@@ -523,11 +572,11 @@ Deleting a locale::
 
 Creating a new locale::
 
-    new_locale = client.locales('my_space_id').create({'name': 'Klingon', 'code': 'tlh'})
+    new_locale = client.locales('my_space_id', 'environment_id').create({'name': 'Klingon', 'code': 'tlh'})
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    new_locale = space.locales().create({'name': 'Klingon', 'code': 'tlh'})
+    new_locale = environment.locales().create({'name': 'Klingon', 'code': 'tlh'})
 
 Updating a locale::
 
@@ -708,27 +757,27 @@ UI Extensions
 
 Retrieving all UI Extenisons on a space::
 
-    ui_extensions = client.ui_extensions('my_space_id').all()
+    ui_extensions = client.ui_extensions('my_space_id', 'environment_id').all()
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    ui_extensions = space.ui_extensions().all()
+    ui_extensions = environment.ui_extensions().all()
 
 Retrieveing one UI Extension by ID::
 
-    ui_extension = client.ui_extensions('my_space_id').find('ui_extension_id')
+    ui_extension = client.ui_extensions('my_space_id', 'environment_id').find('ui_extension_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    ui_extension = space.ui_extensions().find('ui_extension_id')
+    ui_extension = environment.ui_extensions().find('ui_extension_id')
 
 Deleting an UI Extension::
 
-    client.ui_extensions('my_space_id').delete('ui_extension_id')
+    client.ui_extensions('my_space_id', 'environment_id').delete('ui_extension_id')
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    space.ui_extensions().delete('ui_extension_id')
+    environment.ui_extensions().delete('ui_extension_id')
 
     # or if you already have fetched the UI Extension
 
@@ -736,7 +785,7 @@ Deleting an UI Extension::
 
 Creating a new UI Extension::
 
-    new_ui_extension = client.ui_extensions('my_space_id').create('test-extension', {
+    new_ui_extension = client.ui_extensions('my_space_id', 'environment_id').create('test-extension', {
         "extension": {
             "name": "Test Extension",
             "srcdoc": "<html>foobar</html>",
@@ -745,9 +794,9 @@ Creating a new UI Extension::
         }
     })
 
-    # or if you already have a fetched space
+    # or if you already have a fetched environment
 
-    new_ui_extension = space.ui_extensions().create('test-extension', {
+    new_ui_extension = environment.ui_extensions().create('test-extension', {
         "extension": {
             "name": "Test Extension",
             "srcdoc": "<html>foobar</html>",
@@ -777,7 +826,7 @@ Editor Interfaces
 
 Retrieving the editor interfaces for a content type::
 
-    editor_interface = client.editor_interfaces('my_space_id', 'my_content_type_id').find()
+    editor_interface = client.editor_interfaces('my_space_id', 'environment_id', 'my_content_type_id').find()
 
     # or if you already have a fetched content type
 
@@ -805,7 +854,7 @@ Entry Snapshots
 
 Retrieving all snapshots for an entry::
 
-    snapshots = client.snapshots('my_space_id', 'entry_id').all()
+    snapshots = client.snapshots('my_space_id', 'environment_id', 'entry_id').all()
 
     # or if you already have a fetched entry
 
@@ -813,7 +862,7 @@ Retrieving all snapshots for an entry::
 
 Retrieveing one snapshot by ID::
 
-    snapshot = client.snapshots('my_space_id', 'entry_id').find('snapshot_id')
+    snapshot = client.snapshots('my_space_id', 'environment_id', 'entry_id').find('snapshot_id')
 
     # or if you already have a fetched entry
 
@@ -824,7 +873,7 @@ Content Type Snapshots
 
 Retrieving all snapshots for a content type::
 
-    snapshots = client.content_type_snapshots('my_space_id', 'content_type_id').all()
+    snapshots = client.content_type_snapshots('my_space_id', 'environment_id', 'content_type_id').all()
 
     # or if you already have a fetched content type
 
@@ -832,7 +881,7 @@ Retrieving all snapshots for a content type::
 
 Retrieveing one snapshot by ID::
 
-    snapshot = client.content_type_snapshots('my_space_id', 'content_type_id').find('snapshot_id')
+    snapshot = client.content_type_snapshots('my_space_id', 'environment_id', 'content_type_id').find('snapshot_id')
 
     # or if you already have a fetched content_type
 
@@ -966,7 +1015,7 @@ Associating an upload with a new asset::
     # notice that the upload is converted to a link,
     # and the JSON representation is then sent.
 
-    client.assets('my_space_id').create(
+    client.assets('my_space_id', 'environment_id').create(
        'new_asset_id',
        {
          'fields': {

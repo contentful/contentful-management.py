@@ -26,13 +26,13 @@ class Environment(Resource):
     def __init__(self, item, **kwargs):
         super(Environment, self).__init__(item, **kwargs)
         self.name = item.get('name', '')
-        self.space_id = item['sys']['space']['sys']['id']
 
     @classmethod
     def base_url(klass, space_id, resource_id=None, **kwargs):
         """
         Returns the URI for the environment.
         """
+
         return "spaces/{0}/environments/{1}".format(space_id, resource_id)
 
     @classmethod
@@ -41,8 +41,7 @@ class Environment(Resource):
         Attributes for environment creation.
         """
 
-        result = super(Environment, klass).create_attributes(attributes, previous_object)
-        return result
+        return super(Environment, klass).create_attributes(attributes, previous_object)
 
     def to_json(self):
         """
@@ -53,6 +52,7 @@ class Environment(Resource):
         result.update({
             'name': self.name
         })
+
         return result
 
     def content_types(self):
@@ -67,9 +67,10 @@ class Environment(Resource):
         Usage:
 
             >>> space_content_types_proxy = environment.content_types()
-            <EnvironmentContentTypesProxy space_id="cfexampleapi" environment="master">
+            <EnvironmentContentTypesProxy space_id="cfexampleapi" environment_id="master">
         """
-        return EnvironmentContentTypesProxy(self._client, self.space_id, self.name)
+
+        return EnvironmentContentTypesProxy(self._client, self.space.id, self.id)
 
     def entries(self):
         """
@@ -83,10 +84,11 @@ class Environment(Resource):
         Usage:
 
             >>> environment_entries_proxy = environment.entries()
-            <EnvironmentEntriesProxy space_id="cfexampleapi" environment="master">
+            <EnvironmentEntriesProxy space_id="cfexampleapi" environment_id="master">
         """
-        return EnvironmentEntriesProxy(self._client, self.space_id, self.name)
-        
+
+        return EnvironmentEntriesProxy(self._client, self.space.id, self.id)
+
     def assets(self):
         """
         Provides access to asset management methods.
@@ -99,9 +101,10 @@ class Environment(Resource):
         Usage:
 
             >>> environment_assets_proxy = environment.assets()
-            <EnvironmentAssetsProxy space_id="cfexampleapi" environment="master">
+            <EnvironmentAssetsProxy space_id="cfexampleapi" environment_id="master">
         """
-        return EnvironmentAssetsProxy(self._client, self.space_id, self.name)
+
+        return EnvironmentAssetsProxy(self._client, self.space.id, self.id)
 
     def locales(self):
         """
@@ -115,9 +118,10 @@ class Environment(Resource):
         Usage:
 
             >>> environment_locales_proxy = environment.locales()
-            <EnvironmentLocalesProxy space_id="cfexampleapi" environment="master">
+            <EnvironmentLocalesProxy space_id="cfexampleapi" environment_id="master">
         """
-        return EnvironmentLocalesProxy(self._client, self.id, self.name)
+
+        return EnvironmentLocalesProxy(self._client, self.space.id, self.id)
 
     def ui_extensions(self):
         """
@@ -131,6 +135,13 @@ class Environment(Resource):
         Usage:
 
             >>> ui_extensions_proxy = environment.ui_extensions()
-            <EnvironmentUIExtensionsProxy space_id="cfexampleapi" environment="master">
+            <EnvironmentUIExtensionsProxy space_id="cfexampleapi" environment_id="master">
         """
-        return EnvironmentUIExtensionsProxy(self.client, self.id, self.name)
+
+        return EnvironmentUIExtensionsProxy(self._client, self.space.id, self.id)
+
+    def __repr__(self):
+        return "<Environment[{0}] id='{1}'>".format(
+            self.name,
+            self.id
+        )

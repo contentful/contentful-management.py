@@ -11,7 +11,7 @@ interactions:
       User-Agent: [PythonContentfulManagementClient/1.0.0]
       x-contentful-version: ['5']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/foo/editor_interface
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/foo/editor_interface
   response:
     body: {string: "{\n  \"controls\": [\n    {\n      \"fieldId\": \"name\",\n      \"widgetId\":
         \"singleLine\"\n    }\n  ],\n  \"sys\": {\n    \"id\": \"default\",\n    \"type\":

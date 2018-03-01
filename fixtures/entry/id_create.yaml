@@ -11,7 +11,7 @@ interactions:
       User-Agent: [PythonContentfulManagementClient/1.0.0]
       x-contentful-content-type: [foo]
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/entries/id_create_entry_test
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/id_create_entry_test
   response:
     body: {string: "{\n  \"fields\": {\n    \"name\": {\n      \"en-US\": \"foobar\"\n
         \   }\n  },\n  \"sys\": {\n    \"id\": \"id_create_entry_test\",\n    \"type\":

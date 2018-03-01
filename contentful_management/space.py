@@ -1,10 +1,6 @@
 from .resource import Resource
-from .space_content_types_proxy import SpaceContentTypesProxy
-from .space_entries_proxy import SpaceEntriesProxy
-from .space_assets_proxy import SpaceAssetsProxy
 from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_roles_proxy import SpaceRolesProxy
-from .space_locales_proxy import SpaceLocalesProxy
 from .space_api_keys_proxy import SpaceApiKeysProxy
 from .space_uploads_proxy import SpaceUploadsProxy
 from .space_environments_proxy import SpaceEnvironmentsProxy
@@ -130,70 +126,6 @@ class Space(Resource):
         result.update({'name': self.name})
         return result
 
-    def content_types(self):
-        """
-        Provides access to content type management methods.
-
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types
-
-        :return: :class:`SpaceContentTypesProxy <contentful_management.space_content_types_proxy.SpaceContentTypesProxy>` object.
-        :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy
-
-        Usage:
-
-            >>> space_content_types_proxy = space.content_types()
-            <SpaceContentTypesProxy space_id="cfexampleapi">
-        """
-        return SpaceContentTypesProxy(self._client, self.id)
-
-    def entries(self):
-        """
-        Provides access to entry management methods.
-
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
-
-        :return: :class:`SpaceEntriesProxy <contentful_management.space_entries_proxy.SpaceEntriesProxy>` object.
-        :rtype: contentful.space_entries_proxy.SpaceEntriesProxy
-
-        Usage:
-
-            >>> space_entries_proxy = space.entries()
-            <SpaceEntriesProxy space_id="cfexampleapi">
-        """
-        return SpaceEntriesProxy(self._client, self.id)
-
-    def assets(self):
-        """
-        Provides access to asset management methods.
-
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
-
-        :return: :class:`SpaceAssetsProxy <contentful_management.space_assets_proxy.SpaceAssetsProxy>` object.
-        :rtype: contentful.space_assets_proxy.SpaceAssetsProxy
-
-        Usage:
-
-            >>> space_assets_proxy = space.assets()
-            <SpaceAssetsProxy space_id="cfexampleapi">
-        """
-        return SpaceAssetsProxy(self._client, self.id)
-
-    def locales(self):
-        """
-        Provides access to locale management methods.
-
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
-
-        :return: :class:`SpaceLocalesProxy <contentful_management.space_locales_proxy.SpaceLocalesProxy>` object.
-        :rtype: contentful.space_locales_proxy.SpaceLocalesProxy
-
-        Usage:
-
-            >>> space_locales_proxy = space.locales()
-            <SpaceLocalesProxy space_id="cfexampleapi">
-        """
-        return SpaceLocalesProxy(self._client, self.id)
-
     def webhooks(self):
         """
         Provides access to webhook management methods.
@@ -264,7 +196,7 @@ class Space(Resource):
 
         API reference: TBD
 
-        :return: :class:`TBD` object.
+        :return: :class:`SpaceEnvironmentsProxy <contentful_management.space_environments_proxy` object.
         :rtype: contentful.environments_space_proxy.SpaceEnvironmentsProxy
 
         Usage:
@@ -274,7 +206,6 @@ class Space(Resource):
         """
 
         return SpaceEnvironmentsProxy(self._client, self.id)
-
 
     def __repr__(self):
         return "<Space[{0}] id='{1}'>".format(

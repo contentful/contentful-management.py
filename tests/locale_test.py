@@ -63,7 +63,7 @@ class LocaleTest(TestCase):
 
     @vcr.use_cassette('fixtures/locale/create.yaml')
     def test_create_locale(self):
-        locale = CLIENT.locales(PLAYGROUND_SPACE).create({
+        locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').create({
             'name': 'Klingon',
             'fallbackCode': 'en-US',
             'code': 'tlg'
@@ -74,7 +74,7 @@ class LocaleTest(TestCase):
 
     @vcr.use_cassette('fixtures/locale/find.yaml')
     def test_update_locale(self):
-        locale = CLIENT.locales(PLAYGROUND_SPACE).find('3OFlsZyYYM5fNhCtfFctX8')
+        locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
         with vcr.use_cassette('fixtures/locale/update.yaml'):
             locale.name = 'Not Klingon'
@@ -84,12 +84,12 @@ class LocaleTest(TestCase):
 
     @vcr.use_cassette('fixtures/locale/find_2.yaml')
     def test_delete_locale(self):
-        locale = CLIENT.locales(PLAYGROUND_SPACE).find('3OFlsZyYYM5fNhCtfFctX8')
+        locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
         with vcr.use_cassette('fixtures/locale/delete.yaml'):
             locale.delete()
 
         with vcr.use_cassette('fixtures/locale/not_found.yaml'):
             with self.assertRaises(NotFoundError):
-                CLIENT.locales(PLAYGROUND_SPACE).find('3OFlsZyYYM5fNhCtfFctX8')
+                CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 

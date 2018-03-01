@@ -11,7 +11,7 @@ interactions:
       User-Agent: [python-requests/2.18.1]
       X-Contentful-User-Agent: [platform python/3.5.2; os macOS/16.5.0; sdk contentful-management.py/1.3.1;]
     method: DELETE
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/extensions/test-extension
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/extensions/test-extension
   response:
     body: {string: ''}
     headers:

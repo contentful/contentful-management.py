@@ -25,7 +25,7 @@ class AssetsProxy(ClientProxy):
     def _resource_class(self):
         return Asset
 
-    def all(self, query=None, environment=None, **kwargs):
+    def all(self, query=None, **kwargs):
         """
         Gets all assets of a space.
         """
@@ -35,9 +35,9 @@ class AssetsProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(AssetsProxy, self).all(query, environment=environment, **kwargs)
+        return super(AssetsProxy, self).all(query, **kwargs)
 
-    def find(self, asset_id, query=None, environment=None, **kwargs):
+    def find(self, asset_id, query=None, **kwargs):
         """
         Gets a single asset by ID.
         """
@@ -47,4 +47,4 @@ class AssetsProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(AssetsProxy, self).find(asset_id, query=query, environment=environment, **kwargs)
+        return super(AssetsProxy, self).find(asset_id, query=query, **kwargs)

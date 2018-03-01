@@ -5,9 +5,9 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class EditorInterfacesProxyTest(TestCase):
     def test_editor_interfaces_proxy(self):
-        proxy = EditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = EditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<EditorInterfacesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<EditorInterfacesProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_editor_interfaces_proxy_not_supported_methods(self):
         proxy = EditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE)

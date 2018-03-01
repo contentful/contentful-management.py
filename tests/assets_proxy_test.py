@@ -6,13 +6,13 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class AssetsProxyTest(TestCase):
     def test_assets_proxy(self):
-        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE)
+        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE, 'master')
 
-        self.assertEqual(str(proxy), "<AssetsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<AssetsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/asset/all.yaml')
     def test_assets_proxy_all(self):
-        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE)
+        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE, 'master')
 
         assets = []
 
@@ -24,7 +24,7 @@ class AssetsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/select_operator.yaml')
     def test_assets_proxy_select_operator(self):
-        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE)
+        proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE, 'master')
 
         asset = proxy.all({'select': 'sys'})[0]
 

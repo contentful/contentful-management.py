@@ -21,15 +21,15 @@ class EntriesProxy(ClientProxy):
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
     """
 
-    def __init__(self, client, space_id, content_type_id=None):
-        super(EntriesProxy, self).__init__(client, space_id)
+    def __init__(self, client, space_id, environment_id=None, content_type_id=None):
+        super(EntriesProxy, self).__init__(client, space_id, environment_id=environment_id)
         self.content_type_id = content_type_id
 
     @property
     def _resource_class(self):
         return Entry
 
-    def all(self, query=None, environment=None):
+    def all(self, query=None):
         """
         Gets all entries of a space.
         """
@@ -42,9 +42,9 @@ class EntriesProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(EntriesProxy, self).all(query=query, environment=environment)
+        return super(EntriesProxy, self).all(query=query)
 
-    def find(self, entry_id, query=None, environment=None):
+    def find(self, entry_id, query=None):
         """
         Gets a single entry by ID.
         """
@@ -57,9 +57,9 @@ class EntriesProxy(ClientProxy):
 
         normalize_select(query)
 
-        return super(EntriesProxy, self).find(entry_id, query=query, environment=environment)
+        return super(EntriesProxy, self).find(entry_id, query=query)
 
-    def create(self, resource_id=None, attributes=None, environment=None, **kwargs):
+    def create(self, resource_id=None, attributes=None, **kwargs):
         """
         Creates an entry with a given ID (optional) and attributes.
         """
@@ -69,4 +69,4 @@ class EntriesProxy(ClientProxy):
                 attributes = {}
             attributes['content_type_id'] = self.content_type_id
 
-        return super(EntriesProxy, self).create(resource_id=resource_id, attributes=attributes, environment=environment)
+        return super(EntriesProxy, self).create(resource_id=resource_id, attributes=attributes)

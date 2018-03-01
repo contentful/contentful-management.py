@@ -6,12 +6,12 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class EntrySnapshotsProxyTest(TestCase):
     def test_entry_snapshots_proxy(self):
-        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, '4dI1y4PKdWWCSC0CwQakOa')
+        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 
-        self.assertEqual(str(proxy), "<EntrySnapshotsProxy space_id='{0}' entry_id='4dI1y4PKdWWCSC0CwQakOa'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<EntrySnapshotsProxy space_id='{0}' environment_id='master' entry_id='4dI1y4PKdWWCSC0CwQakOa'>".format(PLAYGROUND_SPACE))
 
     def test_entry_snapshots_proxy_not_supported_methods(self):
-        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, '4dI1y4PKdWWCSC0CwQakOa')
+        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 
         with self.assertRaises(Exception):
             proxy.create()
@@ -21,7 +21,7 @@ class EntrySnapshotsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/entry/snapshot_all.yaml')
     def test_entry_snapshots_proxy_all(self):
-        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, '4dI1y4PKdWWCSC0CwQakOa')
+        proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 
         snapshots = []
 

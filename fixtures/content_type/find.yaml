@@ -9,7 +9,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]
     method: GET
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/foo
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/foo
   response:
     body:
       string: !!binary |
