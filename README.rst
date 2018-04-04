@@ -909,7 +909,7 @@ Creating a new Personal Access Token::
 
     new_personal_access_token = client.personal_access_tokens().create({
         'name': 'My API Key',
-        'scope': ['content_management_manage']
+        'scopes': ['content_management_manage']
     })
 
 Uploads
