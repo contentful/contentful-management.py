@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.0.0
 ### Added
 * Added `Environment` API
 

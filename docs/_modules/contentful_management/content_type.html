@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.content_type &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management.content_type &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -39,7 +39,7 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.content_type</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span>
+<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span>
 <span class="kn">from</span> <span class="nn">.content_type_field</span> <span class="k">import</span> <span class="n">ContentTypeField</span>
 <span class="kn">from</span> <span class="nn">.content_type_entries_proxy</span> <span class="k">import</span> <span class="n">ContentTypeEntriesProxy</span>
 <span class="kn">from</span> <span class="nn">.content_type_snapshots_proxy</span> <span class="k">import</span> <span class="n">ContentTypeSnapshotsProxy</span>
@@ -59,7 +59,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="ContentType"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType">[docs]</a><span class="k">class</span> <span class="nc">ContentType</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">):</span>
+<div class="viewcode-block" id="ContentType"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType">[docs]</a><span class="k">class</span> <span class="nc">ContentType</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -73,16 +73,20 @@
                        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fields&#39;</span><span class="p">,</span> <span class="p">[])]</span>
 
 <div class="viewcode-block" id="ContentType.base_url"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.base_url">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">base_url</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">public</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">environment_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the URI for the content type.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">public</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;spaces/</span><span class="si">{0}</span><span class="s2">/public/content_types&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">space_id</span><span class="p">)</span>
+            <span class="n">environment_slug</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">if</span> <span class="n">environment_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">environment_slug</span> <span class="o">=</span> <span class="s2">&quot;/environments/</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">environment_id</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;spaces/</span><span class="si">{0}{1}</span><span class="s2">/public/content_types&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">space_id</span><span class="p">,</span> <span class="n">environment_slug</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="n">klass</span><span class="p">)</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
             <span class="n">space_id</span><span class="p">,</span>
             <span class="n">resource_id</span><span class="o">=</span><span class="n">resource_id</span><span class="p">,</span>
+            <span class="n">environment_id</span><span class="o">=</span><span class="n">environment_id</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span></div>
 
@@ -137,9 +141,9 @@
 <span class="sd">        Usage:</span>
 
 <span class="sd">            &gt;&gt;&gt; content_type_entries_proxy = content_type.entries()</span>
-<span class="sd">            &lt;ContentTypeEntriesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &lt;ContentTypeEntriesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">ContentTypeEntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">ContentTypeEntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContentType.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -153,9 +157,9 @@
 <span class="sd">        Usage:</span>
 
 <span class="sd">            &gt;&gt;&gt; content_type_editor_interfaces_proxy = content_type.editor_interfaces()</span>
-<span class="sd">            &lt;ContentTypeEditorInterfacesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &lt;ContentTypeEditorInterfacesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">ContentTypeEditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">ContentTypeEditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ContentType.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type.ContentType.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -169,9 +173,9 @@
 <span class="sd">        Usage:</span>
 
 <span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = content_type.entries()</span>
-<span class="sd">            &lt;ContentTypeSnapshotsProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &lt;ContentTypeSnapshotsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">ContentTypeSnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">ContentTypeSnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;ContentType[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

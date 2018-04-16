@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.webhook_webhooks_health_proxy &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management.environment_entries_proxy &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,38 +38,31 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.webhook_webhooks_health_proxy</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.webhook_resource_proxy</span> <span class="k">import</span> <span class="n">WebhookResourceProxy</span>
-<span class="kn">from</span> <span class="nn">.webhooks_health_proxy</span> <span class="k">import</span> <span class="n">WebhooksHealthProxy</span>
+  <h1>Source code for contentful_management.environment_entries_proxy</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.environment_resource_proxy</span> <span class="k">import</span> <span class="n">EnvironmentResourceProxy</span>
+<span class="kn">from</span> <span class="nn">.entries_proxy</span> <span class="k">import</span> <span class="n">EntriesProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.webhook_webhooks_health_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.environment_entries_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the WebhookWebhooksHealthProxy class.</span>
+<span class="sd">This module implements the EnvironmentEntriesProxy class.</span>
 
-<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="WebhookWebhooksHealthProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy">[docs]</a><span class="k">class</span> <span class="nc">WebhookWebhooksHealthProxy</span><span class="p">(</span><span class="n">WebhookResourceProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentEntriesProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_entries_proxy.EnvironmentEntriesProxy">[docs]</a><span class="k">class</span> <span class="nc">EnvironmentEntriesProxy</span><span class="p">(</span><span class="n">EnvironmentResourceProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">WebhooksHealthProxy</span>
-
-<div class="viewcode-block" id="WebhookWebhooksHealthProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets webhook health.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div></div>
+        <span class="k">return</span> <span class="n">EntriesProxy</span></div>
 </pre></div>
 
           </div>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contentful Management API SDK &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>Contentful Management API SDK &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
             
   <div class="section" id="contentful-management-api-sdk">
 <h1>Contentful Management API SDK<a class="headerlink" href="#contentful-management-api-sdk" title="Permalink to this headline">¶</a></h1>
-<p>Release v1.5.2.</p>
+<p>Release v2.0.0.</p>
 <p><a class="reference external" href="https://www.contentful.com">Contentful</a> is a content management platform for web applications, mobile apps and connected devices.
 It allows you to create, edit &amp; manage content in the cloud and publish it anywhere via powerful API.
 Contentful offers tools for managing editorial teams and enabling cooperation between organizations.</p>
@@ -922,27 +922,15 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="personal-access-tokens">
 <h2>Personal Access Tokens<a class="headerlink" href="#personal-access-tokens" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all Personal Access Tokens on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">personal_access_tokens</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-
-<span class="c1"># or if you already have a fetched space</span>
-
-<span class="n">personal_access_tokens</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">personal_access_tokens</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Retrieveing one Personal Access Token by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">personal_access_token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
-
-<span class="c1"># or if you already have a fetched space</span>
-
-<span class="n">personal_access_token</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">personal_access_token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Revoking a Personal Access Token:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">revoke</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
-
-<span class="c1"># or if you already have a fetched space</span>
-
-<span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">revoke</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">revoke</span><span class="p">(</span><span class="s1">&#39;personal_access_token_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have fetched the Personal Access Token</span>
 
@@ -950,11 +938,17 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Creating a new Personal Access Token:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_personal_access_token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_personal_access_token</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scopes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;content_management_manage&#39;</span><span class="p">]</span>
+<span class="p">})</span>
 
 <span class="c1"># or if you already have a fetched space</span>
 
-<span class="n">new_personal_access_token</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Token&#39;</span><span class="p">,</span> <span class="s1">&#39;scopes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;content_management_manage&#39;</span><span class="p">]})</span>
+<span class="n">new_personal_access_token</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Token&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scopes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;content_management_manage&#39;</span><span class="p">]</span>
+<span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -1091,6 +1085,17 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.entry_snapshots_proxy">contentful_management.entry_snapshots_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment">contentful_management.environment module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_assets_proxy">contentful_management.environment_assets_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_content_types_proxy">contentful_management.environment_content_types_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_entries_proxy">contentful_management.environment_entries_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_locales_proxy">contentful_management.environment_locales_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_resource_proxy">contentful_management.environment_resource_proxy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-management-environment-resource-proxy">contentful_management.environment_resource_proxy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environment_ui_extensions_proxy">contentful_management.environment_ui_extensions_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.environments_proxy">contentful_management.environments_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.errors">contentful_management.errors module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-management-errors">contentful_management.errors</a></li>
 </ul>
@@ -1109,10 +1114,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.snapshots_proxy">contentful_management.snapshots_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space">contentful_management.space module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_api_keys_proxy">contentful_management.space_api_keys_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_assets_proxy">contentful_management.space_assets_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_content_types_proxy">contentful_management.space_content_types_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_entries_proxy">contentful_management.space_entries_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_locales_proxy">contentful_management.space_locales_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_environments_proxy">contentful_management.space_environments_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>

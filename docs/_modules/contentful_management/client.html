@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.client &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management.client &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -63,6 +63,7 @@
 <span class="kn">from</span> <span class="nn">.editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">EditorInterfacesProxy</span>
 <span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="k">import</span> <span class="n">SnapshotsProxy</span>
 <span class="kn">from</span> <span class="nn">.uploads_proxy</span> <span class="k">import</span> <span class="n">UploadsProxy</span>
+<span class="kn">from</span> <span class="nn">.environments_proxy</span> <span class="k">import</span> <span class="n">EnvironmentsProxy</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">multijson</span> <span class="k">as</span> <span class="nn">json</span>
@@ -232,13 +233,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; users_proxy = client.UsersProxy()</span>
+<span class="sd">            &gt;&gt;&gt; users_proxy = client.users()</span>
 <span class="sd">            &lt;UsersProxy&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">UsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to content type management methods.</span>
 
@@ -249,13 +250,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; content_types_proxy = client.content_types(&#39;cfexampleapi&#39;)</span>
-<span class="sd">            &lt;ContentTypesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; content_types_proxy = client.content_types(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;ContentTypesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">ContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">ContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to entry management methods.</span>
 
@@ -266,13 +267,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; entries_proxy = client.entries(&#39;cfexampleapi&#39;)</span>
-<span class="sd">            &lt;EntriesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entries_proxy = client.entries(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;EntriesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">EntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">EntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to asset management methods.</span>
 
@@ -283,13 +284,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; assets_proxy = client.assets(&#39;cfexampleapi&#39;)</span>
-<span class="sd">            &lt;AssetsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; assets_proxy = client.assets(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;AssetsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">AssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">AssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to locale management methods.</span>
 
@@ -300,11 +301,11 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; locales_proxy = client.locales(&#39;cfexampleapi&#39;)</span>
-<span class="sd">            &lt;LocalesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; locales_proxy = client.locales(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;LocalesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">LocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">LocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.webhooks"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhooks">[docs]</a>    <span class="k">def</span> <span class="nf">webhooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -408,7 +409,7 @@
 
         <span class="k">return</span> <span class="n">RolesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.ui_extensions"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.ui_extensions">[docs]</a>    <span class="k">def</span> <span class="nf">ui_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.ui_extensions"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.ui_extensions">[docs]</a>    <span class="k">def</span> <span class="nf">ui_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to UI extensions management methods.</span>
 
@@ -419,13 +420,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; ui_extensions_proxy = client.ui_extensions(&#39;cfexampleapi&#39;)</span>
-<span class="sd">            &lt;UIExtensionsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; ui_extensions_proxy = client.ui_extensions(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;UIExtensionsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">UIExtensionsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">UIExtensionsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to editor interfaces management methods.</span>
 
@@ -436,13 +437,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; editor_interfaces_proxy = client.editor_interfaces(&#39;cfexampleapi&#39;, &#39;cat&#39;)</span>
-<span class="sd">            &lt;EditorInterfacesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; editor_interfaces_proxy = client.editor_interfaces(&#39;cfexampleapi&#39;, &#39;master&#39;, &#39;cat&#39;)</span>
+<span class="sd">            &lt;EditorInterfacesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">EditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">EditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="o">=</span><span class="s1">&#39;entries&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="o">=</span><span class="s1">&#39;entries&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to snapshot management methods.</span>
 
@@ -453,16 +454,16 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;nyancat&#39;)</span>
-<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;master&#39;, &#39;nyancat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
 
-<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;cat&#39;, &#39;content_types&#39;)</span>
-<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.snapshots(&#39;cfexampleapi&#39;, &#39;master&#39;, &#39;cat&#39;, &#39;content_types&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.entry_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entry_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">entry_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.entry_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entry_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">entry_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to entry snapshot management methods.</span>
 
@@ -473,13 +474,13 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.entry_snapshots(&#39;cfexampleapi&#39;, &#39;nyancat&#39;)</span>
-<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; entry_snapshots_proxy = client.entry_snapshots(&#39;cfexampleapi&#39;, &#39;master&#39;, &#39;nyancat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">,</span> <span class="s1">&#39;entries&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">,</span> <span class="s1">&#39;entries&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Client.content_type_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_type_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">content_type_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
+<div class="viewcode-block" id="Client.content_type_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_type_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">content_type_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to content type snapshot management methods.</span>
 
@@ -490,11 +491,11 @@
 
 <span class="sd">        Usage:</span>
 
-<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.content_type_snapshots(&#39;cfexampleapi&#39;, &#39;cat&#39;)</span>
-<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
+<span class="sd">            &gt;&gt;&gt; content_type_snapshots_proxy = client.content_type_snapshots(&#39;cfexampleapi&#39;, &#39;master&#39;, &#39;cat&#39;)</span>
+<span class="sd">            &lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -512,6 +513,23 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">UploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.environments"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.environments">[docs]</a>    <span class="k">def</span> <span class="nf">environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to environment management methods.</span>
+
+<span class="sd">        API reference: TBD</span>
+
+<span class="sd">        :return: :class:`TBD` object.</span>
+<span class="sd">        :rtype: contentful.environments_proxy.EnvironmentsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; environments_proxy = client.environments(&#39;cfexampleapi&#39;)</span>
+<span class="sd">            &lt;EnvironmentsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">EnvironmentsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

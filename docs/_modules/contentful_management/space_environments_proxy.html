@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space_content_types_proxy &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management.space_environments_proxy &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -38,31 +38,30 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.space_content_types_proxy</h1><div class="highlight"><pre>
+  <h1>Source code for contentful_management.space_environments_proxy</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.space_resource_proxy</span> <span class="k">import</span> <span class="n">SpaceResourceProxy</span>
-<span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
-
+<span class="kn">from</span> <span class="nn">.environments_proxy</span> <span class="k">import</span> <span class="n">EnvironmentsProxy</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.space_content_types_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.space_environments_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the SpaceContentTypesProxy class.</span>
+<span class="sd">This module implements the SpaceEnvironmentsProxy class.</span>
 
-<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="SpaceContentTypesProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_content_types_proxy.SpaceContentTypesProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceContentTypesProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="SpaceEnvironmentsProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_environments_proxy.SpaceEnvironmentsProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceEnvironmentsProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">ContentTypesProxy</span></div>
+        <span class="k">return</span> <span class="n">EnvironmentsProxy</span></div>
 </pre></div>
 
           </div>
