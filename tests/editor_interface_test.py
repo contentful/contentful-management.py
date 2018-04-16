@@ -44,7 +44,7 @@ class EditorInterfaceTest(TestCase):
 
     @vcr.use_cassette('fixtures/editor_interface/find.yaml')
     def test_editor_interface_update(self):
-        editor_interface = CLIENT.editor_interfaces(PLAYGROUND_SPACE, 'foo').find()
+        editor_interface = CLIENT.editor_interfaces(PLAYGROUND_SPACE, 'master', 'foo').find()
 
         self.assertEqual(editor_interface.controls[0]['widgetId'], 'multiLine')
 

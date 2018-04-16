@@ -5,7 +5,7 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class ContentTypeSnapshotsProxyTest(TestCase):
     def test_content_type_snapshots_proxy_not_supported_methods(self):
-        proxy = ContentTypeSnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeSnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
         with self.assertRaises(Exception):
             proxy.create({'foo': 'bar'})

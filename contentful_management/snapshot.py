@@ -1,4 +1,4 @@
-from .resource import Resource
+from .resource import Resource, EnvironmentAwareResource
 
 
 """
@@ -14,7 +14,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class Snapshot(Resource):
+class Snapshot(Resource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots
     """
@@ -35,13 +35,14 @@ class Snapshot(Resource):
         self.snapshot = entity_type[self.sys['snapshot_entity_type']](item['snapshot'], **kwargs)
 
     @classmethod
-    def base_url(klass, space_id, parent_resource_id, resource_url='entries', resource_id=None):
+    def base_url(klass, space_id, parent_resource_id, resource_url='entries', resource_id=None, environment_id=None):
         """
         Returns the URI for the snapshot.
         """
 
-        return "spaces/{0}/{1}/{2}/snapshots/{3}".format(
+        return "spaces/{0}{1}/{2}/{3}/snapshots/{4}".format(
             space_id,
+            '/environments/{0}'.format(environment_id) if environment_id is not None else '',
             resource_url,
             parent_resource_id,
             resource_id if resource_id is not None else ''

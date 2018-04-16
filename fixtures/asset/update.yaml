@@ -13,7 +13,7 @@ interactions:
       User-Agent: [PythonContentfulManagementClient/1.0.0]
       x-contentful-version: ['16']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/assets/file3
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/assets/file3
   response:
     body:
       string: !!binary |

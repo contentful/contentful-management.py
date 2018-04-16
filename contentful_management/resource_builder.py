@@ -17,6 +17,7 @@ from .snapshot import Snapshot
 from .upload import Upload
 from .user import User
 from .array import Array
+from .environment import Environment
 
 
 """
@@ -72,7 +73,8 @@ class ResourceBuilder(object):
             'Extension': UIExtension,
             'Snapshot': Snapshot,
             'Upload': Upload,
-            'User': User
+            'User': User,
+            'Environment': Environment
         }
 
         item_type = item['sys']['type']

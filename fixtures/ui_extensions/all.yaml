@@ -10,7 +10,7 @@ interactions:
       User-Agent: [python-requests/2.18.1]
       X-Contentful-User-Agent: [platform python/3.5.2; os macOS/16.5.0; sdk contentful-management.py/1.3.1;]
     method: GET
-    uri: https://api.contentful.com/spaces/arqlnkt58eul/extensions
+    uri: https://api.contentful.com/spaces/arqlnkt58eul/environments/master/extensions
   response:
     body: {string: "{\n  \"sys\": {\n    \"type\": \"Array\"\n  },\n  \"total\": 5,\n
         \ \"skip\": 0,\n  \"limit\": 0,\n  \"items\": [\n    {\n      \"extension\":

@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{"name": "SDK Tests - No ID"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Length: ['29']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.12.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.5.2; platform python/3.6.3;
+          os macOS/16.7.0;]
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/None
+  response:
+    body: {string: "{\n  \"requestId\":\"363d1eaec9b001a6764cd232a832955c\",\n  \"message\":\"The
+        path you tried to reach is unknown or doesn't support this HTTP method.\",\n
+        \ \"sys\":{\n    \"type\":\"Error\",\n    \"id\":\"UnknownRoute\"\n  }\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['204']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Mon, 05 Mar 2018 11:20:15 GMT']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=h8QCcxGgQ+qP9SaA5GMEPO4nnVoAAAAAQUIPAAAAAAA923+LZ6iIl+e5BYjuYvlf;
+          expires=Mon, 04 Mar 2019 12:21:13 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=rADiFha/MgPDkXjt6lKYhQAAAACDQMvu3PtDnO3tDtG3OfnQ; path=/; Domain=.contentful.com,
+        incap_ses_408_673446=XJExI/GBYB/63FW364KpBe4nnVoAAAAAq+DXRMOjxEvd6fx2eOjpqg==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35998']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [363d1eaec9b001a6764cd232a832955c]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [2-49717399-49717405 NNNN CT(98 201 0) RT(1520248814396 63) q(0 0 3
+          -1) r(4 4) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+version: 1

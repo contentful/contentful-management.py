@@ -1,4 +1,4 @@
-from .resource import Resource
+from .resource import Resource, EnvironmentAwareResource
 from copy import deepcopy
 
 
@@ -15,7 +15,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class UIExtension(Resource):
+class UIExtension(Resource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions
     """

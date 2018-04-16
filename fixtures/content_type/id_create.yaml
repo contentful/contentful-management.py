@@ -11,7 +11,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/id_content_type_create_test
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/id_content_type_create_test
   response:
     body: {string: "{\n  \"name\": \"ID Create Test\",\n  \"displayField\": \"name\",\n
         \ \"fields\": [\n    {\n      \"name\": \"Name\",\n      \"id\": \"name\",\n

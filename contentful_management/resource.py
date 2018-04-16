@@ -36,13 +36,19 @@ class Resource(object):
         self.sys = self._hydrate_sys(item)
 
     @classmethod
-    def base_url(klass, space_id='', resource_id=None, **kwargs):
+    def base_url(klass, space_id='', resource_id=None, environment_id=None, **kwargs):
         """
         Returns the URI for the resource.
         """
 
-        url = "spaces/{0}/{1}".format(
-            space_id,
+        url = "spaces/{0}".format(
+            space_id)
+
+        if environment_id is not None:
+            url = url = "{0}/environments/{1}".format(url, environment_id)
+
+        url = "{0}/{1}".format(
+            url,
             base_path_for(klass.__name__)
         )
 
@@ -90,7 +96,8 @@ class Resource(object):
         return self._client._delete(
             self.__class__.base_url(
                 self.sys['space'].id,
-                self.sys['id']
+                self.sys['id'],
+                environment_id=self._environment_id
             )
         )
 
@@ -131,7 +138,8 @@ class Resource(object):
             result = self._client._get(
                 self.__class__.base_url(
                     self.sys['space'].id,
-                    self.sys['id']
+                    self.sys['id'],
+                    environment_id=self._environment_id
                 )
             )
 
@@ -171,7 +179,7 @@ class Resource(object):
         sys = {}
         for k, v in item['sys'].items():
             if k in ['space', 'contentType', 'createdBy',
-                     'updatedBy', 'publishedBy']:
+                     'updatedBy', 'publishedBy', 'environment']:
                 v = self._build_link(v)
             if k in ['createdAt', 'updatedAt', 'deletedAt',
                      'firstPublishedAt', 'publishedAt', 'expiresAt']:
@@ -188,7 +196,8 @@ class Resource(object):
     def _update_url(self):
         return self.__class__.base_url(
                 self.sys['space'].id,
-                self.sys['id']
+                self.sys['id'],
+                environment_id=self._environment_id
             )
 
     def _update_from_resource(self, other):
@@ -200,6 +209,17 @@ class Resource(object):
             if value == default and value != self_value:
                 value = self_value
             setattr(self, attr, value)
+
+    @property
+    def _environment_id(self):
+        """
+        Returns the Environment ID.
+        """
+        try:
+            return super(Resource, self)._environment_id
+        except AttributeError:
+            # In Resources which do not inherit EnvironmentAwareResource an AttributeError will happen
+            return None
 
     def __getattr__(self, name):
         if name in self.sys:
@@ -367,7 +387,11 @@ class PublishResource(object):
 
         result = self._client._put(
             "{0}/published".format(
-                self.__class__.base_url(self.sys['space'].id, self.sys['id']),
+                self.__class__.base_url(
+                    self.sys['space'].id,
+                    self.sys['id'],
+                    environment_id=self._environment_id
+                ),
             ),
             {},
             headers=self._update_headers()
@@ -382,7 +406,11 @@ class PublishResource(object):
 
         self._client._delete(
             "{0}/published".format(
-                self.__class__.base_url(self.sys['space'].id, self.sys['id']),
+                self.__class__.base_url(
+                    self.sys['space'].id,
+                    self.sys['id'],
+                    environment_id=self._environment_id
+                ),
             ),
             headers=self._update_headers()
         )
@@ -410,7 +438,11 @@ class ArchiveResource(object):
 
         self._client._put(
             "{0}/archived".format(
-                self.__class__.base_url(self.sys['space'].id, self.sys['id']),
+                self.__class__.base_url(
+                    self.sys['space'].id,
+                    self.sys['id'],
+                    environment_id=self._environment_id
+                ),
             ),
             {},
             headers=self._update_headers()
@@ -425,12 +457,34 @@ class ArchiveResource(object):
 
         self._client._delete(
             "{0}/archived".format(
-                self.__class__.base_url(self.sys['space'].id, self.sys['id']),
+                self.__class__.base_url(
+                    self.sys['space'].id,
+                    self.sys['id'],
+                    environment_id=self._environment_id
+                ),
             ),
             headers=self._update_headers()
         )
 
         return self.reload()
+
+
+class EnvironmentAwareResource(object):
+    """
+    Allows environment aware resources to resolve the environment ID.
+    """
+
+    @property
+    def _environment_id(self):
+        """
+        Returns the Environment ID.
+        """
+
+        environment = self.sys.get('environment', None)
+
+        if environment is not None:
+            return environment.id
+        return 'master'
 
 
 class Link(Resource):
@@ -440,7 +494,7 @@ class Link(Resource):
     API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links
     """
 
-    def resolve(self, space_id=None):
+    def resolve(self, space_id=None, environment_id=None):
         """
         Resolves link to a specific resource.
         """
@@ -451,6 +505,8 @@ class Link(Resource):
         )
         if self.link_type == 'Space':
             return proxy_method().find(self.id)
+        elif environment_id is not None:
+            return proxy_method(space_id, environment_id).find(self.id)
         else:
             return proxy_method(space_id).find(self.id)
 

@@ -12,7 +12,7 @@ interactions:
       User-Agent: [PythonContentfulManagementClient/1.0.0]
       x-contentful-version: ['0']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/locales/3OFlsZyYYM5fNhCtfFctX8
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/locales/3OFlsZyYYM5fNhCtfFctX8
   response:
     body: {string: "{\n  \"name\":\"Not Klingon\",\n  \"internal_code\":\"tlg\",\n
         \ \"code\":\"tlg\",\n  \"fallbackCode\":\"en-US\",\n  \"default\":false,\n

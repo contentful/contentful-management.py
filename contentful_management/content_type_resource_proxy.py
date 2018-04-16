@@ -12,13 +12,14 @@ This module implements the ContentTypeResourceProxy class.
 class ContentTypeResourceProxy(object):
     """Base class for content type related resource proxies."""
 
-    def __init__(self, client, space_id, content_type_id):
-        self.proxy = self._resource_proxy_class()(client, space_id, content_type_id)
+    def __init__(self, client, space_id, environment_id, content_type_id):
+        self.proxy = self._resource_proxy_class()(client, space_id, environment_id, content_type_id)
 
     def __repr__(self):
-        return "<{0} space_id='{1}' content_type_id='{2}'>".format(
+        return "<{0} space_id='{1}' environment_id='{2}' content_type_id='{3}'>".format(
             self.__class__.__name__,
             self.proxy.space_id,
+            self.proxy.environment_id,
             self.proxy.content_type_id
         )
 

@@ -10,7 +10,7 @@ interactions:
       User-Agent: [python-requests/2.18.1]
       X-Contentful-User-Agent: [os macOS/16.5.0; platform python/3.5.2; sdk contentful-management.py/1.2.0;]
     method: GET
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/missingFields
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/missingFields
   response:
     body:
       string: !!binary |
@@ -68,7 +68,7 @@ interactions:
       x-contentful-content-type: [missingFields]
       x-contentful-version: ['11']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/entries/3fTNzlQsDmge6YQEikEuME
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/3fTNzlQsDmge6YQEikEuME
   response:
     body:
       string: !!binary |

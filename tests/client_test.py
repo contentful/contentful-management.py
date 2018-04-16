@@ -11,29 +11,29 @@ class ClientTest(TestCase):
         self.assertEqual(str(CLIENT), "<contentful_management.Client access_token='{0}' default_locale='en-US'>".format(PLAYGROUND_KEY))
 
     def test_client_snapshots(self):
-        proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'foo')
+        proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' environment_id='master' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_client_snapshots_content_type(self):
-        proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'foo', 'content_types')
+        proxy = CLIENT.snapshots(PLAYGROUND_SPACE, 'master', 'foo', 'content_types')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' environment_id='master' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_client_entry_snapshots(self):
-        proxy = CLIENT.entry_snapshots(PLAYGROUND_SPACE, 'foo')
+        proxy = CLIENT.entry_snapshots(PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' environment_id='master' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_client_content_type_snapshots(self):
-        proxy = CLIENT.content_type_snapshots(PLAYGROUND_SPACE, 'foo')
+        proxy = CLIENT.content_type_snapshots(PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[content_types] space_id='{0}' environment_id='master' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
     def test_client_ui_extensions(self):
-        proxy = CLIENT.ui_extensions(PLAYGROUND_SPACE)
+        proxy = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master')
 
-        self.assertEqual(str(proxy), "<UIExtensionsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<UIExtensionsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
 
     def test_client_users(self):
         proxy = CLIENT.users()
@@ -67,7 +67,7 @@ class ClientTest(TestCase):
     def test_client_raw_mode(self):
         client = Client(PLAYGROUND_KEY, raw_mode=True)
 
-        response = client.entries(PLAYGROUND_SPACE).all()
+        response = client.entries(PLAYGROUND_SPACE, 'master').all()
 
         self.assertEqual(response.status_code, 200)
 
@@ -75,7 +75,7 @@ class ClientTest(TestCase):
     def test_client_not_raise_errors(self):
         client = Client(PLAYGROUND_KEY, raise_errors=False)
 
-        error = client.entries(PLAYGROUND_SPACE).find('not_here')
+        error = client.entries(PLAYGROUND_SPACE, 'master').find('not_here')
 
         self.assertEqual(error.status_code, 404)
         self.assertEqual(error.response.status_code, 404)
@@ -218,7 +218,7 @@ class ClientTest(TestCase):
     def test_client_with_additional_headers(self):
         client = Client(PLAYGROUND_KEY, raise_errors=False, additional_headers={'fizz': 'buzz'})
 
-        error = client.entries(PLAYGROUND_SPACE).find('abc123')
+        error = client.entries(PLAYGROUND_SPACE, 'master').find('abc123')
 
         self.assertIn('fizz', error.response.request.headers)
 

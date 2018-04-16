@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.12.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/1.5.2; platform python/3.6.3;
+          os macOS/16.7.0;]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/testing
+  response:
+    body: {string: "{\n  \"name\":\"testing\",\n  \"sys\":{\n    \"type\":\"Environment\",\n
+        \   \"id\":\"testing\",\n    \"version\":6,\n    \"space\":{\n      \"sys\":{\n
+        \       \"type\":\"Link\",\n        \"linkType\":\"Space\",\n        \"id\":\"facgnwwgj5fe\"\n
+        \     }\n    },\n    \"status\":{\n      \"sys\":{\n        \"type\":\"Link\",\n
+        \       \"linkType\":\"Status\",\n        \"id\":\"ready\"\n      }\n    },\n
+        \   \"locales\":[\n      {\n        \"sys\":{\n          \"type\":\"Link\",\n
+        \         \"linkType\":\"Locale\",\n          \"id\":\"1NkEdf220AtNFVgJO9fFQ2\"\n
+        \       }\n      },\n      {\n        \"sys\":{\n          \"type\":\"Link\",\n
+        \         \"linkType\":\"Locale\",\n          \"id\":\"2QKRtwD3DKOkYKXJJsYdHk\"\n
+        \       }\n      },\n      {\n        \"sys\":{\n          \"type\":\"Link\",\n
+        \         \"linkType\":\"Locale\",\n          \"id\":\"4YnLeSNLymCAZ6eYwJmhzu\"\n
+        \       }\n      }\n    ],\n    \"createdBy\":{\n      \"sys\":{\n        \"type\":\"Link\",\n
+        \       \"linkType\":\"User\",\n        \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"createdAt\":\"2018-02-27T10:19:01Z\",\n    \"updatedBy\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"User\",\n
+        \       \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedAt\":\"2018-02-27T10:19:04Z\"\n
+        \ }\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [facgnwwgj5fe]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['1129']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Mon, 05 Mar 2018 11:36:50 GMT']
+      ETag: [W/"7addbd6e3f984290085000843bde767d"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=782rdqDIRVWGFhWUM9R1btIrnVoAAAAAQUIPAAAAAABcvHV/wTxCMUQTn30x6Dc1;
+          expires=Mon, 04 Mar 2019 12:21:13 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=b28TV1hMnH6nbCn86lKYhQAAAACRCAJePi+bKdn9KtYK3zLa; path=/; Domain=.contentful.com,
+        incap_ses_408_673446=rb5UL3vMtjImNlq364KpBdIrnVoAAAAAKcN9qYZxC+3XSsTTUhJxLw==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35960']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [405dd4e8cab6dba041158b56f1ca2eb3]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [5-71348222-71348241 NNNN CT(130 92 0) RT(1520249809689 63) q(0 0 2
+          -1) r(4 4) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
