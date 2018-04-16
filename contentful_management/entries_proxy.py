@@ -21,8 +21,8 @@ class EntriesProxy(ClientProxy):
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
     """
 
-    def __init__(self, client, space_id, content_type_id=None):
-        super(EntriesProxy, self).__init__(client, space_id)
+    def __init__(self, client, space_id, environment_id=None, content_type_id=None):
+        super(EntriesProxy, self).__init__(client, space_id, environment_id=environment_id)
         self.content_type_id = content_type_id
 
     @property

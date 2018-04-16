@@ -12,13 +12,14 @@ This module implements the EntryResourceProxy class.
 class EntryResourceProxy(object):
     """Base Class for Entry related Resource Proxies"""
 
-    def __init__(self, client, space_id, entry_id):
-        self.proxy = self._resource_proxy_class()(client, space_id, entry_id)
+    def __init__(self, client, space_id, environment_id, entry_id):
+        self.proxy = self._resource_proxy_class()(client, space_id, environment_id, entry_id)
 
     def __repr__(self):
-        return "<{0} space_id='{1}' entry_id='{2}'>".format(
+        return "<{0} space_id='{1}' environment_id='{2}' entry_id='{3}'>".format(
             self.__class__.__name__,
             self.proxy.space_id,
+            self.proxy.environment_id,
             self.proxy.parent_resource_id
         )
 

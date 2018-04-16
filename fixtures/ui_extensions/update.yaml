@@ -14,7 +14,7 @@ interactions:
           os macOS/16.5.0;]
       x-contentful-version: ['1']
     method: PUT
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/extensions/test-extension
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/extensions/test-extension
   response:
     body: {string: "{\n  \"extension\": {\n    \"fieldTypes\": [\n      {\n        \"type\":
         \"Symbol\"\n      }\n    ],\n    \"srcdoc\": \"<html>foobar</html>\",\n    \"name\":

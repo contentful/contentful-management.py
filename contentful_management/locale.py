@@ -1,4 +1,4 @@
-from .resource import Resource
+from .resource import Resource, EnvironmentAwareResource
 
 
 """
@@ -14,7 +14,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class Locale(Resource):
+class Locale(Resource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales
     """

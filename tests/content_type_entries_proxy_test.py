@@ -7,13 +7,13 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class ContentTypesEntriesProxyTest(TestCase):
     def test_content_types_entries_proxy(self):
-        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/entry/all_content_type.yaml')
     def test_content_types_entries_proxy_all(self):
-        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
         entries = []
 
@@ -25,7 +25,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/entry/find_content_type.yaml')
     def test_content_types_entries_proxy_find(self):
-        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
         entry = proxy.find('4RToqNcBfW6MAK0UGU0qWc')
 
@@ -33,7 +33,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/entry/create_content_type.yaml')
     def test_content_types_entries_proxy_create(self):
-        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
         entry = proxy.create('id_create_content_type_proxy_test', {
             'fields': {
@@ -48,7 +48,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/entry/delete_content_type.yaml')
     def test_content_types_entries_proxy_delete(self):
-        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
         proxy.delete('1zquSqZeokECU2Wike2cQi')
 

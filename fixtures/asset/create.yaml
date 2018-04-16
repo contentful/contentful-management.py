@@ -11,7 +11,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]
     method: POST
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/assets
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/assets
   response:
     body:
       string: !!binary |

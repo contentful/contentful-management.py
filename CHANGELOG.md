@@ -1,6 +1,12 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added `Environment` API
+
+### Changed
+* `entries`, `assets`, `content_types` and `locales` are no longer available through a `Space` and have to be requested through an `Environment`.
+* Methods present on the client that are environment aware, now require an `environment_id` parameter.
 
 ## v1.5.2
 

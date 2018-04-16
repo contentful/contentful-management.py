@@ -83,7 +83,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/create.yaml')
     def test_create_asset_with_url(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).create(None, {
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').create(None, {
             'fields': {
                 'file': {
                     'en-US': {
@@ -100,7 +100,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/create_empty.yaml')
     def test_create_asset_with_no_attributes(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).create()
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').create()
 
         self.assertTrue(asset.id)
 
@@ -109,7 +109,7 @@ class AssetTest(TestCase):
     def test_create_asset_with_upload(self):
         upload = CLIENT.uploads(PLAYGROUND_SPACE).create('README.rst')
 
-        asset = CLIENT.assets(PLAYGROUND_SPACE).create(None, {
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').create(None, {
             'fields': {
                 'file': {
                     'en-US': {
@@ -126,7 +126,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/id_create.yaml')
     def test_create_asset_with_id(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).create('id_asset_create_test', {
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').create('id_asset_create_test', {
             'fields': {
                 'file': {
                     'en-US': {
@@ -142,7 +142,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find.yaml')
     def test_process_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file6')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file6')
 
         self.assertFalse(asset.url())
 
@@ -153,7 +153,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find_2.yaml')
     def test_update_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file3')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file3')
 
         with vcr.use_cassette('fixtures/asset/update.yaml'):
             asset.file['fileName'] = 'demo app image'
@@ -163,18 +163,18 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find_3.yaml')
     def test_delete_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file6')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file6')
 
         with vcr.use_cassette('fixtures/asset/delete.yaml'):
             asset.delete()
 
         with vcr.use_cassette('fixtures/asset/not_found.yaml'):
             with self.assertRaises(NotFoundError):
-                CLIENT.assets(PLAYGROUND_SPACE).find('file6')
+                CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file6')
 
     @vcr.use_cassette('fixtures/asset/find_4.yaml')
     def test_publish_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file3')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file3')
 
         published_counter = getattr(asset, 'published_counter', 0)
 
@@ -186,7 +186,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find_5.yaml')
     def test_unpublish_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file3')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file3')
 
         with vcr.use_cassette('fixtures/asset/unpublish.yaml'):
             asset.unpublish()
@@ -195,7 +195,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find_6.yaml')
     def test_archive_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file3')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file3')
 
         archived_version = getattr(asset, 'archived_version', asset.version)
 
@@ -209,7 +209,7 @@ class AssetTest(TestCase):
 
     @vcr.use_cassette('fixtures/asset/find_7.yaml')
     def test_unarchive_asset(self):
-        asset = CLIENT.assets(PLAYGROUND_SPACE).find('file3')
+        asset = CLIENT.assets(PLAYGROUND_SPACE, 'master').find('file3')
 
         self.assertTrue(asset.is_archived)
 

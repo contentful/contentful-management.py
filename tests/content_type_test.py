@@ -79,7 +79,7 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/create.yaml')
     def test_create_content_type(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).create(None, {
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').create(None, {
             'name': 'Create Test',
             'displayField': 'name',
             'description': 'Something goes here...',
@@ -97,7 +97,7 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/id_create.yaml')
     def test_create_content_type_with_id(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).create('id_content_type_create_test', {
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').create('id_content_type_create_test', {
             'name': 'ID Create Test',
             'displayField': 'name',
             'description': 'Something goes here...',
@@ -115,7 +115,7 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/create_no_fields.yaml')
     def test_create_content_type_no_fields(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).create(None, {
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').create(None, {
             'name': 'Create Test No Fields',
             'description': 'Something goes here...'
         })
@@ -125,7 +125,7 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/find.yaml')
     def test_update_content_type(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('foo')
 
         self.assertEqual(content_type.name, 'something else')
 
@@ -137,18 +137,18 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/find_2.yaml')
     def test_delete_content_type(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('45JdPK7wbCQwecKOAyqcw0')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('45JdPK7wbCQwecKOAyqcw0')
 
         with vcr.use_cassette('fixtures/content_type/delete.yaml'):
             content_type.delete()
 
         with vcr.use_cassette('fixtures/content_type/not_found.yaml'):
             with self.assertRaises(NotFoundError):
-                CLIENT.content_types(PLAYGROUND_SPACE).find('45JdPK7wbCQwecKOAyqcw0')
+                CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('45JdPK7wbCQwecKOAyqcw0')
 
     @vcr.use_cassette('fixtures/content_type/find_3.yaml')
     def test_publish_content_type(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('1JzBeA5EcEcyKUaqGeqImy')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('1JzBeA5EcEcyKUaqGeqImy')
 
         published_counter = getattr(content_type, 'published_counter', 0)
 
@@ -160,7 +160,7 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/find_4.yaml')
     def test_unpublish_content_type(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('1JzBeA5EcEcyKUaqGeqImy')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('1JzBeA5EcEcyKUaqGeqImy')
 
         with vcr.use_cassette('fixtures/content_type/unpublish.yaml'):
             content_type.unpublish()
@@ -169,32 +169,32 @@ class ContentTypeTest(TestCase):
 
     @vcr.use_cassette('fixtures/content_type/find.yaml')
     def test_content_type_entries(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('foo')
 
         proxy = content_type.entries()
 
-        self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/content_type/find.yaml')
     def test_content_type_snapshots(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('foo')
 
         proxy = content_type.snapshots()
 
-        self.assertEqual(str(proxy), "<ContentTypeSnapshotsProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<ContentTypeSnapshotsProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/content_type/find.yaml')
     def test_content_type_editor_interfaces(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('foo')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('foo')
 
         proxy = content_type.editor_interfaces()
 
-        self.assertEqual(str(proxy), "<ContentTypeEditorInterfacesProxy space_id='{0}' content_type_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<ContentTypeEditorInterfacesProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
     # Integration Tests
     @vcr.use_cassette('fixtures/content_type/issue_17.yaml')
     def test_content_type_not_properly_updating(self):
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('cat')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('cat')
 
         self.assertEqual(content_type.name, 'Cat')
 
@@ -202,6 +202,6 @@ class ContentTypeTest(TestCase):
         content_type.save()
 
 
-        content_type = CLIENT.content_types(PLAYGROUND_SPACE).find('cat')
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('cat')
 
         self.assertEqual(content_type.name, 'Foo Cat')

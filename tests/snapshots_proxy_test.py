@@ -6,9 +6,9 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 class SnapshotsProxyTest(TestCase):
     def test_snapshots_proxy(self):
-        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'foo')
+        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
-        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<SnapshotsProxy[entries] space_id='{0}' environment_id='master' parent_resource_id='foo'>".format(PLAYGROUND_SPACE))
 
         with self.assertRaises(Exception):
             proxy.create()
@@ -18,7 +18,7 @@ class SnapshotsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/snapshot/all.yaml')
     def test_snapshots_proxy_all_entries(self):
-        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, '4dI1y4PKdWWCSC0CwQakOa')
+        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 
         snapshots = proxy.all()
 
@@ -28,7 +28,7 @@ class SnapshotsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/snapshot/find.yaml')
     def test_snapshots_proxy_find_entry(self):
-        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, '4dI1y4PKdWWCSC0CwQakOa')
+        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 
         snapshot = proxy.find('7ohZjlae5pmiCsbviCFvds')
 
@@ -37,7 +37,7 @@ class SnapshotsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/snapshot/content_type_all.yaml')
     def test_snapshots_proxy_all_content_types(self):
-        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'cat', 'content_types')
+        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'cat', 'content_types')
 
         snapshots = proxy.all()
 
@@ -47,7 +47,7 @@ class SnapshotsProxyTest(TestCase):
 
     @vcr.use_cassette('fixtures/snapshot/content_type_find.yaml')
     def test_snapshots_proxy_find_content_type(self):
-        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'cat', 'content_types')
+        proxy = SnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'cat', 'content_types')
 
         snapshot = proxy.find('5bfy52PVk8HwBfXURLOsWJ')
 

@@ -1,12 +1,12 @@
-from .space_resource_proxy import SpaceResourceProxy
-from .entries_proxy import EntriesProxy
+from .environment_resource_proxy import EnvironmentResourceProxy
+from .assets_proxy import AssetsProxy
 
 
 """
-contentful_management.space_entries_proxy
+contentful_management.environment_assets_proxy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the SpaceEntriesProxy class.
+This module implements the EnvironmentAssetsProxy class.
 
 API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
 
@@ -15,10 +15,10 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class SpaceEntriesProxy(SpaceResourceProxy):
+class EnvironmentAssetsProxy(EnvironmentResourceProxy):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries
     """
 
     def _resource_proxy_class(self):
-        return EntriesProxy
+        return AssetsProxy

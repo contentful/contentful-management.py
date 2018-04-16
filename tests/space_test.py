@@ -91,44 +91,12 @@ class SpaceTest(TestCase):
         self.assertEqual(space.name, 'management.py - playground')
 
     @vcr.use_cassette('fixtures/space/find_3.yaml')
-    def test_space_assets(self):
-        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
-
-        proxy = space.assets()
-
-        self.assertEqual(str(proxy), "<SpaceAssetsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
-
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
     def test_space_api_keys(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
         proxy = space.api_keys()
 
         self.assertEqual(str(proxy), "<SpaceApiKeysProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
-
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
-    def test_space_content_types(self):
-        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
-
-        proxy = space.content_types()
-
-        self.assertEqual(str(proxy), "<SpaceContentTypesProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
-
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
-    def test_space_entries(self):
-        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
-
-        proxy = space.entries()
-
-        self.assertEqual(str(proxy), "<SpaceEntriesProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
-
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
-    def test_space_locales(self):
-        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
-
-        proxy = space.locales()
-
-        self.assertEqual(str(proxy), "<SpaceLocalesProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/space/find_3.yaml')
     def test_space_roles(self):

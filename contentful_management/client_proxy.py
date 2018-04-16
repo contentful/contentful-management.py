@@ -14,14 +14,16 @@ class ClientProxy(object):
     Base class for proxies.
     """
 
-    def __init__(self, client, space_id):
+    def __init__(self, client, space_id, environment_id=None):
         self.client = client
         self.space_id = space_id
+        self.environment_id = environment_id
 
     def __repr__(self):
-        return "<{0} space_id='{1}'>".format(
+        return "<{0} space_id='{1}'{2}>".format(
             self.__class__.__name__,
-            self.space_id
+            self.space_id,
+            " environment_id='{0}'".format(self.environment_id) if self.environment_id is not None else ''
         )
 
     @property
@@ -83,4 +85,4 @@ class ClientProxy(object):
         return self.client._delete(self._url(resource_id), **kwargs)
 
     def _url(self, resource_id='', **kwargs):
-        return self._resource_class.base_url(self.space_id, resource_id=resource_id, **kwargs)
+        return self._resource_class.base_url(self.space_id, resource_id=resource_id, environment_id=self.environment_id, **kwargs)

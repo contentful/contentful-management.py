@@ -10,7 +10,7 @@ interactions:
       User-Agent: [python-requests/2.18.1]
       X-Contentful-User-Agent: [platform python/3.5.2; os macOS/16.5.0; sdk contentful-management.py/1.3.1;]
     method: GET
-    uri: https://api.contentful.com/spaces/arqlnkt58eul/extensions/2ZJduY1pKEma6G8Y2ImqYU
+    uri: https://api.contentful.com/spaces/arqlnkt58eul/environments/master/extensions/2ZJduY1pKEma6G8Y2ImqYU
   response:
     body: {string: "{\n  \"extension\": {\n    \"srcdoc\": \"<!doctype html><html
         lang='en'><head><meta charset='UTF-8'/><title>Sample Editor Extension</title><link

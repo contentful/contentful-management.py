@@ -10,7 +10,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]
     method: DELETE
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/content_types/45JdPK7wbCQwecKOAyqcw0
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/45JdPK7wbCQwecKOAyqcw0
   response:
     body: {string: ''}
     headers:

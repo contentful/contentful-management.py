@@ -10,7 +10,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       User-Agent: [PythonContentfulManagementClient/1.0.0]
     method: POST
-    uri: https://api.contentful.com/spaces/facgnwwgj5fe/locales
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/locales
   response:
     body:
       string: !!binary |
@@ -35,7 +35,7 @@ interactions:
       Content-Type: [application/vnd.contentful.management.v1+json]
       Date: ['Fri, 10 Mar 2017 15:59:39 GMT']
       ETag: [W/"391b6519e871a1afc51a616c5fb1a914"]
-      Location: ['https://api.contentful.com/spaces/facgnwwgj5fe/locales/3OFlsZyYYM5fNhCtfFctX8']
+      Location: ['https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/locales/3OFlsZyYYM5fNhCtfFctX8']
       Server: [Contentful]
       Set-Cookie: ['visid_incap_673446=4HcUWfPEQr2vrt/NSGqKR1vNwlgAAAAAQUIPAAAAAACdr1NFewRebPbGZNtXptEe;
           expires=Sat, 10 Mar 2018 15:07:07 GMT; path=/; Domain=.contentful.com',
