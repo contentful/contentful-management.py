@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space_entries_proxy &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management.environment_assets_proxy &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -38,16 +38,16 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.space_entries_proxy</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.space_resource_proxy</span> <span class="k">import</span> <span class="n">SpaceResourceProxy</span>
-<span class="kn">from</span> <span class="nn">.entries_proxy</span> <span class="k">import</span> <span class="n">EntriesProxy</span>
+  <h1>Source code for contentful_management.environment_assets_proxy</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.environment_resource_proxy</span> <span class="k">import</span> <span class="n">EnvironmentResourceProxy</span>
+<span class="kn">from</span> <span class="nn">.assets_proxy</span> <span class="k">import</span> <span class="n">AssetsProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.space_entries_proxy</span>
+<span class="sd">contentful_management.environment_assets_proxy</span>
 <span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the SpaceEntriesProxy class.</span>
+<span class="sd">This module implements the EnvironmentAssetsProxy class.</span>
 
 <span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 
@@ -56,13 +56,13 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="SpaceEntriesProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_entries_proxy.SpaceEntriesProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceEntriesProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentAssetsProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_assets_proxy.EnvironmentAssetsProxy">[docs]</a><span class="k">class</span> <span class="nc">EnvironmentAssetsProxy</span><span class="p">(</span><span class="n">EnvironmentResourceProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">EntriesProxy</span></div>
+        <span class="k">return</span> <span class="n">AssetsProxy</span></div>
 </pre></div>
 
           </div>

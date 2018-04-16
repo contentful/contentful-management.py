@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management.space &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -40,14 +40,11 @@
             
   <h1>Source code for contentful_management.space</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span>
-<span class="kn">from</span> <span class="nn">.space_content_types_proxy</span> <span class="k">import</span> <span class="n">SpaceContentTypesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_entries_proxy</span> <span class="k">import</span> <span class="n">SpaceEntriesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_assets_proxy</span> <span class="k">import</span> <span class="n">SpaceAssetsProxy</span>
 <span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.space_roles_proxy</span> <span class="k">import</span> <span class="n">SpaceRolesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_locales_proxy</span> <span class="k">import</span> <span class="n">SpaceLocalesProxy</span>
 <span class="kn">from</span> <span class="nn">.space_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpaceApiKeysProxy</span>
 <span class="kn">from</span> <span class="nn">.space_uploads_proxy</span> <span class="k">import</span> <span class="n">SpaceUploadsProxy</span>
+<span class="kn">from</span> <span class="nn">.space_environments_proxy</span> <span class="k">import</span> <span class="n">SpaceEnvironmentsProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -170,70 +167,6 @@
         <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
-<div class="viewcode-block" id="Space.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides access to content type management methods.</span>
-
-<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
-
-<span class="sd">        :return: :class:`SpaceContentTypesProxy &lt;contentful_management.space_content_types_proxy.SpaceContentTypesProxy&gt;` object.</span>
-<span class="sd">        :rtype: contentful.space_content_types_proxy.SpaceEntriesProxy</span>
-
-<span class="sd">        Usage:</span>
-
-<span class="sd">            &gt;&gt;&gt; space_content_types_proxy = space.content_types()</span>
-<span class="sd">            &lt;SpaceContentTypesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">SpaceContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Space.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides access to entry management methods.</span>
-
-<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
-
-<span class="sd">        :return: :class:`SpaceEntriesProxy &lt;contentful_management.space_entries_proxy.SpaceEntriesProxy&gt;` object.</span>
-<span class="sd">        :rtype: contentful.space_entries_proxy.SpaceEntriesProxy</span>
-
-<span class="sd">        Usage:</span>
-
-<span class="sd">            &gt;&gt;&gt; space_entries_proxy = space.entries()</span>
-<span class="sd">            &lt;SpaceEntriesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">SpaceEntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Space.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides access to asset management methods.</span>
-
-<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
-
-<span class="sd">        :return: :class:`SpaceAssetsProxy &lt;contentful_management.space_assets_proxy.SpaceAssetsProxy&gt;` object.</span>
-<span class="sd">        :rtype: contentful.space_assets_proxy.SpaceAssetsProxy</span>
-
-<span class="sd">        Usage:</span>
-
-<span class="sd">            &gt;&gt;&gt; space_assets_proxy = space.assets()</span>
-<span class="sd">            &lt;SpaceAssetsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">SpaceAssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Space.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides access to locale management methods.</span>
-
-<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</span>
-
-<span class="sd">        :return: :class:`SpaceLocalesProxy &lt;contentful_management.space_locales_proxy.SpaceLocalesProxy&gt;` object.</span>
-<span class="sd">        :rtype: contentful.space_locales_proxy.SpaceLocalesProxy</span>
-
-<span class="sd">        Usage:</span>
-
-<span class="sd">            &gt;&gt;&gt; space_locales_proxy = space.locales()</span>
-<span class="sd">            &lt;SpaceLocalesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">SpaceLocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
-
 <div class="viewcode-block" id="Space.webhooks"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.webhooks">[docs]</a>    <span class="k">def</span> <span class="nf">webhooks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to webhook management methods.</span>
@@ -297,6 +230,23 @@
 <span class="sd">            &lt;SpaceUploadsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">SpaceUploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.environments"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.environments">[docs]</a>    <span class="k">def</span> <span class="nf">environments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to environment management methods.</span>
+
+<span class="sd">        API reference: TBD</span>
+
+<span class="sd">        :return: :class:`SpaceEnvironmentsProxy &lt;contentful_management.space_environments_proxy` object.</span>
+<span class="sd">        :rtype: contentful.environments_space_proxy.SpaceEnvironmentsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_environments_proxy = space.environments()</span>
+<span class="sd">            &lt;SpaceEnvironmentsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">SpaceEnvironmentsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;Space[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

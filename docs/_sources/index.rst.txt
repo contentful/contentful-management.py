@@ -892,27 +892,15 @@ Personal Access Tokens
 
 Retrieving all Personal Access Tokens on a space::
 
-    personal_access_tokens = client.personal_access_tokens('my_space_id').all()
-
-    # or if you already have a fetched space
-
-    personal_access_tokens = space.personal_access_tokens().all()
+    personal_access_tokens = client.personal_access_tokens().all()
 
 Retrieveing one Personal Access Token by ID::
 
-    personal_access_token = client.personal_access_tokens('my_space_id').find('personal_access_token_id')
-
-    # or if you already have a fetched space
-
-    personal_access_token = space.personal_access_tokens().find('personal_access_token_id')
+    personal_access_token = client.personal_access_tokens().find('personal_access_token_id')
 
 Revoking a Personal Access Token::
 
-    client.personal_access_tokens('my_space_id').revoke('personal_access_token_id')
-
-    # or if you already have a fetched space
-
-    space.personal_access_tokens().revoke('personal_access_token_id')
+    client.personal_access_tokens().revoke('personal_access_token_id')
 
     # or if you already have fetched the Personal Access Token
 
@@ -920,11 +908,17 @@ Revoking a Personal Access Token::
 
 Creating a new Personal Access Token::
 
-    new_personal_access_token = client.personal_access_tokens('my_space_id').create({'name': 'My API Key'})
+    new_personal_access_token = client.personal_access_tokens().create({
+        'name': 'My API Key',
+        'scopes': ['content_management_manage']
+    })
 
     # or if you already have a fetched space
 
-    new_personal_access_token = space.personal_access_tokens().create({'name': 'My Token', 'scopes': ['content_management_manage']})
+    new_personal_access_token = space.personal_access_tokens().create({
+        'name': 'My Token',
+        'scopes': ['content_management_manage']
+    })
 
 Uploads
 -------

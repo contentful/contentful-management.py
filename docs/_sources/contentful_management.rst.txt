@@ -180,6 +180,70 @@ contentful\_management\.entry\_snapshots\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.environment module
+------------------------------------------
+
+.. automodule:: contentful_management.environment
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_assets\_proxy module
+---------------------------------------------------------
+
+.. automodule:: contentful_management.environment_assets_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_content\_types\_proxy module
+-----------------------------------------------------------------
+
+.. automodule:: contentful_management.environment_content_types_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_entries\_proxy module
+----------------------------------------------------------
+
+.. automodule:: contentful_management.environment_entries_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_locales\_proxy module
+----------------------------------------------------------
+
+.. automodule:: contentful_management.environment_locales_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_resource\_proxy module
+-----------------------------------------------------------
+
+.. automodule:: contentful_management.environment_resource_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environment\_ui\_extensions\_proxy module
+-----------------------------------------------------------------
+
+.. automodule:: contentful_management.environment_ui_extensions_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.environments\_proxy module
+--------------------------------------------------
+
+.. automodule:: contentful_management.environments_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.errors module
 -------------------------------------
 
@@ -300,34 +364,10 @@ contentful\_management\.space\_api\_keys\_proxy module
     :undoc-members:
     :show-inheritance:
 
-contentful\_management\.space\_assets\_proxy module
----------------------------------------------------
+contentful\_management\.space\_environments\_proxy module
+---------------------------------------------------------
 
-.. automodule:: contentful_management.space_assets_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.space\_content\_types\_proxy module
------------------------------------------------------------
-
-.. automodule:: contentful_management.space_content_types_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.space\_entries\_proxy module
-----------------------------------------------------
-
-.. automodule:: contentful_management.space_entries_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.space\_locales\_proxy module
-----------------------------------------------------
-
-.. automodule:: contentful_management.space_locales_proxy
+.. automodule:: contentful_management.space_environments_proxy
     :members:
     :undoc-members:
     :show-inheritance:

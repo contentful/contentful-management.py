@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 1.5.2 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.5.2',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -76,7 +76,7 @@
 <span id="contentful-management-api-keys-proxy-module"></span><h2>contentful_management.api_keys_proxy module<a class="headerlink" href="#module-contentful_management.api_keys_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.api_keys_proxy.ApiKeysProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.api_keys_proxy.</code><code class="descname">ApiKeysProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_keys_proxy.html#ApiKeysProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_keys_proxy.ApiKeysProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.api_keys_proxy.</code><code class="descname">ApiKeysProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_keys_proxy.html#ApiKeysProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_keys_proxy.ApiKeysProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <dl class="method">
 <dt id="contentful_management.api_keys_proxy.ApiKeysProxy.create">
@@ -121,7 +121,7 @@
 <dl class="class">
 <dt id="contentful_management.asset.Asset">
 <em class="property">class </em><code class="descclassname">contentful_management.asset.</code><code class="descname">Asset</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/asset.html#Asset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.asset.Asset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
 <dl class="method">
 <dt id="contentful_management.asset.Asset.process">
@@ -154,7 +154,7 @@ with serialized parameters.</p>
 <span id="contentful-management-assets-proxy-module"></span><h2>contentful_management.assets_proxy module<a class="headerlink" href="#module-contentful_management.assets_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.assets_proxy.AssetsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.assets_proxy.</code><code class="descname">AssetsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/assets_proxy.html#AssetsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.assets_proxy.AssetsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.assets_proxy.</code><code class="descname">AssetsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/assets_proxy.html#AssetsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.assets_proxy.AssetsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
 <dl class="method">
@@ -253,7 +253,7 @@ for retry after RateLimitError, defaults to 60.</li>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.assets">
-<code class="descname">assets</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.assets" title="Permalink to this definition">¶</a></dt>
+<code class="descname">assets</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.assets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to asset management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -267,15 +267,15 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">assets_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
-<span class="go">&lt;AssetsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">assets_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;AssetsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.content_type_snapshots">
-<code class="descname">content_type_snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.content_type_snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.content_type_snapshots" title="Permalink to this definition">¶</a></dt>
+<code class="descname">content_type_snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.content_type_snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.content_type_snapshots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to content type snapshot management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -289,15 +289,15 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span>
-<span class="go">&lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+<span class="go">&lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.content_types">
-<code class="descname">content_types</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.content_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.content_types" title="Permalink to this definition">¶</a></dt>
+<code class="descname">content_types</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.content_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.content_types" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to content type management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -311,15 +311,15 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_types_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
-<span class="go">&lt;ContentTypesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_types_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;ContentTypesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.editor_interfaces">
-<code class="descname">editor_interfaces</code><span class="sig-paren">(</span><em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.editor_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.editor_interfaces" title="Permalink to this definition">¶</a></dt>
+<code class="descname">editor_interfaces</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.editor_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.editor_interfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to editor interfaces management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -333,15 +333,15 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">editor_interfaces_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span>
-<span class="go">&lt;EditorInterfacesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">editor_interfaces_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+<span class="go">&lt;EditorInterfacesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.entries">
-<code class="descname">entries</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.entries" title="Permalink to this definition">¶</a></dt>
+<code class="descname">entries</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.entries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to entry management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -355,15 +355,15 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entries_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
-<span class="go">&lt;EntriesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entries_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;EntriesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.entry_snapshots">
-<code class="descname">entry_snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.entry_snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.entry_snapshots" title="Permalink to this definition">¶</a></dt>
+<code class="descname">entry_snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.entry_snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.entry_snapshots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to entry snapshot management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -377,15 +377,37 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entry_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entry_snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;nyancat&#39;</span><span class="p">)</span>
-<span class="go">&lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entry_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entry_snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;nyancat&#39;</span><span class="p">)</span>
+<span class="go">&lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.client.Client.environments">
+<code class="descname">environments</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.environments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.environments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to environment management methods.</p>
+<p>API reference: TBD</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">TBD</span></code> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.environments_proxy.EnvironmentsProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">environments_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
+<span class="go">&lt;EnvironmentsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.locales">
-<code class="descname">locales</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.locales"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.locales" title="Permalink to this definition">¶</a></dt>
+<code class="descname">locales</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.locales"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.locales" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to locale management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -399,8 +421,8 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">locales_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
-<span class="go">&lt;LocalesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">locales_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;LocalesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -495,7 +517,7 @@ for retry after RateLimitError, defaults to 60.</li>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.snapshots">
-<code class="descname">snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>resource_id</em>, <em>resource_kind='entries'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.snapshots" title="Permalink to this definition">¶</a></dt>
+<code class="descname">snapshots</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em>, <em>resource_id</em>, <em>resource_kind='entries'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.snapshots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to snapshot management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -509,12 +531,12 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entry_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;nyancat&#39;</span><span class="p">)</span>
-<span class="go">&lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entry_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;nyancat&#39;</span><span class="p">)</span>
+<span class="go">&lt;SnapshotsProxy[entries] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;nyancat&quot;&gt;</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span>
-<span class="go">&lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_snapshots_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span>
+<span class="go">&lt;SnapshotsProxy[content_types] space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; parent_resource_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -543,7 +565,7 @@ for retry after RateLimitError, defaults to 60.</li>
 
 <dl class="method">
 <dt id="contentful_management.client.Client.ui_extensions">
-<code class="descname">ui_extensions</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.ui_extensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.ui_extensions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ui_extensions</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.ui_extensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.ui_extensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to UI extensions management methods.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</a></p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -557,8 +579,8 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ui_extensions_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
-<span class="go">&lt;UIExtensionsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ui_extensions_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;UIExtensionsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -601,7 +623,7 @@ for retry after RateLimitError, defaults to 60.</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">users_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">UsersProxy</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">users_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">users</span><span class="p">()</span>
 <span class="go">&lt;UsersProxy&gt;</span>
 </pre></div>
 </div>
@@ -697,7 +719,7 @@ for retry after RateLimitError, defaults to 60.</li>
 </table>
 <dl class="class">
 <dt id="contentful_management.client_proxy.ClientProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.client_proxy.</code><code class="descname">ClientProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client_proxy.html#ClientProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client_proxy.ClientProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.client_proxy.</code><code class="descname">ClientProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client_proxy.html#ClientProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client_proxy.ClientProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Base class for proxies.</p>
 <dl class="method">
@@ -733,11 +755,11 @@ for retry after RateLimitError, defaults to 60.</li>
 <dl class="class">
 <dt id="contentful_management.content_type.ContentType">
 <em class="property">class </em><code class="descclassname">contentful_management.content_type.</code><code class="descname">ContentType</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type.html#ContentType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type.ContentType" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.content_type.ContentType.base_url">
-<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>resource_id=None</em>, <em>public=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type.html#ContentType.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type.ContentType.base_url" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>resource_id=None</em>, <em>public=False</em>, <em>environment_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type.html#ContentType.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type.ContentType.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the content type.</p>
 </dd></dl>
 
@@ -764,7 +786,7 @@ for retry after RateLimitError, defaults to 60.</li>
 </table>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_editor_interfaces_proxy</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">()</span>
-<span class="go">&lt;ContentTypeEditorInterfacesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="go">&lt;ContentTypeEditorInterfacesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -786,7 +808,7 @@ for retry after RateLimitError, defaults to 60.</li>
 </table>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_entries_proxy</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span>
-<span class="go">&lt;ContentTypeEntriesProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="go">&lt;ContentTypeEntriesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -808,7 +830,7 @@ for retry after RateLimitError, defaults to 60.</li>
 </table>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">content_type_snapshots_proxy</span> <span class="o">=</span> <span class="n">content_type</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span>
-<span class="go">&lt;ContentTypeSnapshotsProxy space_id=&quot;cfexampleapi&quot; content_type_id=&quot;cat&quot;&gt;</span>
+<span class="go">&lt;ContentTypeSnapshotsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; content_type_id=&quot;cat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -832,7 +854,7 @@ for retry after RateLimitError, defaults to 60.</li>
 <span id="contentful-management-content-type-editor-interfaces-proxy-module"></span><h2>contentful_management.content_type_editor_interfaces_proxy module<a class="headerlink" href="#module-contentful_management.content_type_editor_interfaces_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.content_type_editor_interfaces_proxy.</code><code class="descname">ContentTypeEditorInterfacesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_editor_interfaces_proxy.html#ContentTypeEditorInterfacesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.content_type_editor_interfaces_proxy.</code><code class="descname">ContentTypeEditorInterfacesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_editor_interfaces_proxy.html#ContentTypeEditorInterfacesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_editor_interfaces_proxy.ContentTypeEditorInterfacesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy" title="contentful_management.content_type_resource_proxy.ContentTypeResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.content_type_resource_proxy.ContentTypeResourceProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</a></p>
 <dl class="method">
@@ -872,7 +894,7 @@ for retry after RateLimitError, defaults to 60.</li>
 <span id="contentful-management-content-type-entries-proxy-module"></span><h2>contentful_management.content_type_entries_proxy module<a class="headerlink" href="#module-contentful_management.content_type_entries_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.content_type_entries_proxy.ContentTypeEntriesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.content_type_entries_proxy.</code><code class="descname">ContentTypeEntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_entries_proxy.html#ContentTypeEntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_entries_proxy.ContentTypeEntriesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.content_type_entries_proxy.</code><code class="descname">ContentTypeEntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_entries_proxy.html#ContentTypeEntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_entries_proxy.ContentTypeEntriesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy" title="contentful_management.content_type_resource_proxy.ContentTypeResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.content_type_resource_proxy.ContentTypeResourceProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
 </dd></dl>
@@ -1074,7 +1096,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </table>
 <dl class="class">
 <dt id="contentful_management.content_type_resource_proxy.ContentTypeResourceProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.content_type_resource_proxy.</code><code class="descname">ContentTypeResourceProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_resource_proxy.html#ContentTypeResourceProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.content_type_resource_proxy.</code><code class="descname">ContentTypeResourceProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_resource_proxy.html#ContentTypeResourceProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Base class for content type related resource proxies.</p>
 <dl class="method">
@@ -1109,7 +1131,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-content-type-snapshots-proxy-module"></span><h2>contentful_management.content_type_snapshots_proxy module<a class="headerlink" href="#module-contentful_management.content_type_snapshots_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.content_type_snapshots_proxy.</code><code class="descname">ContentTypeSnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_snapshots_proxy.html#ContentTypeSnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.content_type_snapshots_proxy.</code><code class="descname">ContentTypeSnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>content_type_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_type_snapshots_proxy.html#ContentTypeSnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_type_snapshots_proxy.ContentTypeSnapshotsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy" title="contentful_management.content_type_resource_proxy.ContentTypeResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.content_type_resource_proxy.ContentTypeResourceProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots/content-type-snapshots-collection</a></p>
 <dl class="method">
@@ -1131,7 +1153,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-content-types-proxy-module"></span><h2>contentful_management.content_types_proxy module<a class="headerlink" href="#module-contentful_management.content_types_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.content_types_proxy.ContentTypesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.content_types_proxy.</code><code class="descname">ContentTypesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_types_proxy.html#ContentTypesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_types_proxy.ContentTypesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.content_types_proxy.</code><code class="descname">ContentTypesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/content_types_proxy.html#ContentTypesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.content_types_proxy.ContentTypesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type</a></p>
 <dl class="method">
@@ -1149,11 +1171,11 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dl class="class">
 <dt id="contentful_management.editor_interface.EditorInterface">
 <em class="property">class </em><code class="descclassname">contentful_management.editor_interface.</code><code class="descname">EditorInterface</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/editor_interface.html#EditorInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.editor_interface.EditorInterface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces">https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/editor-interfaces</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.editor_interface.EditorInterface.base_url">
-<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>content_type_id</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/editor_interface.html#EditorInterface.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.editor_interface.EditorInterface.base_url" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>content_type_id</em>, <em>environment_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/editor_interface.html#EditorInterface.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.editor_interface.EditorInterface.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the editor interface.</p>
 </dd></dl>
 
@@ -1176,7 +1198,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-editor-interfaces-proxy-module"></span><h2>contentful_management.editor_interfaces_proxy module<a class="headerlink" href="#module-contentful_management.editor_interfaces_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.editor_interfaces_proxy.EditorInterfacesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.editor_interfaces_proxy.</code><code class="descname">EditorInterfacesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/editor_interfaces_proxy.html#EditorInterfacesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.editor_interfaces_proxy.EditorInterfacesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.editor_interfaces_proxy.</code><code class="descname">EditorInterfacesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em>, <em>content_type_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/editor_interfaces_proxy.html#EditorInterfacesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.editor_interfaces_proxy.EditorInterfacesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</a></p>
 <dl class="method">
@@ -1216,7 +1238,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-entries-proxy-module"></span><h2>contentful_management.entries_proxy module<a class="headerlink" href="#module-contentful_management.entries_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.entries_proxy.EntriesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.entries_proxy.</code><code class="descname">EntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>content_type_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entries_proxy.html#EntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entries_proxy.EntriesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.entries_proxy.</code><code class="descname">EntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em>, <em>content_type_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entries_proxy.html#EntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entries_proxy.EntriesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
 <dl class="method">
@@ -1245,7 +1267,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dl class="class">
 <dt id="contentful_management.entry.Entry">
 <em class="property">class </em><code class="descclassname">contentful_management.entry.</code><code class="descname">Entry</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry.Entry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.entry.Entry.create_headers">
@@ -1270,7 +1292,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </table>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entry_snapshots_proxy</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">snapshots</span><span class="p">()</span>
-<span class="go">&lt;EntrySnapshotsProxy space_id=&quot;cfexampleapi&quot; entry_id=&quot;nyancat&quot;&gt;</span>
+<span class="go">&lt;EntrySnapshotsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot; entry_id=&quot;nyancat&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1305,7 +1327,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </table>
 <dl class="class">
 <dt id="contentful_management.entry_resource_proxy.EntryResourceProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.entry_resource_proxy.</code><code class="descname">EntryResourceProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry_resource_proxy.html#EntryResourceProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry_resource_proxy.EntryResourceProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.entry_resource_proxy.</code><code class="descname">EntryResourceProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry_resource_proxy.html#EntryResourceProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry_resource_proxy.EntryResourceProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Base Class for Entry related Resource Proxies</p>
 <dl class="method">
@@ -1340,7 +1362,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-entry-snapshots-proxy-module"></span><h2>contentful_management.entry_snapshots_proxy module<a class="headerlink" href="#module-contentful_management.entry_snapshots_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.entry_snapshots_proxy.</code><code class="descname">EntrySnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry_snapshots_proxy.html#EntrySnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.entry_snapshots_proxy.</code><code class="descname">EntrySnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>entry_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry_snapshots_proxy.html#EntrySnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.entry_resource_proxy.EntryResourceProxy" title="contentful_management.entry_resource_proxy.EntryResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.entry_resource_proxy.EntryResourceProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</a></p>
 <dl class="method">
@@ -1353,6 +1375,280 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dt id="contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry_snapshots_proxy.html#EntrySnapshotsProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry_snapshots_proxy.EntrySnapshotsProxy.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not supported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment">
+<span id="contentful-management-environment-module"></span><h2>contentful_management.environment module<a class="headerlink" href="#module-contentful_management.environment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment.Environment">
+<em class="property">class </em><code class="descclassname">contentful_management.environment.</code><code class="descname">Environment</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
+<dl class="method">
+<dt id="contentful_management.environment.Environment.assets">
+<code class="descname">assets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to asset management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.environment_assets_proxy.EnvironmentAssetsProxy" title="contentful_management.environment_assets_proxy.EnvironmentAssetsProxy"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentAssetsProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.environment_assets_proxy.EnvironmentAssetsProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">environment_assets_proxy</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span>
+<span class="go">&lt;EnvironmentAssetsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="contentful_management.environment.Environment.base_url">
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>resource_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.base_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the URI for the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment.Environment.content_types">
+<code class="descname">content_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.content_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.content_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to content type management methods for content types of an environment.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentContentTypesProxy</span></code> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_content_types_proxy.EnvironmentContentTypesProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_content_types_proxy</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span>
+<span class="go">&lt;EnvironmentContentTypesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="contentful_management.environment.Environment.create_attributes">
+<em class="property">classmethod </em><code class="descname">create_attributes</code><span class="sig-paren">(</span><em>attributes</em>, <em>previous_object=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.create_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.create_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attributes for environment creation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment.Environment.entries">
+<code class="descname">entries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to entry management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.environment_entries_proxy.EnvironmentEntriesProxy" title="contentful_management.environment_entries_proxy.EnvironmentEntriesProxy"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentEntriesProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.environment_entries_proxy.EnvironmentEntriesProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">environment_entries_proxy</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span>
+<span class="go">&lt;EnvironmentEntriesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment.Environment.locales">
+<code class="descname">locales</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.locales"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.locales" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to locale management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.environment_locales_proxy.EnvironmentLocalesProxy" title="contentful_management.environment_locales_proxy.EnvironmentLocalesProxy"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentLocalesProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.environment_locales_proxy.EnvironmentLocalesProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">environment_locales_proxy</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span>
+<span class="go">&lt;EnvironmentLocalesProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment.Environment.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the JSON representation of the environment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment.Environment.ui_extensions">
+<code class="descname">ui_extensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment.html#Environment.ui_extensions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment.Environment.ui_extensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to UI extensions management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">EnvironmentUIExtensionsProxy</span></code> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.ui_extensions_proxy.EnvironmentUIExtensionsProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ui_extensions_proxy</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span>
+<span class="go">&lt;EnvironmentUIExtensionsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment_assets_proxy">
+<span id="contentful-management-environment-assets-proxy-module"></span><h2>contentful_management.environment_assets_proxy module<a class="headerlink" href="#module-contentful_management.environment_assets_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment_assets_proxy.EnvironmentAssetsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_assets_proxy.</code><code class="descname">EnvironmentAssetsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_assets_proxy.html#EnvironmentAssetsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_assets_proxy.EnvironmentAssetsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="contentful_management.environment_resource_proxy.EnvironmentResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.environment_resource_proxy.EnvironmentResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment_content_types_proxy">
+<span id="contentful-management-environment-content-types-proxy-module"></span><h2>contentful_management.environment_content_types_proxy module<a class="headerlink" href="#module-contentful_management.environment_content_types_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment_content_types_proxy.EnvironmentContentTypesProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_content_types_proxy.</code><code class="descname">EnvironmentContentTypesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_content_types_proxy.html#EnvironmentContentTypesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_content_types_proxy.EnvironmentContentTypesProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="contentful_management.environment_resource_proxy.EnvironmentResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.environment_resource_proxy.EnvironmentResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment_entries_proxy">
+<span id="contentful-management-environment-entries-proxy-module"></span><h2>contentful_management.environment_entries_proxy module<a class="headerlink" href="#module-contentful_management.environment_entries_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment_entries_proxy.EnvironmentEntriesProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_entries_proxy.</code><code class="descname">EnvironmentEntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_entries_proxy.html#EnvironmentEntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_entries_proxy.EnvironmentEntriesProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="contentful_management.environment_resource_proxy.EnvironmentResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.environment_resource_proxy.EnvironmentResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment_locales_proxy">
+<span id="contentful-management-environment-locales-proxy-module"></span><h2>contentful_management.environment_locales_proxy module<a class="headerlink" href="#module-contentful_management.environment_locales_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment_locales_proxy.EnvironmentLocalesProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_locales_proxy.</code><code class="descname">EnvironmentLocalesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_locales_proxy.html#EnvironmentLocalesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_locales_proxy.EnvironmentLocalesProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="contentful_management.environment_resource_proxy.EnvironmentResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.environment_resource_proxy.EnvironmentResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environment_resource_proxy">
+<span id="contentful-management-environment-resource-proxy-module"></span><h2>contentful_management.environment_resource_proxy module<a class="headerlink" href="#module-contentful_management.environment_resource_proxy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contentful-management-environment-resource-proxy">
+<h3>contentful_management.environment_resource_proxy<a class="headerlink" href="#contentful-management-environment-resource-proxy" title="Permalink to this headline">¶</a></h3>
+<p>This module implements the EnvironmentResourceProxy class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
+<li>2017 by Contentful GmbH.</li>
+</ol>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">license:</th><td class="field-body"><p class="first last">MIT, see LICENSE for more details.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="contentful_management.environment_resource_proxy.EnvironmentResourceProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_resource_proxy.</code><code class="descname">EnvironmentResourceProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_resource_proxy.html#EnvironmentResourceProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base class for environment related resource proxies.</p>
+<dl class="method">
+<dt id="contentful_management.environment_resource_proxy.EnvironmentResourceProxy.all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>query=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_resource_proxy.html#EnvironmentResourceProxy.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all resources related to the current space.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment_resource_proxy.EnvironmentResourceProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>resource_id=None</em>, <em>attributes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_resource_proxy.html#EnvironmentResourceProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a resource with a given ID (optional) and attributes for the current space.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment_resource_proxy.EnvironmentResourceProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>resource_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_resource_proxy.html#EnvironmentResourceProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a resource by ID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environment_resource_proxy.EnvironmentResourceProxy.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>resource_id</em>, <em>query=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_resource_proxy.html#EnvironmentResourceProxy.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds a single resource by ID related to the current space.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-contentful_management.environment_ui_extensions_proxy">
+<span id="contentful-management-environment-ui-extensions-proxy-module"></span><h2>contentful_management.environment_ui_extensions_proxy module<a class="headerlink" href="#module-contentful_management.environment_ui_extensions_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environment_ui_extensions_proxy.EnvironmentUIExtensionsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environment_ui_extensions_proxy.</code><code class="descname">EnvironmentUIExtensionsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environment_ui_extensions_proxy.html#EnvironmentUIExtensionsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environment_ui_extensions_proxy.EnvironmentUIExtensionsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.environment_resource_proxy.EnvironmentResourceProxy" title="contentful_management.environment_resource_proxy.EnvironmentResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.environment_resource_proxy.EnvironmentResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.environments_proxy">
+<span id="contentful-management-environments-proxy-module"></span><h2>contentful_management.environments_proxy module<a class="headerlink" href="#module-contentful_management.environments_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.environments_proxy.EnvironmentsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.environments_proxy.</code><code class="descname">EnvironmentsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environments_proxy.html#EnvironmentsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environments_proxy.EnvironmentsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/">https://www.contentful.com/developers/docs/references/content-management-api/</a></p>
+<dl class="method">
+<dt id="contentful_management.environments_proxy.EnvironmentsProxy.all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>query=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environments_proxy.html#EnvironmentsProxy.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environments_proxy.EnvironmentsProxy.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all environments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environments_proxy.EnvironmentsProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>environment_id=None</em>, <em>attributes=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environments_proxy.html#EnvironmentsProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environments_proxy.EnvironmentsProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an environment with a given ID (optional) and attributes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environments_proxy.EnvironmentsProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environments_proxy.html#EnvironmentsProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environments_proxy.EnvironmentsProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes an environment by ID.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.environments_proxy.EnvironmentsProxy.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>environment_id</em>, <em>query=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/environments_proxy.html#EnvironmentsProxy.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.environments_proxy.EnvironmentsProxy.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an environment by ID.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1479,7 +1775,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dl class="class">
 <dt id="contentful_management.locale.Locale">
 <em class="property">class </em><code class="descclassname">contentful_management.locale.</code><code class="descname">Locale</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/locale.html#Locale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.locale.Locale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
 <dl class="method">
 <dt id="contentful_management.locale.Locale.to_json">
@@ -1500,12 +1796,12 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-locales-proxy-module"></span><h2>contentful_management.locales_proxy module<a class="headerlink" href="#module-contentful_management.locales_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.locales_proxy.LocalesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.locales_proxy.</code><code class="descname">LocalesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/locales_proxy.html#LocalesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.locales_proxy.LocalesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.locales_proxy.</code><code class="descname">LocalesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/locales_proxy.html#LocalesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.locales_proxy.LocalesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
 <dl class="method">
 <dt id="contentful_management.locales_proxy.LocalesProxy.create">
-<code class="descname">create</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/locales_proxy.html#LocalesProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.locales_proxy.LocalesProxy.create" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>environment_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/locales_proxy.html#LocalesProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.locales_proxy.LocalesProxy.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a locale with given attributes.</p>
 </dd></dl>
 
@@ -1638,6 +1934,13 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="contentful_management.resource.EnvironmentAwareResource">
+<em class="property">class </em><code class="descclassname">contentful_management.resource.</code><code class="descname">EnvironmentAwareResource</code><a class="reference internal" href="_modules/contentful_management/resource.html#EnvironmentAwareResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.EnvironmentAwareResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Allows environment aware resources to resolve the environment ID.</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="contentful_management.resource.FieldsResource">
 <em class="property">class </em><code class="descclassname">contentful_management.resource.</code><code class="descname">FieldsResource</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#FieldsResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.FieldsResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
@@ -1691,7 +1994,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links">https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/links</a></p>
 <dl class="method">
 <dt id="contentful_management.resource.Link.resolve">
-<code class="descname">resolve</code><span class="sig-paren">(</span><em>space_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#Link.resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.Link.resolve" title="Permalink to this definition">¶</a></dt>
+<code class="descname">resolve</code><span class="sig-paren">(</span><em>space_id=None</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#Link.resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.Link.resolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resolves link to a specific resource.</p>
 </dd></dl>
 
@@ -1737,7 +2040,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes">https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.resource.Resource.base_url">
-<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id=''</em>, <em>resource_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#Resource.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.Resource.base_url" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id=''</em>, <em>resource_id=None</em>, <em>environment_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#Resource.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.Resource.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the resource.</p>
 </dd></dl>
 
@@ -1840,7 +2143,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-roles-proxy-module"></span><h2>contentful_management.roles_proxy module<a class="headerlink" href="#module-contentful_management.roles_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.roles_proxy.RolesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.roles_proxy.</code><code class="descname">RolesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/roles_proxy.html#RolesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.roles_proxy.RolesProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.roles_proxy.</code><code class="descname">RolesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/roles_proxy.html#RolesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.roles_proxy.RolesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles</a></p>
 <dl class="method">
@@ -1857,11 +2160,11 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dl class="class">
 <dt id="contentful_management.snapshot.Snapshot">
 <em class="property">class </em><code class="descclassname">contentful_management.snapshot.</code><code class="descname">Snapshot</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/snapshot.html#Snapshot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.snapshot.Snapshot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.snapshot.Snapshot.base_url">
-<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>parent_resource_id</em>, <em>resource_url='entries'</em>, <em>resource_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/snapshot.html#Snapshot.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.snapshot.Snapshot.base_url" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id</em>, <em>parent_resource_id</em>, <em>resource_url='entries'</em>, <em>resource_id=None</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/snapshot.html#Snapshot.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.snapshot.Snapshot.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the snapshot.</p>
 </dd></dl>
 
@@ -1890,7 +2193,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-snapshots-proxy-module"></span><h2>contentful_management.snapshots_proxy module<a class="headerlink" href="#module-contentful_management.snapshots_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.snapshots_proxy.SnapshotsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.snapshots_proxy.</code><code class="descname">SnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>parent_resource_id</em>, <em>resource_kind='entries'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/snapshots_proxy.html#SnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.snapshots_proxy.SnapshotsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.snapshots_proxy.</code><code class="descname">SnapshotsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id</em>, <em>parent_resource_id</em>, <em>resource_kind='entries'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/snapshots_proxy.html#SnapshotsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.snapshots_proxy.SnapshotsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <dl class="method">
 <dt id="contentful_management.snapshots_proxy.SnapshotsProxy.create">
@@ -1936,54 +2239,10 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="contentful_management.space.Space.assets">
-<code class="descname">assets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.assets" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides access to asset management methods.</p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.space_assets_proxy.SpaceAssetsProxy" title="contentful_management.space_assets_proxy.SpaceAssetsProxy"><code class="xref py py-class docutils literal"><span class="pre">SpaceAssetsProxy</span></code></a> object.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_assets_proxy.SpaceAssetsProxy</td>
-</tr>
-</tbody>
-</table>
-<p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_assets_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span>
-<span class="go">&lt;SpaceAssetsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-</pre></div>
-</div>
-</dd></dl>
-
 <dl class="classmethod">
 <dt id="contentful_management.space.Space.base_url">
 <em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the space.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="contentful_management.space.Space.content_types">
-<code class="descname">content_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.content_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.content_types" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides access to content type management methods.</p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.space_content_types_proxy.SpaceContentTypesProxy" title="contentful_management.space_content_types_proxy.SpaceContentTypesProxy"><code class="xref py py-class docutils literal"><span class="pre">SpaceContentTypesProxy</span></code></a> object.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_content_types_proxy.SpaceEntriesProxy</td>
-</tr>
-</tbody>
-</table>
-<p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_content_types_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span>
-<span class="go">&lt;SpaceContentTypesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-</pre></div>
-</div>
 </dd></dl>
 
 <dl class="classmethod">
@@ -2005,45 +2264,23 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="contentful_management.space.Space.entries">
-<code class="descname">entries</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.entries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides access to entry management methods.</p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
+<dt id="contentful_management.space.Space.environments">
+<code class="descname">environments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.environments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.environments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to environment management methods.</p>
+<p>API reference: TBD</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.space_entries_proxy.SpaceEntriesProxy" title="contentful_management.space_entries_proxy.SpaceEntriesProxy"><code class="xref py py-class docutils literal"><span class="pre">SpaceEntriesProxy</span></code></a> object.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">SpaceEnvironmentsProxy</span> <span class="pre">&lt;contentful_management.space_environments_proxy</span></code> object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_entries_proxy.SpaceEntriesProxy</td>
-</tr>
-</tbody>
-</table>
-<p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_entries_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span>
-<span class="go">&lt;SpaceEntriesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="contentful_management.space.Space.locales">
-<code class="descname">locales</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.locales"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.locales" title="Permalink to this definition">¶</a></dt>
-<dd><p>Provides access to locale management methods.</p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.space_locales_proxy.SpaceLocalesProxy" title="contentful_management.space_locales_proxy.SpaceLocalesProxy"><code class="xref py py-class docutils literal"><span class="pre">SpaceLocalesProxy</span></code></a> object.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_locales_proxy.SpaceLocalesProxy</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.environments_space_proxy.SpaceEnvironmentsProxy</td>
 </tr>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_locales_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span>
-<span class="go">&lt;SpaceLocalesProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_environments_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">environments</span><span class="p">()</span>
+<span class="go">&lt;SpaceEnvironmentsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -2151,43 +2388,13 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-contentful_management.space_assets_proxy">
-<span id="contentful-management-space-assets-proxy-module"></span><h2>contentful_management.space_assets_proxy module<a class="headerlink" href="#module-contentful_management.space_assets_proxy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-contentful_management.space_environments_proxy">
+<span id="contentful-management-space-environments-proxy-module"></span><h2>contentful_management.space_environments_proxy module<a class="headerlink" href="#module-contentful_management.space_environments_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="contentful_management.space_assets_proxy.SpaceAssetsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.space_assets_proxy.</code><code class="descname">SpaceAssetsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_assets_proxy.html#SpaceAssetsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_assets_proxy.SpaceAssetsProxy" title="Permalink to this definition">¶</a></dt>
+<dt id="contentful_management.space_environments_proxy.SpaceEnvironmentsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.space_environments_proxy.</code><code class="descname">SpaceEnvironmentsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_environments_proxy.html#SpaceEnvironmentsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_environments_proxy.SpaceEnvironmentsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-contentful_management.space_content_types_proxy">
-<span id="contentful-management-space-content-types-proxy-module"></span><h2>contentful_management.space_content_types_proxy module<a class="headerlink" href="#module-contentful_management.space_content_types_proxy" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="contentful_management.space_content_types_proxy.SpaceContentTypesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.space_content_types_proxy.</code><code class="descname">SpaceContentTypesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_content_types_proxy.html#SpaceContentTypesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_content_types_proxy.SpaceContentTypesProxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</a></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-contentful_management.space_entries_proxy">
-<span id="contentful-management-space-entries-proxy-module"></span><h2>contentful_management.space_entries_proxy module<a class="headerlink" href="#module-contentful_management.space_entries_proxy" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="contentful_management.space_entries_proxy.SpaceEntriesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.space_entries_proxy.</code><code class="descname">SpaceEntriesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_entries_proxy.html#SpaceEntriesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_entries_proxy.SpaceEntriesProxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</a></p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-contentful_management.space_locales_proxy">
-<span id="contentful-management-space-locales-proxy-module"></span><h2>contentful_management.space_locales_proxy module<a class="headerlink" href="#module-contentful_management.space_locales_proxy" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="contentful_management.space_locales_proxy.SpaceLocalesProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.space_locales_proxy.</code><code class="descname">SpaceLocalesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_locales_proxy.html#SpaceLocalesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_locales_proxy.SpaceLocalesProxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
-<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/">https://www.contentful.com/developers/docs/references/content-management-api/</a></p>
 </dd></dl>
 
 </div>
@@ -2211,7 +2418,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-space-memberships-proxy-module"></span><h2>contentful_management.space_memberships_proxy module<a class="headerlink" href="#module-contentful_management.space_memberships_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.space_memberships_proxy.SpaceMembershipsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.space_memberships_proxy.</code><code class="descname">SpaceMembershipsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_memberships_proxy.html#SpaceMembershipsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_memberships_proxy.SpaceMembershipsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.space_memberships_proxy.</code><code class="descname">SpaceMembershipsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_memberships_proxy.html#SpaceMembershipsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_memberships_proxy.SpaceMembershipsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <dl class="method">
 <dt id="contentful_management.space_memberships_proxy.SpaceMembershipsProxy.create">
@@ -2343,7 +2550,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dl class="class">
 <dt id="contentful_management.ui_extension.UIExtension">
 <em class="property">class </em><code class="descclassname">contentful_management.ui_extension.</code><code class="descname">UIExtension</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/ui_extension.html#UIExtension"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.ui_extension.UIExtension" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</a></p>
 <dl class="attribute">
 <dt id="contentful_management.ui_extension.UIExtension.field_types">
@@ -2384,7 +2591,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-ui-extensions-proxy-module"></span><h2>contentful_management.ui_extensions_proxy module<a class="headerlink" href="#module-contentful_management.ui_extensions_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.ui_extensions_proxy.UIExtensionsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.ui_extensions_proxy.</code><code class="descname">UIExtensionsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/ui_extensions_proxy.html#UIExtensionsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.ui_extensions_proxy.UIExtensionsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.ui_extensions_proxy.</code><code class="descname">UIExtensionsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/ui_extensions_proxy.html#UIExtensionsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.ui_extensions_proxy.UIExtensionsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</a></p>
 </dd></dl>
@@ -2410,7 +2617,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <span id="contentful-management-uploads-proxy-module"></span><h2>contentful_management.uploads_proxy module<a class="headerlink" href="#module-contentful_management.uploads_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.uploads_proxy.UploadsProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.uploads_proxy.</code><code class="descname">UploadsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/uploads_proxy.html#UploadsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.uploads_proxy.UploadsProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.uploads_proxy.</code><code class="descname">UploadsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/uploads_proxy.html#UploadsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.uploads_proxy.UploadsProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads</a></p>
 <dl class="method">
@@ -2901,7 +3108,7 @@ depends on the Python version.</p>
 <span id="contentful-management-webhooks-proxy-module"></span><h2>contentful_management.webhooks_proxy module<a class="headerlink" href="#module-contentful_management.webhooks_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.webhooks_proxy.WebhooksProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.webhooks_proxy.</code><code class="descname">WebhooksProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/webhooks_proxy.html#WebhooksProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.webhooks_proxy.WebhooksProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.webhooks_proxy.</code><code class="descname">WebhooksProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/webhooks_proxy.html#WebhooksProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.webhooks_proxy.WebhooksProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks</a></p>
 <dl class="method">
@@ -2962,6 +3169,17 @@ depends on the Python version.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#module-contentful_management.entry_snapshots_proxy">contentful_management.entry_snapshots_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment">contentful_management.environment module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment_assets_proxy">contentful_management.environment_assets_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment_content_types_proxy">contentful_management.environment_content_types_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment_entries_proxy">contentful_management.environment_entries_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment_locales_proxy">contentful_management.environment_locales_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environment_resource_proxy">contentful_management.environment_resource_proxy module</a><ul>
+<li><a class="reference internal" href="#contentful-management-environment-resource-proxy">contentful_management.environment_resource_proxy</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contentful_management.environment_ui_extensions_proxy">contentful_management.environment_ui_extensions_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.environments_proxy">contentful_management.environments_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.errors">contentful_management.errors module</a><ul>
 <li><a class="reference internal" href="#contentful-management-errors">contentful_management.errors</a></li>
 </ul>
@@ -2980,10 +3198,7 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.snapshots_proxy">contentful_management.snapshots_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space">contentful_management.space module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_api_keys_proxy">contentful_management.space_api_keys_proxy module</a></li>
-<li><a class="reference internal" href="#module-contentful_management.space_assets_proxy">contentful_management.space_assets_proxy module</a></li>
-<li><a class="reference internal" href="#module-contentful_management.space_content_types_proxy">contentful_management.space_content_types_proxy module</a></li>
-<li><a class="reference internal" href="#module-contentful_management.space_entries_proxy">contentful_management.space_entries_proxy module</a></li>
-<li><a class="reference internal" href="#module-contentful_management.space_locales_proxy">contentful_management.space_locales_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.space_environments_proxy">contentful_management.space_environments_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>

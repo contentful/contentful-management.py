@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.content_type_resource_proxy &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management.environment_resource_proxy &#8212; Contentful Management 2.0.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,57 +38,58 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.content_type_resource_proxy</h1><div class="highlight"><pre>
+  <h1>Source code for contentful_management.environment_resource_proxy</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.content_type_resource_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.environment_resource_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the ContentTypeResourceProxy class.</span>
+<span class="sd">This module implements the EnvironmentResourceProxy class.</span>
 
 <span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="ContentTypeResourceProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy">[docs]</a><span class="k">class</span> <span class="nc">ContentTypeResourceProxy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Base class for content type related resource proxies.&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="EnvironmentResourceProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_resource_proxy.EnvironmentResourceProxy">[docs]</a><span class="k">class</span> <span class="nc">EnvironmentResourceProxy</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for environment related resource proxies.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_proxy_class</span><span class="p">()(</span><span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resource_proxy_class</span><span class="p">()(</span><span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="o">=</span><span class="n">environment_id</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> space_id=&#39;</span><span class="si">{1}</span><span class="s2">&#39; environment_id=&#39;</span><span class="si">{2}</span><span class="s2">&#39; content_type_id=&#39;</span><span class="si">{3}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> space_id=&#39;</span><span class="si">{1}</span><span class="s2">&#39; environment_id=&#39;</span><span class="si">{2}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">space_id</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">environment_id</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">content_type_id</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">environment_id</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Must implement&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ContentTypeResourceProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentResourceProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets all resources related to the current content type.</span>
+<span class="sd">        Gets all resources related to the current space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContentTypeResourceProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentResourceProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Finds a single resource by ID related to the current content type.</span>
+<span class="sd">        Finds a single resource by ID related to the current space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContentTypeResourceProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentResourceProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a resource with a given ID (optional) and attributes for the current content type.</span>
+<span class="sd">        Creates a resource with a given ID (optional) and attributes for the current space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">resource_id</span><span class="o">=</span><span class="n">resource_id</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContentTypeResourceProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.content_type_resource_proxy.ContentTypeResourceProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">):</span>
+<div class="viewcode-block" id="EnvironmentResourceProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_resource_proxy.EnvironmentResourceProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes a resource by ID.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
