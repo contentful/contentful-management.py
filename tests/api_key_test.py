@@ -8,6 +8,15 @@ API_KEY_ITEM = {
     'name': 'foo',
     'description': 'bar',
     'accessToken': '123abc',
+    'environments': [
+        {
+            'sys': {
+                'type': 'Link',
+                'linkType': 'Environment',
+                'id': 'master'
+            }
+        }
+    ],
     'sys': {
         'id': 'foo',
         'type': 'ApiKey',
@@ -25,7 +34,7 @@ class ApiKeyTest(TestCase):
     def test_api_key(self):
         api_key = ApiKey(API_KEY_ITEM)
 
-        self.assertEqual(str(api_key), "<ApiKey[foo] id='foo'>")
+        self.assertEqual(str(api_key), "<ApiKey[foo] id='foo' access_token='123abc'>")
 
     def test_api_key_to_json(self):
         api_key = ApiKey(API_KEY_ITEM)
@@ -34,6 +43,15 @@ class ApiKeyTest(TestCase):
             'name': 'foo',
             'description': 'bar',
             'accessToken': '123abc',
+            'environments': [
+                {
+                    'sys': {
+                        'type': 'Link',
+                        'linkType': 'Environment',
+                        'id': 'master'
+                    }
+                }
+            ],
             'sys': {
                 'id': 'foo',
                 'type': 'ApiKey',
@@ -69,6 +87,33 @@ class ApiKeyTest(TestCase):
         self.assertEqual(api_key.description, 'Something goes here...')
         self.assertTrue(api_key.access_token)
 
+    @vcr.use_cassette('fixtures/api_key/create_with_environment.yaml')
+    def test_create_api_key(self):
+        api_key = CLIENT.api_keys(PLAYGROUND_SPACE).create({
+            'name': 'Test Key with environments',
+            'description': 'Something goes here...',
+            'environments': [
+                {
+                    'sys': {
+                        'type': 'Link',
+                        'linkType': 'Environment',
+                        'id': 'master'
+                    }
+                },
+                {
+                    'sys': {
+                        'type': 'Link',
+                        'linkType': 'Environment',
+                        'id': 'testing'
+                    }
+                }
+            ]
+        })
+
+        self.assertEqual(len(api_key.environments), 2)
+        self.assertEqual(api_key.environments[0].id, 'master')
+        self.assertEqual(api_key.environments[1].id, 'testing')
+
     @vcr.use_cassette('fixtures/api_key/find.yaml')
     def test_update_api_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('42sVZNadpFAje7EFwHOfVY')
@@ -89,3 +134,11 @@ class ApiKeyTest(TestCase):
         with vcr.use_cassette('fixtures/api_key/not_found.yaml'):
             with self.assertRaises(NotFoundError):
                 CLIENT.api_keys(PLAYGROUND_SPACE).find('42sVZNadpFAje7EFwHOfVY')
+
+    @vcr.use_cassette('fixtures/api_key/find_3.yaml')
+    def test_get_preview_api_key_from_key(self):
+        api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('5mxNhKOZYOp1wzafOR9qPw')
+
+        with vcr.use_cassette('fixtures/api_key/find_preview.yaml'):
+            preview_api_key = api_key.preview_api_key()
+            self.assertEqual(str(preview_api_key), "<PreviewApiKey[management.py - playground 1] id='5mytqWZjcqEWMIHVfe5cUi' access_token='PREVIEW_TOKEN'>")

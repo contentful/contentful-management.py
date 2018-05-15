@@ -136,17 +136,18 @@ def base_path_for(resource_name):
     """
 
     return {
-        'Space': 'spaces',
-        'SpaceMembership': 'space_memberships',
-        'ContentType': 'content_types',
-        'Entry': 'entries',
-        'Asset': 'assets',
-        'ApiKey': 'api_keys',
-        'Locale': 'locales',
-        'Webhook': 'webhook_definitions',
         'Role': 'roles',
+        'Space': 'spaces',
+        'Asset': 'assets',
+        'Entry': 'entries',
+        'Locale': 'locales',
         'Upload': 'uploads',
-        'UIExtension': 'extensions'
+        'ApiKey': 'api_keys',
+        'UIExtension': 'extensions',
+        'ContentType': 'content_types',
+        'Webhook': 'webhook_definitions',
+        'PreviewApiKey': 'preview_api_keys',
+        'SpaceMembership': 'space_memberships'
     }[resource_name]
 
 

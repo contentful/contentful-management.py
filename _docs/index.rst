@@ -878,6 +878,29 @@ Creating a new API key::
 
     new_api_key = space.api_keys().create({'name': 'My API Key'})
 
+Creating a new API key with multiple environments::
+
+    environments = [
+        {
+            "sys": {
+                "type": "Link",
+                "linkType": "Environment",
+                "id": "master"
+        },
+        {
+            "sys": {
+                "type": "Link",
+                "linkType": "Environment",
+                "id": "staging"
+        }
+    ]
+
+    new_api_key = client.api_keys('my_space_id').create({'name': 'My API Key with environments', 'environments': environments})
+
+    # or if you already have a fetched space
+
+    new_api_key = space.api_keys().create({'name': 'My API Key with environments', 'environments': environments})
+
 Updating an API key::
 
     api_key.update({'name': 'Their API Key'})
@@ -886,6 +909,29 @@ Updating an API key::
 
     api_key.name = 'Their API Key'
     api_key.save()
+
+Preview API Keys
+----------------
+
+Retrieving all Preview API keys on a space::
+
+    preview_api_keys = client.preview_api_keys('my_space_id').all()
+
+    # or if you already have a fetched space
+
+    preview_api_keys = space.preview_api_keys().all()
+
+Retrieveing one API key by ID::
+
+    preview_api_key = client.preview_api_keys('my_space_id').find('preview_api_key_id')
+
+    # or if you already have a fetched space
+
+    preview_api_key = space.preview_api_keys().find('preview_api_key_id')
+
+    # or if you have an already fetched api key
+
+    preview_api_key = api_key.preview_api_key()
 
 Personal Access Tokens
 ----------------------

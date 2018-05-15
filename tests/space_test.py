@@ -99,6 +99,14 @@ class SpaceTest(TestCase):
         self.assertEqual(str(proxy), "<SpaceApiKeysProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/space/find_3.yaml')
+    def test_space_preview_api_keys(self):
+        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
+
+        proxy = space.preview_api_keys()
+
+        self.assertEqual(str(proxy), "<SpacePreviewApiKeysProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+
+    @vcr.use_cassette('fixtures/space/find_3.yaml')
     def test_space_roles(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
