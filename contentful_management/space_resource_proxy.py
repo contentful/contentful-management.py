@@ -4,7 +4,7 @@ contentful_management.space_api_keys_proxy
 
 This module implements the SpaceResourceProxy class.
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 

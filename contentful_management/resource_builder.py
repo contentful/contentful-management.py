@@ -27,7 +27,7 @@ contentful_management.resource_builder
 
 This module implements the ResourceBuilder class.
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 

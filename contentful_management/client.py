@@ -42,7 +42,7 @@ allowing interaction with every method present in it.
 
 Complete API documentation: https://www.contentful.com/developers/docs/references/content-management-api
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 

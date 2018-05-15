@@ -12,7 +12,7 @@ contentful_management.content_type_field_types
 
 This module implements the field coercion classes.
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 

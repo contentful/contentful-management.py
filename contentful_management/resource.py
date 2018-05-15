@@ -15,7 +15,7 @@ This module implements the Resource, FieldResource, PublishResource, ArchiveReso
 
 API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
