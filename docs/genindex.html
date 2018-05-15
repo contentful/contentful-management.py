@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>Index &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -301,6 +301,10 @@
 </li>
       <li><a href="contentful_management.html#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy (module)</a>
 </li>
+      <li><a href="contentful_management.html#module-contentful_management.preview_api_key">contentful_management.preview_api_key (module)</a>
+</li>
+      <li><a href="contentful_management.html#module-contentful_management.preview_api_keys_proxy">contentful_management.preview_api_keys_proxy (module)</a>
+</li>
       <li><a href="contentful_management.html#module-contentful_management.resource">contentful_management.resource (module)</a>
 </li>
       <li><a href="contentful_management.html#module-contentful_management.resource_builder">contentful_management.resource_builder (module)</a>
@@ -324,6 +328,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="contentful_management.html#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy (module)</a>
+</li>
+      <li><a href="contentful_management.html#module-contentful_management.space_preview_api_keys_proxy">contentful_management.space_preview_api_keys_proxy (module)</a>
 </li>
       <li><a href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy (module)</a>
 </li>
@@ -412,11 +418,15 @@
 </li>
         <li><a href="contentful_management.html#contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy.create">(contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy method)</a>
 </li>
+        <li><a href="contentful_management.html#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.create">(contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy method)</a>
+</li>
         <li><a href="contentful_management.html#contentful_management.roles_proxy.RolesProxy.create">(contentful_management.roles_proxy.RolesProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.snapshots_proxy.SnapshotsProxy.create">(contentful_management.snapshots_proxy.SnapshotsProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.space_memberships_proxy.SpaceMembershipsProxy.create">(contentful_management.space_memberships_proxy.SpaceMembershipsProxy method)</a>
+</li>
+        <li><a href="contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.create">(contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.create">(contentful_management.space_resource_proxy.SpaceResourceProxy method)</a>
 </li>
@@ -498,11 +508,15 @@
 </li>
         <li><a href="contentful_management.html#contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy.delete">(contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy method)</a>
 </li>
+        <li><a href="contentful_management.html#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.delete">(contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy method)</a>
+</li>
         <li><a href="contentful_management.html#contentful_management.resource.Resource.delete">(contentful_management.resource.Resource method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.snapshots_proxy.SnapshotsProxy.delete">(contentful_management.snapshots_proxy.SnapshotsProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.space.Space.delete">(contentful_management.space.Space method)</a>
+</li>
+        <li><a href="contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.delete">(contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy.delete">(contentful_management.space_resource_proxy.SpaceResourceProxy method)</a>
 </li>
@@ -759,8 +773,20 @@
 </li>
       <li><a href="contentful_management.html#contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy">PersonalAccessTokensProxy (class in contentful_management.personal_access_tokens_proxy)</a>
 </li>
+      <li><a href="contentful_management.html#contentful_management.api_key.ApiKey.preview_api_key">preview_api_key() (contentful_management.api_key.ApiKey method)</a>
+</li>
+      <li><a href="contentful_management.html#contentful_management.client.Client.preview_api_keys">preview_api_keys() (contentful_management.client.Client method)</a>
+
+      <ul>
+        <li><a href="contentful_management.html#contentful_management.space.Space.preview_api_keys">(contentful_management.space.Space method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="contentful_management.html#contentful_management.preview_api_key.PreviewApiKey">PreviewApiKey (class in contentful_management.preview_api_key)</a>
+</li>
+      <li><a href="contentful_management.html#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy">PreviewApiKeysProxy (class in contentful_management.preview_api_keys_proxy)</a>
+</li>
       <li><a href="contentful_management.html#contentful_management.asset.Asset.process">process() (contentful_management.asset.Asset method)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.resource.PublishResource.publish">publish() (contentful_management.resource.PublishResource method)</a>
@@ -856,6 +882,8 @@
       <li><a href="contentful_management.html#contentful_management.space_membership.SpaceMembership">SpaceMembership (class in contentful_management.space_membership)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.space_memberships_proxy.SpaceMembershipsProxy">SpaceMembershipsProxy (class in contentful_management.space_memberships_proxy)</a>
+</li>
+      <li><a href="contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy">SpacePreviewApiKeysProxy (class in contentful_management.space_preview_api_keys_proxy)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.space_resource_proxy.SpaceResourceProxy">SpaceResourceProxy (class in contentful_management.space_resource_proxy)</a>
 </li>

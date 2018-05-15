@@ -1,7 +1,9 @@
 import sys
 import os
 from .api_key_test import *
+from .preview_api_key_test import *
 from .api_keys_proxy_test import *
+from .preview_api_keys_proxy_test import *
 from .asset_test import *
 from .assets_proxy_test import *
 from .client_proxy_test import *
@@ -35,6 +37,7 @@ from .space_roles_proxy_test import *
 from .space_test import *
 from .space_uploads_proxy_test import *
 from .space_webhooks_proxy_test import *
+from .space_preview_api_keys_proxy_test import *
 from .spaces_proxy_test import *
 from .upload_test import *
 from .uploads_proxy_test import *

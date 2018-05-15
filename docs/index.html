@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contentful Management API SDK &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>Contentful Management API SDK &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
             
   <div class="section" id="contentful-management-api-sdk">
 <h1>Contentful Management API SDK<a class="headerlink" href="#contentful-management-api-sdk" title="Permalink to this headline">¶</a></h1>
-<p>Release v2.0.0.</p>
+<p>Release v2.1.0.</p>
 <p><a class="reference external" href="https://www.contentful.com">Contentful</a> is a content management platform for web applications, mobile apps and connected devices.
 It allows you to create, edit &amp; manage content in the cloud and publish it anywhere via powerful API.
 Contentful offers tools for managing editorial teams and enabling cooperation between organizations.</p>
@@ -909,6 +909,29 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <span class="n">new_api_key</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
+<p>Creating a new API key with multiple environments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;sys&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;linkType&quot;</span><span class="p">:</span> <span class="s2">&quot;Environment&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;master&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;sys&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;linkType&quot;</span><span class="p">:</span> <span class="s2">&quot;Environment&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;staging&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">new_api_key</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key with environments&#39;</span><span class="p">,</span> <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="n">environments</span><span class="p">})</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_api_key</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key with environments&#39;</span><span class="p">,</span> <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="n">environments</span><span class="p">})</span>
+</pre></div>
+</div>
 <p>Updating an API key:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">api_key</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Their API Key&#39;</span><span class="p">})</span>
 
@@ -916,6 +939,29 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 
 <span class="n">api_key</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Their API Key&#39;</span>
 <span class="n">api_key</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preview-api-keys">
+<h2>Preview API Keys<a class="headerlink" href="#preview-api-keys" title="Permalink to this headline">¶</a></h2>
+<p>Retrieving all Preview API keys on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">preview_api_keys</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">preview_api_keys</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieveing one API key by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">preview_api_key</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;preview_api_key_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">preview_api_key</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;preview_api_key_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you have an already fetched api key</span>
+
+<span class="n">preview_api_key</span> <span class="o">=</span> <span class="n">api_key</span><span class="o">.</span><span class="n">preview_api_key</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1106,6 +1152,8 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_token">contentful_management.personal_access_token module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.preview_api_key">contentful_management.preview_api_key module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.preview_api_keys_proxy">contentful_management.preview_api_keys_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource">contentful_management.resource module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.resource_builder">contentful_management.resource_builder module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.role">contentful_management.role module</a></li>
@@ -1117,6 +1165,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_environments_proxy">contentful_management.space_environments_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_preview_api_keys_proxy">contentful_management.space_preview_api_keys_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-management-space-api-keys-proxy">contentful_management.space_api_keys_proxy</a></li>
 </ul>
@@ -1191,6 +1240,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li><a class="reference internal" href="#entry-snapshots">Entry Snapshots</a></li>
 <li><a class="reference internal" href="#content-type-snapshots">Content Type Snapshots</a></li>
 <li><a class="reference internal" href="#api-keys">API Keys</a></li>
+<li><a class="reference internal" href="#preview-api-keys">Preview API Keys</a></li>
 <li><a class="reference internal" href="#personal-access-tokens">Personal Access Tokens</a></li>
 <li><a class="reference internal" href="#uploads">Uploads</a></li>
 <li><a class="reference internal" href="#client-configuration-options">Client Configuration Options</a></li>

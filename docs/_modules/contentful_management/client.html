@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.client &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management.client &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -42,28 +42,31 @@
 <span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">platform</span>
 <span class="kn">from</span> <span class="nn">re</span> <span class="k">import</span> <span class="n">sub</span>
+
 <span class="kn">from</span> <span class="nn">.resource_builder</span> <span class="k">import</span> <span class="n">ResourceBuilder</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">ConfigurationException</span><span class="p">,</span> <span class="n">retry_request</span>
 <span class="kn">from</span> <span class="nn">.errors</span> <span class="k">import</span> <span class="n">get_error</span><span class="p">,</span> <span class="n">RateLimitExceededError</span>
-<span class="kn">from</span> <span class="nn">.spaces_proxy</span> <span class="k">import</span> <span class="n">SpacesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_memberships_proxy</span> <span class="k">import</span> <span class="n">SpaceMembershipsProxy</span>
-<span class="kn">from</span> <span class="nn">.organizations_proxy</span> <span class="k">import</span> <span class="n">OrganizationsProxy</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">ConfigurationException</span><span class="p">,</span> <span class="n">retry_request</span>
+
 <span class="kn">from</span> <span class="nn">.users_proxy</span> <span class="k">import</span> <span class="n">UsersProxy</span>
-<span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
-<span class="kn">from</span> <span class="nn">.entries_proxy</span> <span class="k">import</span> <span class="n">EntriesProxy</span>
-<span class="kn">from</span> <span class="nn">.assets_proxy</span> <span class="k">import</span> <span class="n">AssetsProxy</span>
-<span class="kn">from</span> <span class="nn">.api_keys_proxy</span> <span class="k">import</span> <span class="n">ApiKeysProxy</span>
-<span class="kn">from</span> <span class="nn">.personal_access_tokens_proxy</span> <span class="k">import</span> <span class="n">PersonalAccessTokensProxy</span>
 <span class="kn">from</span> <span class="nn">.roles_proxy</span> <span class="k">import</span> <span class="n">RolesProxy</span>
-<span class="kn">from</span> <span class="nn">.ui_extensions_proxy</span> <span class="k">import</span> <span class="n">UIExtensionsProxy</span>
-<span class="kn">from</span> <span class="nn">.webhooks_proxy</span> <span class="k">import</span> <span class="n">WebhooksProxy</span>
-<span class="kn">from</span> <span class="nn">.webhooks_call_proxy</span> <span class="k">import</span> <span class="n">WebhooksCallProxy</span>
-<span class="kn">from</span> <span class="nn">.webhooks_health_proxy</span> <span class="k">import</span> <span class="n">WebhooksHealthProxy</span>
+<span class="kn">from</span> <span class="nn">.assets_proxy</span> <span class="k">import</span> <span class="n">AssetsProxy</span>
+<span class="kn">from</span> <span class="nn">.spaces_proxy</span> <span class="k">import</span> <span class="n">SpacesProxy</span>
+<span class="kn">from</span> <span class="nn">.entries_proxy</span> <span class="k">import</span> <span class="n">EntriesProxy</span>
 <span class="kn">from</span> <span class="nn">.locales_proxy</span> <span class="k">import</span> <span class="n">LocalesProxy</span>
-<span class="kn">from</span> <span class="nn">.editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">EditorInterfacesProxy</span>
-<span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="k">import</span> <span class="n">SnapshotsProxy</span>
 <span class="kn">from</span> <span class="nn">.uploads_proxy</span> <span class="k">import</span> <span class="n">UploadsProxy</span>
+<span class="kn">from</span> <span class="nn">.api_keys_proxy</span> <span class="k">import</span> <span class="n">ApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.webhooks_proxy</span> <span class="k">import</span> <span class="n">WebhooksProxy</span>
+<span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="k">import</span> <span class="n">SnapshotsProxy</span>
 <span class="kn">from</span> <span class="nn">.environments_proxy</span> <span class="k">import</span> <span class="n">EnvironmentsProxy</span>
+<span class="kn">from</span> <span class="nn">.webhooks_call_proxy</span> <span class="k">import</span> <span class="n">WebhooksCallProxy</span>
+<span class="kn">from</span> <span class="nn">.ui_extensions_proxy</span> <span class="k">import</span> <span class="n">UIExtensionsProxy</span>
+<span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
+<span class="kn">from</span> <span class="nn">.organizations_proxy</span> <span class="k">import</span> <span class="n">OrganizationsProxy</span>
+<span class="kn">from</span> <span class="nn">.webhooks_health_proxy</span> <span class="k">import</span> <span class="n">WebhooksHealthProxy</span>
+<span class="kn">from</span> <span class="nn">.preview_api_keys_proxy</span> <span class="k">import</span> <span class="n">PreviewApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.space_memberships_proxy</span> <span class="k">import</span> <span class="n">SpaceMembershipsProxy</span>
+<span class="kn">from</span> <span class="nn">.editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">EditorInterfacesProxy</span>
+<span class="kn">from</span> <span class="nn">.personal_access_tokens_proxy</span> <span class="k">import</span> <span class="n">PersonalAccessTokensProxy</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">multijson</span> <span class="k">as</span> <span class="nn">json</span>
@@ -80,7 +83,7 @@
 
 <span class="sd">Complete API documentation: https://www.contentful.com/developers/docs/references/content-management-api</span>
 
-<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -374,6 +377,23 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">ApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.preview_api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.preview_api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">preview_api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to Preview API key management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</span>
+
+<span class="sd">        :return: :class:`PreviewApiKeysProxy &lt;contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.preview_api_keys_proxy.PreviewApiKeysProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; preview_api_keys_proxy = client.preview_api_keys(&#39;cfexampleapi&#39;)</span>
+<span class="sd">            &lt;PreviewApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">PreviewApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.personal_access_tokens"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.personal_access_tokens">[docs]</a>    <span class="k">def</span> <span class="nf">personal_access_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

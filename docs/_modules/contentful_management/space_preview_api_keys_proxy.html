@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.environment_content_types_proxy &#8212; Contentful Management 2.1.0 documentation</title>
+    <title>contentful_management.space_preview_api_keys_proxy &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,31 +38,45 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.environment_content_types_proxy</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.environment_resource_proxy</span> <span class="k">import</span> <span class="n">EnvironmentResourceProxy</span>
-<span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
+  <h1>Source code for contentful_management.space_preview_api_keys_proxy</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.space_resource_proxy</span> <span class="k">import</span> <span class="n">SpaceResourceProxy</span>
+<span class="kn">from</span> <span class="nn">.preview_api_keys_proxy</span> <span class="k">import</span> <span class="n">PreviewApiKeysProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.environment_content_types_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.space_api_keys_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the EnvironmentContentTypesProxy class.</span>
+<span class="sd">This module implements the SpacePreviewApiKeysProxy class.</span>
 
-<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</span>
 
 <span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="EnvironmentContentTypesProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.environment_content_types_proxy.EnvironmentContentTypesProxy">[docs]</a><span class="k">class</span> <span class="nc">EnvironmentContentTypesProxy</span><span class="p">(</span><span class="n">EnvironmentResourceProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePreviewApiKeysProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy">[docs]</a><span class="k">class</span> <span class="nc">SpacePreviewApiKeysProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">ContentTypesProxy</span></div>
+        <span class="k">return</span> <span class="n">PreviewApiKeysProxy</span>
+
+<div class="viewcode-block" id="SpacePreviewApiKeysProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Not supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not Supported&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SpacePreviewApiKeysProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Not supported.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not Supported&quot;</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>

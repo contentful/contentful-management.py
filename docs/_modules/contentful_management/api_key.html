@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.api_key &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management.api_key &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -39,7 +39,7 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.api_key</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span>
+<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">Link</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -50,7 +50,7 @@
 
 <span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
 
-<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -65,6 +65,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;accessToken&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">policies</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;policies&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">environments</span> <span class="o">=</span> <span class="p">[</span><span class="n">Link</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;environments&#39;</span><span class="p">,</span> <span class="p">[])]</span>
+
+        <span class="n">preview_api_key</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;preview_api_key&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_preview_api_key</span> <span class="o">=</span> <span class="n">Link</span><span class="p">(</span><span class="n">preview_api_key</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">if</span> <span class="n">preview_api_key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
 
 <div class="viewcode-block" id="ApiKey.create_attributes"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.api_key.ApiKey.create_attributes">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">create_attributes</span><span class="p">(</span><span class="n">klass</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -72,14 +77,19 @@
 <span class="sd">        Attributes for resource creation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">{</span>
-                <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
-                <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="n">previous_object</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
-            <span class="p">}</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
-            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                <span class="n">previous_object</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+                <span class="n">previous_object</span><span class="o">.</span><span class="n">description</span> <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+            <span class="p">),</span>
+            <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s1">&#39;environments&#39;</span><span class="p">,</span>
+                <span class="n">previous_object</span><span class="o">.</span><span class="n">environments</span> <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>  <span class="c1"># Will default to master if empty</span>
+            <span class="p">)</span>
         <span class="p">}</span></div>
 
 <div class="viewcode-block" id="ApiKey.update_attributes_map"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.api_key.ApiKey.update_attributes_map">[docs]</a>    <span class="nd">@classmethod</span>
@@ -91,8 +101,12 @@
         <span class="k">return</span> <span class="p">{</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+            <span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="p">[]</span>
         <span class="p">}</span></div>
+
+<div class="viewcode-block" id="ApiKey.preview_api_key"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.api_key.ApiKey.preview_api_key">[docs]</a>    <span class="k">def</span> <span class="nf">preview_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_preview_api_key</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ApiKey.to_json"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.api_key.ApiKey.to_json">[docs]</a>    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -103,14 +117,16 @@
         <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">description</span><span class="p">,</span>
-            <span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span>
+            <span class="s1">&#39;accessToken&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span><span class="p">,</span>
+            <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">environments</span><span class="p">]</span>
         <span class="p">})</span>
         <span class="k">return</span> <span class="n">result</span></div>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;&lt;ApiKey[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;ApiKey[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39; access_token=&#39;</span><span class="si">{2}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">access_token</span>
         <span class="p">)</span></div>
 </pre></div>
 

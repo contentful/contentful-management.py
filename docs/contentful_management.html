@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -58,6 +58,11 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="contentful_management.api_key.ApiKey.preview_api_key">
+<code class="descname">preview_api_key</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_key.html#ApiKey.preview_api_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_key.ApiKey.preview_api_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="contentful_management.api_key.ApiKey.to_json">
 <code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_key.html#ApiKey.to_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_key.ApiKey.to_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the JSON representation of the API key.</p>
@@ -98,7 +103,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -494,6 +499,28 @@ for retry after RateLimitError, defaults to 60.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="contentful_management.client.Client.preview_api_keys">
+<code class="descname">preview_api_keys</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.preview_api_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.preview_api_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to Preview API key management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy" title="contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy"><code class="xref py py-class docutils literal"><span class="pre">PreviewApiKeysProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.preview_api_keys_proxy.PreviewApiKeysProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">preview_api_keys_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
+<span class="go">&lt;PreviewApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="contentful_management.client.Client.roles">
 <code class="descname">roles</code><span class="sig-paren">(</span><em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.roles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to role management methods.</p>
@@ -708,7 +735,7 @@ for retry after RateLimitError, defaults to 60.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -1085,7 +1112,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -1316,7 +1343,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -1568,7 +1595,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -1665,7 +1692,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -1901,6 +1928,37 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <dt id="contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy.revoke">
 <code class="descname">revoke</code><span class="sig-paren">(</span><em>token_id</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/personal_access_tokens_proxy.html#PersonalAccessTokensProxy.revoke"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.personal_access_tokens_proxy.PersonalAccessTokensProxy.revoke" title="Permalink to this definition">¶</a></dt>
 <dd><p>Revokes a personal access token.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.preview_api_key">
+<span id="contentful-management-preview-api-key-module"></span><h2>contentful_management.preview_api_key module<a class="headerlink" href="#module-contentful_management.preview_api_key" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.preview_api_key.PreviewApiKey">
+<em class="property">class </em><code class="descclassname">contentful_management.preview_api_key.</code><code class="descname">PreviewApiKey</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/preview_api_key.html#PreviewApiKey"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.preview_api_key.PreviewApiKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.preview_api_keys_proxy">
+<span id="contentful-management-preview-api-keys-proxy-module"></span><h2>contentful_management.preview_api_keys_proxy module<a class="headerlink" href="#module-contentful_management.preview_api_keys_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.preview_api_keys_proxy.</code><code class="descname">PreviewApiKeysProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/preview_api_keys_proxy.html#PreviewApiKeysProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<dl class="method">
+<dt id="contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/preview_api_keys_proxy.html#PreviewApiKeysProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/preview_api_keys_proxy.html#PreviewApiKeysProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2286,6 +2344,28 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="contentful_management.space.Space.preview_api_keys">
+<code class="descname">preview_api_keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.preview_api_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.preview_api_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to preview api key management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy" title="contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy"><code class="xref py py-class docutils literal"><span class="pre">SpacePreviewApiKeysProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_preview_api_keys_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">preview_api_keys</span><span class="p">()</span>
+<span class="go">&lt;SpacePreviewApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="contentful_management.space.Space.reload">
 <code class="descname">reload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.reload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.reload" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reloads the space.</p>
@@ -2429,6 +2509,28 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-contentful_management.space_preview_api_keys_proxy">
+<span id="contentful-management-space-preview-api-keys-proxy-module"></span><h2>contentful_management.space_preview_api_keys_proxy module<a class="headerlink" href="#module-contentful_management.space_preview_api_keys_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.space_preview_api_keys_proxy.</code><code class="descname">SpacePreviewApiKeysProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_preview_api_keys_proxy.html#SpacePreviewApiKeysProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</a></p>
+<dl class="method">
+<dt id="contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_preview_api_keys_proxy.html#SpacePreviewApiKeysProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_preview_api_keys_proxy.html#SpacePreviewApiKeysProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-contentful_management.space_resource_proxy">
 <span id="contentful-management-space-resource-proxy-module"></span><h2>contentful_management.space_resource_proxy module<a class="headerlink" href="#module-contentful_management.space_resource_proxy" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="contentful-management-space-api-keys-proxy">
@@ -2439,7 +2541,7 @@ Only present as a placeholder for proper resolution within ContentType.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -2988,7 +3090,7 @@ depends on the Python version.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">copyright:</th><td class="field-body"><ol class="first loweralpha simple" start="3">
-<li>2017 by Contentful GmbH.</li>
+<li>2018 by Contentful GmbH.</li>
 </ol>
 </td>
 </tr>
@@ -3190,6 +3292,8 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.personal_access_token">contentful_management.personal_access_token module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.preview_api_key">contentful_management.preview_api_key module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.preview_api_keys_proxy">contentful_management.preview_api_keys_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.resource">contentful_management.resource module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.resource_builder">contentful_management.resource_builder module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.role">contentful_management.role module</a></li>
@@ -3201,6 +3305,7 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.space_environments_proxy">contentful_management.space_environments_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.space_preview_api_keys_proxy">contentful_management.space_preview_api_keys_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
 <li><a class="reference internal" href="#contentful-management-space-api-keys-proxy">contentful_management.space_api_keys_proxy</a></li>
 </ul>

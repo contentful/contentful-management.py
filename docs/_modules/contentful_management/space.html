@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space &#8212; Contentful Management 2.0.0 documentation</title>
+    <title>contentful_management.space &#8212; Contentful Management 2.1.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.0.0',
+        VERSION:     '2.1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -40,11 +40,12 @@
             
   <h1>Source code for contentful_management.space</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span>
-<span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.space_roles_proxy</span> <span class="k">import</span> <span class="n">SpaceRolesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpaceApiKeysProxy</span>
 <span class="kn">from</span> <span class="nn">.space_uploads_proxy</span> <span class="k">import</span> <span class="n">SpaceUploadsProxy</span>
+<span class="kn">from</span> <span class="nn">.space_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpaceApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.space_environments_proxy</span> <span class="k">import</span> <span class="n">SpaceEnvironmentsProxy</span>
+<span class="kn">from</span> <span class="nn">.space_preview_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpacePreviewApiKeysProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -55,7 +56,7 @@
 
 <span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
 
-<span class="sd">:copyright: (c) 2017 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -214,6 +215,22 @@
 <span class="sd">            &lt;SpaceApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">SpaceApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.preview_api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.preview_api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">preview_api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to preview api key management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</span>
+
+<span class="sd">        :return: :class:`SpacePreviewApiKeysProxy &lt;contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_preview_api_keys_proxy = space.preview_api_keys()</span>
+<span class="sd">            &lt;SpacePreviewApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpacePreviewApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Space.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
