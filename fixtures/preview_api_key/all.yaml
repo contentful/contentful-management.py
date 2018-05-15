@@ -1,0 +1,128 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.12.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/2.0.0; platform python/3.6.3;
+          os macOS/16.7.0;]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/preview_api_keys
+  response:
+    body: {string: "{\n  \"total\":5,\n  \"limit\":25,\n  \"skip\":0,\n  \"sys\":{\n
+        \   \"type\":\"Array\"\n  },\n  \"items\":[\n    {\n      \"name\":\"Example
+        Key\",\n      \"description\":\"We\u2019ve created an example API key for
+        you to help you get started.\",\n      \"accessToken\":\"PREVIEW_TOKEN\",\n
+        \     \"policies\":[\n        {\n          \"effect\":\"allow\",\n          \"actions\":\"all\"\n
+        \       }\n      ],\n      \"sys\":{\n        \"type\":\"PreviewApiKey\",\n
+        \       \"id\":\"22j3CYO1195Bl2QvuXWFMO\",\n        \"version\":0,\n        \"space\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"Space\",\n
+        \           \"id\":\"facgnwwgj5fe\"\n          }\n        },\n        \"createdBy\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"User\",\n
+        \           \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n          }\n        },\n        \"createdAt\":\"2017-03-02T18:30:40Z\",\n
+        \       \"updatedBy\":{\n          \"sys\":{\n            \"type\":\"Link\",\n
+        \           \"linkType\":\"User\",\n            \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \         }\n        },\n        \"updatedAt\":\"2017-03-02T18:30:40Z\"\n
+        \     },\n      \"environments\":[\n        {\n          \"sys\":{\n            \"id\":\"master\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        }\n      ]\n    },\n    {\n      \"name\":\"management.py
+        - playground 1\",\n      \"description\":null,\n      \"accessToken\":\"PREVIEW_TOKEN\",\n
+        \     \"policies\":[\n        {\n          \"effect\":\"allow\",\n          \"actions\":\"all\"\n
+        \       }\n      ],\n      \"sys\":{\n        \"type\":\"PreviewApiKey\",\n
+        \       \"id\":\"5mytqWZjcqEWMIHVfe5cUi\",\n        \"version\":0,\n        \"space\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"Space\",\n
+        \           \"id\":\"facgnwwgj5fe\"\n          }\n        },\n        \"createdBy\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"User\",\n
+        \           \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n          }\n        },\n        \"createdAt\":\"2018-02-27T10:19:59Z\",\n
+        \       \"updatedBy\":{\n          \"sys\":{\n            \"type\":\"Link\",\n
+        \           \"linkType\":\"User\",\n            \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \         }\n        },\n        \"updatedAt\":\"2018-02-27T10:19:59Z\"\n
+        \     },\n      \"environments\":[\n        {\n          \"sys\":{\n            \"id\":\"master\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        }\n      ]\n    },\n    {\n      \"name\":\"test environments\",\n
+        \     \"description\":null,\n      \"accessToken\":\"PREVIEW_TOKEN\",\n
+        \     \"policies\":[\n        {\n          \"effect\":\"allow\",\n          \"actions\":\"all\"\n
+        \       }\n      ],\n      \"sys\":{\n        \"type\":\"PreviewApiKey\",\n
+        \       \"id\":\"3MdaxJtaRZlZaowGbw9wp4\",\n        \"version\":0,\n        \"space\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"Space\",\n
+        \           \"id\":\"facgnwwgj5fe\"\n          }\n        },\n        \"createdBy\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"User\",\n
+        \           \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n          }\n        },\n        \"createdAt\":\"2018-05-15T09:30:09Z\",\n
+        \       \"updatedBy\":{\n          \"sys\":{\n            \"type\":\"Link\",\n
+        \           \"linkType\":\"User\",\n            \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \         }\n        },\n        \"updatedAt\":\"2018-05-15T09:30:09Z\"\n
+        \     },\n      \"environments\":[\n        {\n          \"sys\":{\n            \"id\":\"master\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        }\n      ]\n    },\n    {\n      \"name\":\"test environments
+        with env\",\n      \"description\":null,\n      \"accessToken\":\"PREVIEW_TOKEN\",\n
+        \     \"policies\":[\n        {\n          \"effect\":\"allow\",\n          \"actions\":\"all\"\n
+        \       }\n      ],\n      \"sys\":{\n        \"type\":\"PreviewApiKey\",\n
+        \       \"id\":\"47n3R3ezAiC4xDZ85RPsSc\",\n        \"version\":0,\n        \"space\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"Space\",\n
+        \           \"id\":\"facgnwwgj5fe\"\n          }\n        },\n        \"createdBy\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"User\",\n
+        \           \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n          }\n        },\n        \"createdAt\":\"2018-05-15T09:37:37Z\",\n
+        \       \"updatedBy\":{\n          \"sys\":{\n            \"type\":\"Link\",\n
+        \           \"linkType\":\"User\",\n            \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \         }\n        },\n        \"updatedAt\":\"2018-05-15T09:37:37Z\"\n
+        \     },\n      \"environments\":[\n        {\n          \"sys\":{\n            \"id\":\"master\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        },\n        {\n          \"sys\":{\n            \"id\":\"testing\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        }\n      ]\n    },\n    {\n      \"name\":\"test with
+        env\",\n      \"description\":null,\n      \"accessToken\":\"PREVIEW_TOKEN\",\n
+        \     \"policies\":[\n        {\n          \"effect\":\"allow\",\n          \"actions\":\"all\"\n
+        \       }\n      ],\n      \"sys\":{\n        \"type\":\"PreviewApiKey\",\n
+        \       \"id\":\"29BPiYGUSf61b93lTZWbKW\",\n        \"version\":0,\n        \"space\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"Space\",\n
+        \           \"id\":\"facgnwwgj5fe\"\n          }\n        },\n        \"createdBy\":{\n
+        \         \"sys\":{\n            \"type\":\"Link\",\n            \"linkType\":\"User\",\n
+        \           \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n          }\n        },\n        \"createdAt\":\"2018-05-15T11:08:53Z\",\n
+        \       \"updatedBy\":{\n          \"sys\":{\n            \"type\":\"Link\",\n
+        \           \"linkType\":\"User\",\n            \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \         }\n        },\n        \"updatedAt\":\"2018-05-15T11:08:53Z\"\n
+        \     },\n      \"environments\":[\n        {\n          \"sys\":{\n            \"id\":\"master\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        },\n        {\n          \"sys\":{\n            \"id\":\"testing\",\n
+        \           \"type\":\"Link\",\n            \"linkType\":\"Environment\"\n
+        \         }\n        }\n      ]\n    }\n  ]\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [facgnwwgj5fe]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['6019']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Date: ['Tue, 15 May 2018 13:13:31 GMT']
+      ETag: [W/"bd2338e0e1ec7b7547f0c9e3a4f1c99a"]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=n+HWlc9mSw+22/IUbVm2V/rc+loAAAAAQUIPAAAAAABdqlB1LkJOJNV4tfzNEGVA;
+          expires=Wed, 15 May 2019 07:47:46 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=kbtLMl540xCvyebR6lKYhQAAAAAsPQslkYAPlGsbaAGBPVFk; path=/; Domain=.contentful.com,
+        incap_ses_467_673446=UydnVXf9KitMrhAWiR97Bvrc+loAAAAAr6rfwZJN/cFRrm4p4oDZ9w==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35997']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [a7023a92e28afaa43258011e8cc48418]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [4-2047642-2047654 NNNN CT(104 212 0) RT(1526390009645 74) q(0 0 3
+          -1) r(6 6) U5]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

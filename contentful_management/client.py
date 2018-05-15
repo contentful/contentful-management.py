@@ -1,28 +1,31 @@
 import requests
 import platform
 from re import sub
+
 from .resource_builder import ResourceBuilder
-from .utils import ConfigurationException, retry_request
 from .errors import get_error, RateLimitExceededError
-from .spaces_proxy import SpacesProxy
-from .space_memberships_proxy import SpaceMembershipsProxy
-from .organizations_proxy import OrganizationsProxy
+from .utils import ConfigurationException, retry_request
+
 from .users_proxy import UsersProxy
-from .content_types_proxy import ContentTypesProxy
-from .entries_proxy import EntriesProxy
-from .assets_proxy import AssetsProxy
-from .api_keys_proxy import ApiKeysProxy
-from .personal_access_tokens_proxy import PersonalAccessTokensProxy
 from .roles_proxy import RolesProxy
-from .ui_extensions_proxy import UIExtensionsProxy
-from .webhooks_proxy import WebhooksProxy
-from .webhooks_call_proxy import WebhooksCallProxy
-from .webhooks_health_proxy import WebhooksHealthProxy
+from .assets_proxy import AssetsProxy
+from .spaces_proxy import SpacesProxy
+from .entries_proxy import EntriesProxy
 from .locales_proxy import LocalesProxy
-from .editor_interfaces_proxy import EditorInterfacesProxy
-from .snapshots_proxy import SnapshotsProxy
 from .uploads_proxy import UploadsProxy
+from .api_keys_proxy import ApiKeysProxy
+from .webhooks_proxy import WebhooksProxy
+from .snapshots_proxy import SnapshotsProxy
 from .environments_proxy import EnvironmentsProxy
+from .webhooks_call_proxy import WebhooksCallProxy
+from .ui_extensions_proxy import UIExtensionsProxy
+from .content_types_proxy import ContentTypesProxy
+from .organizations_proxy import OrganizationsProxy
+from .webhooks_health_proxy import WebhooksHealthProxy
+from .preview_api_keys_proxy import PreviewApiKeysProxy
+from .space_memberships_proxy import SpaceMembershipsProxy
+from .editor_interfaces_proxy import EditorInterfacesProxy
+from .personal_access_tokens_proxy import PersonalAccessTokensProxy
 
 try:
     import multijson as json
@@ -39,7 +42,7 @@ allowing interaction with every method present in it.
 
 Complete API documentation: https://www.contentful.com/developers/docs/references/content-management-api
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
@@ -333,6 +336,23 @@ class Client(object):
         """
 
         return ApiKeysProxy(self, space_id)
+
+    def preview_api_keys(self, space_id):
+        """
+        Provides access to Preview API key management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key
+
+        :return: :class:`PreviewApiKeysProxy <contentful_management.preview_api_keys_proxy.PreviewApiKeysProxy>` object.
+        :rtype: contentful.preview_api_keys_proxy.PreviewApiKeysProxy
+
+        Usage:
+
+            >>> preview_api_keys_proxy = client.preview_api_keys('cfexampleapi')
+            <PreviewApiKeysProxy space_id="cfexampleapi">
+        """
+
+        return PreviewApiKeysProxy(self, space_id)
 
     def personal_access_tokens(self):
         """

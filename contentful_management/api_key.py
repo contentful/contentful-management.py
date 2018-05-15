@@ -1,4 +1,4 @@
-from .resource import Resource
+from .resource import Resource, Link
 
 
 """
@@ -9,7 +9,7 @@ This module implements the ApiKey class.
 
 API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
@@ -24,6 +24,11 @@ class ApiKey(Resource):
         self.name = item.get('name', '')
         self.description = item.get('description', '')
         self.access_token = item.get('accessToken', '')
+        self.policies = item.get('policies', [])
+        self.environments = [Link(e, **kwargs) for e in item.get('environments', [])]
+
+        preview_api_key = item.get('preview_api_key', None)
+        self._preview_api_key = Link(preview_api_key, **kwargs) if preview_api_key is not None else None
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):
@@ -31,14 +36,19 @@ class ApiKey(Resource):
         Attributes for resource creation.
         """
 
-        if previous_object is not None:
-            return {
-                'name': attributes.get('name', previous_object.name),
-                'description': attributes.get('description', previous_object.description)
-            }
         return {
-            'name': attributes.get('name', ''),
-            'description': attributes.get('description', '')
+            'name': attributes.get(
+                'name',
+                previous_object.name if previous_object is not None else ''
+            ),
+            'description': attributes.get(
+                'description',
+                previous_object.description if previous_object is not None else ''
+            ),
+            'environments': attributes.get(
+                'environments',
+                previous_object.environments if previous_object is not None else []  # Will default to master if empty
+            )
         }
 
     @classmethod
@@ -50,8 +60,12 @@ class ApiKey(Resource):
         return {
             'name': '',
             'description': '',
-            'access_token': ''
+            'access_token': '',
+            'environments': []
         }
+
+    def preview_api_key(self):
+        return self._preview_api_key.resolve(self.space.id)
 
     def to_json(self):
         """
@@ -62,12 +76,14 @@ class ApiKey(Resource):
         result.update({
             'name': self.name,
             'description': self.description,
-            'accessToken': self.access_token
+            'accessToken': self.access_token,
+            'environments': [e.to_json() for e in self.environments]
         })
         return result
 
     def __repr__(self):
-        return "<ApiKey[{0}] id='{1}'>".format(
+        return "<ApiKey[{0}] id='{1}' access_token='{2}'>".format(
             self.name,
-            self.sys.get('id', '')
+            self.sys.get('id', ''),
+            self.access_token
         )

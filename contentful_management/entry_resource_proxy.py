@@ -4,7 +4,7 @@ contentful_management.entry_resource_proxy
 
 This module implements the EntryResourceProxy class.
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 

@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added environment selection option for Api Keys.
+* Added a way to obtain Preview Api Keys.
 
 ## v2.0.0
 ### Added

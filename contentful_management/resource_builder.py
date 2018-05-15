@@ -1,23 +1,24 @@
+from .role import Role
+from .user import User
 from .entry import Entry
+from .array import Array
 from .asset import Asset
 from .space import Space
-from .space_membership import SpaceMembership
-from .organization import Organization
-from .content_type import ContentType
-from .webhook import Webhook
-from .webhook_call import WebhookCall
-from .webhook_health import WebhookHealth
 from .locale import Locale
-from .role import Role
-from .ui_extension import UIExtension
-from .editor_interface import EditorInterface
-from .api_key import ApiKey
-from .personal_access_token import PersonalAccessToken
-from .snapshot import Snapshot
 from .upload import Upload
-from .user import User
-from .array import Array
+from .api_key import ApiKey
+from .webhook import Webhook
+from .snapshot import Snapshot
 from .environment import Environment
+from .ui_extension import UIExtension
+from .content_type import ContentType
+from .webhook_call import WebhookCall
+from .organization import Organization
+from .webhook_health import WebhookHealth
+from .preview_api_key import PreviewApiKey
+from .editor_interface import EditorInterface
+from .space_membership import SpaceMembership
+from .personal_access_token import PersonalAccessToken
 
 
 """
@@ -26,7 +27,7 @@ contentful_management.resource_builder
 
 This module implements the ResourceBuilder class.
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
@@ -62,6 +63,7 @@ class ResourceBuilder(object):
             'SpaceMembership': SpaceMembership,
             'Organization': Organization,
             'ApiKey': ApiKey,
+            'PreviewApiKey': PreviewApiKey,
             'PersonalAccessToken': PersonalAccessToken,
             'Locale': Locale,
             'EditorInterface': EditorInterface,

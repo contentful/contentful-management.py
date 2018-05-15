@@ -1,9 +1,10 @@
 from .resource import Resource
-from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_roles_proxy import SpaceRolesProxy
-from .space_api_keys_proxy import SpaceApiKeysProxy
 from .space_uploads_proxy import SpaceUploadsProxy
+from .space_api_keys_proxy import SpaceApiKeysProxy
+from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_environments_proxy import SpaceEnvironmentsProxy
+from .space_preview_api_keys_proxy import SpacePreviewApiKeysProxy
 
 
 """
@@ -14,7 +15,7 @@ This module implements the Space class.
 
 API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces
 
-:copyright: (c) 2017 by Contentful GmbH.
+:copyright: (c) 2018 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
@@ -173,6 +174,22 @@ class Space(Resource):
             <SpaceApiKeysProxy space_id="cfexampleapi">
         """
         return SpaceApiKeysProxy(self._client, self.id)
+
+    def preview_api_keys(self):
+        """
+        Provides access to preview api key management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key
+
+        :return: :class:`SpacePreviewApiKeysProxy <contentful_management.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy>` object.
+        :rtype: contentful.space_preview_api_keys_proxy.SpacePreviewApiKeysProxy
+
+        Usage:
+
+            >>> space_preview_api_keys_proxy = space.preview_api_keys()
+            <SpacePreviewApiKeysProxy space_id="cfexampleapi">
+        """
+        return SpacePreviewApiKeysProxy(self._client, self.id)
 
     def uploads(self):
         """
