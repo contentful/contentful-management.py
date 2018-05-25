@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.api_key &#8212; Contentful Management 2.1.0 documentation</title>
+    <title>contentful_management.api_key &#8212; Contentful Management 2.1.1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.0',
+        VERSION:     '2.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -88,7 +88,7 @@
             <span class="p">),</span>
             <span class="s1">&#39;environments&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
                 <span class="s1">&#39;environments&#39;</span><span class="p">,</span>
-                <span class="n">previous_object</span><span class="o">.</span><span class="n">environments</span> <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>  <span class="c1"># Will default to master if empty</span>
+                <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">previous_object</span><span class="o">.</span><span class="n">environments</span><span class="p">]</span> <span class="k">if</span> <span class="n">previous_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>  <span class="c1"># Will default to master if empty</span>
             <span class="p">)</span>
         <span class="p">}</span></div>
 

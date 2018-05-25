@@ -886,12 +886,14 @@ Creating a new API key with multiple environments::
                 "type": "Link",
                 "linkType": "Environment",
                 "id": "master"
+            }
         },
         {
             "sys": {
                 "type": "Link",
                 "linkType": "Environment",
                 "id": "staging"
+            }
         }
     ]
 
@@ -908,6 +910,18 @@ Updating an API key::
     # or directly editing it's properties
 
     api_key.name = 'Their API Key'
+    api_key.save()
+
+Updating an API key with a new environment, while retaining the existing ones::
+
+    new_environment_link = Link({
+        "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "staging"
+        }
+    })
+    api_key.environments.append(new_environment_link)
     api_key.save()
 
 Preview API Keys

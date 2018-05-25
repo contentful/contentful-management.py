@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contentful Management API SDK &#8212; Contentful Management 2.1.0 documentation</title>
+    <title>Contentful Management API SDK &#8212; Contentful Management 2.1.1 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.1.0',
+        VERSION:     '2.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
             
   <div class="section" id="contentful-management-api-sdk">
 <h1>Contentful Management API SDK<a class="headerlink" href="#contentful-management-api-sdk" title="Permalink to this headline">¶</a></h1>
-<p>Release v2.1.0.</p>
+<p>Release v2.1.1.</p>
 <p><a class="reference external" href="https://www.contentful.com">Contentful</a> is a content management platform for web applications, mobile apps and connected devices.
 It allows you to create, edit &amp; manage content in the cloud and publish it anywhere via powerful API.
 Contentful offers tools for managing editorial teams and enabling cooperation between organizations.</p>
@@ -916,12 +916,14 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
             <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
             <span class="s2">&quot;linkType&quot;</span><span class="p">:</span> <span class="s2">&quot;Environment&quot;</span><span class="p">,</span>
             <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;master&quot;</span>
+        <span class="p">}</span>
     <span class="p">},</span>
     <span class="p">{</span>
         <span class="s2">&quot;sys&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
             <span class="s2">&quot;linkType&quot;</span><span class="p">:</span> <span class="s2">&quot;Environment&quot;</span><span class="p">,</span>
             <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;staging&quot;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">]</span>
 
@@ -938,6 +940,18 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <span class="c1"># or directly editing it&#39;s properties</span>
 
 <span class="n">api_key</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Their API Key&#39;</span>
+<span class="n">api_key</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Updating an API key with a new environment, while retaining the existing ones:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_environment_link</span> <span class="o">=</span> <span class="n">Link</span><span class="p">({</span>
+    <span class="s2">&quot;sys&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;linkType&quot;</span><span class="p">:</span> <span class="s2">&quot;Environment&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;staging&quot;</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="n">api_key</span><span class="o">.</span><span class="n">environments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_environment_link</span><span class="p">)</span>
 <span class="n">api_key</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
 </div>
