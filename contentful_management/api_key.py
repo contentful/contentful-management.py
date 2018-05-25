@@ -47,7 +47,7 @@ class ApiKey(Resource):
             ),
             'environments': attributes.get(
                 'environments',
-                previous_object.environments if previous_object is not None else []  # Will default to master if empty
+                [e.to_json() for e in previous_object.environments] if previous_object is not None else []  # Will default to master if empty
             )
         }
 

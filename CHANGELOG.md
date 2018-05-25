@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Fixed
+* Fixed API Key updates when adding new environments to the existing list.
 
 ## v2.1.0
 ### Added
