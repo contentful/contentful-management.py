@@ -93,3 +93,17 @@ class LocaleTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
+    @vcr.use_cassette('fixtures/locale/create_2.yaml')
+    def test_create_locale_in_different_environment(self):
+        locale = CLIENT.locales(PLAYGROUND_SPACE, 'testing').create({
+            'name': 'Bar',
+            'fallbackCode': None,
+            'code': 'bar-us'
+        })
+
+        self.assertEqual(locale.name, 'Bar')
+        self.assertEqual(locale.code, 'bar-us')
+
+        with vcr.use_cassette('fixtures/locale/find_3.yaml'):
+            found_locale = CLIENT.locales(PLAYGROUND_SPACE, 'testing').find(locale.id)
+            self.assertEqual(locale.code, found_locale.code)
