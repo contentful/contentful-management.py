@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Fixed
+* Fixed Locale creation.
 
 ## v2.1.1
 ### Fixed
