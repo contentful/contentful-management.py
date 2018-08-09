@@ -147,10 +147,14 @@ class UnprocessableEntityError(HTTPError):
         return 'The resource you sent in the body is invalid.'
 
     def _handle_error(self, error):
-        message = "\t* Name: {0} - Path: '{1}'".format(
-            error['name'],
-            error['path']
-        )
+        message = ''
+        if 'name' in error and 'path' in error:
+            message = "\t* Name: {0} - Path: '{1}'".format(
+                error['name'],
+                error['path']
+            )
+        else:
+            message = self._default_error_message()
 
         if 'value' in error:
             message = "{0} - Value: '{1}'".format(
