@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Fixed
+* Fixes 422 error handling when no `name` or `path` attribute are sent in the error details. [#36](https://github.com/contentful/contentful-management.py/issues/36)
 
 ## v2.1.2
 ### Fixed
