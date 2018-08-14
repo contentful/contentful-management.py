@@ -22,3 +22,10 @@ class SpaceSpaceMembershipsProxy(SpaceResourceProxy):
 
     def _resource_proxy_class(self):
         return SpaceMembershipsProxy
+
+    def create(self, attributes=None, **kwargs):
+        """
+        Creates a space membership with given attributes.
+        """
+
+        return super(SpaceSpaceMembershipsProxy, self).create(None, attributes)

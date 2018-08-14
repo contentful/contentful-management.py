@@ -4,6 +4,9 @@
 ### Added
 * Added missing `memberships` proxy on `Space`.
 
+### Fixed
+* Space Memberships now properly serialize attributes upon creation.
+
 ## v2.1.3
 ### Fixed
 * Fixes 422 error handling when no `name` or `path` attribute are sent in the error details. [#36](https://github.com/contentful/contentful-management.py/issues/36)
