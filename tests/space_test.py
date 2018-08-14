@@ -12,6 +12,7 @@ BASE_SPACE_ITEM = {
     'name': 'Some Space'
 }
 
+
 class SpaceTest(TestCase):
     def test_space(self):
         space = Space(BASE_SPACE_ITEM)
@@ -129,3 +130,11 @@ class SpaceTest(TestCase):
         proxy = space.webhooks()
 
         self.assertEqual(str(proxy), "<SpaceWebhooksProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+
+    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    def test_space_memberships(self):
+        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
+
+        proxy = space.memberships()
+
+        self.assertEqual(str(proxy), "<SpaceSpaceMembershipsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))

@@ -5,6 +5,7 @@ from .space_api_keys_proxy import SpaceApiKeysProxy
 from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_environments_proxy import SpaceEnvironmentsProxy
 from .space_preview_api_keys_proxy import SpacePreviewApiKeysProxy
+from .space_space_memberships_proxy import SpaceSpaceMembershipsProxy
 
 
 """
@@ -190,6 +191,22 @@ class Space(Resource):
             <SpacePreviewApiKeysProxy space_id="cfexampleapi">
         """
         return SpacePreviewApiKeysProxy(self._client, self.id)
+
+    def memberships(self):
+        """
+        Provides access to space memberships management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships
+
+        :return: :class:`SpaceSpaceMembershipsProxy <contentful_management.space_space_memberships_proxy.SpaceSpaceMembershipsProxy>` object.
+        :rtype: contentful.space_space_memberships_proxy.SpaceSpaceMembershipsProxy
+
+        Usage:
+
+            >>> space_space_memberships_proxy = space.memberships()
+            <SpaceSpaceMembershipsProxy space_id="cfexampleapi">
+        """
+        return SpaceSpaceMembershipsProxy(self._client, self.id)
 
     def uploads(self):
         """
