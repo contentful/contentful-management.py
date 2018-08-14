@@ -84,9 +84,12 @@ class BadRequestError(HTTPError):
                 return detail
             return detail.get('details', None)
 
-        inner_details = [_handle_detail(detail) for detail in details['errors']]
-        inner_details = [detail for detail in inner_details if detail is not None]  # This works in both Py2 and Py3
-        return "\n\t".join(inner_details)
+        if 'errors' in details:
+            inner_details = [_handle_detail(detail) for detail in details['errors']]
+            inner_details = [detail for detail in inner_details if detail is not None]  # This works in both Py2 and Py3
+            return "\n\t".join(inner_details)
+
+        return str(details)
 
 
 class UnauthorizedError(HTTPError):
