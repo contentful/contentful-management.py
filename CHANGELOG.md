@@ -7,6 +7,7 @@
 ### Fixed
 * Space Space Memberships Proxy now properly serializes attributes upon creation.
 * Space Api Keys Proxy now properly serializes attributes upon creation.
+* Environments Proxy now uses default behaviour.
 
 ## v2.1.3
 ### Fixed

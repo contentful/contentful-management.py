@@ -25,31 +25,3 @@ class EnvironmentsProxy(ClientProxy):
     @property
     def _resource_class(self):
         return Environment
-
-    def all(self, query=None, **kwargs):
-        """
-        Gets all environments.
-        """
-
-        return super(EnvironmentsProxy, self).all(query=query)
-
-    def find(self, environment_id, query=None, **kwargs):
-        """
-        Gets an environment by ID.
-        """
-
-        return super(EnvironmentsProxy, self).find(environment_id, query=query)
-
-    def create(self, environment_id=None, attributes=None):
-        """
-        Creates an environment with a given ID (optional) and attributes.
-        """
-
-        return super(EnvironmentsProxy, self).create(environment_id, attributes)
-
-    def delete(self, environment_id):
-        """
-        Deletes an environment by ID.
-        """
-
-        return super(EnvironmentsProxy, self).delete(environment_id)
