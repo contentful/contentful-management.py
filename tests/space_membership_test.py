@@ -41,6 +41,7 @@ MEMBERSHIP_ITEM = {
     }
 }
 
+
 class SpaceMembershipTest(TestCase):
     def test_space_membership(self):
         membership = SpaceMembership(MEMBERSHIP_ITEM)

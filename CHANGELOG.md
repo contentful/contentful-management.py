@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added missing `memberships` proxy on `Space`.
 
 ## v2.1.3
 ### Fixed
