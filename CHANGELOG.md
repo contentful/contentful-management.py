@@ -5,7 +5,8 @@
 * Added missing `memberships` proxy on `Space`.
 
 ### Fixed
-* Space Memberships now properly serialize attributes upon creation.
+* Space Space Memberships Proxy now properly serializes attributes upon creation.
+* Space Api Keys Proxy now properly serializes attributes upon creation.
 
 ## v2.1.3
 ### Fixed
