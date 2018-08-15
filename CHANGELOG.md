@@ -8,6 +8,7 @@
 * Space Space Memberships Proxy now properly serializes attributes upon creation.
 * Space Api Keys Proxy now properly serializes attributes upon creation.
 * Environments Proxy now uses default behaviour.
+* Space Roles Proxy now properly doesn't require a resource ID to be passed.
 
 ## v2.1.3
 ### Fixed
