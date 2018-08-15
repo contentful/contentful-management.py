@@ -10,6 +10,7 @@
 * Environments Proxy now uses default behaviour.
 * Space Roles Proxy now properly doesn't require a resource ID to be passed.
 * Locales Proxy now properly doesn't require a resource ID to be passed.
+* Space Webhooks Proxy now properly doesn't require a resource ID to be passed.
 
 ## v2.1.3
 ### Fixed
