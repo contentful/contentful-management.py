@@ -4,6 +4,7 @@
 ### Added
 * Added missing `memberships` proxy on `Space`.
 * Added `transformation` and `filters` to `Webhook`.
+* Added `parameters` to `UIExtension.extension`.
 
 ### Fixed
 * Space Space Memberships Proxy now properly serializes attributes upon creation.
