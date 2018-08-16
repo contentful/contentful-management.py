@@ -20,6 +20,7 @@ WEBHOOK_ITEM = {
     }
 }
 
+
 class WebhookTest(TestCase):
     def test_webhook(self):
         webhook = Webhook(WEBHOOK_ITEM)
@@ -111,3 +112,39 @@ class WebhookTest(TestCase):
         with vcr.use_cassette('fixtures/webhook/not_found.yaml'):
             with self.assertRaises(NotFoundError):
                 CLIENT.webhooks(PLAYGROUND_SPACE).find('2xzNZ8gOsq0sz4ueoytkeW')
+
+    @vcr.use_cassette('fixtures/webhook/create_with_filter.yaml')
+    def test_create_with_filter(self):
+        webhook = CLIENT.webhooks(PLAYGROUND_SPACE).create({
+            'name': 'Test Filters',
+            'url': 'https://example.com',
+            'topics': ['Entry.*'],
+            'filters': [{"equals": [{"doc": "sys.environment.sys.id"}, "some-env-id"]}]
+        })
+
+        self.assertEqual(webhook.filters[0], {"equals": [{"doc": "sys.environment.sys.id"}, "some-env-id"]})
+
+    @vcr.use_cassette('fixtures/webhook/create_with_transformation.yaml')
+    def test_create_with_transformation(self):
+        webhook = CLIENT.webhooks(PLAYGROUND_SPACE).create({
+            'name': 'Test Transformation',
+            'url': 'https://example.com',
+            'topics': ['Entry.*'],
+            'transformation': {
+                'method': 'POST',
+                'contentType': 'application/vnd.contentful.management.v1+json; charset=utf-8',
+                'body': {
+                    "entryId": "{ /payload/sys/id }",
+                    "fields": "{ /payload/fields }"
+                }
+            }
+        })
+
+        self.assertEqual(webhook.transformation, {
+            'method': 'POST',
+            'contentType': 'application/vnd.contentful.management.v1+json; charset=utf-8',
+            'body': {
+                "entryId": "{ /payload/sys/id }",
+                "fields": "{ /payload/fields }"
+            }
+        })

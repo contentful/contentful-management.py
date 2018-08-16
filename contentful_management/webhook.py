@@ -28,6 +28,8 @@ class Webhook(Resource):
         self.topics = item.get('topics', [])
         self.http_basic_username = item.get('httpBasicUsername', '')
         self.headers = item.get('headers', [])
+        self.filters = item.get('filters', [])
+        self.transformation = item.get('transformation', {})
 
     @classmethod
     def update_attributes_map(klass):
@@ -40,7 +42,9 @@ class Webhook(Resource):
             'url': '',
             'topics': [],
             'http_basic_username': '',
-            'headers': []
+            'headers': [],
+            'filters': [],
+            'transformation': {}
         }
 
     @classmethod
@@ -100,6 +104,13 @@ class Webhook(Resource):
             'httpBasicUsername': self.http_basic_username,
             'headers': self.headers
         })
+
+        if self.filters:
+            result.update({'filters': self.filters})
+
+        if self.transformation:
+            result.update({'transformation': self.transformation})
+
         return result
 
     def __repr__(self):

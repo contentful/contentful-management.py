@@ -3,6 +3,7 @@
 ## Unreleased
 ### Added
 * Added missing `memberships` proxy on `Space`.
+* Added `transformation` and `filters` to `Webhook`.
 
 ### Fixed
 * Space Space Memberships Proxy now properly serializes attributes upon creation.
