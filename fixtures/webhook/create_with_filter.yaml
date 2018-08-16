@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: '{"name": "Test Filters", "url": "https://example.com", "topics": ["Entry.*"],
+      "filters": [{"equals": [{"doc": "sys.environment.sys.id"}, "some-env-id"]}]}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Length: ['154']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.12.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/2.1.3; platform python/3.6.3;
+          os macOS/16.7.0;]
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/webhook_definitions
+  response:
+    body: {string: "{\n  \"name\":\"Test Filters\",\n  \"url\":\"https://example.com\",\n
+        \ \"httpBasicUsername\":null,\n  \"headers\":[],\n  \"topics\":[\n    \"Entry.*\"\n
+        \ ],\n  \"filters\":[\n    {\n      \"equals\":[\n        {\n          \"doc\":\"sys.environment.sys.id\"\n
+        \       },\n        \"some-env-id\"\n      ]\n    }\n  ],\n  \"transformation\":null,\n
+        \ \"sys\":{\n    \"type\":\"WebhookDefinition\",\n    \"id\":\"5tXczHutFl6VAamKr7G12Y\",\n
+        \   \"version\":0,\n    \"space\":{\n      \"sys\":{\n        \"type\":\"Link\",\n
+        \       \"linkType\":\"Space\",\n        \"id\":\"facgnwwgj5fe\"\n      }\n
+        \   },\n    \"createdBy\":{\n      \"sys\":{\n        \"type\":\"Link\",\n
+        \       \"linkType\":\"User\",\n        \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"createdAt\":\"2018-08-16T09:21:39Z\",\n    \"updatedBy\":{\n
+        \     \"sys\":{\n        \"type\":\"Link\",\n        \"linkType\":\"User\",\n
+        \       \"id\":\"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedAt\":\"2018-08-16T09:21:39Z\"\n
+        \ }\n}\n\n"}
+    headers:
+      Accept-Ranges: [bytes]
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Organization-Id: [4SsuxQCaMaemfIms52Jr8s]
+      CF-Space-Id: [facgnwwgj5fe]
+      Cache-Control: [max-age=0]
+      Connection: [keep-alive]
+      Content-Length: ['871']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Contentful-Api: [cma]
+      Date: ['Thu, 16 Aug 2018 09:21:39 GMT']
+      ETag: [W/"08c43139aef04528b6e9522fe341e118"]
+      Location: ['https://api.contentful.com/spaces/facgnwwgj5fe/webhook_definitions/5tXczHutFl6VAamKr7G12Y']
+      Referrer-Policy: [strict-origin-when-cross-origin]
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=8XQGvoszTMK5remow4P/HSJCdVsAAAAAQUIPAAAAAAD5gegSodur8Tv0xQYfAsm9;
+          expires=Fri, 16 Aug 2019 09:00:08 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=8wsVAImSvQt6A94H6lKYhQAAAACrblbixBAfmG3HhZmLfOsj; path=/; Domain=.contentful.com,
+        incap_ses_876_673446=zBKVN0k3TyDDyzzyzS0oDCJCdVsAAAAADyNSmzW36edOD7Of2dznYg==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35988']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [daa7b9fcb5b2bdb17ad805d24d930e81]
+      X-Download-Options: [noopen]
+      X-Frame-Options: [ALLOWALL]
+      X-Iinfo: [12-47622967-47622981 NNNN CT(89 89 0) RT(1534411297626 66) q(0 0 2
+          -1) r(5 5) U5]
+      X-Permitted-Cross-Domain-Policies: [none]
+      X-XSS-Protection: [1; mode=block]
+    status: {code: 201, message: Created}
+version: 1
