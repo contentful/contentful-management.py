@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space_api_keys_proxy &#8212; Contentful Management 2.2.0 documentation</title>
+    <title>contentful_management.space_space_memberships_proxy &#8212; Contentful Management 2.2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,38 +38,38 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.space_api_keys_proxy</h1><div class="highlight"><pre>
+  <h1>Source code for contentful_management.space_space_memberships_proxy</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.space_resource_proxy</span> <span class="k">import</span> <span class="n">SpaceResourceProxy</span>
-<span class="kn">from</span> <span class="nn">.api_keys_proxy</span> <span class="k">import</span> <span class="n">ApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.space_memberships_proxy</span> <span class="k">import</span> <span class="n">SpaceMembershipsProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.space_api_keys_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.space_space_memberships_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the SpaceApiKeysProxy class.</span>
+<span class="sd">This module implements the SpaceSpaceMembershipsProxy class.</span>
 
-<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships</span>
 
 <span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="SpaceApiKeysProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_api_keys_proxy.SpaceApiKeysProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceApiKeysProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="SpaceSpaceMembershipsProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_space_memberships_proxy.SpaceSpaceMembershipsProxy">[docs]</a><span class="k">class</span> <span class="nc">SpaceSpaceMembershipsProxy</span><span class="p">(</span><span class="n">SpaceResourceProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">_resource_proxy_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">ApiKeysProxy</span>
+        <span class="k">return</span> <span class="n">SpaceMembershipsProxy</span>
 
-<div class="viewcode-block" id="SpaceApiKeysProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_api_keys_proxy.SpaceApiKeysProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="SpaceSpaceMembershipsProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_space_memberships_proxy.SpaceSpaceMembershipsProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates an api key with given attributes.</span>
+<span class="sd">        Creates a space membership with given attributes.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">SpaceApiKeysProxy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">SpaceSpaceMembershipsProxy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>

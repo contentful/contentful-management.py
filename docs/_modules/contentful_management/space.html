@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space &#8212; Contentful Management 2.1.3 documentation</title>
+    <title>contentful_management.space &#8212; Contentful Management 2.2.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.1.3',
+        VERSION:     '2.2.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -46,6 +46,7 @@
 <span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.space_environments_proxy</span> <span class="k">import</span> <span class="n">SpaceEnvironmentsProxy</span>
 <span class="kn">from</span> <span class="nn">.space_preview_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpacePreviewApiKeysProxy</span>
+<span class="kn">from</span> <span class="nn">.space_space_memberships_proxy</span> <span class="k">import</span> <span class="n">SpaceSpaceMembershipsProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -231,6 +232,22 @@
 <span class="sd">            &lt;SpacePreviewApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">SpacePreviewApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.memberships"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.memberships">[docs]</a>    <span class="k">def</span> <span class="nf">memberships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to space memberships management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships</span>
+
+<span class="sd">        :return: :class:`SpaceSpaceMembershipsProxy &lt;contentful_management.space_space_memberships_proxy.SpaceSpaceMembershipsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_space_memberships_proxy.SpaceSpaceMembershipsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_space_memberships_proxy = space.memberships()</span>
+<span class="sd">            &lt;SpaceSpaceMembershipsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceSpaceMembershipsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Space.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

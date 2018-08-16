@@ -1,6 +1,12 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.2.0
+
+This release includes some minor-breaking changes. That said, those breaking changes are actually bug-fixes that actually match the behaviour of the SDK to
+what's present in the README and the documentation.
+
 ### Added
 * Added missing `memberships` proxy on `Space`.
 * Added `transformation` and `filters` to `Webhook`.
