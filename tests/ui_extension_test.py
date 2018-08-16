@@ -23,11 +23,11 @@ UI_EXTENSION_ITEM_SRC = {
         "type": "Extension",
         "version": 1,
         "space": {
-        "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "yadj1kx9rmg0"
-        }
+            "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "yadj1kx9rmg0"
+            }
         },
         "createdAt": "2015-05-18T11:29:46.809Z",
         "createdBy": {
@@ -67,11 +67,11 @@ UI_EXTENSION_ITEM_SRCDOC = {
         "type": "Extension",
         "version": 1,
         "space": {
-        "sys": {
-            "type": "Link",
-            "linkType": "Space",
-            "id": "yadj1kx9rmg0"
-        }
+            "sys": {
+                "type": "Link",
+                "linkType": "Space",
+                "id": "yadj1kx9rmg0"
+            }
         },
         "createdAt": "2015-05-18T11:29:46.809Z",
         "createdBy": {
@@ -91,6 +91,7 @@ UI_EXTENSION_ITEM_SRCDOC = {
         }
     }
 }
+
 
 class UIExtensionTest(TestCase):
     def test_ui_extension(self):
@@ -155,11 +156,11 @@ class UIExtensionTest(TestCase):
                 "type": "Extension",
                 "version": 1,
                 "space": {
-                "sys": {
-                    "type": "Link",
-                    "linkType": "Space",
-                    "id": "yadj1kx9rmg0"
-                }
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "yadj1kx9rmg0"
+                    }
                 },
                 "createdAt": "2015-05-18T11:29:46.809000+00:00",
                 "createdBy": {
@@ -201,11 +202,11 @@ class UIExtensionTest(TestCase):
                 "type": "Extension",
                 "version": 1,
                 "space": {
-                "sys": {
-                    "type": "Link",
-                    "linkType": "Space",
-                    "id": "yadj1kx9rmg0"
-                }
+                    "sys": {
+                        "type": "Link",
+                        "linkType": "Space",
+                        "id": "yadj1kx9rmg0"
+                    }
                 },
                 "createdAt": "2015-05-18T11:29:46.809000+00:00",
                 "createdBy": {
@@ -292,4 +293,79 @@ class UIExtensionTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').find('test-extension')
 
+    @vcr.use_cassette('fixtures/ui_extensions/create_with_parameters.yaml')
+    def test_ui_extensions_create_with_parameters(self):
+        ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').create('test-with-parameters', {
+            "extension": {
+                "name": "Test Extension with Parameters",
+                "srcdoc": "<html>foobar</html>",
+                "fieldTypes": [{'type': 'Symbol'}],
+                "sidebar": False,
+                "parameters": {
+                    "installation": [
+                        {
+                            "id": "devMode",
+                            "type": "Boolean",
+                            "name": "Run in development mode"
+                        },
+                        {
+                            "id": "retries",
+                            "type": "Number",
+                            "name": "Number of retries for API calls",
+                            "required": True,
+                            "default": 3
+                        }
+                    ],
+                    "instance": [
+                        {
+                            "id": "helpText",
+                            "type": "Symbol",
+                            "name": "Help text",
+                            "description": "Help text for a user to help them understand the editor"
+                        },
+                        {
+                            "id": "theme",
+                            "type": "Enum",
+                            "name": "Theme",
+                            "options": [{"light": "Solarized light"}, {"dark": "Solarized dark"}],
+                            "default": "light",
+                            "required": True
+                        }
+                    ]
+                }
+            }
+        })
 
+        self.assertTrue(ui_extension.parameters)
+        self.assertEqual(ui_extension.parameters, {
+            "installation": [
+                {
+                    "id": "devMode",
+                    "type": "Boolean",
+                    "name": "Run in development mode"
+                },
+                {
+                    "id": "retries",
+                    "type": "Number",
+                    "name": "Number of retries for API calls",
+                    "required": True,
+                    "default": 3
+                }
+            ],
+            "instance": [
+                {
+                    "id": "helpText",
+                    "type": "Symbol",
+                    "name": "Help text",
+                    "description": "Help text for a user to help them understand the editor"
+                },
+                {
+                    "id": "theme",
+                    "type": "Enum",
+                    "name": "Theme",
+                    "options": [{"light": "Solarized light"}, {"dark": "Solarized dark"}],
+                    "default": "light",
+                    "required": True
+                }
+            ]
+        })

@@ -57,6 +57,14 @@ class UIExtension(Resource, EnvironmentAwareResource):
     def sidebar(self, value):
         self.extension['sidebar'] = value
 
+    @property
+    def parameters(self):
+        return self.extension.get('parameters', {})
+
+    @parameters.setter
+    def parameters(self, value):
+        self.extension['parameters'] = value
+
     @classmethod
     def update_attributes_map(klass):
         """
@@ -76,6 +84,7 @@ class UIExtension(Resource, EnvironmentAwareResource):
         result.update({
             'extension': self.extension
         })
+
         return result
 
     def __repr__(self):

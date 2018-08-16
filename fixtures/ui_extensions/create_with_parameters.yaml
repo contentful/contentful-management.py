@@ -1,0 +1,82 @@
+interactions:
+- request:
+    body: '{"extension": {"name": "Test Extension with Parameters", "srcdoc": "<html>foobar</html>",
+      "fieldTypes": [{"type": "Symbol"}], "sidebar": false, "parameters": {"installation":
+      [{"id": "devMode", "type": "Boolean", "name": "Run in development mode"}, {"id":
+      "retries", "type": "Number", "name": "Number of retries for API calls", "required":
+      true, "default": 3}], "instance": [{"id": "helpText", "type": "Symbol", "name":
+      "Help text", "description": "Help text for a user to help them understand the
+      editor"}, {"id": "theme", "type": "Enum", "name": "Theme", "options": [{"light":
+      "Solarized light"}, {"dark": "Solarized dark"}], "default": "light", "required":
+      true}]}}}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Length: ['669']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.12.1]
+      X-Contentful-User-Agent: [sdk contentful-management.py/2.1.3; platform python/3.6.3;
+          os macOS/16.7.0;]
+    method: PUT
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/extensions/test-with-parameters
+  response:
+    body: {string: "{\n  \"extension\": {\n    \"name\": \"Test Extension with Parameters\",\n
+        \   \"srcdoc\": \"<html>foobar</html>\",\n    \"fieldTypes\": [\n      {\n
+        \       \"type\": \"Symbol\"\n      }\n    ],\n    \"sidebar\": false,\n    \"parameters\":
+        {\n      \"installation\": [\n        {\n          \"id\": \"devMode\",\n
+        \         \"type\": \"Boolean\",\n          \"name\": \"Run in development
+        mode\"\n        },\n        {\n          \"id\": \"retries\",\n          \"type\":
+        \"Number\",\n          \"name\": \"Number of retries for API calls\",\n          \"required\":
+        true,\n          \"default\": 3\n        }\n      ],\n      \"instance\":
+        [\n        {\n          \"id\": \"helpText\",\n          \"type\": \"Symbol\",\n
+        \         \"name\": \"Help text\",\n          \"description\": \"Help text
+        for a user to help them understand the editor\"\n        },\n        {\n          \"id\":
+        \"theme\",\n          \"type\": \"Enum\",\n          \"name\": \"Theme\",\n
+        \         \"options\": [\n            {\n              \"light\": \"Solarized
+        light\"\n            },\n            {\n              \"dark\": \"Solarized
+        dark\"\n            }\n          ],\n          \"default\": \"light\",\n          \"required\":
+        true\n        }\n      ]\n    }\n  },\n  \"sys\": {\n    \"id\": \"test-with-parameters\",\n
+        \   \"type\": \"Extension\",\n    \"version\": 1,\n    \"createdAt\": \"2018-08-16T11:11:23.939Z\",\n
+        \   \"createdBy\": {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\":
+        \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedAt\":
+        \"2018-08-16T11:11:23.939Z\",\n    \"updatedBy\": {\n      \"sys\": {\n        \"type\":
+        \"Link\",\n        \"linkType\": \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"space\": {\n      \"sys\": {\n        \"type\": \"Link\",\n
+        \       \"linkType\": \"Space\",\n        \"id\": \"facgnwwgj5fe\"\n      }\n
+        \   },\n    \"environment\": {\n      \"sys\": {\n        \"id\": \"master\",\n
+        \       \"type\": \"Link\",\n        \"linkType\": \"Environment\"\n      }\n
+        \   }\n  }\n}\n"}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Length: ['1826']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Contentful-Api: [cma]
+      Date: ['Thu, 16 Aug 2018 11:11:24 GMT']
+      ETag: ['"fa7e1514a250aa4783dc7ed091d50c02"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=Yw/noK+PSjCcaLuwEYsQFttbdVsAAAAAQUIPAAAAAAA7UmzWPTAbVzE+0SSiiS3X;
+          expires=Fri, 16 Aug 2019 08:59:50 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=/clKCroqwWWXV8/m6lKYhQAAAADHbalx/enFs2756m/c2u4M; path=/; Domain=.contentful.com,
+        incap_ses_876_673446=KbSWOeDq+R8mA2DyzS0oDNtbdVsAAAAArcHt1ZYybmwq5cmnxWbjHQ==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35999']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [89e93a5c8b05f4fbfaa56f06d9ba9e57]
+      X-Iinfo: [13-69647281-69641718 PNNN RT(1534417882192 57) q(0 0 0 -1) r(8 8)
+          U5]
+    status: {code: 201, message: Created}
+version: 1
