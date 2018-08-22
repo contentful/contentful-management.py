@@ -173,3 +173,17 @@ class LocationField(BasicField):
             'lat': float(value.get('lat', value.get('latitude'))),
             'lon': float(value.get('lon', value.get('longitude')))
         }
+
+
+class StructuredTextField(BasicField):
+    """
+    Structured Text coercion class.
+    """
+
+    def coerce(self, value):
+        """
+        Returns the structured text object as is.
+        Include resolution and other particular processing is done for CDA only.
+        """
+
+        return value
