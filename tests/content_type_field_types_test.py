@@ -13,8 +13,10 @@ from contentful_management.content_type_field_types import (
     LocationField,
     LinkField,
     ArrayField,
-    ObjectField
+    ObjectField,
+    StructuredTextField
 )
+
 
 class BasicFieldTest(TestCase):
     def test_basic_field(self):
@@ -96,6 +98,7 @@ class LocationFieldTest(TestCase):
 
         self.assertRaises(Exception, location_field.coerce, 'foo')
 
+
 class LinkFieldTest(TestCase):
     def test_link_field(self):
         self.assertEqual(LinkField().coerce('foo'), 'foo')
@@ -130,3 +133,10 @@ class ObjectFieldTest(TestCase):
         self.assertEqual(object_field.coerce('foo'), 'foo')
         self.assertEqual(object_field.coerce([1, 2, 3]), [1, 2, 3])
         self.assertEqual(object_field.coerce([{'foo': 'bar'}, {'baz': 'qux'}]), [{'foo': 'bar'}, {'baz': 'qux'}])
+
+
+class StructuredTextFieldTest(TestCase):
+    def test_structured_text_field(self):
+        st_field = StructuredTextField()
+
+        self.assertEqual(st_field.coerce({'foo': 'bar'}), {'foo': 'bar'})
