@@ -30,6 +30,7 @@ BASE_ENTRY_ITEM = {
     }
 }
 
+
 class EntryTest(TestCase):
     def test_entry(self):
         entry = Entry(BASE_ENTRY_ITEM)
@@ -264,7 +265,6 @@ class EntryTest(TestCase):
 
                 self.assertEqual(updated_entry.fields(), {'name': 'foo'})
 
-
     def test_update_entry_field_with_undefined_but_non_present_field(self):
         entry = None
         with vcr.use_cassette('fixtures/entry/undefined_fields.yaml'):
@@ -298,3 +298,20 @@ class EntryTest(TestCase):
             with vcr.use_cassette('fixtures/entry/added_fields_3.yaml'):
                 entry = CLIENT.entries(PLAYGROUND_SPACE, 'master').find('3fTNzlQsDmge6YQEikEuME')
                 self.assertEqual(entry.different, 'A Different Field')
+
+    @vcr.use_cassette('fixtures/entry/update_localized.yaml')
+    def test_update_localized_entry(self):
+        entry = CLIENT.entries('0drrop6zxj19', 'master').find('12FblJur9AWcUwA2k2IGCQ')
+
+        self.assertEqual(entry.fields(), {'name': 'Foo'})
+        self.assertEqual(entry.fields('es-AR'), {})
+
+        entry.sys['locale'] = 'es-AR'
+        entry.name = 'Bar'
+
+        entry.save()
+
+        entry = CLIENT.entries('0drrop6zxj19', 'master').find('12FblJur9AWcUwA2k2IGCQ')
+
+        self.assertEqual(entry.fields(), {'name': 'Foo'})
+        self.assertEqual(entry.fields('es-AR'), {'name': 'Bar'})
