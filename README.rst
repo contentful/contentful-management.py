@@ -15,6 +15,7 @@ Install Contentful Management from the Python Package Index::
 
 Usage
 -----
+**Warning, if you're using your account without environments the "_environment_id_" in the examples below should be "_master_"!**
 
 Client
 ------
