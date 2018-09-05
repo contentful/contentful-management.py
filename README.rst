@@ -160,6 +160,8 @@ Retrieving your User information::
 Environments
 ------------
 
+**Note:** For all resources that depend on an environment but don't have environments explicitly enabled. You should use ``'master'`` as ``environment_id``.
+
 Retrieving all environments on a space::
 
     environments = client.environments('my_space_id').all()
