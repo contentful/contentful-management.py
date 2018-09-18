@@ -332,6 +332,21 @@ Updating an entry::
     entry.title = 'My Super Post'
     entry.save()
 
+Updating an entry for multiple locales::
+
+    for target_locale in ['en-US', 'es-AR']:
+        entry.sys['locale'] = target_locale
+        entry.title = 'Post in {0}'.format(target_locale)
+    entry.save()
+
+    entry.fields('en-US')['title']  # will return "Post in en-US"
+    entry.fields('es-AR')['title']  # will return "Post in es-AR"
+
+Accessing localized fields::
+
+    entry.sys['locale'] = 'es-AR'
+    entry.title  # will now be equivalent to entry.fields('es-AR')['title']
+
 Deleting an entry::
 
     client.entries('my_space_id').delete('entry_id')
