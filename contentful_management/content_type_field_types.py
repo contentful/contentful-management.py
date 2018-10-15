@@ -175,14 +175,14 @@ class LocationField(BasicField):
         }
 
 
-class StructuredTextField(BasicField):
+class RichTextField(BasicField):
     """
-    Structured Text coercion class.
+    Rich Text coercion class.
     """
 
     def coerce(self, value):
         """
-        Returns the structured text object as is.
+        Returns the rich text object as is.
         Include resolution and other particular processing is done for CDA only.
         """
 
