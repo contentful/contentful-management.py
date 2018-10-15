@@ -1,6 +1,11 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.4.0
+
+As `RichText` moves from `alpha` to `beta`, we're treating this as a feature release.
+
 ### Changed
 * Renamed `StructuredText` to `RichText`.
 
