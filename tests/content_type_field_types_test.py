@@ -14,7 +14,7 @@ from contentful_management.content_type_field_types import (
     LinkField,
     ArrayField,
     ObjectField,
-    StructuredTextField
+    RichTextField
 )
 
 
@@ -135,8 +135,8 @@ class ObjectFieldTest(TestCase):
         self.assertEqual(object_field.coerce([{'foo': 'bar'}, {'baz': 'qux'}]), [{'foo': 'bar'}, {'baz': 'qux'}])
 
 
-class StructuredTextFieldTest(TestCase):
-    def test_structured_text_field(self):
-        st_field = StructuredTextField()
+class RichTextFieldTest(TestCase):
+    def test_rich_text_field(self):
+        st_field = RichTextField()
 
         self.assertEqual(st_field.coerce({'foo': 'bar'}), {'foo': 'bar'})
