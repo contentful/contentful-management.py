@@ -1,6 +1,6 @@
 from .resource import Resource
 from .space_roles_proxy import SpaceRolesProxy
-from .space_uploads_proxy import SpaceUploadsProxy
+from .uploads_proxy import UploadsProxy
 from .space_api_keys_proxy import SpaceApiKeysProxy
 from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_environments_proxy import SpaceEnvironmentsProxy
@@ -220,9 +220,9 @@ class Space(Resource):
         Usage:
 
             >>> space_uploads_proxy = space.uploads()
-            <SpaceUploadsProxy space_id="cfexampleapi">
+            <UploadsProxy space_id="cfexampleapi">
         """
-        return SpaceUploadsProxy(self._client, self.id)
+        return UploadsProxy(self._client, self.id)
 
     def environments(self):
         """
