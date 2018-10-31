@@ -35,7 +35,6 @@ from .space_api_keys_proxy_test import *
 from .space_resource_proxy_test import *
 from .space_roles_proxy_test import *
 from .space_test import *
-from .space_uploads_proxy_test import *
 from .space_webhooks_proxy_test import *
 from .space_preview_api_keys_proxy_test import *
 from .spaces_proxy_test import *

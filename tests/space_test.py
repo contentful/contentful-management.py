@@ -121,7 +121,7 @@ class SpaceTest(TestCase):
 
         proxy = space.uploads()
 
-        self.assertEqual(str(proxy), "<SpaceUploadsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+        self.assertEqual(str(proxy), "<UploadsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
     @vcr.use_cassette('fixtures/space/find_3.yaml')
     def test_space_webhooks(self):

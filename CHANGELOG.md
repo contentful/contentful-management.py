@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Changed
+* Removed `SpacesUploadProxy` and simplified the logic to use `UploadProxy`. [#52](https://github.com/contentful/contentful-management.py/issues/52)
+
 ## v2.4.0
 
 As `RichText` moves from `alpha` to `beta`, we're treating this as a feature release.
