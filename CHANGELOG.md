@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v2.5.0
+
 ### Changed
 * Removed `SpacesUploadProxy` and simplified the logic to use `UploadProxy`. [#52](https://github.com/contentful/contentful-management.py/issues/52)
 * Updated `requests` version due to a vulnerability found in versions `2.19` and below.

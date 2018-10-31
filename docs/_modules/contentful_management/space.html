@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space &#8212; Contentful Management 2.4.0 documentation</title>
+    <title>contentful_management.space &#8212; Contentful Management 2.5.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.4.0',
+        VERSION:     '2.5.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
   <h1>Source code for contentful_management.space</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span>
 <span class="kn">from</span> <span class="nn">.space_roles_proxy</span> <span class="k">import</span> <span class="n">SpaceRolesProxy</span>
-<span class="kn">from</span> <span class="nn">.space_uploads_proxy</span> <span class="k">import</span> <span class="n">SpaceUploadsProxy</span>
+<span class="kn">from</span> <span class="nn">.uploads_proxy</span> <span class="k">import</span> <span class="n">UploadsProxy</span>
 <span class="kn">from</span> <span class="nn">.space_api_keys_proxy</span> <span class="k">import</span> <span class="n">SpaceApiKeysProxy</span>
 <span class="kn">from</span> <span class="nn">.space_webhooks_proxy</span> <span class="k">import</span> <span class="n">SpaceWebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.space_environments_proxy</span> <span class="k">import</span> <span class="n">SpaceEnvironmentsProxy</span>
@@ -261,9 +261,9 @@
 <span class="sd">        Usage:</span>
 
 <span class="sd">            &gt;&gt;&gt; space_uploads_proxy = space.uploads()</span>
-<span class="sd">            &lt;SpaceUploadsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">            &lt;UploadsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">SpaceUploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">UploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Space.environments"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.environments">[docs]</a>    <span class="k">def</span> <span class="nf">environments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
