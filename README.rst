@@ -150,6 +150,19 @@ Retrieving all Organizations you belong to::
 
     organizations = client.organizations().all()
 
+Usage Periods (ALPHA)
+---------------------
+
+*Note*: This feature is available only to Commited v2 customers.
+
+Retrieving all Usage Periods for an Organizations you belong to::
+
+    usage_periods = client.usage_periods('organization_id').all()
+
+Alternatively, if you have an already fetched organization::
+
+    usage_periods = organization.usage_periods().all()
+
 Users
 -----
 

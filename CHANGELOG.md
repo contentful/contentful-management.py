@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added Usage Periods API
 
 ## v2.5.0
 

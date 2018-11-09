@@ -13,6 +13,7 @@ from .environment import Environment
 from .ui_extension import UIExtension
 from .content_type import ContentType
 from .webhook_call import WebhookCall
+from .usage_period import UsagePeriod
 from .organization import Organization
 from .webhook_health import WebhookHealth
 from .preview_api_key import PreviewApiKey
@@ -62,6 +63,7 @@ class ResourceBuilder(object):
             'Space': Space,
             'SpaceMembership': SpaceMembership,
             'Organization': Organization,
+            'UsagePeriod': UsagePeriod,
             'ApiKey': ApiKey,
             'PreviewApiKey': PreviewApiKey,
             'PersonalAccessToken': PersonalAccessToken,

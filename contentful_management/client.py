@@ -20,6 +20,7 @@ from .environments_proxy import EnvironmentsProxy
 from .webhooks_call_proxy import WebhooksCallProxy
 from .ui_extensions_proxy import UIExtensionsProxy
 from .content_types_proxy import ContentTypesProxy
+from .usage_periods_proxy import UsagePeriodsProxy
 from .organizations_proxy import OrganizationsProxy
 from .webhooks_health_proxy import WebhooksHealthProxy
 from .preview_api_keys_proxy import PreviewApiKeysProxy
@@ -183,6 +184,23 @@ class Client(object):
         """
 
         return OrganizationsProxy(self)
+
+    def usage_periods(self, organization_id):
+        """
+        Provides access to an organizations usage periods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods
+
+        :return: :class:`UsagePeriodsProxy <contentful_management.usage_periods_proxy.UsagePeriodsProxy>` object.
+        :rtype: contentful.usage_periods_proxy.UsagePeriodsProxy
+
+        Usage:
+
+            >>> usage_periods_proxy = client.usage_periods('organization_id')
+            <UsagePeriodsProxy organization_id='organization_id'>
+        """
+
+        return UsagePeriodsProxy(self, organization_id)
 
     def users(self):
         """

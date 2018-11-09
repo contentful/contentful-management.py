@@ -1,4 +1,5 @@
 from .resource import Resource
+from .usage_periods_proxy import UsagePeriodsProxy
 
 
 """
@@ -30,6 +31,23 @@ class Organization(Resource):
         """
 
         return "organizations"
+
+    def usage_periods(self):
+        """
+        Provides access to usage periods management methods.
+
+        API reference: TBD
+
+        :return: :class:`UsagePeriodsProxy <contentful_management.usage_periods_proxy.UsagePeriodsProxy>` object.
+        :rtype: contentful.usage_periods_proxy.UsagePeriodsProxy
+
+        Usage:
+
+            >>> usage_periods_proxy = organization.usage_periods()
+            <UsagePeriodsProxy organization_id="cfexampleapi">
+        """
+
+        return UsagePeriodsProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(
