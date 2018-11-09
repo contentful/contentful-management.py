@@ -16,6 +16,7 @@ from .uploads_proxy import UploadsProxy
 from .api_keys_proxy import ApiKeysProxy
 from .webhooks_proxy import WebhooksProxy
 from .snapshots_proxy import SnapshotsProxy
+from .api_usages_proxy import ApiUsagesProxy
 from .environments_proxy import EnvironmentsProxy
 from .webhooks_call_proxy import WebhooksCallProxy
 from .ui_extensions_proxy import UIExtensionsProxy
@@ -201,6 +202,23 @@ class Client(object):
         """
 
         return UsagePeriodsProxy(self, organization_id)
+
+    def api_usage(self, organization_id):
+        """
+        Provides access to an organizations api usage metrics.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages
+
+        :return: :class:`ApiUsagesProxy <contentful_management.api_usages_proxy.ApiUsagesProxy>` object.
+        :rtype: contentful.api_usages_proxy.ApiUsagesProxy
+
+        Usage:
+
+            >>> api_usages_proxy = client.api_usage('organization_id')
+            <ApiUsagesProxy organization_id='organization_id'>
+        """
+
+        return ApiUsagesProxy(self, organization_id)
 
     def users(self):
         """

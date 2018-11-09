@@ -178,14 +178,20 @@ class Resource(object):
     def _hydrate_sys(self, item):
         sys = {}
         for k, v in item['sys'].items():
-            if k in ['space', 'contentType', 'createdBy',
-                     'updatedBy', 'publishedBy', 'environment']:
+            if k in self._linkables():
                 v = self._build_link(v)
-            if k in ['createdAt', 'updatedAt', 'deletedAt',
-                     'firstPublishedAt', 'publishedAt', 'expiresAt']:
+            if k in self._dateables():
                 v = dateutil.parser.parse(v)
             sys[snake_case(k)] = v
         return sys
+
+    def _linkables(self):
+        return ['space', 'contentType', 'createdBy',
+                'updatedBy', 'publishedBy', 'environment']
+
+    def _dateables(self):
+        return ['createdAt', 'updatedAt', 'deletedAt',
+                'firstPublishedAt', 'publishedAt', 'expiresAt']
 
     def _build_link(self, link):
         return Link(link, client=self._client)

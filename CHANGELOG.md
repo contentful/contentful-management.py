@@ -3,6 +3,7 @@
 ## Unreleased
 ### Added
 * Added Usage Periods API
+* Added API Usages API
 
 ## v2.5.0
 

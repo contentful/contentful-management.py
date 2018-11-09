@@ -1,4 +1,5 @@
 from .resource import Resource
+from .api_usages_proxy import ApiUsagesProxy
 from .usage_periods_proxy import UsagePeriodsProxy
 
 
@@ -48,6 +49,23 @@ class Organization(Resource):
         """
 
         return UsagePeriodsProxy(self._client, self.id)
+
+    def api_usage(self):
+        """
+        Provides access to an organizations api usage metrics.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages
+
+        :return: :class:`ApiUsagesProxy <contentful_management.api_usages_proxy.ApiUsagesProxy>` object.
+        :rtype: contentful.api_usages_proxy.ApiUsagesProxy
+
+        Usage:
+
+            >>> api_usages_proxy = organization.api_usage()
+            <ApiUsagesProxy organization_id='organization_id'>
+        """
+
+        return ApiUsagesProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(

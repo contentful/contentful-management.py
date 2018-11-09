@@ -163,6 +163,23 @@ Alternatively, if you have an already fetched organization::
 
     usage_periods = organization.usage_periods().all()
 
+API Usage (ALPHA)
+---------------------
+
+*Note*: This feature is available only to Commited v2 customers.
+
+Retrieving all API Usage statistics for an Organizations during a given usage period, broken down by organization for all APIs::
+
+    # Valid usage types are by 'organization' and by 'space'.
+    # Usage period IDs are numerical and can be fetched from the Usage Periods API.
+    # Valid API breakdowns are: 'cda', 'cpa', 'cma' or 'all_apis'.
+    usage = client.api_usage('organization_id').all('organization', usage_period_id, 'all_apis')
+
+Alternatively, if you have an already fetched organization::
+
+    # Breaking down CMA usage by space, for a given period.
+    usage = organization.api_usage().all('space', usage_period_id, 'cma')
+
 Users
 -----
 
