@@ -436,14 +436,6 @@ contentful\_management\.space\_space\_memberships\_proxy module
     :undoc-members:
     :show-inheritance:
 
-contentful\_management\.space\_uploads\_proxy module
-----------------------------------------------------
-
-.. automodule:: contentful_management.space_uploads_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 contentful\_management\.space\_webhooks\_proxy module
 -----------------------------------------------------
 
