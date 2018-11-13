@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.client &#8212; Contentful Management 2.5.0 documentation</title>
+    <title>contentful_management.client &#8212; Contentful Management 2.6.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.5.0',
+        VERSION:     '2.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -57,10 +57,12 @@
 <span class="kn">from</span> <span class="nn">.api_keys_proxy</span> <span class="k">import</span> <span class="n">ApiKeysProxy</span>
 <span class="kn">from</span> <span class="nn">.webhooks_proxy</span> <span class="k">import</span> <span class="n">WebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="k">import</span> <span class="n">SnapshotsProxy</span>
+<span class="kn">from</span> <span class="nn">.api_usages_proxy</span> <span class="k">import</span> <span class="n">ApiUsagesProxy</span>
 <span class="kn">from</span> <span class="nn">.environments_proxy</span> <span class="k">import</span> <span class="n">EnvironmentsProxy</span>
 <span class="kn">from</span> <span class="nn">.webhooks_call_proxy</span> <span class="k">import</span> <span class="n">WebhooksCallProxy</span>
 <span class="kn">from</span> <span class="nn">.ui_extensions_proxy</span> <span class="k">import</span> <span class="n">UIExtensionsProxy</span>
 <span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="k">import</span> <span class="n">ContentTypesProxy</span>
+<span class="kn">from</span> <span class="nn">.usage_periods_proxy</span> <span class="k">import</span> <span class="n">UsagePeriodsProxy</span>
 <span class="kn">from</span> <span class="nn">.organizations_proxy</span> <span class="k">import</span> <span class="n">OrganizationsProxy</span>
 <span class="kn">from</span> <span class="nn">.webhooks_health_proxy</span> <span class="k">import</span> <span class="n">WebhooksHealthProxy</span>
 <span class="kn">from</span> <span class="nn">.preview_api_keys_proxy</span> <span class="k">import</span> <span class="n">PreviewApiKeysProxy</span>
@@ -224,6 +226,40 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">OrganizationsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.usage_periods"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.usage_periods">[docs]</a>    <span class="k">def</span> <span class="nf">usage_periods</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to an organizations usage periods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</span>
+
+<span class="sd">        :return: :class:`UsagePeriodsProxy &lt;contentful_management.usage_periods_proxy.UsagePeriodsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.usage_periods_proxy.UsagePeriodsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; usage_periods_proxy = client.usage_periods(&#39;organization_id&#39;)</span>
+<span class="sd">            &lt;UsagePeriodsProxy organization_id=&#39;organization_id&#39;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">UsagePeriodsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.api_usage"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.api_usage">[docs]</a>    <span class="k">def</span> <span class="nf">api_usage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to an organizations api usage metrics.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages</span>
+
+<span class="sd">        :return: :class:`ApiUsagesProxy &lt;contentful_management.api_usages_proxy.ApiUsagesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.api_usages_proxy.ApiUsagesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; api_usages_proxy = client.api_usage(&#39;organization_id&#39;)</span>
+<span class="sd">            &lt;ApiUsagesProxy organization_id=&#39;organization_id&#39;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">ApiUsagesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.users"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 2.5.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.6.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.5.0',
+        VERSION:     '2.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -87,6 +87,55 @@
 <dt id="contentful_management.api_keys_proxy.ApiKeysProxy.create">
 <code class="descname">create</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_keys_proxy.html#ApiKeysProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_keys_proxy.ApiKeysProxy.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an API key with given attributes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.api_usage">
+<span id="contentful-management-api-usage-module"></span><h2>contentful_management.api_usage module<a class="headerlink" href="#module-contentful_management.api_usage" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.api_usage.ApiUsage">
+<em class="property">class </em><code class="descclassname">contentful_management.api_usage.</code><code class="descname">ApiUsage</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usage.html#ApiUsage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usage.ApiUsage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages</a></p>
+<dl class="classmethod">
+<dt id="contentful_management.api_usage.ApiUsage.base_url">
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>organization_id</em>, <em>usage_type</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usage.html#ApiUsage.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usage.ApiUsage.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.api_usages_proxy">
+<span id="contentful-management-api-usages-proxy-module"></span><h2>contentful_management.api_usages_proxy module<a class="headerlink" href="#module-contentful_management.api_usages_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.api_usages_proxy.ApiUsagesProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.api_usages_proxy.</code><code class="descname">ApiUsagesProxy</code><span class="sig-paren">(</span><em>client</em>, <em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usages_proxy.html#ApiUsagesProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usages_proxy.ApiUsagesProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages</a></p>
+<dl class="method">
+<dt id="contentful_management.api_usages_proxy.ApiUsagesProxy.all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>usage_type</em>, <em>usage_period_id</em>, <em>api</em>, <em>query=None</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usages_proxy.html#ApiUsagesProxy.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usages_proxy.ApiUsagesProxy.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all api usages by type for a given period an api.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.api_usages_proxy.ApiUsagesProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>file_or_path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usages_proxy.html#ApiUsagesProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usages_proxy.ApiUsagesProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.api_usages_proxy.ApiUsagesProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>upload_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usages_proxy.html#ApiUsagesProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usages_proxy.ApiUsagesProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.api_usages_proxy.ApiUsagesProxy.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/api_usages_proxy.html#ApiUsagesProxy.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.api_usages_proxy.ApiUsagesProxy.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
 </dd></dl>
 
 </dd></dl>
@@ -252,6 +301,28 @@ for retry after RateLimitError, defaults to 60.</li>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_keys_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_keys</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
 <span class="go">&lt;ApiKeysProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.client.Client.api_usage">
+<code class="descname">api_usage</code><span class="sig-paren">(</span><em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.api_usage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.api_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to an organizations api usage metrics.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.api_usages_proxy.ApiUsagesProxy" title="contentful_management.api_usages_proxy.ApiUsagesProxy"><code class="xref py py-class docutils literal"><span class="pre">ApiUsagesProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.api_usages_proxy.ApiUsagesProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_usages_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_usage</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span>
+<span class="go">&lt;ApiUsagesProxy organization_id=&#39;organization_id&#39;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -630,6 +701,28 @@ for retry after RateLimitError, defaults to 60.</li>
 <p>Usage:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">uploads_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">uploads</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">)</span>
 <span class="go">&lt;UploadsProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.client.Client.usage_periods">
+<code class="descname">usage_periods</code><span class="sig-paren">(</span><em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.usage_periods"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.usage_periods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to an organizations usage periods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy" title="contentful_management.usage_periods_proxy.UsagePeriodsProxy"><code class="xref py py-class docutils literal"><span class="pre">UsagePeriodsProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.usage_periods_proxy.UsagePeriodsProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">usage_periods_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span>
+<span class="go">&lt;UsagePeriodsProxy organization_id=&#39;organization_id&#39;&gt;</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -1838,10 +1931,54 @@ Include resolution and other particular processing is done for CDA only.</p>
 <em class="property">class </em><code class="descclassname">contentful_management.organization.</code><code class="descname">Organization</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization.html#Organization"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization.Organization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations</a></p>
+<dl class="method">
+<dt id="contentful_management.organization.Organization.api_usage">
+<code class="descname">api_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization.html#Organization.api_usage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization.Organization.api_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to an organizations api usage metrics.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.api_usages_proxy.ApiUsagesProxy" title="contentful_management.api_usages_proxy.ApiUsagesProxy"><code class="xref py py-class docutils literal"><span class="pre">ApiUsagesProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.api_usages_proxy.ApiUsagesProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">api_usages_proxy</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">api_usage</span><span class="p">()</span>
+<span class="go">&lt;ApiUsagesProxy organization_id=&#39;organization_id&#39;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="classmethod">
 <dt id="contentful_management.organization.Organization.base_url">
 <em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization.html#Organization.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization.Organization.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the organization.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.organization.Organization.usage_periods">
+<code class="descname">usage_periods</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization.html#Organization.usage_periods"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization.Organization.usage_periods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to usage periods management methods.</p>
+<p>API reference: TBD</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy" title="contentful_management.usage_periods_proxy.UsagePeriodsProxy"><code class="xref py py-class docutils literal"><span class="pre">UsagePeriodsProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.usage_periods_proxy.UsagePeriodsProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">usage_periods_proxy</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">()</span>
+<span class="go">&lt;UsagePeriodsProxy organization_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -2796,6 +2933,55 @@ Include resolution and other particular processing is done for CDA only.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-contentful_management.usage_period">
+<span id="contentful-management-usage-period-module"></span><h2>contentful_management.usage_period module<a class="headerlink" href="#module-contentful_management.usage_period" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.usage_period.UsagePeriod">
+<em class="property">class </em><code class="descclassname">contentful_management.usage_period.</code><code class="descname">UsagePeriod</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_period.html#UsagePeriod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_period.UsagePeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</a></p>
+<dl class="classmethod">
+<dt id="contentful_management.usage_period.UsagePeriod.base_url">
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_period.html#UsagePeriod.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_period.UsagePeriod.base_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.usage_periods_proxy">
+<span id="contentful-management-usage-periods-proxy-module"></span><h2>contentful_management.usage_periods_proxy module<a class="headerlink" href="#module-contentful_management.usage_periods_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.usage_periods_proxy.UsagePeriodsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.usage_periods_proxy.</code><code class="descname">UsagePeriodsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_periods_proxy.html#UsagePeriodsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</a></p>
+<dl class="method">
+<dt id="contentful_management.usage_periods_proxy.UsagePeriodsProxy.all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_periods_proxy.html#UsagePeriodsProxy.all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy.all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all usage periods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.usage_periods_proxy.UsagePeriodsProxy.create">
+<code class="descname">create</code><span class="sig-paren">(</span><em>file_or_path</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_periods_proxy.html#UsagePeriodsProxy.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.usage_periods_proxy.UsagePeriodsProxy.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>upload_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_periods_proxy.html#UsagePeriodsProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.usage_periods_proxy.UsagePeriodsProxy.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/usage_periods_proxy.html#UsagePeriodsProxy.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.usage_periods_proxy.UsagePeriodsProxy.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not supported.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-contentful_management.user">
 <span id="contentful-management-user-module"></span><h2>contentful_management.user module<a class="headerlink" href="#module-contentful_management.user" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -3286,6 +3472,8 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-contentful_management.api_key">contentful_management.api_key module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.api_keys_proxy">contentful_management.api_keys_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.api_usage">contentful_management.api_usage module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.api_usages_proxy">contentful_management.api_usages_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.array">contentful_management.array module</a><ul>
 <li><a class="reference internal" href="#contentful-management-array">contentful_management.array</a></li>
 </ul>
@@ -3365,6 +3553,8 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.ui_extensions_proxy">contentful_management.ui_extensions_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.upload">contentful_management.upload module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.uploads_proxy">contentful_management.uploads_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.usage_period">contentful_management.usage_period module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.usage_periods_proxy">contentful_management.usage_periods_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.user">contentful_management.user module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.users_proxy">contentful_management.users_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.utils">contentful_management.utils module</a></li>

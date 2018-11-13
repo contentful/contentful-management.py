@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.6.0
 ### Added
 * Added Usage Periods API
 * Added API Usages API
