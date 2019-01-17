@@ -20,6 +20,22 @@ contentful\_management\.api\_keys\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.api\_usage module
+-----------------------------------------
+
+.. automodule:: contentful_management.api_usage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.api\_usages\_proxy module
+-------------------------------------------------
+
+.. automodule:: contentful_management.api_usages_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.array module
 ------------------------------------
 
@@ -480,6 +496,22 @@ contentful\_management\.uploads\_proxy module
 ---------------------------------------------
 
 .. automodule:: contentful_management.uploads_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.usage\_period module
+--------------------------------------------
+
+.. automodule:: contentful_management.usage_period
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.usage\_periods\_proxy module
+----------------------------------------------------
+
+.. automodule:: contentful_management.usage_periods_proxy
     :members:
     :undoc-members:
     :show-inheritance:

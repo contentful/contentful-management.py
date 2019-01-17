@@ -227,7 +227,9 @@ class Resource(object):
             # In Resources which do not inherit EnvironmentAwareResource an AttributeError will happen
             return None
 
-    def __getattr__(self, name):
+    def __getattr__(self, name, *args, **kwargs):
+        if name in ['__getstate__', '__setstate__']:
+            return super(Resource, self).__getattr__(name, *args, **kwargs)
         if name in self.sys:
             return self.sys[name]
         raise AttributeError(
@@ -344,7 +346,9 @@ class FieldsResource(Resource):
         if hasattr(other, '_fields'):
             self._fields = other._fields
 
-    def __getattr__(self, name):
+    def __getattr__(self, name, *args, **kwargs):
+        if name in ['__getstate__', '__setstate__']:
+            return super(FieldsResource, self).__getattr__(name, *args, **kwargs)
         locale = self._locale()
         if name in self._fields.get(locale, {}):
             return self._fields[locale][name]

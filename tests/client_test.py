@@ -221,4 +221,3 @@ class ClientTest(TestCase):
         error = client.entries(PLAYGROUND_SPACE, 'master').find('abc123')
 
         self.assertIn('fizz', error.response.request.headers)
-
