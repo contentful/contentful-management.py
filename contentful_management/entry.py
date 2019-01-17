@@ -73,7 +73,7 @@ class Entry(FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareRe
 
     def _missing_field_raw_id(self, name):
         for field in self._content_type().fields:
-            if snake_case(field.id) == name:
+            if field.id == snake_case(name):
                 return field._real_id()
 
     def _is_missing_field(self, name):
