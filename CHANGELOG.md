@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## v2.6.1
+### Fixed
+* Fixed an issue with `deepcopy` not being able to properly clone resources.
+* Fixed an issue with properties missing from an entry that were not being able to be resolved to a field.
+
 ## v2.6.0
 ### Added
 * Added Usage Periods API
