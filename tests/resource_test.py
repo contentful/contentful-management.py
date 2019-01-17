@@ -1,6 +1,19 @@
 import vcr
+from copy import deepcopy
 from unittest import TestCase
 from .test_helper import CLIENT, PLAYGROUND_SPACE
+
+
+class ResourceTest(TestCase):
+    @vcr.use_cassette('fixtures/resource/copy.yaml')
+    def test_can_properly_deepcopy(self):
+        entry = CLIENT.spaces().find(PLAYGROUND_SPACE).environments().find('master').entries().all()[0]
+
+        copied_entry = deepcopy(entry)
+
+        self.assertEqual(entry.raw, copied_entry.raw)
+        self.assertEqual(entry.fields(), copied_entry.fields())
+        self.assertEqual(entry.id, copied_entry.id)
 
 
 class LinkTest(TestCase):
