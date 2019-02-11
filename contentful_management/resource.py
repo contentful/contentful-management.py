@@ -2,9 +2,7 @@ import dateutil.parser
 
 from datetime import datetime
 
-from .utils import snake_case
-from .utils import camel_case
-from .utils import base_path_for
+from .utils import snake_case, camel_case, base_path_for, sanitize_date
 
 
 """
@@ -389,6 +387,18 @@ class PublishResource(object):
         """
 
         return bool(self.sys.get('published_at', False))
+
+    @property
+    def is_updated(self):
+        """
+        Checks if a resource has been updated since last publish.
+        Returns False if resource has not been published before.
+        """
+
+        if not self.is_published:
+            return False
+
+        return sanitize_date(self.sys['published_at']) < sanitize_date(self.sys['updated_at'])
 
     def publish(self):
         """

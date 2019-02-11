@@ -338,6 +338,10 @@ Checking if an asset is published::
 
     asset.is_published
 
+Checking if an asset is updated::
+
+    asset.is_updated
+
 Entries
 -------
 
@@ -451,7 +455,11 @@ Publishing or Unpublishing an entry::
 
 Checking if an entry is published::
 
-    entry.is_published()
+    entry.is_published
+
+Checking if an entry is updated::
+
+    entry.is_updated
 
 
 **Note**:
@@ -571,7 +579,11 @@ Publishing or Unpublishing a content type::
 
 Checking if a content type is published::
 
-    content_type.is_published()
+    content_type.is_published
+
+Checking if a content type is updated::
+
+    content_type.is_updated
 
 Removing a field from a content type::
 

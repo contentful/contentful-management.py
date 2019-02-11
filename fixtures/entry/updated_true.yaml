@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: [identity]
+      Authorization: [Bearer <ACCESS_TOKEN>]
+      Connection: [keep-alive]
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      User-Agent: [python-requests/2.21.0]
+      X-Contentful-User-Agent: [sdk contentful-management.py/2.6.1; platform python/3.7.2;
+          os macOS/16.7.0;]
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries/3fTNzlQsDmge6YQEikEuME
+  response:
+    body: {string: "{\n  \"sys\": {\n    \"space\": {\n      \"sys\": {\n        \"type\":
+        \"Link\",\n        \"linkType\": \"Space\",\n        \"id\": \"facgnwwgj5fe\"\n
+        \     }\n    },\n    \"id\": \"3fTNzlQsDmge6YQEikEuME\",\n    \"type\": \"Entry\",\n
+        \   \"createdAt\": \"2017-06-15T14:23:07.028Z\",\n    \"updatedAt\": \"2017-06-15T14:28:46.345Z\",\n
+        \   \"environment\": {\n      \"sys\": {\n        \"id\": \"master\",\n        \"type\":
+        \"Link\",\n        \"linkType\": \"Environment\"\n      }\n    },\n    \"createdBy\":
+        {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"User\",\n
+        \       \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"updatedBy\":
+        {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\": \"User\",\n
+        \       \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n      }\n    },\n    \"publishedCounter\":
+        1,\n    \"version\": 12,\n    \"publishedBy\": {\n      \"sys\": {\n        \"type\":
+        \"Link\",\n        \"linkType\": \"User\",\n        \"id\": \"4SejVrWT96dvL9IV4Nb7sQ\"\n
+        \     }\n    },\n    \"publishedVersion\": 10,\n    \"firstPublishedAt\":
+        \"2017-06-15T14:23:17.640Z\",\n    \"publishedAt\": \"2017-06-15T14:23:17.641Z\",\n
+        \   \"contentType\": {\n      \"sys\": {\n        \"type\": \"Link\",\n        \"linkType\":
+        \"ContentType\",\n        \"id\": \"missingFields\"\n      }\n    }\n  },\n
+        \ \"fields\": {\n    \"name\": {\n      \"en-US\": \"A Name\"\n    },\n    \"other\":
+        {\n      \"en-US\": \"Other Stuff\"\n    },\n    \"different\": {\n      \"en-US\":
+        \"A Different Field\"\n    }\n  }\n}\n"}
+    headers:
+      Access-Control-Allow-Headers: ['Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment']
+      Access-Control-Allow-Methods: ['DELETE,GET,HEAD,POST,PUT,OPTIONS']
+      Access-Control-Allow-Origin: ['*']
+      Access-Control-Expose-Headers: [Etag]
+      Access-Control-Max-Age: ['1728000']
+      CF-Space-Id: [facgnwwgj5fe]
+      Connection: [keep-alive]
+      Content-Length: ['1335']
+      Content-Type: [application/vnd.contentful.management.v1+json]
+      Contentful-Api: [cma]
+      Date: ['Mon, 11 Feb 2019 10:18:23 GMT']
+      ETag: ['"bbf0ab827d2707d733b376e4276110a4"']
+      Server: [Contentful]
+      Set-Cookie: ['visid_incap_673446=e7q3+u1mR+SqmlL7aLbg9+5LYVwAAAAAQUIPAAAAAACcanfWsxieev/YB4znpfnM;
+          expires=Mon, 10 Feb 2020 10:49:40 GMT; path=/; Domain=.contentful.com',
+        nlbi_673446=wS0VMKxPuFv5QuI86lKYhQAAAABF+yPKcN6NQmOQ8hAasPZb; path=/; Domain=.contentful.com,
+        incap_ses_1079_673446=vUDcceYshydhM4ln+WD5Du5LYVwAAAAArokEWLOGVcPgXn1k+ZJ7CQ==;
+          path=/; Domain=.contentful.com]
+      Strict-Transport-Security: [max-age=15768000]
+      X-CDN: [Incapsula]
+      X-Content-Type-Options: [nosniff]
+      X-Contentful-RateLimit-Hour-Limit: ['36000']
+      X-Contentful-RateLimit-Hour-Remaining: ['35999']
+      X-Contentful-RateLimit-Reset: ['0']
+      X-Contentful-RateLimit-Second-Limit: ['10']
+      X-Contentful-RateLimit-Second-Remaining: ['9']
+      X-Contentful-Request-Id: [57159535b862ce11d7e7dd5b7d01e8ab]
+      X-Iinfo: [11-7811405-7811006 PNNN RT(1549880302422 53) q(0 0 0 -1) r(2 2) U5]
+    status: {code: 200, message: OK}
+version: 1
