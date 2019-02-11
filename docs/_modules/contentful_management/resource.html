@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.resource &#8212; Contentful Management 2.6.1 documentation</title>
+    <title>contentful_management.resource &#8212; Contentful Management 2.7.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.6.1',
+        VERSION:     '2.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -36,6 +36,8 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.resource</h1><div class="highlight"><pre>
@@ -43,9 +45,7 @@
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">snake_case</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">camel_case</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">base_path_for</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">snake_case</span><span class="p">,</span> <span class="n">camel_case</span><span class="p">,</span> <span class="n">base_path_for</span><span class="p">,</span> <span class="n">sanitize_date</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -90,7 +90,7 @@
 
         <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">url</span><span class="p">,</span>
-            <span class="n">base_path_for</span><span class="p">(</span><span class="n">klass</span><span class="o">.</span><span class="n">__name__</span><span class="p">)</span>
+            <span class="n">base_path_for</span><span class="p">(</span><span class="n">klass</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
         <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">resource_id</span><span class="p">:</span>
@@ -135,7 +135,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                 <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -150,12 +150,12 @@
         <span class="k">if</span> <span class="n">attributes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
 
-        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">create_headers</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">create_headers</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
         <span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_update_headers</span><span class="p">())</span>
 
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_update_url</span><span class="p">(),</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">create_attributes</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">create_attributes</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span>
             <span class="n">headers</span><span class="o">=</span><span class="n">headers</span>
         <span class="p">)</span>
 
@@ -177,7 +177,7 @@
 
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                     <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -241,7 +241,7 @@
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;x-contentful-version&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">])}</span>
 
     <span class="k">def</span> <span class="nf">_update_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                 <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -250,7 +250,7 @@
     <span class="k">def</span> <span class="nf">_update_from_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;sys&#39;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sys</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">sys</span>
-        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">default</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">update_attributes_map</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">default</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">update_attributes_map</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
             <span class="n">self_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">default</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="n">self_value</span><span class="p">:</span>
@@ -270,12 +270,12 @@
 
     <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;__getstate__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setstate__&#39;</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Resource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
             <span class="s2">&quot;&#39;</span><span class="si">{0}</span><span class="s2">&#39; object has no attribute &#39;</span><span class="si">{1}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                 <span class="n">name</span>
             <span class="p">)</span>
         <span class="p">)</span></div>
@@ -302,7 +302,7 @@
         <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;fields&#39;</span><span class="p">]}</span></div>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hydrate_fields</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
 <div class="viewcode-block" id="FieldsResource.fields"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.resource.FieldsResource.fields">[docs]</a>    <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -380,7 +380,7 @@
         <span class="k">return</span> <span class="n">value</span>
 
     <span class="k">def</span> <span class="nf">_locale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="s1">&#39;default_locale&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">locale</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="s1">&#39;default_locale&#39;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_update_from_resource</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_update_from_resource</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
@@ -389,11 +389,11 @@
 
     <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;__getstate__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setstate__&#39;</span><span class="p">]:</span>
-            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">locale</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_locale</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="p">{}):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">[</span><span class="n">locale</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">,</span> <span class="s1">&#39;sys&#39;</span><span class="p">,</span> <span class="s1">&#39;default_locale&#39;</span><span class="p">,</span>
@@ -405,7 +405,7 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">[</span><span class="n">locale</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">[</span><span class="n">locale</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">[</span><span class="n">locale</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_is_missing_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -431,6 +431,18 @@
 
         <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;published_at&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_updated</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if a resource has been updated since last publish.</span>
+<span class="sd">        Returns False if resource has not been published before.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_published</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="n">sanitize_date</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;published_at&#39;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">sanitize_date</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;updated_at&#39;</span><span class="p">])</span>
+
 <div class="viewcode-block" id="PublishResource.publish"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.resource.PublishResource.publish">[docs]</a>    <span class="k">def</span> <span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Publishes the resource.</span>
@@ -438,7 +450,7 @@
 
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span>
             <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/published&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                     <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -457,7 +469,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span>
             <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/published&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                     <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -489,7 +501,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_put</span><span class="p">(</span>
             <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/archived&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                     <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -508,7 +520,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">_delete</span><span class="p">(</span>
             <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">/archived&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">base_url</span><span class="p">(</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;space&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
                     <span class="n">environment_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span>
@@ -582,6 +594,7 @@
 </pre></div>
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">

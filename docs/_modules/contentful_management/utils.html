@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.utils &#8212; Contentful Management 2.6.1 documentation</title>
+    <title>contentful_management.utils &#8212; Contentful Management 2.7.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.6.1',
+        VERSION:     '2.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -36,6 +36,8 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.utils</h1><div class="highlight"><pre>
@@ -65,8 +67,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
-<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">NullHandler</span><span class="p">())</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="unicode_class"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.unicode_class">[docs]</a><span class="k">def</span> <span class="nf">unicode_class</span><span class="p">():</span>
@@ -107,8 +109,8 @@
 <span class="sd">        &quot;foo_bar&quot;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">partial</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">,</span> <span class="s1">r&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">a_string</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="s1">r&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+    <span class="n">partial</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">a_string</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span><span class="p">,</span> <span class="n">partial</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="camel_case"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.camel_case">[docs]</a><span class="k">def</span> <span class="nf">camel_case</span><span class="p">(</span><span class="n">snake_str</span><span class="p">):</span>
@@ -229,6 +231,16 @@
     <span class="k">return</span> <span class="n">basestring</span></div>
 
 
+<div class="viewcode-block" id="sanitize_date"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.sanitize_date">[docs]</a><span class="k">def</span> <span class="nf">sanitize_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;In order to have a more accurate comparison due to minimal delays</span>
+<span class="sd">    upon publishing entries. We strip milliseconds from the dates we compare.</span>
+<span class="sd">    :param date: datetime.datetime</span>
+<span class="sd">    :return: datetime.datetime without milliseconds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="ConfigurationException"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.utils.ConfigurationException">[docs]</a><span class="k">class</span> <span class="nc">ConfigurationException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Configuration error class.</span>
@@ -274,6 +286,7 @@
 </pre></div>
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">

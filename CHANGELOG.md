@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.7.0
 ### Added
 * Added `is_updated` to publishable resources. [contentful-management.rb/#178](https://github.com/contentful/contentful-management.rb/issues/178)
 

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 2.6.1 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.7.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.6.1',
+        VERSION:     '2.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,6 +37,8 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="contentful-management-package">
@@ -2208,6 +2210,13 @@ Include resolution and other particular processing is done for CDA only.</p>
 <dd><p>Checks if resource is published.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="contentful_management.resource.PublishResource.is_updated">
+<code class="descname">is_updated</code><a class="headerlink" href="#contentful_management.resource.PublishResource.is_updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if a resource has been updated since last publish.
+Returns False if resource has not been published before.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="contentful_management.resource.PublishResource.publish">
 <code class="descname">publish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#PublishResource.publish"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.PublishResource.publish" title="Permalink to this definition">¶</a></dt>
@@ -3162,6 +3171,15 @@ accross our SDKs.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="contentful_management.utils.sanitize_date">
+<code class="descclassname">contentful_management.utils.</code><code class="descname">sanitize_date</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#sanitize_date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.sanitize_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>In order to have a more accurate comparison due to minimal delays
+upon publishing entries. We strip milliseconds from the dates we compare.
+:param date: datetime.datetime
+:return: datetime.datetime without milliseconds.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="contentful_management.utils.snake_case">
 <code class="descclassname">contentful_management.utils.</code><code class="descname">snake_case</code><span class="sig-paren">(</span><em>a_string</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/utils.html#snake_case"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.utils.snake_case" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a snake-cased version of a string.</p>
@@ -3462,6 +3480,7 @@ depends on the Python version.</p>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
