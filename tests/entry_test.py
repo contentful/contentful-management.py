@@ -315,3 +315,24 @@ class EntryTest(TestCase):
 
         self.assertEqual(entry.fields(), {'name': 'Foo'})
         self.assertEqual(entry.fields('es-AR'), {'name': 'Bar'})
+
+    @vcr.use_cassette('fixtures/entry/updated_true.yaml')
+    def test_entry_is_updated(self):
+        entry = CLIENT.entries(PLAYGROUND_SPACE, 'master').find('3fTNzlQsDmge6YQEikEuME')
+
+        self.assertTrue(entry.is_published)
+        self.assertTrue(entry.is_updated)
+
+    @vcr.use_cassette('fixtures/entry/unpublished.yaml')
+    def test_entry_is_not_updated_if_never_published(self):
+        entry = CLIENT.entries(PLAYGROUND_SPACE, 'master').find('1HDKL0ldPuaKKiquq0IGam')
+
+        self.assertFalse(entry.is_published)
+        self.assertFalse(entry.is_updated)
+
+    @vcr.use_cassette('fixtures/entry/updated_false.yaml')
+    def test_entry_is_not_updated_if_updated_at_is_earlier_than_publish(self):
+        entry = CLIENT.entries(PLAYGROUND_SPACE, 'master').find('IJLRrADsqq2AmwcugoYeK')
+
+        self.assertTrue(entry.is_published)
+        self.assertFalse(entry.is_updated)

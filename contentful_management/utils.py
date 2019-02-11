@@ -188,6 +188,16 @@ def str_type():
     return basestring
 
 
+def sanitize_date(date):
+    """In order to have a more accurate comparison due to minimal delays
+    upon publishing entries. We strip milliseconds from the dates we compare.
+    :param date: datetime.datetime
+    :return: datetime.datetime without milliseconds.
+    """
+
+    return date.replace(microsecond=0)
+
+
 class ConfigurationException(Exception):
     """
     Configuration error class.
