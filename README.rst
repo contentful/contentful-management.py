@@ -238,6 +238,16 @@ Creating an environment::
         }
     )
 
+Creating an environment with a different source::
+
+    new_environment = client.environments('my_space_id').create(
+        'new_environment_id',
+        {
+            'name': 'New Environment',
+            'source_environment_id': 'other_environment'
+        }
+    )
+
 Assets
 ------
 
