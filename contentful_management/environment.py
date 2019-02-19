@@ -36,12 +36,22 @@ class Environment(Resource):
         return "spaces/{0}/environments/{1}".format(space_id, resource_id)
 
     @classmethod
+    def create_headers(klass, attributes):
+        """
+        Headers for environment creation.
+        """
+
+        if 'source_environment_id' not in attributes:
+            return {}
+        return {'X-Contentful-Source-Environment': attributes['source_environment_id']}
+
+    @classmethod
     def create_attributes(klass, attributes, previous_object=None):
         """
         Attributes for environment creation.
         """
 
-        return super(Environment, klass).create_attributes(attributes, previous_object)
+        return {'name': attributes.get('name', None)}
 
     def to_json(self):
         """

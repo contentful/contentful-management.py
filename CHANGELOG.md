@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Added
+* Added environment branching.
 
 ## v2.7.0
 ### Added

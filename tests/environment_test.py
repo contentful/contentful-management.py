@@ -1,4 +1,5 @@
 import vcr
+from time import sleep
 from unittest import TestCase
 from contentful_management.environment import Environment
 from contentful_management.errors import NotFoundError
@@ -62,6 +63,21 @@ class EnvironmentTest(TestCase):
 
         self.assertEqual(environment.name, 'SDK Tests')
         self.assertEqual(environment.id, 'sdk_tests')
+
+    @vcr.use_cassette('fixtures/environment/create_different_source.yaml')
+    def test_create_environment_with_different_source(self):
+        master = CLIENT.environments(PLAYGROUND_SPACE).find('master')
+
+        self.assertNotEqual(len(master.entries().all()), 0)
+
+        non_master_source = CLIENT.environments(PLAYGROUND_SPACE).create('non-master-py', {
+            'name': 'Non Master - Python',
+            'source_environment_id': 'source'
+        })
+        sleep(5) # Need to sleep to ensure environment is ready
+        non_master_source.reload()
+
+        self.assertEqual(len(non_master_source.entries().all()), 0)
 
     @vcr.use_cassette('fixtures/environment/find.yaml')
     def test_update_environment(self):
