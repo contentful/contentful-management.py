@@ -119,7 +119,7 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 
 <span class="c1"># or if you already have a fetched space</span>
 
-<span class="n">membership</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">memberships</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+<span class="n">membership</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">memberships</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;membership_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deleting an membership:</p>
@@ -127,7 +127,7 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 
 <span class="c1"># or if you already have a fetched space</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">memberships</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;api_key_id&#39;</span><span class="p">)</span>
+<span class="n">space</span><span class="o">.</span><span class="n">memberships</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;membership_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have fetched the membership</span>
 
@@ -190,6 +190,34 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 </div>
+<div class="section" id="usage-periods-alpha">
+<h2>Usage Periods (ALPHA)<a class="headerlink" href="#usage-periods-alpha" title="Permalink to this headline">¶</a></h2>
+<p><em>Note</em>: This feature is available only to Commited v2 customers.</p>
+<p>Retrieving all Usage Periods for an Organizations you belong to:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Alternatively, if you have an already fetched organization:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="api-usage-alpha">
+<h2>API Usage (ALPHA)<a class="headerlink" href="#api-usage-alpha" title="Permalink to this headline">¶</a></h2>
+<p><em>Note</em>: This feature is available only to Commited v2 customers.</p>
+<p>Retrieving all API Usage statistics for an Organizations during a given usage period, broken down by organization for all APIs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Valid usage types are by &#39;organization&#39; and by &#39;space&#39;.</span>
+<span class="c1"># Usage period IDs are numerical and can be fetched from the Usage Periods API.</span>
+<span class="c1"># Valid API breakdowns are: &#39;cda&#39;, &#39;cpa&#39;, &#39;cma&#39; or &#39;all_apis&#39;.</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_usage</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="s1">&#39;organization&#39;</span><span class="p">,</span> <span class="n">usage_period_id</span><span class="p">,</span> <span class="s1">&#39;all_apis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, if you have an already fetched organization:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Breaking down CMA usage by space, for a given period.</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">api_usage</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="s1">&#39;space&#39;</span><span class="p">,</span> <span class="n">usage_period_id</span><span class="p">,</span> <span class="s1">&#39;cma&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="users">
 <h2>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving your User information:</p>
@@ -197,30 +225,90 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 </div>
+<div class="section" id="environments">
+<h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> For all resources that depend on an environment but don’t have environments explicitly enabled. You should use <code class="docutils literal"><span class="pre">'master'</span></code> as <code class="docutils literal"><span class="pre">environment_id</span></code>.</p>
+<p>Retrieving all environments on a space:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environments</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">environments</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">environments</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Retrieving an environment by ID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">environment</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;environment_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">environment</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">environments</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;environment_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deleting an environment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;environment_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">space</span><span class="o">.</span><span class="n">environments</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;environment_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># or if you already fetched the environment</span>
+
+<span class="n">environment</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Creating an environment:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_environment</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_environment_id&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;New Environment&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># or if you already have a fetched space</span>
+
+<span class="n">new_environment</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">environments</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_environment_id&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;New Environment&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Creating an environment with a different source:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_environment</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">environments</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="s1">&#39;new_environment_id&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;New Environment&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;source_environment_id&#39;</span><span class="p">:</span> <span class="s1">&#39;other_environment&#39;</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="assets">
 <h2>Assets<a class="headerlink" href="#assets" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all assets on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">assets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">assets</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">assets</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">assets</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Retrieving an asset by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">asset</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<span class="n">asset</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deleting an asset:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the asset</span>
 
@@ -240,14 +328,14 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">new_asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_asset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
     <span class="n">file_attributes</span>
 <span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">new_asset</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_asset</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
     <span class="n">file_attributes</span>
 <span class="p">)</span>
@@ -269,11 +357,11 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 <p>Deleting an asset:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">assets</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;asset_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the asset</span>
 
@@ -294,15 +382,19 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">is_published</span>
 </pre></div>
 </div>
+<p>Checking if an asset is updated:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">asset</span><span class="o">.</span><span class="n">is_updated</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="entries">
 <h2>Entries<a class="headerlink" href="#entries" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all entries on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entries</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entries</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">entries</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">entries</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
 <span class="c1"># or if you already have a fetched content type</span>
 
@@ -310,11 +402,11 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 <p>Retrieving an entry by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">entry</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<span class="n">entry</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have a fetched content type</span>
 
@@ -322,11 +414,11 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 <p>Deleting an entry:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the entry</span>
 
@@ -346,14 +438,14 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="n">new_entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_entry</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_entry_id&#39;</span><span class="p">,</span>
     <span class="n">entry_attributes</span>
 <span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">new_entry</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_entry</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_entry_id&#39;</span><span class="p">,</span>
     <span class="n">entry_attributes</span>
 <span class="p">)</span>
@@ -384,11 +476,11 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 <p>Deleting an entry:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">entries</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">entries</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;entry_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the entry</span>
 
@@ -409,6 +501,10 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">is_published</span>
 </pre></div>
 </div>
+<p>Checking if an entry is updated:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">entry</span><span class="o">.</span><span class="n">is_updated</span>
+</pre></div>
+</div>
 <p><strong>Note</strong>:</p>
 <blockquote>
 <div>Entries created with <em>empty fields</em>, will not return those fields in the response.
@@ -417,27 +513,27 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="content-types">
 <h2>Content Types<a class="headerlink" href="#content-types" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all content types on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_types</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_types</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">content_types</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">content_types</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Retrieving a content type by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">content_type</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<span class="n">content_type</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deleting a content type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the content type</span>
 
@@ -476,14 +572,14 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
     <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_ct_id&#39;</span><span class="p">,</span>
     <span class="n">content_type_attributes</span>
 <span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">new_content_type</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="s1">&#39;new_ct_id&#39;</span><span class="p">,</span>
     <span class="n">content_type_attributes</span>
 <span class="p">)</span>
@@ -507,11 +603,11 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Deleting a content type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">content_types</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">content_types</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already fetched the content type</span>
 
@@ -524,7 +620,11 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Checking if a content type is published:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">is_published</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">is_published</span>
+</pre></div>
+</div>
+<p>Checking if a content type is updated:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">content_type</span><span class="o">.</span><span class="n">is_updated</span>
 </pre></div>
 </div>
 <p>Removing a field from a content type:</p>
@@ -543,27 +643,27 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="locales">
 <h2>Locales<a class="headerlink" href="#locales" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all locales on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locales</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locales</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">locales</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">locales</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Retrieveing one locale by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+<span class="n">locale</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deleting a locale:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;locale_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have fetched the locale</span>
 
@@ -571,11 +671,11 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Creating a new locale:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_locale</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">locales</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">new_locale</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
+<span class="n">new_locale</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">locales</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Klingon&#39;</span><span class="p">,</span> <span class="s1">&#39;code&#39;</span><span class="p">:</span> <span class="s1">&#39;tlh&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 <p>Updating a locale:</p>
@@ -756,27 +856,27 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="ui-extensions">
 <h2>UI Extensions<a class="headerlink" href="#ui-extensions" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all UI Extenisons on a space:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ui_extensions</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ui_extensions</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">ui_extensions</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">ui_extensions</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Retrieveing one UI Extension by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ui_extension</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ui_extension</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">ui_extension</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
+<span class="n">ui_extension</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Deleting an UI Extension:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">space</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
+<span class="n">environment</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39;ui_extension_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have fetched the UI Extension</span>
 
@@ -784,7 +884,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Creating a new UI Extension:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_ui_extension</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;test-extension&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new_ui_extension</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;test-extension&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s2">&quot;extension&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test Extension&quot;</span><span class="p">,</span>
         <span class="s2">&quot;srcdoc&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;html&gt;foobar&lt;/html&gt;&quot;</span><span class="p">,</span>
@@ -793,9 +893,9 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
     <span class="p">}</span>
 <span class="p">})</span>
 
-<span class="c1"># or if you already have a fetched space</span>
+<span class="c1"># or if you already have a fetched environment</span>
 
-<span class="n">new_ui_extension</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;test-extension&#39;</span><span class="p">,</span> <span class="p">{</span>
+<span class="n">new_ui_extension</span> <span class="o">=</span> <span class="n">environment</span><span class="o">.</span><span class="n">ui_extensions</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;test-extension&#39;</span><span class="p">,</span> <span class="p">{</span>
     <span class="s2">&quot;extension&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Test Extension&quot;</span><span class="p">,</span>
         <span class="s2">&quot;srcdoc&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;html&gt;foobar&lt;/html&gt;&quot;</span><span class="p">,</span>
@@ -825,7 +925,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="editor-interfaces">
 <h2>Editor Interfaces<a class="headerlink" href="#editor-interfaces" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving the editor interfaces for a content type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">editor_interface</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;my_content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">editor_interface</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">editor_interfaces</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;my_content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
 
 <span class="c1"># or if you already have a fetched content type</span>
 
@@ -853,7 +953,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="entry-snapshots">
 <h2>Entry Snapshots<a class="headerlink" href="#entry-snapshots" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all snapshots for an entry:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshots</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshots</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
 <span class="c1"># or if you already have a fetched entry</span>
 
@@ -861,7 +961,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Retrieveing one snapshot by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;entry_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have a fetched entry</span>
 
@@ -872,7 +972,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="section" id="content-type-snapshots">
 <h2>Content Type Snapshots<a class="headerlink" href="#content-type-snapshots" title="Permalink to this headline">¶</a></h2>
 <p>Retrieving all snapshots for a content type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshots</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshots</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 
 <span class="c1"># or if you already have a fetched content type</span>
 
@@ -880,7 +980,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 </pre></div>
 </div>
 <p>Retrieveing one snapshot by ID:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">snapshot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">content_type_snapshots</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">,</span> <span class="s1">&#39;content_type_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;snapshot_id&#39;</span><span class="p">)</span>
 
 <span class="c1"># or if you already have a fetched content_type</span>
 
@@ -1019,13 +1119,6 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
     <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My API Key&#39;</span><span class="p">,</span>
     <span class="s1">&#39;scopes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;content_management_manage&#39;</span><span class="p">]</span>
 <span class="p">})</span>
-
-<span class="c1"># or if you already have a fetched space</span>
-
-<span class="n">new_personal_access_token</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">personal_access_tokens</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">({</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;My Token&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;scopes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;content_management_manage&#39;</span><span class="p">]</span>
-<span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -1068,7 +1161,7 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># notice that the upload is converted to a link,</span>
 <span class="c1"># and the JSON representation is then sent.</span>
 
-<span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="n">client</span><span class="o">.</span><span class="n">assets</span><span class="p">(</span><span class="s1">&#39;my_space_id&#39;</span><span class="p">,</span> <span class="s1">&#39;environment_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
    <span class="s1">&#39;new_asset_id&#39;</span><span class="p">,</span>
    <span class="p">{</span>
      <span class="s1">&#39;fields&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -1262,7 +1355,10 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li><a class="reference internal" href="#spaces">Spaces</a></li>
 <li><a class="reference internal" href="#space-memberships">Space Memberships</a></li>
 <li><a class="reference internal" href="#organizations">Organizations</a></li>
+<li><a class="reference internal" href="#usage-periods-alpha">Usage Periods (ALPHA)</a></li>
+<li><a class="reference internal" href="#api-usage-alpha">API Usage (ALPHA)</a></li>
 <li><a class="reference internal" href="#users">Users</a></li>
+<li><a class="reference internal" href="#environments">Environments</a></li>
 <li><a class="reference internal" href="#assets">Assets</a></li>
 <li><a class="reference internal" href="#entries">Entries</a></li>
 <li><a class="reference internal" href="#content-types">Content Types</a></li>
