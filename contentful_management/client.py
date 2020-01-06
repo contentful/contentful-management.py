@@ -689,6 +689,7 @@ class Client(object):
 
         request_method = getattr(requests, method)
         response = request_method(request_url, **kwargs)
+        response.encoding = 'utf-8'
 
         if response.status_code == 429:
             raise RateLimitExceededError(response)
