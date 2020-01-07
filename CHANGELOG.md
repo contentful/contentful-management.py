@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## v2.9.0
+### Added
+* Enforce `utf-8` response encoding. [#63](https://github.com/contentful/contentful-management.py/pull/63)
+
 ## v2.8.0
 ### Added
 * Added environment branching.

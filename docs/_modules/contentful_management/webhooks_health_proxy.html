@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.webhooks_health_proxy &#8212; Contentful Management 2.8.0 documentation</title>
+    <title>contentful_management.webhooks_health_proxy &#8212; Contentful Management 2.9.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.8.0',
+        VERSION:     '2.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,8 +41,8 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.webhooks_health_proxy</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.client_proxy</span> <span class="k">import</span> <span class="n">ClientProxy</span>
-<span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="k">import</span> <span class="n">WebhookHealth</span>
+<span></span><span class="kn">from</span> <span class="nn">.client_proxy</span> <span class="kn">import</span> <span class="n">ClientProxy</span>
+<span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="kn">import</span> <span class="n">WebhookHealth</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -59,7 +59,7 @@
 
 
 <div class="viewcode-block" id="WebhooksHealthProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.webhooks_health_proxy.WebhooksHealthProxy">[docs]</a><span class="k">class</span> <span class="nc">WebhooksHealthProxy</span><span class="p">(</span><span class="n">ClientProxy</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">WebhooksHealthProxy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">webhook_id</span> <span class="o">=</span> <span class="n">webhook_id</span>
 
@@ -94,7 +94,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">webhook_id</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">{0}</span><span class="s2"> space_id=&#39;</span><span class="si">{1}</span><span class="s2">&#39; webhook_id=&#39;</span><span class="si">{2}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">space_id</span><span class="p">,</span>

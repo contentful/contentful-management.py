@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.content_type &#8212; Contentful Management 2.8.0 documentation</title>
+    <title>contentful_management.content_type &#8212; Contentful Management 2.9.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.8.0',
+        VERSION:     '2.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,11 +41,11 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.content_type</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="k">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span>
-<span class="kn">from</span> <span class="nn">.content_type_field</span> <span class="k">import</span> <span class="n">ContentTypeField</span>
-<span class="kn">from</span> <span class="nn">.content_type_entries_proxy</span> <span class="k">import</span> <span class="n">ContentTypeEntriesProxy</span>
-<span class="kn">from</span> <span class="nn">.content_type_snapshots_proxy</span> <span class="k">import</span> <span class="n">ContentTypeSnapshotsProxy</span>
-<span class="kn">from</span> <span class="nn">.content_type_editor_interfaces_proxy</span> <span class="k">import</span> <span class="n">ContentTypeEditorInterfacesProxy</span>
+<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span>
+<span class="kn">from</span> <span class="nn">.content_type_field</span> <span class="kn">import</span> <span class="n">ContentTypeField</span>
+<span class="kn">from</span> <span class="nn">.content_type_entries_proxy</span> <span class="kn">import</span> <span class="n">ContentTypeEntriesProxy</span>
+<span class="kn">from</span> <span class="nn">.content_type_snapshots_proxy</span> <span class="kn">import</span> <span class="n">ContentTypeSnapshotsProxy</span>
+<span class="kn">from</span> <span class="nn">.content_type_editor_interfaces_proxy</span> <span class="kn">import</span> <span class="n">ContentTypeEditorInterfacesProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -66,7 +66,7 @@
 <span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ContentType</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -179,7 +179,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ContentTypeSnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_environment_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;ContentType[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>

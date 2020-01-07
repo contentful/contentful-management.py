@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.resource_builder &#8212; Contentful Management 2.8.0 documentation</title>
+    <title>contentful_management.resource_builder &#8212; Contentful Management 2.9.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.8.0',
+        VERSION:     '2.9.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,29 +41,29 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.resource_builder</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.role</span> <span class="k">import</span> <span class="n">Role</span>
-<span class="kn">from</span> <span class="nn">.user</span> <span class="k">import</span> <span class="n">User</span>
-<span class="kn">from</span> <span class="nn">.entry</span> <span class="k">import</span> <span class="n">Entry</span>
-<span class="kn">from</span> <span class="nn">.array</span> <span class="k">import</span> <span class="n">Array</span>
-<span class="kn">from</span> <span class="nn">.asset</span> <span class="k">import</span> <span class="n">Asset</span>
-<span class="kn">from</span> <span class="nn">.space</span> <span class="k">import</span> <span class="n">Space</span>
-<span class="kn">from</span> <span class="nn">.locale</span> <span class="k">import</span> <span class="n">Locale</span>
-<span class="kn">from</span> <span class="nn">.upload</span> <span class="k">import</span> <span class="n">Upload</span>
-<span class="kn">from</span> <span class="nn">.api_key</span> <span class="k">import</span> <span class="n">ApiKey</span>
-<span class="kn">from</span> <span class="nn">.webhook</span> <span class="k">import</span> <span class="n">Webhook</span>
-<span class="kn">from</span> <span class="nn">.snapshot</span> <span class="k">import</span> <span class="n">Snapshot</span>
-<span class="kn">from</span> <span class="nn">.api_usage</span> <span class="k">import</span> <span class="n">ApiUsage</span>
-<span class="kn">from</span> <span class="nn">.environment</span> <span class="k">import</span> <span class="n">Environment</span>
-<span class="kn">from</span> <span class="nn">.ui_extension</span> <span class="k">import</span> <span class="n">UIExtension</span>
-<span class="kn">from</span> <span class="nn">.content_type</span> <span class="k">import</span> <span class="n">ContentType</span>
-<span class="kn">from</span> <span class="nn">.webhook_call</span> <span class="k">import</span> <span class="n">WebhookCall</span>
-<span class="kn">from</span> <span class="nn">.usage_period</span> <span class="k">import</span> <span class="n">UsagePeriod</span>
-<span class="kn">from</span> <span class="nn">.organization</span> <span class="k">import</span> <span class="n">Organization</span>
-<span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="k">import</span> <span class="n">WebhookHealth</span>
-<span class="kn">from</span> <span class="nn">.preview_api_key</span> <span class="k">import</span> <span class="n">PreviewApiKey</span>
-<span class="kn">from</span> <span class="nn">.editor_interface</span> <span class="k">import</span> <span class="n">EditorInterface</span>
-<span class="kn">from</span> <span class="nn">.space_membership</span> <span class="k">import</span> <span class="n">SpaceMembership</span>
-<span class="kn">from</span> <span class="nn">.personal_access_token</span> <span class="k">import</span> <span class="n">PersonalAccessToken</span>
+<span></span><span class="kn">from</span> <span class="nn">.role</span> <span class="kn">import</span> <span class="n">Role</span>
+<span class="kn">from</span> <span class="nn">.user</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">.entry</span> <span class="kn">import</span> <span class="n">Entry</span>
+<span class="kn">from</span> <span class="nn">.array</span> <span class="kn">import</span> <span class="n">Array</span>
+<span class="kn">from</span> <span class="nn">.asset</span> <span class="kn">import</span> <span class="n">Asset</span>
+<span class="kn">from</span> <span class="nn">.space</span> <span class="kn">import</span> <span class="n">Space</span>
+<span class="kn">from</span> <span class="nn">.locale</span> <span class="kn">import</span> <span class="n">Locale</span>
+<span class="kn">from</span> <span class="nn">.upload</span> <span class="kn">import</span> <span class="n">Upload</span>
+<span class="kn">from</span> <span class="nn">.api_key</span> <span class="kn">import</span> <span class="n">ApiKey</span>
+<span class="kn">from</span> <span class="nn">.webhook</span> <span class="kn">import</span> <span class="n">Webhook</span>
+<span class="kn">from</span> <span class="nn">.snapshot</span> <span class="kn">import</span> <span class="n">Snapshot</span>
+<span class="kn">from</span> <span class="nn">.api_usage</span> <span class="kn">import</span> <span class="n">ApiUsage</span>
+<span class="kn">from</span> <span class="nn">.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
+<span class="kn">from</span> <span class="nn">.ui_extension</span> <span class="kn">import</span> <span class="n">UIExtension</span>
+<span class="kn">from</span> <span class="nn">.content_type</span> <span class="kn">import</span> <span class="n">ContentType</span>
+<span class="kn">from</span> <span class="nn">.webhook_call</span> <span class="kn">import</span> <span class="n">WebhookCall</span>
+<span class="kn">from</span> <span class="nn">.usage_period</span> <span class="kn">import</span> <span class="n">UsagePeriod</span>
+<span class="kn">from</span> <span class="nn">.organization</span> <span class="kn">import</span> <span class="n">Organization</span>
+<span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="kn">import</span> <span class="n">WebhookHealth</span>
+<span class="kn">from</span> <span class="nn">.preview_api_key</span> <span class="kn">import</span> <span class="n">PreviewApiKey</span>
+<span class="kn">from</span> <span class="nn">.editor_interface</span> <span class="kn">import</span> <span class="n">EditorInterface</span>
+<span class="kn">from</span> <span class="nn">.space_membership</span> <span class="kn">import</span> <span class="n">SpaceMembership</span>
+<span class="kn">from</span> <span class="nn">.personal_access_token</span> <span class="kn">import</span> <span class="n">PersonalAccessToken</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -82,7 +82,7 @@
 <span class="sd">    Creates objects of the proper resource type.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">default_locale</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">default_locale</span><span class="p">,</span> <span class="n">json</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">default_locale</span> <span class="o">=</span> <span class="n">default_locale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="n">json</span>
