@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+## v2.9.1
+* Drop support for Python 2.
 
 ## v2.9.0
 ### Added
