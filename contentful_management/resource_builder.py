@@ -9,18 +9,18 @@ from .upload import Upload
 from .api_key import ApiKey
 from .webhook import Webhook
 from .snapshot import Snapshot
-from .api_usage import ApiUsage
 from .environment import Environment
 from .ui_extension import UIExtension
 from .content_type import ContentType
 from .webhook_call import WebhookCall
-from .usage_period import UsagePeriod
 from .organization import Organization
 from .webhook_health import WebhookHealth
 from .preview_api_key import PreviewApiKey
 from .editor_interface import EditorInterface
 from .space_membership import SpaceMembership
+from .space_periodic_usage import SpacePeriodicUsage
 from .personal_access_token import PersonalAccessToken
+from .organization_periodic_usage import OrganizationPeriodicUsage
 
 
 """
@@ -58,29 +58,29 @@ class ResourceBuilder(object):
 
     def _build_item(self, item):
         buildables = {
+            'Role': Role,
+            'User': User,
             'Entry': Entry,
             'Asset': Asset,
-            'ContentType': ContentType,
             'Space': Space,
-            'SpaceMembership': SpaceMembership,
-            'Organization': Organization,
-            'UsagePeriod': UsagePeriod,
-            'ApiUsage': ApiUsage,
-            'ApiKey': ApiKey,
-            'PreviewApiKey': PreviewApiKey,
-            'PersonalAccessToken': PersonalAccessToken,
-            'Locale': Locale,
-            'EditorInterface': EditorInterface,
-            'WebhookDefinition': Webhook,
-            'WebhookCallOverview': WebhookCall,
-            'WebhookCallDetails': WebhookCall,
-            'Webhook': WebhookHealth,
-            'Role': Role,
-            'Extension': UIExtension,
-            'Snapshot': Snapshot,
             'Upload': Upload,
-            'User': User,
-            'Environment': Environment
+            'ApiKey': ApiKey,
+            'Locale': Locale,
+            'Snapshot': Snapshot,
+            'Webhook': WebhookHealth,
+            'Extension': UIExtension,
+            'Environment': Environment,
+            'ContentType': ContentType,
+            'Organization': Organization,
+            'PreviewApiKey': PreviewApiKey,
+            'EditorInterface': EditorInterface,
+            'SpaceMembership': SpaceMembership,
+            'WebhookDefinition': Webhook,
+            'WebhookCallDetails': WebhookCall,
+            'SpacePeriodicUsage': SpacePeriodicUsage,
+            'WebhookCallOverview': WebhookCall,
+            'PersonalAccessToken': PersonalAccessToken,
+            'OrganizationPeriodicUsage': OrganizationPeriodicUsage
         }
 
         item_type = item['sys']['type']

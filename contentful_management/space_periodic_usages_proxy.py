@@ -1,44 +1,44 @@
 from .client_proxy import ClientProxy
-from .usage_period import UsagePeriod
+from .space_periodic_usage import SpacePeriodicUsage
 
 
 """
-contentful_management.usage_periods_proxy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+contentful_management.space_periodic_usages_proxy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This module implements the UsagePeriodsProxy class.
+This module implements the SpacePeriodicUsagesProxy class.
 
-API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods
+API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
 
-:copyright: (c) 2018 by Contentful GmbH.
+:copyright: (c) 2020 by Contentful GmbH.
 :license: MIT, see LICENSE for more details.
 """
 
 
-class UsagePeriodsProxy(ClientProxy):
+class SpacePeriodicUsagesProxy(ClientProxy):
     """
-    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods
+    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
     """
 
     def __init__(self, client, organization_id):
-        super(UsagePeriodsProxy, self).__init__(client, None)
+        super(SpacePeriodicUsagesProxy, self).__init__(client, None)
         self.organization_id = organization_id
 
     @property
     def _resource_class(self):
-        return UsagePeriod
+        return SpacePeriodicUsage
 
-    def all(self, *args, **kwargs):
+    def all(self, query=None, *args, **kwargs):
         """
-        Gets all usage periods.
+        Gets all organization periodic usage grouped by space.
         """
+
+        if query is None:
+            query = {}
 
         return self.client._get(
             self._url(),
-            {},
-            headers={
-                'x-contentful-enable-alpha-feature': 'usage-insights'
-            }
+            query
         )
 
     def create(self, file_or_path, **kwargs):

@@ -1,0 +1,266 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.22.0
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.9.1; platform python/3.7.5; os macOS/19.2.0;
+    method: GET
+    uri: https://api.contentful.com/organizations
+  response:
+    body:
+      string: "{\n  \"total\":1,\n  \"limit\":25,\n  \"skip\":0,\n  \"sys\":{\n \
+        \   \"type\":\"Array\"\n  },\n  \"items\":[\n  {\n\
+        \      \"name\":\"SDKs Test Organization - v2 Enterprise\",\n      \"sys\"\
+        :{\n        \"type\":\"Organization\",\n        \"id\":\"org_id\"\
+        ,\n        \"version\":2,\n        \"createdAt\":\"2018-10-08T13:23:19Z\"\
+        ,\n        \"updatedAt\":\"2018-10-11T11:24:32Z\"\n      }\n    }\n  ]\n}\n\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Marketplace
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - max-age=0
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4338'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Date:
+      - Thu, 05 Mar 2020 11:22:25 GMT
+      ETag:
+      - W/"69242cce20113c4c21c0c39abef5f89e"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Contentful
+      Set-Cookie:
+      - visid_incap_673446=hqNi3/cDRKGlaw8pjln1jPDgYF4AAAAAQUIPAAAAAABt6WDVdUwJS6uW+LpDQQzE;
+        expires=Thu, 04 Mar 2021 17:36:27 GMT; HttpOnly; path=/; Domain=.contentful.com
+      - nlbi_673446=tZ+sci8h+Hzy2EW+YMlkBAAAAAAe/nvwCUPpSX3Q1HfEC9qD; path=/; Domain=.contentful.com
+      - incap_ses_876_673446=86NpfYmO1y4aINvuaS4oDPDgYF4AAAAAX+KlEvl00V6LQ7YsbfOY+g==;
+        path=/; Domain=.contentful.com
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-CDN:
+      - Incapsula
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-Request-Id:
+      - 21e94e1dc62a2b5e91a21a2c5e7ecb8e
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - ALLOWALL
+      X-Iinfo:
+      - 2-11021122-11021127 NNNY CT(0 0 0) RT(1583407344085 57) q(0 0 0 1) r(1 1)
+        U5
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer <ACCESS_TOKEN>
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.22.0
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.9.1; platform python/3.7.5; os macOS/19.2.0;
+    method: GET
+    uri: https://api.contentful.com/organizations/org_id/organization_periodic_usages
+  response:
+    body:
+      string: "{\n  \"total\":4,\n  \"limit\":100,\n  \"skip\":0,\n  \"sys\":{\n \
+        \   \"type\":\"Array\"\n  },\n  \"items\":[\n    {\n      \"metric\":\"cma\"\
+        ,\n      \"usage\":18831,\n      \"usagePerDay\":{\n        \"2020-01-21\"\
+        :483,\n        \"2020-01-22\":169,\n        \"2020-01-23\":185,\n        \"\
+        2020-01-24\":251,\n        \"2020-01-25\":0,\n        \"2020-01-26\":0,\n\
+        \        \"2020-01-27\":1502,\n        \"2020-01-28\":161,\n        \"2020-01-29\"\
+        :33,\n        \"2020-01-30\":49,\n        \"2020-01-31\":305,\n        \"\
+        2020-02-01\":0,\n        \"2020-02-02\":0,\n        \"2020-02-03\":541,\n\
+        \        \"2020-02-04\":6083,\n        \"2020-02-05\":4185,\n        \"2020-02-06\"\
+        :38,\n        \"2020-02-07\":87,\n        \"2020-02-08\":0,\n        \"2020-02-09\"\
+        :28,\n        \"2020-02-10\":81,\n        \"2020-02-11\":433,\n        \"\
+        2020-02-12\":558,\n        \"2020-02-13\":82,\n        \"2020-02-14\":0,\n\
+        \        \"2020-02-15\":126,\n        \"2020-02-16\":0,\n        \"2020-02-17\"\
+        :1165,\n        \"2020-02-18\":656,\n        \"2020-02-19\":178,\n       \
+        \ \"2020-02-20\":133,\n        \"2020-02-21\":645,\n        \"2020-02-22\"\
+        :0,\n        \"2020-02-23\":0,\n        \"2020-02-24\":0,\n        \"2020-02-25\"\
+        :0,\n        \"2020-02-26\":324,\n        \"2020-02-27\":132,\n        \"\
+        2020-02-28\":26,\n        \"2020-02-29\":0,\n        \"2020-03-01\":0,\n \
+        \       \"2020-03-02\":46,\n        \"2020-03-03\":12,\n        \"2020-03-04\"\
+        :86,\n        \"2020-03-05\":48\n      },\n      \"unitOfMeasure\":\"apiRequestsCount\"\
+        ,\n      \"sys\":{\n        \"type\":\"OrganizationPeriodicUsage\",\n    \
+        \    \"id\":\"usage-cma-org_id-2020-01-21-2020-03-05\",\n\
+        \        \"organization\":{\n          \"sys\":{\n            \"type\":\"\
+        Link\",\n            \"linkType\":\"Organization\",\n            \"id\":\"\
+        org_id\"\n          }\n        }\n      },\n      \"dateRange\"\
+        :{\n        \"startAt\":\"2020-01-21\",\n        \"endAt\":\"2020-03-05\"\n\
+        \      }\n    },\n    {\n      \"metric\":\"cda\",\n      \"usage\":932,\n\
+        \      \"usagePerDay\":{\n        \"2020-01-21\":1,\n        \"2020-01-22\"\
+        :0,\n        \"2020-01-23\":7,\n        \"2020-01-24\":0,\n        \"2020-01-25\"\
+        :0,\n        \"2020-01-26\":0,\n        \"2020-01-27\":0,\n        \"2020-01-28\"\
+        :0,\n        \"2020-01-29\":0,\n        \"2020-01-30\":0,\n        \"2020-01-31\"\
+        :6,\n        \"2020-02-01\":0,\n        \"2020-02-02\":0,\n        \"2020-02-03\"\
+        :521,\n        \"2020-02-04\":180,\n        \"2020-02-05\":157,\n        \"\
+        2020-02-06\":0,\n        \"2020-02-07\":9,\n        \"2020-02-08\":0,\n  \
+        \      \"2020-02-09\":0,\n        \"2020-02-10\":0,\n        \"2020-02-11\"\
+        :0,\n        \"2020-02-12\":0,\n        \"2020-02-13\":0,\n        \"2020-02-14\"\
+        :0,\n        \"2020-02-15\":10,\n        \"2020-02-16\":0,\n        \"2020-02-17\"\
+        :0,\n        \"2020-02-18\":0,\n        \"2020-02-19\":0,\n        \"2020-02-20\"\
+        :0,\n        \"2020-02-21\":0,\n        \"2020-02-22\":0,\n        \"2020-02-23\"\
+        :0,\n        \"2020-02-24\":0,\n        \"2020-02-25\":1,\n        \"2020-02-26\"\
+        :39,\n        \"2020-02-27\":0,\n        \"2020-02-28\":0,\n        \"2020-02-29\"\
+        :0,\n        \"2020-03-01\":0,\n        \"2020-03-02\":0,\n        \"2020-03-03\"\
+        :0,\n        \"2020-03-04\":0,\n        \"2020-03-05\":1\n      },\n     \
+        \ \"unitOfMeasure\":\"apiRequestsCount\",\n      \"sys\":{\n        \"type\"\
+        :\"OrganizationPeriodicUsage\",\n        \"id\":\"usage-cda-org_id-2020-01-21-2020-03-05\"\
+        ,\n        \"organization\":{\n          \"sys\":{\n            \"type\":\"\
+        Link\",\n            \"linkType\":\"Organization\",\n            \"id\":\"\
+        org_id\"\n          }\n        }\n      },\n      \"dateRange\"\
+        :{\n        \"startAt\":\"2020-01-21\",\n        \"endAt\":\"2020-03-05\"\n\
+        \      }\n    },\n    {\n      \"metric\":\"gql\",\n      \"usage\":51,\n\
+        \      \"usagePerDay\":{\n        \"2020-01-21\":1,\n        \"2020-01-22\"\
+        :1,\n        \"2020-01-23\":1,\n        \"2020-01-24\":1,\n        \"2020-01-25\"\
+        :1,\n        \"2020-01-26\":1,\n        \"2020-01-27\":1,\n        \"2020-01-28\"\
+        :2,\n        \"2020-01-29\":6,\n        \"2020-01-30\":1,\n        \"2020-01-31\"\
+        :1,\n        \"2020-02-01\":1,\n        \"2020-02-02\":1,\n        \"2020-02-03\"\
+        :1,\n        \"2020-02-04\":1,\n        \"2020-02-05\":1,\n        \"2020-02-06\"\
+        :1,\n        \"2020-02-07\":1,\n        \"2020-02-08\":1,\n        \"2020-02-09\"\
+        :1,\n        \"2020-02-10\":1,\n        \"2020-02-11\":1,\n        \"2020-02-12\"\
+        :1,\n        \"2020-02-13\":1,\n        \"2020-02-14\":1,\n        \"2020-02-15\"\
+        :2,\n        \"2020-02-16\":1,\n        \"2020-02-17\":1,\n        \"2020-02-18\"\
+        :1,\n        \"2020-02-19\":1,\n        \"2020-02-20\":1,\n        \"2020-02-21\"\
+        :1,\n        \"2020-02-22\":1,\n        \"2020-02-23\":1,\n        \"2020-02-24\"\
+        :1,\n        \"2020-02-25\":1,\n        \"2020-02-26\":0,\n        \"2020-02-27\"\
+        :1,\n        \"2020-02-28\":1,\n        \"2020-02-29\":1,\n        \"2020-03-01\"\
+        :1,\n        \"2020-03-02\":1,\n        \"2020-03-03\":1,\n        \"2020-03-04\"\
+        :1,\n        \"2020-03-05\":1\n      },\n      \"unitOfMeasure\":\"apiRequestsCount\"\
+        ,\n      \"sys\":{\n        \"type\":\"OrganizationPeriodicUsage\",\n    \
+        \    \"id\":\"usage-gql-org_id-2020-01-21-2020-03-05\",\n\
+        \        \"organization\":{\n          \"sys\":{\n            \"type\":\"\
+        Link\",\n            \"linkType\":\"Organization\",\n            \"id\":\"\
+        org_id\"\n          }\n        }\n      },\n      \"dateRange\"\
+        :{\n        \"startAt\":\"2020-01-21\",\n        \"endAt\":\"2020-03-05\"\n\
+        \      }\n    },\n    {\n      \"metric\":\"cpa\",\n      \"usage\":1,\n \
+        \     \"usagePerDay\":{\n        \"2020-01-21\":0,\n        \"2020-01-22\"\
+        :0,\n        \"2020-01-23\":0,\n        \"2020-01-24\":0,\n        \"2020-01-25\"\
+        :0,\n        \"2020-01-26\":0,\n        \"2020-01-27\":0,\n        \"2020-01-28\"\
+        :0,\n        \"2020-01-29\":0,\n        \"2020-01-30\":0,\n        \"2020-01-31\"\
+        :0,\n        \"2020-02-01\":0,\n        \"2020-02-02\":0,\n        \"2020-02-03\"\
+        :1,\n        \"2020-02-04\":0,\n        \"2020-02-05\":0,\n        \"2020-02-06\"\
+        :0,\n        \"2020-02-07\":0,\n        \"2020-02-08\":0,\n        \"2020-02-09\"\
+        :0,\n        \"2020-02-10\":0,\n        \"2020-02-11\":0,\n        \"2020-02-12\"\
+        :0,\n        \"2020-02-13\":0,\n        \"2020-02-14\":0,\n        \"2020-02-15\"\
+        :0,\n        \"2020-02-16\":0,\n        \"2020-02-17\":0,\n        \"2020-02-18\"\
+        :0,\n        \"2020-02-19\":0,\n        \"2020-02-20\":0,\n        \"2020-02-21\"\
+        :0,\n        \"2020-02-22\":0,\n        \"2020-02-23\":0,\n        \"2020-02-24\"\
+        :0,\n        \"2020-02-25\":0,\n        \"2020-02-26\":0,\n        \"2020-02-27\"\
+        :0,\n        \"2020-02-28\":0,\n        \"2020-02-29\":0,\n        \"2020-03-01\"\
+        :0,\n        \"2020-03-02\":0,\n        \"2020-03-03\":0,\n        \"2020-03-04\"\
+        :0,\n        \"2020-03-05\":0\n      },\n      \"unitOfMeasure\":\"apiRequestsCount\"\
+        ,\n      \"sys\":{\n        \"type\":\"OrganizationPeriodicUsage\",\n    \
+        \    \"id\":\"usage-cpa-org_id-2020-01-21-2020-03-05\",\n\
+        \        \"organization\":{\n          \"sys\":{\n            \"type\":\"\
+        Link\",\n            \"linkType\":\"Organization\",\n            \"id\":\"\
+        org_id\"\n          }\n        }\n      },\n      \"dateRange\"\
+        :{\n        \"startAt\":\"2020-01-21\",\n        \"endAt\":\"2020-03-05\"\n\
+        \      }\n    }\n  ]\n}\n\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Marketplace
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '1728000'
+      CF-Organization-Id:
+      - org_id
+      Cache-Control:
+      - max-age=0
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '6581'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Date:
+      - Thu, 05 Mar 2020 11:22:25 GMT
+      ETag:
+      - W/"40326d37f3ed1d204fac72073a8c9025"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - Contentful
+      Set-Cookie:
+      - visid_incap_673446=hqNi3/cDRKGlaw8pjln1jPDgYF4AAAAAQUIPAAAAAABt6WDVdUwJS6uW+LpDQQzE;
+        expires=Thu, 04 Mar 2021 17:36:27 GMT; HttpOnly; path=/; Domain=.contentful.com
+      - nlbi_673446=zI+gN01rZX8zV3JsYMlkBAAAAAAjZ2KtCPJkotokuwKLpTk0; path=/; Domain=.contentful.com
+      - incap_ses_876_673446=F7m9A4cAbGoaINvuaS4oDPDgYF4AAAAAaUjstc5GgcA8FoZfkaXjQw==;
+        path=/; Domain=.contentful.com
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-CDN:
+      - Incapsula
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-Request-Id:
+      - ec2e5f1aa0c302d682c5772594cebb45
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - ALLOWALL
+      X-Iinfo:
+      - 2-11021143-11021146 NNNY CT(0 0 0) RT(1583407344332 38) q(0 0 0 0) r(2 2)
+        U5
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
