@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.resource_builder &#8212; Contentful Management 2.9.1 documentation</title>
+    <title>contentful_management.resource_builder &#8212; Contentful Management 2.10.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.9.1',
+        VERSION:     '2.10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -52,18 +52,18 @@
 <span class="kn">from</span> <span class="nn">.api_key</span> <span class="kn">import</span> <span class="n">ApiKey</span>
 <span class="kn">from</span> <span class="nn">.webhook</span> <span class="kn">import</span> <span class="n">Webhook</span>
 <span class="kn">from</span> <span class="nn">.snapshot</span> <span class="kn">import</span> <span class="n">Snapshot</span>
-<span class="kn">from</span> <span class="nn">.api_usage</span> <span class="kn">import</span> <span class="n">ApiUsage</span>
 <span class="kn">from</span> <span class="nn">.environment</span> <span class="kn">import</span> <span class="n">Environment</span>
 <span class="kn">from</span> <span class="nn">.ui_extension</span> <span class="kn">import</span> <span class="n">UIExtension</span>
 <span class="kn">from</span> <span class="nn">.content_type</span> <span class="kn">import</span> <span class="n">ContentType</span>
 <span class="kn">from</span> <span class="nn">.webhook_call</span> <span class="kn">import</span> <span class="n">WebhookCall</span>
-<span class="kn">from</span> <span class="nn">.usage_period</span> <span class="kn">import</span> <span class="n">UsagePeriod</span>
 <span class="kn">from</span> <span class="nn">.organization</span> <span class="kn">import</span> <span class="n">Organization</span>
 <span class="kn">from</span> <span class="nn">.webhook_health</span> <span class="kn">import</span> <span class="n">WebhookHealth</span>
 <span class="kn">from</span> <span class="nn">.preview_api_key</span> <span class="kn">import</span> <span class="n">PreviewApiKey</span>
 <span class="kn">from</span> <span class="nn">.editor_interface</span> <span class="kn">import</span> <span class="n">EditorInterface</span>
 <span class="kn">from</span> <span class="nn">.space_membership</span> <span class="kn">import</span> <span class="n">SpaceMembership</span>
+<span class="kn">from</span> <span class="nn">.space_periodic_usage</span> <span class="kn">import</span> <span class="n">SpacePeriodicUsage</span>
 <span class="kn">from</span> <span class="nn">.personal_access_token</span> <span class="kn">import</span> <span class="n">PersonalAccessToken</span>
+<span class="kn">from</span> <span class="nn">.organization_periodic_usage</span> <span class="kn">import</span> <span class="n">OrganizationPeriodicUsage</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -101,29 +101,29 @@
 
     <span class="k">def</span> <span class="nf">_build_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="n">buildables</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="n">Role</span><span class="p">,</span>
+            <span class="s1">&#39;User&#39;</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span>
             <span class="s1">&#39;Entry&#39;</span><span class="p">:</span> <span class="n">Entry</span><span class="p">,</span>
             <span class="s1">&#39;Asset&#39;</span><span class="p">:</span> <span class="n">Asset</span><span class="p">,</span>
-            <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="n">ContentType</span><span class="p">,</span>
             <span class="s1">&#39;Space&#39;</span><span class="p">:</span> <span class="n">Space</span><span class="p">,</span>
-            <span class="s1">&#39;SpaceMembership&#39;</span><span class="p">:</span> <span class="n">SpaceMembership</span><span class="p">,</span>
-            <span class="s1">&#39;Organization&#39;</span><span class="p">:</span> <span class="n">Organization</span><span class="p">,</span>
-            <span class="s1">&#39;UsagePeriod&#39;</span><span class="p">:</span> <span class="n">UsagePeriod</span><span class="p">,</span>
-            <span class="s1">&#39;ApiUsage&#39;</span><span class="p">:</span> <span class="n">ApiUsage</span><span class="p">,</span>
-            <span class="s1">&#39;ApiKey&#39;</span><span class="p">:</span> <span class="n">ApiKey</span><span class="p">,</span>
-            <span class="s1">&#39;PreviewApiKey&#39;</span><span class="p">:</span> <span class="n">PreviewApiKey</span><span class="p">,</span>
-            <span class="s1">&#39;PersonalAccessToken&#39;</span><span class="p">:</span> <span class="n">PersonalAccessToken</span><span class="p">,</span>
-            <span class="s1">&#39;Locale&#39;</span><span class="p">:</span> <span class="n">Locale</span><span class="p">,</span>
-            <span class="s1">&#39;EditorInterface&#39;</span><span class="p">:</span> <span class="n">EditorInterface</span><span class="p">,</span>
-            <span class="s1">&#39;WebhookDefinition&#39;</span><span class="p">:</span> <span class="n">Webhook</span><span class="p">,</span>
-            <span class="s1">&#39;WebhookCallOverview&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
-            <span class="s1">&#39;WebhookCallDetails&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
-            <span class="s1">&#39;Webhook&#39;</span><span class="p">:</span> <span class="n">WebhookHealth</span><span class="p">,</span>
-            <span class="s1">&#39;Role&#39;</span><span class="p">:</span> <span class="n">Role</span><span class="p">,</span>
-            <span class="s1">&#39;Extension&#39;</span><span class="p">:</span> <span class="n">UIExtension</span><span class="p">,</span>
-            <span class="s1">&#39;Snapshot&#39;</span><span class="p">:</span> <span class="n">Snapshot</span><span class="p">,</span>
             <span class="s1">&#39;Upload&#39;</span><span class="p">:</span> <span class="n">Upload</span><span class="p">,</span>
-            <span class="s1">&#39;User&#39;</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span>
-            <span class="s1">&#39;Environment&#39;</span><span class="p">:</span> <span class="n">Environment</span>
+            <span class="s1">&#39;ApiKey&#39;</span><span class="p">:</span> <span class="n">ApiKey</span><span class="p">,</span>
+            <span class="s1">&#39;Locale&#39;</span><span class="p">:</span> <span class="n">Locale</span><span class="p">,</span>
+            <span class="s1">&#39;Snapshot&#39;</span><span class="p">:</span> <span class="n">Snapshot</span><span class="p">,</span>
+            <span class="s1">&#39;Webhook&#39;</span><span class="p">:</span> <span class="n">WebhookHealth</span><span class="p">,</span>
+            <span class="s1">&#39;Extension&#39;</span><span class="p">:</span> <span class="n">UIExtension</span><span class="p">,</span>
+            <span class="s1">&#39;Environment&#39;</span><span class="p">:</span> <span class="n">Environment</span><span class="p">,</span>
+            <span class="s1">&#39;ContentType&#39;</span><span class="p">:</span> <span class="n">ContentType</span><span class="p">,</span>
+            <span class="s1">&#39;Organization&#39;</span><span class="p">:</span> <span class="n">Organization</span><span class="p">,</span>
+            <span class="s1">&#39;PreviewApiKey&#39;</span><span class="p">:</span> <span class="n">PreviewApiKey</span><span class="p">,</span>
+            <span class="s1">&#39;EditorInterface&#39;</span><span class="p">:</span> <span class="n">EditorInterface</span><span class="p">,</span>
+            <span class="s1">&#39;SpaceMembership&#39;</span><span class="p">:</span> <span class="n">SpaceMembership</span><span class="p">,</span>
+            <span class="s1">&#39;WebhookDefinition&#39;</span><span class="p">:</span> <span class="n">Webhook</span><span class="p">,</span>
+            <span class="s1">&#39;WebhookCallDetails&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
+            <span class="s1">&#39;SpacePeriodicUsage&#39;</span><span class="p">:</span> <span class="n">SpacePeriodicUsage</span><span class="p">,</span>
+            <span class="s1">&#39;WebhookCallOverview&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
+            <span class="s1">&#39;PersonalAccessToken&#39;</span><span class="p">:</span> <span class="n">PersonalAccessToken</span><span class="p">,</span>
+            <span class="s1">&#39;OrganizationPeriodicUsage&#39;</span><span class="p">:</span> <span class="n">OrganizationPeriodicUsage</span>
         <span class="p">}</span>
 
         <span class="n">item_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;sys&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>

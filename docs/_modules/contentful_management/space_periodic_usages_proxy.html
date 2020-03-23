@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.usage_periods_proxy &#8212; Contentful Management 2.9.1 documentation</title>
+    <title>contentful_management.space_periodic_usages_proxy &#8212; Contentful Management 2.10.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.9.1',
+        VERSION:     '2.10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -40,65 +40,65 @@
 
           <div class="body" role="main">
             
-  <h1>Source code for contentful_management.usage_periods_proxy</h1><div class="highlight"><pre>
+  <h1>Source code for contentful_management.space_periodic_usages_proxy</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.client_proxy</span> <span class="kn">import</span> <span class="n">ClientProxy</span>
-<span class="kn">from</span> <span class="nn">.usage_period</span> <span class="kn">import</span> <span class="n">UsagePeriod</span>
+<span class="kn">from</span> <span class="nn">.space_periodic_usage</span> <span class="kn">import</span> <span class="n">SpacePeriodicUsage</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">contentful_management.usage_periods_proxy</span>
-<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="sd">contentful_management.space_periodic_usages_proxy</span>
+<span class="sd">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 
-<span class="sd">This module implements the UsagePeriodsProxy class.</span>
+<span class="sd">This module implements the SpacePeriodicUsagesProxy class.</span>
 
-<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</span>
+<span class="sd">API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</span>
 
-<span class="sd">:copyright: (c) 2018 by Contentful GmbH.</span>
+<span class="sd">:copyright: (c) 2020 by Contentful GmbH.</span>
 <span class="sd">:license: MIT, see LICENSE for more details.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="UsagePeriodsProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.usage_periods_proxy.UsagePeriodsProxy">[docs]</a><span class="k">class</span> <span class="nc">UsagePeriodsProxy</span><span class="p">(</span><span class="n">ClientProxy</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePeriodicUsagesProxy"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy">[docs]</a><span class="k">class</span> <span class="nc">SpacePeriodicUsagesProxy</span><span class="p">(</span><span class="n">ClientProxy</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods</span>
+<span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">UsagePeriodsProxy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SpacePeriodicUsagesProxy</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">organization_id</span> <span class="o">=</span> <span class="n">organization_id</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_resource_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">UsagePeriod</span>
+        <span class="k">return</span> <span class="n">SpacePeriodicUsage</span>
 
-<div class="viewcode-block" id="UsagePeriodsProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.usage_periods_proxy.UsagePeriodsProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePeriodicUsagesProxy.all"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.all">[docs]</a>    <span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets all usage periods.</span>
+<span class="sd">        Gets all organization periodic usage grouped by space.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">query</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">_get</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_url</span><span class="p">(),</span>
-            <span class="p">{},</span>
-            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;x-contentful-enable-alpha-feature&#39;</span><span class="p">:</span> <span class="s1">&#39;usage-insights&#39;</span>
-            <span class="p">}</span>
+            <span class="n">query</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="UsagePeriodsProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.usage_periods_proxy.UsagePeriodsProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_or_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePeriodicUsagesProxy.create"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_or_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Not supported.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not supported&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UsagePeriodsProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.usage_periods_proxy.UsagePeriodsProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePeriodicUsagesProxy.find"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.find">[docs]</a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Not supported.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Not supported&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="UsagePeriodsProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.usage_periods_proxy.UsagePeriodsProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_id</span><span class="p">):</span>
+<div class="viewcode-block" id="SpacePeriodicUsagesProxy.delete"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">upload_id</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Not supported.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

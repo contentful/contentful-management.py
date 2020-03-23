@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Contentful Management API SDK &#8212; Contentful Management 2.9.1 documentation</title>
+    <title>Contentful Management API SDK &#8212; Contentful Management 2.10.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.9.1',
+        VERSION:     '2.10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,10 +43,9 @@
             
   <div class="section" id="contentful-management-api-sdk">
 <h1>Contentful Management API SDK<a class="headerlink" href="#contentful-management-api-sdk" title="Permalink to this headline">¶</a></h1>
-<p>Release v2.9.1.</p>
-<p><a class="reference external" href="https://www.contentful.com">Contentful</a> is a content management platform for web applications, mobile apps and connected devices.
-It allows you to create, edit &amp; manage content in the cloud and publish it anywhere via powerful API.
-Contentful offers tools for managing editorial teams and enabling cooperation between organizations.</p>
+<p>Release v2.10.0.</p>
+<a class="reference external image-reference" href="https://travis-ci.org/contentful/contentful-management.py"><img alt="https://travis-ci.org/contentful/contentful-management.py.svg?branch=master" src="https://travis-ci.org/contentful/contentful-management.py.svg?branch=master" /></a>
+<p><a class="reference external" href="https://www.contentful.com">Contentful</a> provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install Contentful Management from the Python Package Index:</p>
@@ -190,32 +189,36 @@ Contentful offers tools for managing editorial teams and enabling cooperation be
 </pre></div>
 </div>
 </div>
-<div class="section" id="usage-periods-alpha">
-<h2>Usage Periods (ALPHA)<a class="headerlink" href="#usage-periods-alpha" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage-api">
+<h2>Usage API<a class="headerlink" href="#usage-api" title="Permalink to this headline">¶</a></h2>
 <p><em>Note</em>: This feature is available only to Commited v2 customers.</p>
-<p>Retrieving all Usage Periods for an Organizations you belong to:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="section" id="organization-periodic-usages">
+<h3>Organization Periodic Usages<a class="headerlink" href="#organization-periodic-usages" title="Permalink to this headline">¶</a></h3>
+<p>Retrieving all API Usage statistics for an Organization during a given usage period, broken down by organization for all APIs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Optionally, you can pass the metric, start and end date filters</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">organization_periodic_usages</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="c1"># For example only CDA and CMA metrics from yesterday onwards</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">organization_periodic_usages</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">({</span><span class="s1">&#39;metric[in]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cda&#39;</span><span class="p">,</span> <span class="s1">&#39;cma&#39;</span><span class="p">],</span> <span class="s1">&#39;startDate&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()})</span>
 </pre></div>
 </div>
 <p>Alternatively, if you have an already fetched organization:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">usage_periods</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">periodic_usages</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="api-usage-alpha">
-<h2>API Usage (ALPHA)<a class="headerlink" href="#api-usage-alpha" title="Permalink to this headline">¶</a></h2>
-<p><em>Note</em>: This feature is available only to Commited v2 customers.</p>
-<p>Retrieving all API Usage statistics for an Organizations during a given usage period, broken down by organization for all APIs:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Valid usage types are by &#39;organization&#39; and by &#39;space&#39;.</span>
-<span class="c1"># Usage period IDs are numerical and can be fetched from the Usage Periods API.</span>
-<span class="c1"># Valid API breakdowns are: &#39;cda&#39;, &#39;cpa&#39;, &#39;cma&#39; or &#39;all_apis&#39;.</span>
-<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">api_usage</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="s1">&#39;organization&#39;</span><span class="p">,</span> <span class="n">usage_period_id</span><span class="p">,</span> <span class="s1">&#39;all_apis&#39;</span><span class="p">)</span>
+<div class="section" id="id1">
+<h3>Organization Periodic Usages<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Retrieving all API Usage statistics for an Organization grouped by Space during a given usage period, broken down by organization for all APIs:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Optionally, you can pass the metric, start and end date filters</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">space_periodic_usages</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="c1"># For example only CDA and CMA metrics from yesterday onwards</span>
+<span class="n">usage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">space_periodic_usages</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">({</span><span class="s1">&#39;metric[in]&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;cda&#39;</span><span class="p">,</span> <span class="s1">&#39;cma&#39;</span><span class="p">],</span> <span class="s1">&#39;startDate&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()})</span>
 </pre></div>
 </div>
 <p>Alternatively, if you have an already fetched organization:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Breaking down CMA usage by space, for a given period.</span>
-<span class="n">usage</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">api_usage</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="s1">&#39;space&#39;</span><span class="p">,</span> <span class="n">usage_period_id</span><span class="p">,</span> <span class="s1">&#39;cma&#39;</span><span class="p">)</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage_periods</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">space_periodic_usages</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 </pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="users">
@@ -1223,8 +1226,6 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_key">contentful_management.api_key module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_keys_proxy">contentful_management.api_keys_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_usage">contentful_management.api_usage module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.api_usages_proxy">contentful_management.api_usages_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.array">contentful_management.array module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-management-array">contentful_management.array</a></li>
 </ul>
@@ -1275,6 +1276,8 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.locale">contentful_management.locale module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.locales_proxy">contentful_management.locales_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.organization">contentful_management.organization module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.organization_periodic_usage">contentful_management.organization_periodic_usage module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.organization_periodic_usages_proxy">contentful_management.organization_periodic_usages_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_token">contentful_management.personal_access_token module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy module</a></li>
@@ -1291,6 +1294,8 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_environments_proxy">contentful_management.space_environments_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_membership">contentful_management.space_membership module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_memberships_proxy">contentful_management.space_memberships_proxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_periodic_usage">contentful_management.space_periodic_usage module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_periodic_usages_proxy">contentful_management.space_periodic_usages_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_preview_api_keys_proxy">contentful_management.space_preview_api_keys_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.space_resource_proxy">contentful_management.space_resource_proxy module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="contentful_management.html#contentful-management-space-api-keys-proxy">contentful_management.space_api_keys_proxy</a></li>
@@ -1304,8 +1309,6 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.ui_extensions_proxy">contentful_management.ui_extensions_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.upload">contentful_management.upload module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.uploads_proxy">contentful_management.uploads_proxy module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.usage_period">contentful_management.usage_period module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.usage_periods_proxy">contentful_management.usage_periods_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.user">contentful_management.user module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.users_proxy">contentful_management.users_proxy module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="contentful_management.html#module-contentful_management.utils">contentful_management.utils module</a></li>
@@ -1355,8 +1358,11 @@ Therefore, if you want to explicitly set those fields to empty (<code class="doc
 <li><a class="reference internal" href="#spaces">Spaces</a></li>
 <li><a class="reference internal" href="#space-memberships">Space Memberships</a></li>
 <li><a class="reference internal" href="#organizations">Organizations</a></li>
-<li><a class="reference internal" href="#usage-periods-alpha">Usage Periods (ALPHA)</a></li>
-<li><a class="reference internal" href="#api-usage-alpha">API Usage (ALPHA)</a></li>
+<li><a class="reference internal" href="#usage-api">Usage API</a><ul>
+<li><a class="reference internal" href="#organization-periodic-usages">Organization Periodic Usages</a></li>
+<li><a class="reference internal" href="#id1">Organization Periodic Usages</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#users">Users</a></li>
 <li><a class="reference internal" href="#environments">Environments</a></li>
 <li><a class="reference internal" href="#assets">Assets</a></li>
