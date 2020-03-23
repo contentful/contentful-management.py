@@ -1,6 +1,6 @@
 from .resource import Resource
-from .api_usages_proxy import ApiUsagesProxy
-from .usage_periods_proxy import UsagePeriodsProxy
+from .space_periodic_usages_proxy import SpacePeriodicUsagesProxy
+from .organization_periodic_usages_proxy import OrganizationPeriodicUsagesProxy
 
 
 """
@@ -33,39 +33,39 @@ class Organization(Resource):
 
         return "organizations"
 
-    def usage_periods(self):
+    def periodic_usages(self):
         """
-        Provides access to usage periods management methods.
+        Provides access to organization periodic usages management methods.
 
-        API reference: TBD
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
 
-        :return: :class:`UsagePeriodsProxy <contentful_management.usage_periods_proxy.UsagePeriodsProxy>` object.
-        :rtype: contentful.usage_periods_proxy.UsagePeriodsProxy
+        :return: :class:`OrganizationPeriodicUsagesProxy <contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy>` object.
+        :rtype: contentful.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy
 
         Usage:
 
-            >>> usage_periods_proxy = organization.usage_periods()
-            <UsagePeriodsProxy organization_id="cfexampleapi">
+            >>> organization_periodic_usages_proxy = organization.usage_periods()
+            <OrganizationPeriodicUsagesProxy organization_id="cfexampleapi">
         """
 
-        return UsagePeriodsProxy(self._client, self.id)
+        return OrganizationPeriodicUsagesProxy(self._client, self.id)
 
-    def api_usage(self):
+    def space_periodic_usages(self):
         """
-        Provides access to an organizations api usage metrics.
+        Provides access to organization periodic usages grouped by space management methods.
 
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
 
-        :return: :class:`ApiUsagesProxy <contentful_management.api_usages_proxy.ApiUsagesProxy>` object.
-        :rtype: contentful.api_usages_proxy.ApiUsagesProxy
+        :return: :class:`SpacePeriodicUsagesProxy<contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy>` object.
+        :rtype: contentful.space_periodic_usages_proxy.SpacePeriodicUsagesProxy
 
         Usage:
 
-            >>> api_usages_proxy = organization.api_usage()
-            <ApiUsagesProxy organization_id='organization_id'>
+            >>> space_periodic_usages_proxy = organization.space_usage_periods()
+            <SpacePeriodicUsagesProxyorganization_id="cfexampleapi">
         """
 
-        return ApiUsagesProxy(self._client, self.id)
+        return SpacePeriodicUsagesProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(

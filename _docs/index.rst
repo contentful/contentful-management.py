@@ -3,9 +3,10 @@ Contentful Management API SDK
 
 Release v\ |version|.
 
-`Contentful <https://www.contentful.com>`_ is a content management platform for web applications, mobile apps and connected devices.
-It allows you to create, edit & manage content in the cloud and publish it anywhere via powerful API.
-Contentful offers tools for managing editorial teams and enabling cooperation between organizations.
+.. image:: https://travis-ci.org/contentful/contentful-management.py.svg?branch=master
+    :target: https://travis-ci.org/contentful/contentful-management.py
+
+`Contentful <https://www.contentful.com>`_ provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
 
 Installation
 ------------
@@ -151,35 +152,39 @@ Retrieving all Organizations you belong to::
 
     organizations = client.organizations().all()
 
-Usage Periods (ALPHA)
----------------------
+Usage API
+---------
 
 *Note*: This feature is available only to Commited v2 customers.
 
-Retrieving all Usage Periods for an Organizations you belong to::
+Organization Periodic Usages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    usage_periods = client.usage_periods('organization_id').all()
+Retrieving all API Usage statistics for an Organization during a given usage period, broken down by organization for all APIs::
 
-Alternatively, if you have an already fetched organization::
-
-    usage_periods = organization.usage_periods().all()
-
-API Usage (ALPHA)
----------------------
-
-*Note*: This feature is available only to Commited v2 customers.
-
-Retrieving all API Usage statistics for an Organizations during a given usage period, broken down by organization for all APIs::
-
-    # Valid usage types are by 'organization' and by 'space'.
-    # Usage period IDs are numerical and can be fetched from the Usage Periods API.
-    # Valid API breakdowns are: 'cda', 'cpa', 'cma' or 'all_apis'.
-    usage = client.api_usage('organization_id').all('organization', usage_period_id, 'all_apis')
+    # Optionally, you can pass the metric, start and end date filters
+    usage = client.organization_periodic_usages('organization_id').all()
+    # For example only CDA and CMA metrics from yesterday onwards
+    usage = client.organization_periodic_usages('organization_id').all({'metric[in]': ['cda', 'cma'], 'startDate': (date.today() - timedelta(days=1)).isoformat()})
 
 Alternatively, if you have an already fetched organization::
 
-    # Breaking down CMA usage by space, for a given period.
-    usage = organization.api_usage().all('space', usage_period_id, 'cma')
+    usage_periods = organization.periodic_usages().all()
+
+Organization Periodic Usages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Retrieving all API Usage statistics for an Organization grouped by Space during a given usage period, broken down by organization for all APIs::
+
+    # Optionally, you can pass the metric, start and end date filters
+    usage = client.space_periodic_usages('organization_id').all()
+    # For example only CDA and CMA metrics from yesterday onwards
+    usage = client.space_periodic_usages('organization_id').all({'metric[in]': ['cda', 'cma'], 'startDate': (date.today() - timedelta(days=1)).isoformat()})
+
+Alternatively, if you have an already fetched organization::
+
+    usage_periods = organization.space_periodic_usages().all()
+
 
 Users
 -----

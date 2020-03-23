@@ -16,18 +16,18 @@ from .uploads_proxy import UploadsProxy
 from .api_keys_proxy import ApiKeysProxy
 from .webhooks_proxy import WebhooksProxy
 from .snapshots_proxy import SnapshotsProxy
-from .api_usages_proxy import ApiUsagesProxy
 from .environments_proxy import EnvironmentsProxy
 from .webhooks_call_proxy import WebhooksCallProxy
 from .ui_extensions_proxy import UIExtensionsProxy
 from .content_types_proxy import ContentTypesProxy
-from .usage_periods_proxy import UsagePeriodsProxy
 from .organizations_proxy import OrganizationsProxy
 from .webhooks_health_proxy import WebhooksHealthProxy
 from .preview_api_keys_proxy import PreviewApiKeysProxy
 from .space_memberships_proxy import SpaceMembershipsProxy
 from .editor_interfaces_proxy import EditorInterfacesProxy
+from .space_periodic_usages_proxy import SpacePeriodicUsagesProxy
 from .personal_access_tokens_proxy import PersonalAccessTokensProxy
+from .organization_periodic_usages_proxy import OrganizationPeriodicUsagesProxy
 
 try:
     import multijson as json
@@ -186,39 +186,39 @@ class Client(object):
 
         return OrganizationsProxy(self)
 
-    def usage_periods(self, organization_id):
+    def organization_periodic_usages(self, organization_id):
         """
         Provides access to an organizations usage periods.
 
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage-periods
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
 
-        :return: :class:`UsagePeriodsProxy <contentful_management.usage_periods_proxy.UsagePeriodsProxy>` object.
-        :rtype: contentful.usage_periods_proxy.UsagePeriodsProxy
-
-        Usage:
-
-            >>> usage_periods_proxy = client.usage_periods('organization_id')
-            <UsagePeriodsProxy organization_id='organization_id'>
-        """
-
-        return UsagePeriodsProxy(self, organization_id)
-
-    def api_usage(self, organization_id):
-        """
-        Provides access to an organizations api usage metrics.
-
-        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-usages
-
-        :return: :class:`ApiUsagesProxy <contentful_management.api_usages_proxy.ApiUsagesProxy>` object.
-        :rtype: contentful.api_usages_proxy.ApiUsagesProxy
+        :return: :class:`OrganizationPeriodicUsagesProxy <contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy>` object.
+        :rtype: contentful.organization_periodic_usages.OrganizationPeriodicUsagesProxy
 
         Usage:
 
-            >>> api_usages_proxy = client.api_usage('organization_id')
-            <ApiUsagesProxy organization_id='organization_id'>
+            >>> organization_periodic_usages = client.organization_periodic_usages('organization_id')
+            <OrganizationPeriodicUsagesProxy organization_id='organization_id'>
         """
 
-        return ApiUsagesProxy(self, organization_id)
+        return OrganizationPeriodicUsagesProxy(self, organization_id)
+
+    def space_periodic_usages(self, organization_id):
+        """
+        Provides access to an organizations usage periods grouped by space.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
+
+        :return: :class:`SpacePeriodicUsagesProxy <contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy>` object.
+        :rtype: contentful.space_periodic_usages_proxy.SpacePeriodicUsagesProxy
+
+        Usage:
+
+            >>> space_periodic_usages = client.space_periodic_usages('organization_id')
+            <SpacePeriodicUsagesProxy organization_id='organization_id'>
+        """
+
+        return SpacePeriodicUsagesProxy(self, organization_id)
 
     def users(self):
         """
