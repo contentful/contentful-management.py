@@ -138,3 +138,11 @@ class SpaceTest(TestCase):
         proxy = space.memberships()
 
         self.assertEqual(str(proxy), "<SpaceSpaceMembershipsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
+
+    @vcr.use_cassette('fixtures/space/user.yaml')
+    def test_space_user(self):
+        space = CLIENT.spaces().find(PLAYGROUND_SPACE)
+
+        user = space.users().find('user_id')
+
+        self.assertEqual(str(user), "<User[Bhushan Lodha] email='bhushanlodha@gmail.com' activated=True confirmed=True sign_in_count=23>")

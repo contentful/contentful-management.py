@@ -1,6 +1,7 @@
 from .resource import Resource
 from .space_periodic_usages_proxy import SpacePeriodicUsagesProxy
 from .organization_periodic_usages_proxy import OrganizationPeriodicUsagesProxy
+from .organization_users_proxy import OrganizationUsersProxy
 
 
 """
@@ -66,6 +67,23 @@ class Organization(Resource):
         """
 
         return SpacePeriodicUsagesProxy(self._client, self.id)
+
+    def users(self):
+        """
+        Provides access to organization users management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users
+
+        :return: :class:`OrganizationUsersProxy <contentful_management.organization_users_proxy.OrganizationUsersProxy>` object.
+        :rtype: contentful.organization_users_proxy.OrganizationUsersProxy
+
+        Usage:
+
+            >>> organization_users_proxy = organization.users()
+            <OrganizationUsersProxy organization_id="cfexampleapi">
+        """
+
+        return OrganizationUsersProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(

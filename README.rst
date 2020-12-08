@@ -191,6 +191,14 @@ Retrieving your User information::
 
     user = client.users().me()
 
+Retrieving one user by ID from the space::
+
+    user = space.users().find(user_id)
+
+Retrieving one user by ID from an organization::
+
+    user = organization.users().find(user_id)
+
 Environments
 ------------
 

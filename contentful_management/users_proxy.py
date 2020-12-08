@@ -16,8 +16,8 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 
 
 class UsersProxy(ClientProxy):
-    def __init__(self, client):
-        super(UsersProxy, self).__init__(client, None)
+    def __init__(self, client, space_id=None):
+        super(UsersProxy, self).__init__(client, space_id)
 
     @property
     def _resource_class(self):
@@ -44,13 +44,6 @@ class UsersProxy(ClientProxy):
 
         raise Exception("Not Supported")
 
-    def find(self, *args, **kwargs):
-        """
-        Not supported.
-        """
-
-        raise Exception("Not Supported")
-
     def me(self):
         """
         Returns the current user information.
@@ -58,8 +51,8 @@ class UsersProxy(ClientProxy):
 
         return self.client._get(self._url())
 
-    def _url(self, **kwargs):
-        return self._resource_class.base_url()
+    def _url(self, resource_id=None, **kwargs):
+        return self._resource_class.base_url(space_id=self.space_id, resource_id=resource_id, **kwargs)
 
     def __repr__(self):
         return "<{0}>".format(
