@@ -26,7 +26,6 @@ class OrganizationTest(TestCase):
     @vcr.use_cassette('fixtures/organization/user.yaml')
     def test_organization_user(self):
         organization = CLIENT.organizations().all()[0]
-        #organization = Organization(BASE_ORGANIZATION_ITEM)
 
         user = organization.users().find('user_id')
 
