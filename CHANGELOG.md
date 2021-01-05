@@ -1,6 +1,9 @@
 # CHANGELOG
 
-## Unreleased
+## v2.11.0
+
+### Added
+* Adds find user in space or organization scope [#66](https://github.com/contentful/contentful-management.py/pull/66)
 
 ## v2.10.0
 
