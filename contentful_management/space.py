@@ -6,6 +6,7 @@ from .space_webhooks_proxy import SpaceWebhooksProxy
 from .space_environments_proxy import SpaceEnvironmentsProxy
 from .space_preview_api_keys_proxy import SpacePreviewApiKeysProxy
 from .space_space_memberships_proxy import SpaceSpaceMembershipsProxy
+from .space_users_proxy import SpaceUsersProxy
 
 
 """
@@ -240,6 +241,22 @@ class Space(Resource):
         """
 
         return SpaceEnvironmentsProxy(self._client, self.id)
+
+    def users(self):
+        """
+        Provides access to space users management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users
+
+        :return: :class:`SpaceUsersProxy <contentful_management.space_users_proxy.SpaceSpaceMembershipsProxy>` object.
+        :rtype: contentful.space_users_proxy.SpaceUsersProxy
+
+        Usage:
+
+            >>> space_users_proxy = space.users()
+            <SpaceUsersProxy space_id="cfexampleapi">
+        """
+        return SpaceUsersProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Space[{0}] id='{1}'>".format(

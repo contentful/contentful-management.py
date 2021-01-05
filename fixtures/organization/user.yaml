@@ -1,0 +1,183 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.25.0
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.10.0; platform python/3.8.5; os macOS/19.6.0;
+    method: GET
+    uri: https://api.contentful.com/organizations
+  response:
+    body:
+      string: "{\n  \"total\":3,\n  \"limit\":25,\n  \"skip\":0,\n  \"sys\":{\n    \"type\":\"Array\"\n
+        \ },\n  \"items\":[\n    {\n      \"name\":\"Contenful\",\n      \"sys\":{\n
+        \       \"type\":\"Organization\",\n        \"id\":\"59FPZVgxkP8nNontUf5ngp\",\n
+        \       \"version\":0,\n        \"createdAt\":\"2020-10-21T09:49:40Z\",\n
+        \       \"updatedAt\":\"2020-10-21T09:49:40Z\"\n      }\n    },\n    {\n      \"name\":\"Contentful
+        Test\",\n      \"sys\":{\n        \"type\":\"Organization\",\n        \"id\":\"3JZ2sQfqkxc8XBR82Qu9pF\",\n
+        \       \"version\":0,\n        \"createdAt\":\"2020-10-21T10:09:50Z\",\n
+        \       \"updatedAt\":\"2020-10-21T10:09:50Z\"\n      }\n    },\n    {\n      \"name\":\"SDK
+        Freelancers \",\n      \"sys\":{\n        \"type\":\"Organization\",\n        \"id\":\"59FPZVgxkP8nNontUf5ngp\",\n
+        \       \"version\":0,\n        \"createdAt\":\"2020-10-28T15:02:44Z\",\n
+        \       \"updatedAt\":\"2020-10-28T15:02:44Z\"\n      }\n    }\n  ]\n}\n\n"
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '823'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Date:
+      - Tue, 08 Dec 2020 12:42:36 GMT
+      Server:
+      - Contentful
+      Set-Cookie:
+      - visid_incap_673446=1haWkoUVRUmwKA8VRRxZQ7t0z18AAAAAQUIPAAAAAADSrRovgpdW3PoiAb8vKrC7;
+        expires=Wed, 08 Dec 2021 10:02:41 GMT; HttpOnly; path=/; Domain=.contentful.com
+      - nlbi_673446=LNWNLnOcnHvhJpbjKsJtVwAAAAALUQgq/wCZ3bYyOpBGwR0K; path=/; Domain=.contentful.com
+      - incap_ses_710_673446=2dtaDtTIWDtRwX+Pa23aCbt0z18AAAAANpeIOIRI2PG2AZaNSg3eMg==;
+        path=/; Domain=.contentful.com
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-CDN:
+      - Incapsula
+      X-Contentful-Request-Id:
+      - b984e84b6b1fd4edeaa1be2a38468710
+      X-Iinfo:
+      - 3-379362-379378 NNNY CT(0 0 0) RT(1607431355381 63) q(0 0 0 -1) r(2 2) U5
+      accept-ranges:
+      - bytes
+      etag:
+      - W/"3efddc0538e5b54bf75cbf90ccb1c729"
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-contentful-route:
+      - /organizations
+      x-download-options:
+      - noopen
+      x-frame-options:
+      - ALLOWALL
+      x-permitted-cross-domain-policies:
+      - none
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.25.0
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.10.0; platform python/3.8.5; os macOS/19.6.0;
+    method: GET
+    uri: https://api.contentful.com/organizations/59FPZVgxkP8nNontUf5ngp/users/user_id
+  response:
+    body:
+      string: "{\n  \"firstName\":\"Bhushan\",\n  \"lastName\":\"Lodha\",\n  \"avatarUrl\":\"https://www.gravatar.com/avatar/3794bdb27e50645d17ed5231def8ed2d?s=50&d=https%3A%2F%2Favatars.contentful.com%2Finitials%2Fv1%2FI%C3%96%2F50\",\n
+        \ \"email\":\"bhushanlodha@gmail.com\",\n  \"cookieConsentData\":\"{\\\"userInterface\\\":{\\\"rawConsentRecord\\\":\\\"qzlLlESXkg9806i-02vmNjYdXn3WN4UcU01niezZTp6zP9jvb1X0ahtWtZY9k2OVxGYaHyqmjN4oflpi3yneGyYNDaNZp-MrxImjbNoceSkmO2GfgXPHC2NDkSaIAnRDzaSxsdfUrdoCZ1LiO96n7Z9s1Vw01SgbzzY2-xutDXB0dKVXEzL4siiWbm0pFNe9DfrLgXJ3htFee9dAErT-sYVFEd8-Bp9WM9EdNTG0Ou8kCSReBXQKgO5Mn65OLUpjbZZTmWQ2qVl01K3VFYawKVAp3GLPlBYCSzB8Neun1iFxo5f5agHXEIGa2R23TX6drhhrLMu2LEmk4FU-RhbIHkVGCx39FI3oCLMXJGHjYtZwjyMpmEnYstDNOMGbKLx4FfA_iAQ3BU8v-mgwnRCAIu0S3OQYwGwCQMerThIJ6m63bdLjZGxCATrTfvoVUYi4klM1SOzCQgI=\\\",\\\"expirationDate\\\":1637152082556,\\\"uuid\\\":\\\"0152e1fc-e38e-406f-add4-f083a391b2b9\\\",\\\"consentRecord\\\":{\\\"ESSENTIAL\\\":\\\"ACCEPT\\\",\\\"STORAGE\\\":\\\"ACCEPT\\\",\\\"MARKETING\\\":\\\"ACCEPT\\\",\\\"PERSONALIZATION\\\":\\\"ACCEPT\\\",\\\"ANALYTICS\\\":\\\"ACCEPT\\\",\\\"OPT_OUT\\\":\\\"DENY\\\"}}}\",\n
+        \ \"activated\":true,\n  \"signInCount\":23,\n  \"confirmed\":true,\n  \"2faEnabled\":false,\n
+        \ \"sys\":{\n    \"type\":\"User\",\n    \"id\":\"user_id\",\n
+        \   \"version\":17,\n    \"createdAt\":\"2020-09-15T19:29:44Z\",\n    \"updatedAt\":\"2020-11-02T09:11:09Z\"\n
+        \ }\n}\n\n"
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag
+      Access-Control-Max-Age:
+      - '1728000'
+      Cache-Control:
+      - no-store
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1281'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Date:
+      - Tue, 08 Dec 2020 12:42:40 GMT
+      Server:
+      - Contentful
+      Set-Cookie:
+      - visid_incap_673446=dUEOFWdVSS2oFFL/H8Wg9b90z18AAAAAQUIPAAAAAAD57jkbZczo84VnUCBeEd7W;
+        expires=Wed, 08 Dec 2021 10:02:41 GMT; HttpOnly; path=/; Domain=.contentful.com
+      - nlbi_673446=J0RJDwCNsh5icCh9KsJtVwAAAABnk1Q1FhQyxCXAnx0EIsTp; path=/; Domain=.contentful.com
+      - incap_ses_710_673446=oYo7c5U86CdQwn+Pa23aCb90z18AAAAAp4F0gINfLkuiLeVIIlTXhw==;
+        path=/; Domain=.contentful.com
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-CDN:
+      - Incapsula
+      X-Contentful-Request-Id:
+      - c310e849bdd165a04768a4322efcffea
+      X-Iinfo:
+      - 14-1054142-1052113 PNNy RT(1607431359639 29) q(0 0 0 -1) r(3 3) U5
+      accept-ranges:
+      - bytes
+      cf-organization-id:
+      - 59FPZVgxkP8nNontUf5ngp
+      etag:
+      - W/"193a02f7909b38282054657a8bb4e56a"
+      referrer-policy:
+      - strict-origin-when-cross-origin
+      x-content-type-options:
+      - nosniff
+      x-contentful-route:
+      - /organizations/:organization_id/users/:id
+      x-download-options:
+      - noopen
+      x-frame-options:
+      - ALLOWALL
+      x-permitted-cross-domain-policies:
+      - none
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

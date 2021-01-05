@@ -30,12 +30,19 @@ class User(Resource):
         self.confirmed = item.get('confirmed', False)
 
     @classmethod
-    def base_url(klass, **kwargs):
+    def base_url(klass, space_id=None, resource_id=None, organization_id=None, **kwargs):
         """
         Returns the URI for the user.
         """
 
-        return "users/me"
+        if space_id is not None:
+            url = "spaces/{0}/users/{1}".format(space_id, resource_id)
+        elif organization_id is not None:
+            url = "organizations/{0}/users/{1}".format(organization_id, resource_id)
+        else:
+            url = "users/me"
+
+        return url
 
     def __repr__(self):
         return "<User[{0} {1}] email='{2}' activated={3} confirmed={4} sign_in_count={5}>".format(
