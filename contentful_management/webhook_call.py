@@ -31,11 +31,11 @@ class WebhookCall(Resource):
         self.url = item.get('url', '')
         try:
             self.request_at = dateutil.parser.parse(item.get('requestAt', ''))
-        except:
+        except Exception:
             self.request_at = ''
         try:
             self.response_at = dateutil.parser.parse(item.get('responseAt', ''))
-        except:
+        except Exception:
             self.response_at = ''
 
     @classmethod

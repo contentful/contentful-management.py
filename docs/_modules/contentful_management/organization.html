@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.organization &#8212; Contentful Management 2.10.0 documentation</title>
+    <title>contentful_management.organization &#8212; Contentful Management 2.11.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.10.0',
+        VERSION:     '2.11.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -44,6 +44,7 @@
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="n">Resource</span>
 <span class="kn">from</span> <span class="nn">.space_periodic_usages_proxy</span> <span class="kn">import</span> <span class="n">SpacePeriodicUsagesProxy</span>
 <span class="kn">from</span> <span class="nn">.organization_periodic_usages_proxy</span> <span class="kn">import</span> <span class="n">OrganizationPeriodicUsagesProxy</span>
+<span class="kn">from</span> <span class="nn">.organization_users_proxy</span> <span class="kn">import</span> <span class="n">OrganizationUsersProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -109,6 +110,23 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">SpacePeriodicUsagesProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Organization.users"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.organization.Organization.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to organization users management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</span>
+
+<span class="sd">        :return: :class:`OrganizationUsersProxy &lt;contentful_management.organization_users_proxy.OrganizationUsersProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.organization_users_proxy.OrganizationUsersProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; organization_users_proxy = organization.users()</span>
+<span class="sd">            &lt;OrganizationUsersProxy organization_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">OrganizationUsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;Organization[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

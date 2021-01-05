@@ -292,6 +292,14 @@ contentful\_management\.organization\_periodic\_usages\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.organization\_users\_proxy module
+---------------------------------------------------------
+
+.. automodule:: contentful_management.organization_users_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.organizations\_proxy module
 ---------------------------------------------------
 
@@ -464,6 +472,14 @@ contentful\_management\.space\_space\_memberships\_proxy module
 ---------------------------------------------------------------
 
 .. automodule:: contentful_management.space_space_memberships_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.space\_users\_proxy module
+--------------------------------------------------
+
+.. automodule:: contentful_management.space_users_proxy
     :members:
     :undoc-members:
     :show-inheritance:

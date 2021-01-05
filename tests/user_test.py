@@ -34,10 +34,6 @@ class WebhookHealthTest(TestCase):
         with self.assertRaises(Exception):
             CLIENT.users().delete('foobar')
 
-    def test_fail_find_user(self):
-        with self.assertRaises(Exception):
-            CLIENT.users().find('foobar')
-
     def test_fail_all_user(self):
         with self.assertRaises(Exception):
             CLIENT.users().all()

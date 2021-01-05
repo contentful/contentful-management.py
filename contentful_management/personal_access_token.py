@@ -27,7 +27,7 @@ class PersonalAccessToken(Resource):
         self.token = item.get('token', '')
         try:
             self.revoked_at = dateutil.parser.parse(item.get('revokedAt', ''))
-        except:
+        except Exception:
             self.revoked_at = None
 
     @classmethod

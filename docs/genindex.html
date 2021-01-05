@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; Contentful Management 2.10.0 documentation</title>
+    <title>Index &#8212; Contentful Management 2.11.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.10.0',
+        VERSION:     '2.11.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -309,6 +309,8 @@
 </li>
       <li><a href="contentful_management.html#module-contentful_management.organization_periodic_usages_proxy">contentful_management.organization_periodic_usages_proxy (module)</a>
 </li>
+      <li><a href="contentful_management.html#module-contentful_management.organization_users_proxy">contentful_management.organization_users_proxy (module)</a>
+</li>
       <li><a href="contentful_management.html#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy (module)</a>
 </li>
       <li><a href="contentful_management.html#module-contentful_management.personal_access_token">contentful_management.personal_access_token (module)</a>
@@ -354,6 +356,8 @@
       <li><a href="contentful_management.html#module-contentful_management.space_roles_proxy">contentful_management.space_roles_proxy (module)</a>
 </li>
       <li><a href="contentful_management.html#module-contentful_management.space_space_memberships_proxy">contentful_management.space_space_memberships_proxy (module)</a>
+</li>
+      <li><a href="contentful_management.html#module-contentful_management.space_users_proxy">contentful_management.space_users_proxy (module)</a>
 </li>
       <li><a href="contentful_management.html#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy (module)</a>
 </li>
@@ -670,8 +674,6 @@
 </li>
         <li><a href="contentful_management.html#contentful_management.uploads_proxy.UploadsProxy.find">(contentful_management.uploads_proxy.UploadsProxy method)</a>
 </li>
-        <li><a href="contentful_management.html#contentful_management.users_proxy.UsersProxy.find">(contentful_management.users_proxy.UsersProxy method)</a>
-</li>
         <li><a href="contentful_management.html#contentful_management.webhook_resource_proxy.WebhookResourceProxy.find">(contentful_management.webhook_resource_proxy.WebhookResourceProxy method)</a>
 </li>
         <li><a href="contentful_management.html#contentful_management.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy.find">(contentful_management.webhook_webhooks_health_proxy.WebhookWebhooksHealthProxy method)</a>
@@ -799,15 +801,17 @@
 </li>
       <li><a href="contentful_management.html#contentful_management.client.Client.organization_periodic_usages">organization_periodic_usages() (contentful_management.client.Client method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="contentful_management.html#contentful_management.organization_periodic_usage.OrganizationPeriodicUsage">OrganizationPeriodicUsage (class in contentful_management.organization_periodic_usage)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="contentful_management.html#contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy">OrganizationPeriodicUsagesProxy (class in contentful_management.organization_periodic_usages_proxy)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.client.Client.organizations">organizations() (contentful_management.client.Client method)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.organizations_proxy.OrganizationsProxy">OrganizationsProxy (class in contentful_management.organizations_proxy)</a>
+</li>
+      <li><a href="contentful_management.html#contentful_management.organization_users_proxy.OrganizationUsersProxy">OrganizationUsersProxy (class in contentful_management.organization_users_proxy)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -961,6 +965,8 @@
 </li>
       <li><a href="contentful_management.html#contentful_management.spaces_proxy.SpacesProxy">SpacesProxy (class in contentful_management.spaces_proxy)</a>
 </li>
+      <li><a href="contentful_management.html#contentful_management.space_users_proxy.SpaceUsersProxy">SpaceUsersProxy (class in contentful_management.space_users_proxy)</a>
+</li>
       <li><a href="contentful_management.html#contentful_management.space_webhooks_proxy.SpaceWebhooksProxy">SpaceWebhooksProxy (class in contentful_management.space_webhooks_proxy)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.utils.str_type">str_type() (in module contentful_management.utils)</a>
@@ -1088,7 +1094,13 @@
       <li><a href="contentful_management.html#contentful_management.user.User">User (class in contentful_management.user)</a>
 </li>
       <li><a href="contentful_management.html#contentful_management.client.Client.users">users() (contentful_management.client.Client method)</a>
+
+      <ul>
+        <li><a href="contentful_management.html#contentful_management.organization.Organization.users">(contentful_management.organization.Organization method)</a>
 </li>
+        <li><a href="contentful_management.html#contentful_management.space.Space.users">(contentful_management.space.Space method)</a>
+</li>
+      </ul></li>
       <li><a href="contentful_management.html#contentful_management.users_proxy.UsersProxy">UsersProxy (class in contentful_management.users_proxy)</a>
 </li>
   </ul></td>

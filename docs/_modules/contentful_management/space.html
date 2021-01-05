@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.space &#8212; Contentful Management 2.10.0 documentation</title>
+    <title>contentful_management.space &#8212; Contentful Management 2.11.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.10.0',
+        VERSION:     '2.11.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -49,6 +49,7 @@
 <span class="kn">from</span> <span class="nn">.space_environments_proxy</span> <span class="kn">import</span> <span class="n">SpaceEnvironmentsProxy</span>
 <span class="kn">from</span> <span class="nn">.space_preview_api_keys_proxy</span> <span class="kn">import</span> <span class="n">SpacePreviewApiKeysProxy</span>
 <span class="kn">from</span> <span class="nn">.space_space_memberships_proxy</span> <span class="kn">import</span> <span class="n">SpaceSpaceMembershipsProxy</span>
+<span class="kn">from</span> <span class="nn">.space_users_proxy</span> <span class="kn">import</span> <span class="n">SpaceUsersProxy</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -283,6 +284,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">SpaceEnvironmentsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Space.users"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.space.Space.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to space users management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</span>
+
+<span class="sd">        :return: :class:`SpaceUsersProxy &lt;contentful_management.space_users_proxy.SpaceSpaceMembershipsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.space_users_proxy.SpaceUsersProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; space_users_proxy = space.users()</span>
+<span class="sd">            &lt;SpaceUsersProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">SpaceUsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;Space[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>

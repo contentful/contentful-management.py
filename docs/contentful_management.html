@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 2.10.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.11.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.10.0',
+        VERSION:     '2.11.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -1940,6 +1940,28 @@ Include resolution and other particular processing is done for CDA only.</p>
 </div>
 </dd></dl>
 
+<dl class="method">
+<dt id="contentful_management.organization.Organization.users">
+<code class="descname">users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization.html#Organization.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization.Organization.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to organization users management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users">https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.organization_users_proxy.OrganizationUsersProxy" title="contentful_management.organization_users_proxy.OrganizationUsersProxy"><code class="xref py py-class docutils literal"><span class="pre">OrganizationUsersProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.organization_users_proxy.OrganizationUsersProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">organization_users_proxy</span> <span class="o">=</span> <span class="n">organization</span><span class="o">.</span><span class="n">users</span><span class="p">()</span>
+<span class="go">&lt;OrganizationUsersProxy organization_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -1989,6 +2011,16 @@ Include resolution and other particular processing is done for CDA only.</p>
 <dd><p>Not supported.</p>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.organization_users_proxy">
+<span id="contentful-management-organization-users-proxy-module"></span><h2>contentful_management.organization_users_proxy module<a class="headerlink" href="#module-contentful_management.organization_users_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.organization_users_proxy.OrganizationUsersProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.organization_users_proxy.</code><code class="descname">OrganizationUsersProxy</code><span class="sig-paren">(</span><em>client</em>, <em>organization_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization_users_proxy.html#OrganizationUsersProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.organization_users_proxy.OrganizationUsersProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users">https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</a></p>
 </dd></dl>
 
 </div>
@@ -2604,6 +2636,28 @@ Returns False if resource has not been published before.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="contentful_management.space.Space.users">
+<code class="descname">users</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.users"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.users" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to space users management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users">https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">SpaceUsersProxy</span></code> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.space_users_proxy.SpaceUsersProxy</td>
+</tr>
+</tbody>
+</table>
+<p>Usage:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_users_proxy</span> <span class="o">=</span> <span class="n">space</span><span class="o">.</span><span class="n">users</span><span class="p">()</span>
+<span class="go">&lt;SpaceUsersProxy space_id=&quot;cfexampleapi&quot;&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="contentful_management.space.Space.webhooks">
 <code class="descname">webhooks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space.html#Space.webhooks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space.Space.webhooks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides access to webhook management methods.</p>
@@ -2840,6 +2894,16 @@ Returns False if resource has not been published before.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-contentful_management.space_users_proxy">
+<span id="contentful-management-space-users-proxy-module"></span><h2>contentful_management.space_users_proxy module<a class="headerlink" href="#module-contentful_management.space_users_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.space_users_proxy.SpaceUsersProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.space_users_proxy.</code><code class="descname">SpaceUsersProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_users_proxy.html#SpaceUsersProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.space_users_proxy.SpaceUsersProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.space_resource_proxy.SpaceResourceProxy" title="contentful_management.space_resource_proxy.SpaceResourceProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.space_resource_proxy.SpaceResourceProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users">https://www.contentful.com/developers/docs/references/user-management-api/#/reference/users</a></p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-contentful_management.space_webhooks_proxy">
 <span id="contentful-management-space-webhooks-proxy-module"></span><h2>contentful_management.space_webhooks_proxy module<a class="headerlink" href="#module-contentful_management.space_webhooks_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -3006,7 +3070,7 @@ Returns False if resource has not been published before.</p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.user.User.base_url">
-<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/user.html#User.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.user.User.base_url" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">base_url</code><span class="sig-paren">(</span><em>space_id=None</em>, <em>resource_id=None</em>, <em>organization_id=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/user.html#User.base_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.user.User.base_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the URI for the user.</p>
 </dd></dl>
 
@@ -3017,7 +3081,7 @@ Returns False if resource has not been published before.</p>
 <span id="contentful-management-users-proxy-module"></span><h2>contentful_management.users_proxy module<a class="headerlink" href="#module-contentful_management.users_proxy" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="contentful_management.users_proxy.UsersProxy">
-<em class="property">class </em><code class="descclassname">contentful_management.users_proxy.</code><code class="descname">UsersProxy</code><span class="sig-paren">(</span><em>client</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/users_proxy.html#UsersProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.users_proxy.UsersProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">contentful_management.users_proxy.</code><code class="descname">UsersProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/users_proxy.html#UsersProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.users_proxy.UsersProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
 <dl class="method">
 <dt id="contentful_management.users_proxy.UsersProxy.all">
@@ -3034,12 +3098,6 @@ Returns False if resource has not been published before.</p>
 <dl class="method">
 <dt id="contentful_management.users_proxy.UsersProxy.delete">
 <code class="descname">delete</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/users_proxy.html#UsersProxy.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.users_proxy.UsersProxy.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not supported.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="contentful_management.users_proxy.UsersProxy.find">
-<code class="descname">find</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/users_proxy.html#UsersProxy.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.users_proxy.UsersProxy.find" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not supported.</p>
 </dd></dl>
 
@@ -3549,6 +3607,7 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.organization">contentful_management.organization module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.organization_periodic_usage">contentful_management.organization_periodic_usage module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.organization_periodic_usages_proxy">contentful_management.organization_periodic_usages_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.organization_users_proxy">contentful_management.organization_users_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.organizations_proxy">contentful_management.organizations_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.personal_access_token">contentful_management.personal_access_token module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.personal_access_tokens_proxy">contentful_management.personal_access_tokens_proxy module</a></li>
@@ -3574,6 +3633,7 @@ depends on the Python version.</p>
 </li>
 <li><a class="reference internal" href="#module-contentful_management.space_roles_proxy">contentful_management.space_roles_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_space_memberships_proxy">contentful_management.space_space_memberships_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.space_users_proxy">contentful_management.space_users_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.spaces_proxy">contentful_management.spaces_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.ui_extension">contentful_management.ui_extension module</a></li>
