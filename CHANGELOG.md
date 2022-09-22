@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Changed CI/CD vendor from Travis to CircleCI
+* Fixed type in readme
 
 ## v2.11.0
 
