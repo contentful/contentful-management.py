@@ -524,7 +524,7 @@ Creating a content type::
 
     content_type_attributes = {
         'name': 'Blog Post',
-        'description': 'Blog Posts to be included in ...'
+        'description': 'Blog Posts to be included in ...',
         'fields': [
             {
                 'disabled': False,
