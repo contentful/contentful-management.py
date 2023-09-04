@@ -13,6 +13,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 :license: MIT, see LICENSE for more details.
 """
 
+
 class TagsProxy(ClientProxy):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags
