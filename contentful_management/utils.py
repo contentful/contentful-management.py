@@ -136,6 +136,7 @@ def base_path_for(resource_name):
     """
 
     return {
+        'Tag': 'tags',
         'Role': 'roles',
         'Space': 'spaces',
         'Asset': 'assets',

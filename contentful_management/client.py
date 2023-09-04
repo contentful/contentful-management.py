@@ -6,6 +6,7 @@ from .resource_builder import ResourceBuilder
 from .errors import get_error, RateLimitExceededError
 from .utils import ConfigurationException, retry_request
 
+from .tags_proxy import TagsProxy
 from .users_proxy import UsersProxy
 from .roles_proxy import RolesProxy
 from .assets_proxy import AssetsProxy
@@ -545,6 +546,22 @@ class Client(object):
         """
 
         return EnvironmentsProxy(self, space_id)
+
+    def tags(self, space_id, environment_id):
+        """
+        Provides access to tag management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags
+
+        :return: :class:`TagsProxy <contentful_management.tags_proxy.TagsProxy>` object.
+        :rtype: contentful.tags_proxy.TagsProxy
+
+        Usage:
+            >>> tags_proxy = client.tags('cfexampleapi', 'master')
+            <TagsProxy space_id="cfexampleapi" environment_id="master">
+        """
+
+        return TagsProxy(self, space_id, environment_id)
 
     def _validate_configuration(self):
         """

@@ -3,6 +3,7 @@
 ## Unreleased
 * Changed CI/CD vendor from Travis to CircleCI
 * Fixed type in readme
+* Added Support for Tags API
 
 ## v2.11.0
 

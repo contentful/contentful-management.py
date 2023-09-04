@@ -40,6 +40,12 @@ class ClientTest(TestCase):
 
         self.assertEqual(str(proxy), "<UsersProxy>")
 
+    def test_client_tags(self):
+        proxy = CLIENT.tags(PLAYGROUND_SPACE, 'master')
+
+        self.assertEqual(str(proxy), "<TagsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
+
+
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):
             Client(None)

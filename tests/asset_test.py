@@ -24,6 +24,17 @@ BASE_ASSET_ITEM = {
                 'url': '//images.contentful.com/.../foo.png'
             }
         }
+    },
+    'metadata': {
+        'tags': [
+            {
+                'sys': {
+                    'id': 'bar',
+                    'type': 'Link',
+                    'linkType': 'Tag'
+                }
+            }
+        ]
     }
 }
 
