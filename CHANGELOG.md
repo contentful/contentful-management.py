@@ -3,6 +3,7 @@
 ## Unreleased
 * Changed CI/CD vendor from Travis to CircleCI
 * Fixed type in readme
+* Update CircleCI config to use latest Python version
 
 ## v2.11.0
 
