@@ -1,3 +1,4 @@
+from .tag import Tag
 from .role import Role
 from .user import User
 from .entry import Entry
@@ -58,6 +59,7 @@ class ResourceBuilder(object):
 
     def _build_item(self, item):
         buildables = {
+            'Tag': Tag,
             'Role': Role,
             'User': User,
             'Entry': Entry,

@@ -238,6 +238,50 @@ class Resource(object):
         )
 
 
+class MetadataResource(Resource):
+    """
+    Metadata resource class.
+
+    Implements metadata handling for resources.
+    """
+
+    def __init__(self, item, **kwargs):
+        super(MetadataResource, self).__init__(item, **kwargs)
+        self._metadata = self._hydrate_metadata(item)
+
+    def _hydrate_metadata(self, item):
+        metadata = {}
+        if 'metadata' not in item:
+            return metadata
+        for k, v in item['metadata'].items():
+            if k == 'tags':
+                metadata[k] = self.coerce_tags(v)
+            else:
+                metadata[k] = v
+        return metadata
+
+    def coerce_tags(self, tags):
+        """
+        Coerces tags to the proper type.
+        """
+        return [self._build_link(tag) for tag in tags]
+
+    @classmethod
+    def create_attributes(klass, attributes, previous_object=None):
+        """
+        Attributes for resource creation.
+        """
+
+        result = super(MetadataResource, klass).create_attributes(attributes, previous_object)
+
+        if '_metadata' not in attributes:
+            result['metadata'] = {}
+        else:
+            result['metadata'] = attributes['_metadata']
+
+        return result
+
+
 class FieldsResource(Resource):
     """
     Fields resource class.
@@ -354,7 +398,7 @@ class FieldsResource(Resource):
 
     def __setattr__(self, name, value):
         if name not in ['raw', 'sys', 'default_locale',
-                        '_client', '_fields', '__CONTENT_TYPE__']:
+                        '_client', '_fields', '__CONTENT_TYPE__', '_metadata']:
             locale = self._locale()
             if (name in self._fields.get(locale, {}) or
                     self._is_missing_field(name)):

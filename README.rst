@@ -489,6 +489,54 @@ Checking if an entry is updated::
     Entries created with *empty fields*, will not return those fields in the response.
     Therefore, if you want to explicitly set those fields to empty (``None``) you will need to make an extra request to fetch the Content Type and fill the missing fields.
 
+Tags
+----
+
+Retrieving all tags on a space::
+
+    tags = client.tags('my_space_id', 'environment_id').all()
+
+Retrieving a tag by ID::
+
+    tag = client.tags('my_space_id', 'environment_id').find('tag_id')
+
+
+Deleting a tag::
+
+        client.tags('my_space_id', 'environment_id').delete('tag_id')
+
+Creating a tag::
+
+        new_tag = client.tags('my_space_id', 'environment_id').create('new_tag_id', {'name': 'My Tag'})
+
+Updating a tag::
+
+            tag.update({'name': 'My New Tag'})
+
+            # or directly editing it's properties
+
+            tag.name = 'My New Tag'
+            tag.save()
+
+Tagging an entry::
+
+    entry.update({"_metadata": {"tags": [{"sys": {"type": "Link", "linkType": "Tag", "id": "icon"}}]}})
+
+Tagging an asset::
+
+    asset.update({"_metadata": {"tags": [{"sys": {"type": "Link", "linkType": "Tag", "id": "icon"}}]}})
+
+Removing a tag from an entry::
+
+        entry.update({"_metadata": {"tags": []}})
+
+Removing a tag from an asset::
+
+        asset.update({"_metadata": {"tags": []}})
+
+Accessing tag of an entry or asset::
+
+        entry._metadata['tags'] or asset._metadata['tags']  # will return a list of tags
 Content Types
 -------------
 
