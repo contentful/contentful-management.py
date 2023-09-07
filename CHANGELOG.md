@@ -2,8 +2,9 @@
 
 ## Unreleased
 * Changed CI/CD vendor from Travis to CircleCI
-* Fixed type in readme
+* Fixed typo in readme
 * Added Support for Tags API
+* Update CircleCI config to use latest Python version
 
 ## v2.11.0
 
