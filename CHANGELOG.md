@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.12.0
 * Changed CI/CD vendor from Travis to CircleCI
 * Fixed typo in readme
 * Added Support for Tags API
