@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="contentful_management"
+version = "2.12.0"
+authors = [
+  { name="Contentful", email="" },
+]
+description="Contentful Management API Client"
+readme = "README.rst"
+requires-python = ">=3.7"
+classifiers=[
+  "Development Status :: 5 - Production/Stable",
+  "Topic :: Software Development :: Libraries",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/contentful/contentful-management.py"
+"Bug Tracker" ="https://github.com/contentful/contentful-management.py/issues"
