@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+### Fixed
+* Bug in creating entry when no metadata is provided [#97](https://github.com/contentful/contentful-management.py/issues/97)
 
 ## v2.12.0
 * Changed CI/CD vendor from Travis to CircleCI
