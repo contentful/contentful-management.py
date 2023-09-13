@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.13.0
+
 ### Fixed
 * Bug in creating entry when no metadata is provided [#97](https://github.com/contentful/contentful-management.py/issues/97)
 
