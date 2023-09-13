@@ -275,7 +275,7 @@ class MetadataResource(Resource):
         result = super(MetadataResource, klass).create_attributes(attributes, previous_object)
 
         if '_metadata' in attributes:
-            result['metadata'] = attributes['_metadata']
+            result['metadata'] = attributes.pop('_metadata')
 
         return result
 
