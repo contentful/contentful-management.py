@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management package &#8212; Contentful Management 2.11.0 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.13.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2.11.0',
+        VERSION:     '2.13.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -128,7 +128,7 @@
 <dl class="class">
 <dt id="contentful_management.asset.Asset">
 <em class="property">class </em><code class="descclassname">contentful_management.asset.</code><code class="descname">Asset</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/asset.html#Asset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.asset.Asset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.MetadataResource" title="contentful_management.resource.MetadataResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.MetadataResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</a></p>
 <dl class="method">
 <dt id="contentful_management.asset.Asset.process">
@@ -634,6 +634,31 @@ for retry after RateLimitError, defaults to 60.</li>
 <span class="go">&lt;SpacesProxy&gt;</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="method">
+<dt id="contentful_management.client.Client.tags">
+<code class="descname">tags</code><span class="sig-paren">(</span><em>space_id</em>, <em>environment_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/client.html#Client.tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.client.Client.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides access to tag management methods.</p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#contentful_management.tags_proxy.TagsProxy" title="contentful_management.tags_proxy.TagsProxy"><code class="xref py py-class docutils literal"><span class="pre">TagsProxy</span></code></a> object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">contentful.tags_proxy.TagsProxy</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Usage:</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tags_proxy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">tags</span><span class="p">(</span><span class="s1">&#39;cfexampleapi&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">)</span>
+<span class="go">&lt;TagsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1354,7 +1379,7 @@ Include resolution and other particular processing is done for CDA only.</p>
 <dl class="class">
 <dt id="contentful_management.entry.Entry">
 <em class="property">class </em><code class="descclassname">contentful_management.entry.</code><code class="descname">Entry</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/entry.html#Entry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.entry.Entry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.MetadataResource" title="contentful_management.resource.MetadataResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.MetadataResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.FieldsResource" title="contentful_management.resource.FieldsResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.FieldsResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.PublishResource" title="contentful_management.resource.PublishResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.PublishResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.ArchiveResource" title="contentful_management.resource.ArchiveResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.ArchiveResource</span></code></a>, <a class="reference internal" href="#contentful_management.resource.EnvironmentAwareResource" title="contentful_management.resource.EnvironmentAwareResource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.EnvironmentAwareResource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries">https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries</a></p>
 <dl class="classmethod">
 <dt id="contentful_management.entry.Entry.create_headers">
@@ -2238,6 +2263,26 @@ Include resolution and other particular processing is done for CDA only.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="contentful_management.resource.MetadataResource">
+<em class="property">class </em><code class="descclassname">contentful_management.resource.</code><code class="descname">MetadataResource</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#MetadataResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.MetadataResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>Metadata resource class.</p>
+<p>Implements metadata handling for resources.</p>
+<dl class="method">
+<dt id="contentful_management.resource.MetadataResource.coerce_tags">
+<code class="descname">coerce_tags</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#MetadataResource.coerce_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.MetadataResource.coerce_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coerces tags to the proper type.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="contentful_management.resource.MetadataResource.create_attributes">
+<em class="property">classmethod </em><code class="descname">create_attributes</code><span class="sig-paren">(</span><em>attributes</em>, <em>previous_object=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/resource.html#MetadataResource.create_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.MetadataResource.create_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attributes for resource creation.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="contentful_management.resource.PublishResource">
 <em class="property">class </em><code class="descclassname">contentful_management.resource.</code><code class="descname">PublishResource</code><a class="reference internal" href="_modules/contentful_management/resource.html#PublishResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.resource.PublishResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -2954,6 +2999,32 @@ Returns False if resource has not been published before.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-contentful_management.tag">
+<span id="contentful-management-tag-module"></span><h2>contentful_management.tag module<a class="headerlink" href="#module-contentful_management.tag" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.tag.Tag">
+<em class="property">class </em><code class="descclassname">contentful_management.tag.</code><code class="descname">Tag</code><span class="sig-paren">(</span><em>item</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/tag.html#Tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.tag.Tag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.resource.Resource</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags</a></p>
+<dl class="method">
+<dt id="contentful_management.tag.Tag.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/tag.html#Tag.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.tag.Tag.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes this tag.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contentful_management.tags_proxy">
+<span id="contentful-management-tags-proxy-module"></span><h2>contentful_management.tags_proxy module<a class="headerlink" href="#module-contentful_management.tags_proxy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="contentful_management.tags_proxy.TagsProxy">
+<em class="property">class </em><code class="descclassname">contentful_management.tags_proxy.</code><code class="descname">TagsProxy</code><span class="sig-paren">(</span><em>client</em>, <em>space_id</em>, <em>environment_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/tags_proxy.html#TagsProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#contentful_management.tags_proxy.TagsProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal"><span class="pre">contentful_management.client_proxy.ClientProxy</span></code></a></p>
+<p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags</a></p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-contentful_management.ui_extension">
 <span id="contentful-management-ui-extension-module"></span><h2>contentful_management.ui_extension module<a class="headerlink" href="#module-contentful_management.ui_extension" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -3636,6 +3707,8 @@ depends on the Python version.</p>
 <li><a class="reference internal" href="#module-contentful_management.space_users_proxy">contentful_management.space_users_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.space_webhooks_proxy">contentful_management.space_webhooks_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.spaces_proxy">contentful_management.spaces_proxy module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.tag">contentful_management.tag module</a></li>
+<li><a class="reference internal" href="#module-contentful_management.tags_proxy">contentful_management.tags_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.ui_extension">contentful_management.ui_extension module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.ui_extensions_proxy">contentful_management.ui_extensions_proxy module</a></li>
 <li><a class="reference internal" href="#module-contentful_management.upload">contentful_management.upload module</a></li>

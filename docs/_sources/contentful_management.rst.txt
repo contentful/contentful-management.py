@@ -500,6 +500,22 @@ contentful\_management\.spaces\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.tag module
+----------------------------------
+
+.. automodule:: contentful_management.tag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.tags\_proxy module
+------------------------------------------
+
+.. automodule:: contentful_management.tags_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.ui\_extension module
 --------------------------------------------
 
