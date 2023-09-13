@@ -274,9 +274,7 @@ class MetadataResource(Resource):
 
         result = super(MetadataResource, klass).create_attributes(attributes, previous_object)
 
-        if '_metadata' not in attributes:
-            result['metadata'] = {}
-        else:
+        if '_metadata' in attributes:
             result['metadata'] = attributes['_metadata']
 
         return result
