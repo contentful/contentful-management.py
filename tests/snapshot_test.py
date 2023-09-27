@@ -175,7 +175,8 @@ class SnapshotTest(TestCase):
                         "disabled": False,
                         "omitted": False,
                         "type": "Text",
-                        "validations": []
+                        "validations": [],
+                        "defaultValue": None
                     },
                     {
                         "id": "body",
@@ -185,7 +186,8 @@ class SnapshotTest(TestCase):
                         "disabled": False,
                         "omitted": False,
                         "type": "Text",
-                        "validations": []
+                        "validations": [],
+                        "defaultValue": None
                     }
                 ],
                 "sys": {

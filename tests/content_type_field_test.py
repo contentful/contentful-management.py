@@ -55,7 +55,8 @@ class ContentTypeFieldTest(TestCase):
             'omitted': False,
             'required': False,
             'disabled': False,
-            'validations': []
+            'validations': [],
+            'defaultValue': None
         })
 
     def test_link_field_test(self):
@@ -71,7 +72,8 @@ class ContentTypeFieldTest(TestCase):
             'omitted': False,
             'required': False,
             'disabled': False,
-            'validations': []
+            'validations': [],
+            'defaultValue': None
         })
 
     def test_array_field_test(self):
@@ -89,7 +91,8 @@ class ContentTypeFieldTest(TestCase):
             'omitted': False,
             'required': False,
             'disabled': False,
-            'validations': []
+            'validations': [],
+            'defaultValue': None
         })
 
     def test_link_array_field_test(self):
@@ -108,7 +111,8 @@ class ContentTypeFieldTest(TestCase):
             'omitted': False,
             'required': False,
             'disabled': False,
-            'validations': []
+            'validations': [],
+            'defaultValue': None
         })
 
     def test_validations_field_test(self):
@@ -125,7 +129,8 @@ class ContentTypeFieldTest(TestCase):
             'disabled': False,
             'validations': [{
                 'size': {'min': 3}
-            }]
+            }],
+            'defaultValue': None
         })
 
     def test_coercion(self):
