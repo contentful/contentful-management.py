@@ -1,7 +1,10 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.13.1
 * Preserve fields default values when updating content type [#90](https://github.com/contentful/contentful-management.py/issues/90)
+
 ## v2.13.0
 
 ### Fixed
