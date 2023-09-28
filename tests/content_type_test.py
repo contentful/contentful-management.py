@@ -61,7 +61,8 @@ class ContentTypeTest(TestCase):
                     'omitted': False,
                     'required': False,
                     'disabled': False,
-                    'validations': []
+                    'validations': [],
+                    'defaultValue': None
                 }
             ]
         })
@@ -134,6 +135,16 @@ class ContentTypeTest(TestCase):
             content_type.save()
 
         self.assertEqual(content_type.name, 'foo')
+
+
+    @vcr.use_cassette('fixtures/content_type/update_default_value.yaml')
+    def test_preserves_field_default_value_on_update(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('test123')
+
+        assert content_type.fields[0].default_value is not None
+        content_type.save()
+        assert content_type.fields[0].default_value is not None
+
 
     @vcr.use_cassette('fixtures/content_type/find_2.yaml')
     def test_delete_content_type(self):
