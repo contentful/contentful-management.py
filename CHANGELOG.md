@@ -1,8 +1,20 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.13.1
+* Preserve fields default values when updating content type [#90](https://github.com/contentful/contentful-management.py/issues/90)
+
+## v2.13.0
+
+### Fixed
+* Bug in creating entry when no metadata is provided [#97](https://github.com/contentful/contentful-management.py/issues/97)
+
+## v2.12.0
 * Changed CI/CD vendor from Travis to CircleCI
-* Fixed type in readme
+* Fixed typo in readme
+* Added Support for Tags API
+* Update CircleCI config to use latest Python version
 
 ## v2.11.0
 

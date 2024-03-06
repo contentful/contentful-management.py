@@ -1,0 +1,167 @@
+interactions:
+- request:
+    body: '{"metadata": {"tags": [{"sys": {"type": "Link", "linkType": "Tag", "id":
+      "icon"}}]}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '84'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.25.1
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.11.0; platform python/3.11.4; os macOS/22.6.0;
+      x-contentful-content-type:
+      - author
+    method: POST
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/entries
+  response:
+    body:
+      string: '{"metadata":{"tags":[{"sys":{"type":"Link","linkType":"Tag","id":"icon"}}]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"facgnwwgj5fe"}},"id":"4WpJMb7c5m2iZjEu0j9HMc","type":"Entry","createdAt":"2023-09-01T06:45:09.538Z","updatedAt":"2023-09-01T06:45:09.538Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"createdBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"updatedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"publishedCounter":0,"version":1,"automationTags":[],"contentType":{"sys":{"type":"Link","linkType":"ContentType","id":"author"}}},"fields":{}}
+
+        '
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id
+      Access-Control-Max-Age:
+      - '1728000'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '666'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - content-api
+      Date:
+      - Fri, 01 Sep 2023 06:45:09 GMT
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      cf-environment-id:
+      - master
+      cf-environment-uuid:
+      - master
+      cf-space-id:
+      - facgnwwgj5fe
+      etag:
+      - '"15723742099488008956"'
+      x-contentful-request-id:
+      - 4c867a61-127e-4a1d-880e-cb263f1bd7dc
+      x-contentful-route:
+      - /spaces/:space/environments/:environment/entries
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.25.1
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.11.0; platform python/3.11.4; os macOS/22.6.0;
+    method: GET
+    uri: https://api.contentful.com/spaces/facgnwwgj5fe/environments/master/content_types/author
+  response:
+    body:
+      string: '{"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"facgnwwgj5fe"}},"id":"author","type":"ContentType","createdAt":"2023-09-01T06:44:19.579Z","updatedAt":"2023-09-01T06:44:19.938Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":1,"publishedAt":"2023-09-01T06:44:19.938Z","firstPublishedAt":"2023-09-01T06:44:19.938Z","createdBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"updatedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"publishedCounter":1,"version":2,"publishedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}}},"displayField":"name","name":"Author","description":"","fields":[{"id":"name","name":"Name","type":"Symbol","localized":false,"required":false,"validations":[],"disabled":false,"omitted":false}]}
+
+        '
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id
+      Access-Control-Max-Age:
+      - '1728000'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '861'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - content-api
+      Date:
+      - Fri, 01 Sep 2023 06:45:10 GMT
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35998'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '8'
+      cf-environment-id:
+      - master
+      cf-environment-uuid:
+      - master
+      cf-space-id:
+      - facgnwwgj5fe
+      etag:
+      - '"5228333861860163539"'
+      x-contentful-request-id:
+      - b5c1cfd6-0c3d-490d-a650-13f9ead08055
+      x-contentful-route:
+      - /spaces/:space/environments/:environment/content_types/:id
+    status:
+      code: 200
+      message: OK
+version: 1
