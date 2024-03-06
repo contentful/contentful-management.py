@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
+* Adds support for cross-space references
 
 ## v2.13.1
 * Preserve fields default values when updating content type [#90](https://github.com/contentful/contentful-management.py/issues/90)
