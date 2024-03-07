@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.14.0
 * Adds support for cross-space references
 
 ## v2.13.1
