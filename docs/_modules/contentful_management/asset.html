@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.asset &#8212; Contentful Management 2.11.0 documentation</title>
+    <title>contentful_management.asset &#8212; Contentful Management 2.13.2 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.11.0',
+        VERSION:     '2.13.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -41,7 +41,7 @@
           <div class="body" role="main">
             
   <h1>Source code for contentful_management.asset</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="n">FieldsResource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">ArchiveResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span>
+<span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="n">FieldsResource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">ArchiveResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span><span class="p">,</span> <span class="n">MetadataResource</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -57,7 +57,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 
-<div class="viewcode-block" id="Asset"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.asset.Asset">[docs]</a><span class="k">class</span> <span class="nc">Asset</span><span class="p">(</span><span class="n">FieldsResource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">ArchiveResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span><span class="p">):</span>
+<div class="viewcode-block" id="Asset"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.asset.Asset">[docs]</a><span class="k">class</span> <span class="nc">Asset</span><span class="p">(</span><span class="n">MetadataResource</span><span class="p">,</span> <span class="n">FieldsResource</span><span class="p">,</span> <span class="n">PublishResource</span><span class="p">,</span> <span class="n">ArchiveResource</span><span class="p">,</span> <span class="n">EnvironmentAwareResource</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
 <span class="sd">    &quot;&quot;&quot;</span>
