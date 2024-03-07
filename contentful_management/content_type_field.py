@@ -34,6 +34,7 @@ class ContentTypeField(object):
         self.default_value = field_data.get('defaultValue', None)
         self.validations = [ContentTypeFieldValidation(v)
                             for v in field_data.get('validations', [])]
+        self.allowedResources = field_data.get('allowedResources')
         self._coercion = self._get_coercion()
 
     def to_json(self):
