@@ -1,4 +1,4 @@
-from .resource import FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource
+from .resource import FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource, MetadataResource
 from .utils import is_link, is_link_array, snake_case
 from .entry_snapshots_proxy import EntrySnapshotsProxy
 
@@ -16,7 +16,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-del
 """
 
 
-class Entry(FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource):
+class Entry(MetadataResource, FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/entries
     """

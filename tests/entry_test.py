@@ -27,6 +27,17 @@ BASE_ENTRY_ITEM = {
         'name': {
             'en-US': 'foobar'
         }
+    },
+    'metadata': {
+        'tags': [
+            {
+                'sys': {
+                    'id': 'baz',
+                    'type': 'Link',
+                    'linkType': 'Tag'
+                }
+            }
+        ]
     }
 }
 

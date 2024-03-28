@@ -31,8 +31,10 @@ class ContentTypeField(object):
         self.omitted = field_data.get('omitted', False)
         self.required = field_data.get('required', False)
         self.disabled = field_data.get('disabled', False)
+        self.default_value = field_data.get('defaultValue', None)
         self.validations = [ContentTypeFieldValidation(v)
                             for v in field_data.get('validations', [])]
+        self.allowedResources = field_data.get('allowedResources')
         self._coercion = self._get_coercion()
 
     def to_json(self):
@@ -48,7 +50,8 @@ class ContentTypeField(object):
             'omitted': self.omitted,
             'required': self.required,
             'disabled': self.disabled,
-            'validations': [v.to_json() for v in self.validations]
+            'validations': [v.to_json() for v in self.validations],
+            'defaultValue': self.default_value
         }
 
         if self.type == 'Array':

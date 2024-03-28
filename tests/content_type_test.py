@@ -61,7 +61,8 @@ class ContentTypeTest(TestCase):
                     'omitted': False,
                     'required': False,
                     'disabled': False,
-                    'validations': []
+                    'validations': [],
+                    'defaultValue': None
                 }
             ]
         })
@@ -113,6 +114,40 @@ class ContentTypeTest(TestCase):
         self.assertEqual(content_type.id, 'id_content_type_create_test')
         self.assertEqual(content_type.name, 'ID Create Test')
 
+    @vcr.use_cassette('fixtures/content_type/create_with_resource_link_field.yaml')
+    def test_create_content_type_with_resource_link_field(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').create(None, {
+            'name': 'Create Test',
+            'description': 'Something goes here...',
+            'fields': [{
+                'id': 'myResourceLink',
+                'name': 'My Resource Link',
+                'type': 'ResourceLink',
+                'localized': True,
+                'disabled': False,
+                'omitted': False,
+                'allowedResources': [
+                    {
+                        'type': 'Contentful:Entry',
+                        'source': 'crn:contentful:::content:spaces/yb41ceqgyiw5',
+                        'contentTypes': ["foo", "bar"]
+                    }]
+                }
+            ]
+        })
+
+        self.assertEqual(len(content_type.fields), 1)
+
+        field = content_type.fields[0]
+
+        self.assertEqual(field.name, 'My Resource Link')
+        self.assertEqual(field.type, 'ResourceLink')
+        self.assertEqual(len(field.allowedResources), 1)
+        self.assertEqual(field.allowedResources[0]['type'], 'Contentful:Entry')
+        self.assertEqual(field.allowedResources[0]['source'], 'crn:contentful:::content:spaces/yb41ceqgyiw5')
+        self.assertEqual(field.allowedResources[0]['contentTypes'], ['foo', 'bar'])
+
+
     @vcr.use_cassette('fixtures/content_type/create_no_fields.yaml')
     def test_create_content_type_no_fields(self):
         content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').create(None, {
@@ -134,6 +169,16 @@ class ContentTypeTest(TestCase):
             content_type.save()
 
         self.assertEqual(content_type.name, 'foo')
+
+
+    @vcr.use_cassette('fixtures/content_type/update_default_value.yaml')
+    def test_preserves_field_default_value_on_update(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('test123')
+
+        assert content_type.fields[0].default_value is not None
+        content_type.save()
+        assert content_type.fields[0].default_value is not None
+
 
     @vcr.use_cassette('fixtures/content_type/find_2.yaml')
     def test_delete_content_type(self):

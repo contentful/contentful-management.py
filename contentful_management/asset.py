@@ -1,4 +1,4 @@
-from .resource import FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource
+from .resource import FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource, MetadataResource
 
 
 """
@@ -14,7 +14,7 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 """
 
 
-class Asset(FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource):
+class Asset(MetadataResource, FieldsResource, PublishResource, ArchiveResource, EnvironmentAwareResource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets
     """

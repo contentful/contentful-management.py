@@ -15,7 +15,7 @@ py==1.10.0
 pycodestyle==2.6.0
 pyflakes==2.2.0
 Pygments==2.7.3
-python-dateutil==2.6.0
+python-dateutil==2.8.2
 pytz==2020.5
 PyYAML==5.4
 requests==2.25.1
@@ -25,6 +25,6 @@ Sphinx==1.6.3
 sphinxcontrib-websupport==1.0.1
 tox==2.5.0
 urllib3==1.26.2
-vcrpy==1.10.3
+vcrpy==5.1.0
 virtualenv==15.1.0
-wrapt==1.12.1
+wrapt==1.15.0

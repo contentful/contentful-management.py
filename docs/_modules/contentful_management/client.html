@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.client &#8212; Contentful Management 2.11.0 documentation</title>
+    <title>contentful_management.client &#8212; Contentful Management 2.14.0 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.11.0',
+        VERSION:     '2.14.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -49,6 +49,7 @@
 <span class="kn">from</span> <span class="nn">.errors</span> <span class="kn">import</span> <span class="n">get_error</span><span class="p">,</span> <span class="n">RateLimitExceededError</span>
 <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">ConfigurationException</span><span class="p">,</span> <span class="n">retry_request</span>
 
+<span class="kn">from</span> <span class="nn">.tags_proxy</span> <span class="kn">import</span> <span class="n">TagsProxy</span>
 <span class="kn">from</span> <span class="nn">.users_proxy</span> <span class="kn">import</span> <span class="n">UsersProxy</span>
 <span class="kn">from</span> <span class="nn">.roles_proxy</span> <span class="kn">import</span> <span class="n">RolesProxy</span>
 <span class="kn">from</span> <span class="nn">.assets_proxy</span> <span class="kn">import</span> <span class="n">AssetsProxy</span>
@@ -588,6 +589,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">EnvironmentsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.tags"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.tags">[docs]</a>    <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to tag management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags</span>
+
+<span class="sd">        :return: :class:`TagsProxy &lt;contentful_management.tags_proxy.TagsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful.tags_proxy.TagsProxy</span>
+
+<span class="sd">        Usage:</span>
+<span class="sd">            &gt;&gt;&gt; tags_proxy = client.tags(&#39;cfexampleapi&#39;, &#39;master&#39;)</span>
+<span class="sd">            &lt;TagsProxy space_id=&quot;cfexampleapi&quot; environment_id=&quot;master&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">TagsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
