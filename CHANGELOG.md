@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+### Changed
+* Updated `pyyaml` version to `5.4` to fix a vulnerability.
+
 ## v2.11.0
 
 ### Added
