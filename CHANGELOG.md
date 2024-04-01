@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Changed
+* Updated `pyyaml` version to fix a vulnerability.
+
 ## v2.14.0
 * Adds support for cross-space references
 
