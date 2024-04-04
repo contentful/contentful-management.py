@@ -20,22 +20,6 @@ contentful\_management\.api\_keys\_proxy module
     :undoc-members:
     :show-inheritance:
 
-contentful\_management\.api\_usage module
------------------------------------------
-
-.. automodule:: contentful_management.api_usage
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.api\_usages\_proxy module
--------------------------------------------------
-
-.. automodule:: contentful_management.api_usages_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 contentful\_management\.array module
 ------------------------------------
 
@@ -292,6 +276,30 @@ contentful\_management\.organization module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.organization\_periodic\_usage module
+------------------------------------------------------------
+
+.. automodule:: contentful_management.organization_periodic_usage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.organization\_periodic\_usages\_proxy module
+--------------------------------------------------------------------
+
+.. automodule:: contentful_management.organization_periodic_usages_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.organization\_users\_proxy module
+---------------------------------------------------------
+
+.. automodule:: contentful_management.organization_users_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.organizations\_proxy module
 ---------------------------------------------------
 
@@ -420,6 +428,22 @@ contentful\_management\.space\_memberships\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.space\_periodic\_usage module
+-----------------------------------------------------
+
+.. automodule:: contentful_management.space_periodic_usage
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.space\_periodic\_usages\_proxy module
+-------------------------------------------------------------
+
+.. automodule:: contentful_management.space_periodic_usages_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.space\_preview\_api\_keys\_proxy module
 ---------------------------------------------------------------
 
@@ -452,6 +476,14 @@ contentful\_management\.space\_space\_memberships\_proxy module
     :undoc-members:
     :show-inheritance:
 
+contentful\_management\.space\_users\_proxy module
+--------------------------------------------------
+
+.. automodule:: contentful_management.space_users_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 contentful\_management\.space\_webhooks\_proxy module
 -----------------------------------------------------
 
@@ -464,6 +496,22 @@ contentful\_management\.spaces\_proxy module
 --------------------------------------------
 
 .. automodule:: contentful_management.spaces_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.tag module
+----------------------------------
+
+.. automodule:: contentful_management.tag
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+contentful\_management\.tags\_proxy module
+------------------------------------------
+
+.. automodule:: contentful_management.tags_proxy
     :members:
     :undoc-members:
     :show-inheritance:
@@ -496,22 +544,6 @@ contentful\_management\.uploads\_proxy module
 ---------------------------------------------
 
 .. automodule:: contentful_management.uploads_proxy
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.usage\_period module
---------------------------------------------
-
-.. automodule:: contentful_management.usage_period
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-contentful\_management\.usage\_periods\_proxy module
-----------------------------------------------------
-
-.. automodule:: contentful_management.usage_periods_proxy
     :members:
     :undoc-members:
     :show-inheritance:
