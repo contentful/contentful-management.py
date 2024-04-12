@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-### Changed
+## v2.14.1
 * Updated `pyyaml` version to fix a vulnerability.
 
 ## v2.14.0
