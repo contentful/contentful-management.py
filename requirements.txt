@@ -18,7 +18,7 @@ Pygments==2.7.3
 python-dateutil==2.8.2
 pytz==2020.5
 PyYAML==6.0.1
-requests==2.25.1
+requests==2.32.0
 six==1.15.0
 snowballstemmer==2.0.0
 Sphinx==1.6.3
