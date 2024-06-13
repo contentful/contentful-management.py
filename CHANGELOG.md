@@ -1,8 +1,9 @@
 # CHANGELOG
 
 ## Unreleased
+* Fixed discrepancy in ChangeLog between v2.14.1
 
-### Changed
+### v2.14.1
 * Updated `pyyaml` version to fix a vulnerability.
 
 ## v2.14.0
