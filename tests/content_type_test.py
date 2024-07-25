@@ -62,7 +62,6 @@ class ContentTypeTest(TestCase):
                     'required': False,
                     'disabled': False,
                     'validations': [],
-                    'defaultValue': None
                 }
             ]
         })
