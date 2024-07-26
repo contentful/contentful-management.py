@@ -176,7 +176,6 @@ class SnapshotTest(TestCase):
                         "omitted": False,
                         "type": "Text",
                         "validations": [],
-                        "defaultValue": None
                     },
                     {
                         "id": "body",
@@ -187,7 +186,6 @@ class SnapshotTest(TestCase):
                         "omitted": False,
                         "type": "Text",
                         "validations": [],
-                        "defaultValue": None
                     }
                 ],
                 "sys": {

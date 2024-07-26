@@ -4,6 +4,7 @@
 
 ### Changed
 * Updated `pyyaml` version to fix a vulnerability.
+* Fixed defaultValues omit instead of None for fields in content types.
 
 ## v2.14.0
 * Adds support for cross-space references
