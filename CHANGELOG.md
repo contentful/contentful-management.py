@@ -3,7 +3,7 @@
 ## Unreleased
 
 
-## v2.14.1
+## v2.14.2
 * Updated `pyyaml` version to fix a vulnerability.
 * Fixed defaultValues omit instead of None for fields in content types.
 
