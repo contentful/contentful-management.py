@@ -42,6 +42,13 @@ FIELD_WITH_VALIDATIONS = {
     ]
 }
 
+FIELD_WITH_DEFAULT_VALUE = {
+    'name': 'foo',
+    'id': 'foo',
+    'type': 'Symbol',
+    'defaultValue': 'bar'
+}
+
 class ContentTypeFieldTest(TestCase):
     def test_simple_field_test(self):
         field = ContentTypeField(SIMPLE_FIELD)
@@ -56,7 +63,6 @@ class ContentTypeFieldTest(TestCase):
             'required': False,
             'disabled': False,
             'validations': [],
-            'defaultValue': None
         })
 
     def test_link_field_test(self):
@@ -73,7 +79,6 @@ class ContentTypeFieldTest(TestCase):
             'required': False,
             'disabled': False,
             'validations': [],
-            'defaultValue': None
         })
 
     def test_array_field_test(self):
@@ -91,8 +96,7 @@ class ContentTypeFieldTest(TestCase):
             'omitted': False,
             'required': False,
             'disabled': False,
-            'validations': [],
-            'defaultValue': None
+            'validations': []
         })
 
     def test_link_array_field_test(self):
@@ -112,7 +116,6 @@ class ContentTypeFieldTest(TestCase):
             'required': False,
             'disabled': False,
             'validations': [],
-            'defaultValue': None
         })
 
     def test_validations_field_test(self):
@@ -130,10 +133,25 @@ class ContentTypeFieldTest(TestCase):
             'validations': [{
                 'size': {'min': 3}
             }],
-            'defaultValue': None
         })
 
     def test_coercion(self):
         field = ContentTypeField(SIMPLE_FIELD)
 
         self.assertEqual(field.coerce(123), '123')
+
+    def test_default_value_test(self):
+        field = ContentTypeField(FIELD_WITH_DEFAULT_VALUE)
+
+        self.assertEqual(str(field), "<ContentTypeField[foo] id='foo' type='Symbol'>")
+        self.assertEqual(field.to_json(), {
+            'id': 'foo',
+            'name': 'foo',
+            'type': 'Symbol',
+            'localized': False,
+            'omitted': False,
+            'required': False,
+            'disabled': False,
+            'validations': [],
+            'defaultValue': 'bar'
+        })

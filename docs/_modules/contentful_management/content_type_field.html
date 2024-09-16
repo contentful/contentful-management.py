@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.content_type_field &#8212; Contentful Management 2.14.0 documentation</title>
+    <title>contentful_management.content_type_field &#8212; Contentful Management 2.14.2 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '2.14.0',
+        VERSION:     '2.14.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -74,7 +74,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">omitted</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;omitted&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">required</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;required&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;defaultValue&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;defaultValue&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;defaultValue&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">validations</span> <span class="o">=</span> <span class="p">[</span><span class="n">ContentTypeFieldValidation</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
                             <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;validations&#39;</span><span class="p">,</span> <span class="p">[])]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">allowedResources</span> <span class="o">=</span> <span class="n">field_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;allowedResources&#39;</span><span class="p">)</span>
@@ -94,8 +95,10 @@
             <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">required</span><span class="p">,</span>
             <span class="s1">&#39;disabled&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">disabled</span><span class="p">,</span>
             <span class="s1">&#39;validations&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">validations</span><span class="p">],</span>
-            <span class="s1">&#39;defaultValue&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span>
         <span class="p">}</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;default_value&#39;</span><span class="p">):</span>
+            <span class="n">result</span><span class="p">[</span><span class="s1">&#39;defaultValue&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_value</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;Array&#39;</span><span class="p">:</span>
             <span class="n">result</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span>
