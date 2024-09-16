@@ -1,7 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
-
+* Fixed issue with `Tag` serialization.
 
 ## v2.14.2
 * Updated `pyyaml` version to fix a vulnerability.
