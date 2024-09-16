@@ -133,7 +133,3 @@ class TagTest(TestCase):
                 'type': 'Tag'
             }
         })
-
-
-
-
