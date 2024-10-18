@@ -11,7 +11,7 @@ class SpacesProxyTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpacesProxy>")
 
-    @vcr.use_cassette('fixtures/space/all.yaml')
+    @vcr.use_cassette('fixtures/space/all.yaml', decode_compressed_response=True)
     def test_spaces_proxy_all(self):
         proxy = SpacesProxy(CLIENT)
 
@@ -23,7 +23,7 @@ class SpacesProxyTest(TestCase):
 
         self.assertEqual(spaces[0].id, 'cfexampleapi')
 
-    @vcr.use_cassette('fixtures/space/proxy_find.yaml')
+    @vcr.use_cassette('fixtures/space/proxy_find.yaml', decode_compressed_response=True)
     def test_spaces_proxy_find(self):
         proxy = SpacesProxy(CLIENT)
 
@@ -31,7 +31,7 @@ class SpacesProxyTest(TestCase):
 
         self.assertEqual(space.id, PLAYGROUND_SPACE)
 
-    @vcr.use_cassette('fixtures/space/proxy_delete.yaml')
+    @vcr.use_cassette('fixtures/space/proxy_delete.yaml', decode_compressed_response=True)
     def test_spaces_proxy_delete(self):
         proxy = SpacesProxy(CLIENT)
 

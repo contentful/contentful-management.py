@@ -19,7 +19,7 @@ class WebhookWebhooksCallProxyTest(TestCase):
         with self.assertRaises(Exception):
             proxy.delete('foo')
 
-    @vcr.use_cassette('fixtures/webhook_call/all.yaml')
+    @vcr.use_cassette('fixtures/webhook_call/all.yaml', decode_compressed_response=True)
     def test_webhook_webhooks_call_proxy_all(self):
         proxy = WebhookWebhooksCallProxy(CLIENT, 'orzkxlxlq59d', '16ypL3XjNK6oreLPPoVBxI')
 
@@ -33,7 +33,7 @@ class WebhookWebhooksCallProxyTest(TestCase):
 
         self.assertEqual(str(webhook_calls[0]), "<WebhookCall[201] id='4KYbXQ9cg8CE2aqouWqY2i' url='https://circleci.com/api/v1/project/...' request_at='2017-06-21T22:44:42.624000+00:00' response_at='2017-06-21T22:44:43.086000+00:00'>")
 
-    @vcr.use_cassette('fixtures/webhook_call/find.yaml')
+    @vcr.use_cassette('fixtures/webhook_call/find.yaml', decode_compressed_response=True)
     def test_webhook_webhooks_call_proxy_find(self):
         proxy = WebhookWebhooksCallProxy(CLIENT, 'orzkxlxlq59d', '16ypL3XjNK6oreLPPoVBxI')
 

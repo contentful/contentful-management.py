@@ -13,5 +13,5 @@ class ResourceBuilderTest(TestCase):
     def test_resource_builder_fails_on_unknown_type(self):
         resource_builder = ResourceBuilder(CLIENT, 'en-US', ITEM)
 
-        with self.assertRaisesRegexp(Exception, "Resource not buildable"):
+        with self.assertRaisesRegex(Exception, "Resource not buildable"):
             resource_builder.build()

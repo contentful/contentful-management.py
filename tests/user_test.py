@@ -20,6 +20,7 @@ USER_ITEM = {
     "confirmed": True
 }
 
+
 class WebhookHealthTest(TestCase):
     def test_user(self):
         user = User(USER_ITEM)
@@ -38,7 +39,7 @@ class WebhookHealthTest(TestCase):
         with self.assertRaises(Exception):
             CLIENT.users().all()
 
-    @vcr.use_cassette('fixtures/users/me.yaml')
+    @vcr.use_cassette('fixtures/users/me.yaml', decode_compressed_response=True)
     def test_users_me(self):
         user = CLIENT.users().me()
 

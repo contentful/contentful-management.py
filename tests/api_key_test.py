@@ -31,6 +31,7 @@ API_KEY_ITEM = {
     }
 }
 
+
 class ApiKeyTest(TestCase):
     def test_api_key(self):
         api_key = ApiKey(API_KEY_ITEM)
@@ -77,7 +78,7 @@ class ApiKeyTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/api_key/create.yaml')
+    @vcr.use_cassette('fixtures/api_key/create.yaml', decode_compressed_response=True)
     def test_create_api_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).create({
             'name': 'Test Key',
@@ -88,7 +89,7 @@ class ApiKeyTest(TestCase):
         self.assertEqual(api_key.description, 'Something goes here...')
         self.assertTrue(api_key.access_token)
 
-    @vcr.use_cassette('fixtures/api_key/create_with_environment.yaml')
+    @vcr.use_cassette('fixtures/api_key/create_with_environment.yaml', decode_compressed_response=True)
     def test_create_api_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).create({
             'name': 'Test Key with environments',
@@ -115,7 +116,7 @@ class ApiKeyTest(TestCase):
         self.assertEqual(api_key.environments[0].id, 'master')
         self.assertEqual(api_key.environments[1].id, 'testing')
 
-    @vcr.use_cassette('fixtures/api_key/find.yaml')
+    @vcr.use_cassette('fixtures/api_key/find.yaml', decode_compressed_response=True)
     def test_update_api_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('42sVZNadpFAje7EFwHOfVY')
 
@@ -125,7 +126,7 @@ class ApiKeyTest(TestCase):
 
         self.assertEqual(api_key.name, 'Not Test Key')
 
-    @vcr.use_cassette('fixtures/api_key/find_2.yaml')
+    @vcr.use_cassette('fixtures/api_key/find_2.yaml', decode_compressed_response=True)
     def test_delete_api_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('42sVZNadpFAje7EFwHOfVY')
 
@@ -136,7 +137,7 @@ class ApiKeyTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.api_keys(PLAYGROUND_SPACE).find('42sVZNadpFAje7EFwHOfVY')
 
-    @vcr.use_cassette('fixtures/api_key/find_3.yaml')
+    @vcr.use_cassette('fixtures/api_key/find_3.yaml', decode_compressed_response=True)
     def test_get_preview_api_key_from_key(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('5mxNhKOZYOp1wzafOR9qPw')
 
@@ -144,7 +145,7 @@ class ApiKeyTest(TestCase):
             preview_api_key = api_key.preview_api_key()
             self.assertEqual(str(preview_api_key), "<PreviewApiKey[management.py - playground 1] id='5mytqWZjcqEWMIHVfe5cUi' access_token='PREVIEW_TOKEN'>")
 
-    @vcr.use_cassette('fixtures/api_key/find_3.yaml')
+    @vcr.use_cassette('fixtures/api_key/find_3.yaml', decode_compressed_response=True)
     def test_update_api_key_with_new_environment(self):
         api_key = CLIENT.api_keys(PLAYGROUND_SPACE).find('5mxNhKOZYOp1wzafOR9qPw')
 
@@ -165,4 +166,3 @@ class ApiKeyTest(TestCase):
             api_key.save()
 
             self.assertEqual(len(api_key.environments), 2)
-

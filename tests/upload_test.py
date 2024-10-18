@@ -18,6 +18,7 @@ BASE_UPLOAD_ITEM = {
     }
 }
 
+
 class UploadTest(TestCase):
     def test_upload(self):
         upload = Upload(BASE_UPLOAD_ITEM)
@@ -56,13 +57,13 @@ class UploadTest(TestCase):
         with self.assertRaises(Exception):
             CLIENT.uploads(PLAYGROUND_SPACE).create(12345)
 
-    @vcr.use_cassette('fixtures/upload/create.yaml')
+    @vcr.use_cassette('fixtures/upload/create.yaml', decode_compressed_response=True)
     def test_create_upload_from_path(self):
         upload = CLIENT.uploads(PLAYGROUND_SPACE).create('README.rst')
 
         self.assertTrue(upload.id)
 
-    @vcr.use_cassette('fixtures/upload/create_from_file.yaml')
+    @vcr.use_cassette('fixtures/upload/create_from_file.yaml', decode_compressed_response=True)
     def test_create_upload_from_file(self):
         upload = None
 
@@ -71,13 +72,13 @@ class UploadTest(TestCase):
 
         self.assertTrue(upload.id)
 
-    @vcr.use_cassette('fixtures/upload/find.yaml')
+    @vcr.use_cassette('fixtures/upload/find.yaml', decode_compressed_response=True)
     def test_find_upload(self):
         upload = CLIENT.uploads(PLAYGROUND_SPACE).find('3pF6ACckKKcB3P60zeszce')
 
         self.assertEqual(upload.id, '3pF6ACckKKcB3P60zeszce')
 
-    @vcr.use_cassette('fixtures/upload/delete.yaml')
+    @vcr.use_cassette('fixtures/upload/delete.yaml', decode_compressed_response=True)
     def test_delete_upload(self):
         upload = CLIENT.uploads(PLAYGROUND_SPACE).create('README.rst')
         CLIENT.uploads(PLAYGROUND_SPACE).delete(upload.id)

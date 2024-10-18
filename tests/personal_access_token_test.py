@@ -61,6 +61,7 @@ PERSONAL_ACCESS_TOKEN_REVOKED = {
     ]
 }
 
+
 class PersonalAccessTokenTest(TestCase):
     def test_personal_access_token(self):
         with_token = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_WITH_TOKEN)
@@ -77,14 +78,14 @@ class PersonalAccessTokenTest(TestCase):
         revoked = PersonalAccessToken(PERSONAL_ACCESS_TOKEN_REVOKED)
         self.assertEqual(str(revoked), "<PersonalAccessToken[My Token] id='exampletokenid' scopes=['content_management_manage'] revoked=True>")
 
-    @vcr.use_cassette('fixtures/pat/all.yaml')
+    @vcr.use_cassette('fixtures/pat/all.yaml', decode_compressed_response=True)
     def test_personal_access_token_all(self):
         tokens = CLIENT.personal_access_tokens().all({'limit': 1})
 
         self.assertEqual(len(tokens), 1)
         self.assertEqual(tokens[0].name, 'Playground')
 
-    @vcr.use_cassette('fixtures/pat/find.yaml')
+    @vcr.use_cassette('fixtures/pat/find.yaml', decode_compressed_response=True)
     def test_personal_access_token_find(self):
         token = CLIENT.personal_access_tokens().find('6ZJFnifPKNpxU8r8j9Xz14')
 
@@ -92,7 +93,7 @@ class PersonalAccessTokenTest(TestCase):
         self.assertFalse(token.is_revoked)
         self.assertEqual(str(token), "<PersonalAccessToken[Playground] id='6ZJFnifPKNpxU8r8j9Xz14' scopes=['content_management_manage'] revoked=False>")
 
-    @vcr.use_cassette('fixtures/pat/find_2.yaml')
+    @vcr.use_cassette('fixtures/pat/find_2.yaml', decode_compressed_response=True)
     def test_personal_access_token_revoke(self):
         token = CLIENT.personal_access_tokens().find('6ZKYaf1m2PyFU7Olcnw5jK')
 

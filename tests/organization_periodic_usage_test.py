@@ -44,14 +44,14 @@ class OrganizationPeriodicUsageTest(TestCase):
 
         self.assertEqual(str(organization_periodic_usage), "<OrganizationPeriodicUsage id='usage-cda-ORG_ID-2020-02-26-2020-03-05'>")
 
-    @vcr.use_cassette('fixtures/organization_periodic_usage/all.yaml')
+    @vcr.use_cassette('fixtures/organization_periodic_usage/all.yaml', decode_compressed_response=True)
     def test_organization_organization_periodic_usage_all(self):
         organization = [o for o in CLIENT.organizations().all() if o.id == TEST_ORG_ID][0]
         organization_periodic_usage = organization.periodic_usages().all()[0]
 
         self.assertEqual(str(organization_periodic_usage), "<OrganizationPeriodicUsage id='usage-cma-org_id-2020-01-21-2020-03-05'>")
 
-    @vcr.use_cassette('fixtures/organization_periodic_usage/all.yaml')
+    @vcr.use_cassette('fixtures/organization_periodic_usage/all.yaml', decode_compressed_response=True)
     def test_organization_periodic_usage_all(self):
         organization_periodic_usage = CLIENT.organization_periodic_usages(TEST_ORG_ID).all()[0]
 

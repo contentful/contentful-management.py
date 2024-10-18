@@ -42,7 +42,7 @@ class EditorInterfaceTest(TestCase):
             ]
         })
 
-    @vcr.use_cassette('fixtures/editor_interface/find.yaml')
+    @vcr.use_cassette('fixtures/editor_interface/find.yaml', decode_compressed_response=True)
     def test_editor_interface_update(self):
         editor_interface = CLIENT.editor_interfaces(PLAYGROUND_SPACE, 'master', 'foo').find()
 
