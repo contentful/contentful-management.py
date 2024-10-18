@@ -1,7 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
-
+* Migrated to `pdm` for package management.
 
 ## v2.14.2
 * Updated `pyyaml` version to fix a vulnerability.
