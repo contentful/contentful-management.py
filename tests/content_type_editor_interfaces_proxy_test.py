@@ -16,7 +16,7 @@ class ContentTypeEditorInterfacesProxyTest(TestCase):
         with self.assertRaises(Exception):
             proxy.delete()
 
-    @vcr.use_cassette('fixtures/editor_interface/all.yaml')
+    @vcr.use_cassette('fixtures/editor_interface/all.yaml', decode_compressed_response=True)
     def test_content_type_editor_interfaces_proxy_all(self):
         proxy = ContentTypeEditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
@@ -25,7 +25,7 @@ class ContentTypeEditorInterfacesProxyTest(TestCase):
         self.assertTrue(editor_interface)
         self.assertTrue(editor_interface.id)
 
-    @vcr.use_cassette('fixtures/editor_interface/all.yaml')
+    @vcr.use_cassette('fixtures/editor_interface/all.yaml', decode_compressed_response=True)
     def test_content_type_editor_interfaces_proxy_find(self):
         proxy = ContentTypeEditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
@@ -34,7 +34,7 @@ class ContentTypeEditorInterfacesProxyTest(TestCase):
         self.assertTrue(editor_interface)
         self.assertTrue(editor_interface.id)
 
-    @vcr.use_cassette('fixtures/editor_interface/all.yaml')
+    @vcr.use_cassette('fixtures/editor_interface/all.yaml', decode_compressed_response=True)
     def test_content_type_editor_interfaces_proxy_default(self):
         proxy = ContentTypeEditorInterfacesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 

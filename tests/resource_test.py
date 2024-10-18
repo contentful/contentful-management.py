@@ -5,7 +5,7 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 
 class ResourceTest(TestCase):
-    @vcr.use_cassette('fixtures/resource/copy.yaml')
+    @vcr.use_cassette('fixtures/resource/copy.yaml', decode_compressed_response=True)
     def test_can_properly_deepcopy(self):
         entry = CLIENT.spaces().find(PLAYGROUND_SPACE).environments().find('master').entries().all()[0]
 
@@ -17,7 +17,7 @@ class ResourceTest(TestCase):
 
 
 class LinkTest(TestCase):
-    @vcr.use_cassette('fixtures/link/space_resolve.yaml')
+    @vcr.use_cassette('fixtures/link/space_resolve.yaml', decode_compressed_response=True)
     def test_space_link_resolve(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -26,7 +26,7 @@ class LinkTest(TestCase):
         self.assertEqual(resolved_space.id, PLAYGROUND_SPACE)
         self.assertEqual(str(resolved_space), str(space))
 
-    @vcr.use_cassette('fixtures/link/resolve.yaml')
+    @vcr.use_cassette('fixtures/link/resolve.yaml', decode_compressed_response=True)
     def test_link_resolve(self):
         content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('foo')
 

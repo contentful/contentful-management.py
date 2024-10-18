@@ -45,7 +45,6 @@ class ClientTest(TestCase):
 
         self.assertEqual(str(proxy), "<TagsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
 
-
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):
             Client(None)
@@ -69,7 +68,7 @@ class ClientTest(TestCase):
 
         self.assertTrue(client._has_proxy())
 
-    @vcr.use_cassette('fixtures/client/entries.yaml')
+    @vcr.use_cassette('fixtures/client/entries.yaml', decode_compressed_response=True)
     def test_client_raw_mode(self):
         client = Client(PLAYGROUND_KEY, raw_mode=True)
 
@@ -77,7 +76,7 @@ class ClientTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
-    @vcr.use_cassette('fixtures/client/not_found.yaml')
+    @vcr.use_cassette('fixtures/client/not_found.yaml', decode_compressed_response=True)
     def test_client_not_raise_errors(self):
         client = Client(PLAYGROUND_KEY, raise_errors=False)
 
@@ -111,7 +110,7 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(/.*)?;', header))
 
         self.assertTrue('integration' not in header)
         self.assertTrue('app' not in header)
@@ -195,7 +194,7 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(/.*)?;', header))
 
     def test_client_headers(self):
         client = Client(
@@ -218,9 +217,9 @@ class ClientTest(TestCase):
         for e in expected:
             self.assertTrue(e in header)
 
-        self.assertTrue(re.search('os (Windows|macOS|Linux)(\/.*)?;', header))
+        self.assertTrue(re.search('os (Windows|macOS|Linux)(/.*)?;', header))
 
-    @vcr.use_cassette('fixtures/client/additional_headers.yaml')
+    @vcr.use_cassette('fixtures/client/additional_headers.yaml', decode_compressed_response=True)
     def test_client_with_additional_headers(self):
         client = Client(PLAYGROUND_KEY, raise_errors=False, additional_headers={'fizz': 'buzz'})
 

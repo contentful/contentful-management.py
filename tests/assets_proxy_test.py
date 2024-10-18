@@ -10,7 +10,7 @@ class AssetsProxyTest(TestCase):
 
         self.assertEqual(str(proxy), "<AssetsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/asset/all.yaml')
+    @vcr.use_cassette('fixtures/asset/all.yaml', decode_compressed_response=True)
     def test_assets_proxy_all(self):
         proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE, 'master')
 
@@ -22,7 +22,7 @@ class AssetsProxyTest(TestCase):
 
         self.assertTrue(assets)
 
-    @vcr.use_cassette('fixtures/asset/select_operator.yaml')
+    @vcr.use_cassette('fixtures/asset/select_operator.yaml', decode_compressed_response=True)
     def test_assets_proxy_select_operator(self):
         proxy = AssetsProxy(CLIENT, PLAYGROUND_SPACE, 'master')
 

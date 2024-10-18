@@ -19,7 +19,7 @@ class EntrySnapshotsProxyTest(TestCase):
         with self.assertRaises(Exception):
             proxy.delete()
 
-    @vcr.use_cassette('fixtures/entry/snapshot_all.yaml')
+    @vcr.use_cassette('fixtures/entry/snapshot_all.yaml', decode_compressed_response=True)
     def test_entry_snapshots_proxy_all(self):
         proxy = EntrySnapshotsProxy(CLIENT, PLAYGROUND_SPACE, 'master', '4dI1y4PKdWWCSC0CwQakOa')
 

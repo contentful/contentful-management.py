@@ -41,7 +41,7 @@ class SpaceTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/space/create.yaml')
+    @vcr.use_cassette('fixtures/space/create.yaml', decode_compressed_response=True)
     def test_create_space(self):
         with self.assertRaises(NotFoundError):
             CLIENT.spaces().create({
@@ -58,7 +58,7 @@ class SpaceTest(TestCase):
         self.assertEqual(space.name, 'Create Test')
         self.assertTrue(space.id)
 
-    @vcr.use_cassette('fixtures/space/find.yaml')
+    @vcr.use_cassette('fixtures/space/find.yaml', decode_compressed_response=True)
     def test_update_space(self):
         space = CLIENT.spaces().find('6sun6p8v2zr6')
 
@@ -70,7 +70,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(space.name, 'Update Test')
 
-    @vcr.use_cassette('fixtures/space/find_2.yaml')
+    @vcr.use_cassette('fixtures/space/find_2.yaml', decode_compressed_response=True)
     def test_delete_space(self):
         space = CLIENT.spaces().find('6sun6p8v2zr6')
 
@@ -81,7 +81,7 @@ class SpaceTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.spaces().find('6sun6p8v2zr6')
 
-    @vcr.use_cassette('fixtures/space/reload.yaml')
+    @vcr.use_cassette('fixtures/space/reload.yaml', decode_compressed_response=True)
     def test_reload_space(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -91,7 +91,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(space.name, 'management.py - playground')
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_api_keys(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -99,7 +99,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpaceApiKeysProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_preview_api_keys(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -107,7 +107,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpacePreviewApiKeysProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_roles(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -115,7 +115,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpaceRolesProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_uploads(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -123,7 +123,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<UploadsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_webhooks(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -131,7 +131,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpaceWebhooksProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/find_3.yaml')
+    @vcr.use_cassette('fixtures/space/find_3.yaml', decode_compressed_response=True)
     def test_space_memberships(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 
@@ -139,7 +139,7 @@ class SpaceTest(TestCase):
 
         self.assertEqual(str(proxy), "<SpaceSpaceMembershipsProxy space_id='{0}'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/space/user.yaml')
+    @vcr.use_cassette('fixtures/space/user.yaml', decode_compressed_response=True)
     def test_space_user(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
 

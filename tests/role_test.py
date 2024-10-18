@@ -22,6 +22,7 @@ ROLE_ITEM = {
     }
 }
 
+
 class RoleTest(TestCase):
     def test_role(self):
         role = Role(ROLE_ITEM)
@@ -60,7 +61,7 @@ class RoleTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/role/create.yaml')
+    @vcr.use_cassette('fixtures/role/create.yaml', decode_compressed_response=True)
     def test_create_role(self):
         role = CLIENT.roles(PLAYGROUND_SPACE).create({
             "name": "Jedi Master",
@@ -73,7 +74,7 @@ class RoleTest(TestCase):
 
         self.assertEqual(role.name, 'Jedi Master')
 
-    @vcr.use_cassette('fixtures/role/find.yaml')
+    @vcr.use_cassette('fixtures/role/find.yaml', decode_compressed_response=True)
     def test_update_role(self):
         role = CLIENT.roles(PLAYGROUND_SPACE).find('1a6FSwjdLnKifppXvfELau')
 
@@ -83,7 +84,7 @@ class RoleTest(TestCase):
 
         self.assertEqual(role.name, 'Not Klingon')
 
-    @vcr.use_cassette('fixtures/role/find_2.yaml')
+    @vcr.use_cassette('fixtures/role/find_2.yaml', decode_compressed_response=True)
     def test_delete_role(self):
         role = CLIENT.roles(PLAYGROUND_SPACE).find('1a6FSwjdLnKifppXvfELau')
 

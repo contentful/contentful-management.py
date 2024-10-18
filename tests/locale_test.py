@@ -21,6 +21,7 @@ LOCALE_ITEM = {
     }
 }
 
+
 class LocaleTest(TestCase):
     def test_locale(self):
         locale = Locale(LOCALE_ITEM)
@@ -61,7 +62,7 @@ class LocaleTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/locale/create.yaml')
+    @vcr.use_cassette('fixtures/locale/create.yaml', decode_compressed_response=True)
     def test_create_locale(self):
         locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').create({
             'name': 'Klingon',
@@ -72,7 +73,7 @@ class LocaleTest(TestCase):
         self.assertEqual(locale.name, 'Klingon')
         self.assertEqual(locale.code, 'tlg')
 
-    @vcr.use_cassette('fixtures/locale/find.yaml')
+    @vcr.use_cassette('fixtures/locale/find.yaml', decode_compressed_response=True)
     def test_update_locale(self):
         locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
@@ -82,7 +83,7 @@ class LocaleTest(TestCase):
 
         self.assertEqual(locale.name, 'Not Klingon')
 
-    @vcr.use_cassette('fixtures/locale/find_2.yaml')
+    @vcr.use_cassette('fixtures/locale/find_2.yaml', decode_compressed_response=True)
     def test_delete_locale(self):
         locale = CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
@@ -93,7 +94,7 @@ class LocaleTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.locales(PLAYGROUND_SPACE, 'master').find('3OFlsZyYYM5fNhCtfFctX8')
 
-    @vcr.use_cassette('fixtures/locale/create_2.yaml')
+    @vcr.use_cassette('fixtures/locale/create_2.yaml', decode_compressed_response=True)
     def test_create_locale_in_different_environment(self):
         locale = CLIENT.locales(PLAYGROUND_SPACE, 'testing').create({
             'name': 'Bar',

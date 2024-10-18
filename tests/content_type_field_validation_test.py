@@ -23,4 +23,3 @@ class ContentTypeFieldValidationTest(TestCase):
             'size': {'min': 3},
             'foo': 'bar'
         })
-
