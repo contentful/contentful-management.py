@@ -169,21 +169,6 @@ Alternatively, if you have an already fetched organization::
 
     usage_periods = organization.periodic_usages().all()
 
-Organization Periodic Usages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Retrieving all API Usage statistics for an Organization grouped by Space during a given usage period, broken down by organization for all APIs::
-
-    # Optionally, you can pass the metric, start and end date filters
-    usage = client.space_periodic_usages('organization_id').all()
-    # For example only CDA and CMA metrics from yesterday onwards
-    usage = client.space_periodic_usages('organization_id').all({'metric[in]': ['cda', 'cma'], 'startDate': (date.today() - timedelta(days=1)).isoformat()})
-
-Alternatively, if you have an already fetched organization::
-
-    usage_periods = organization.space_periodic_usages().all()
-
-
 Users
 -----
 
@@ -537,6 +522,7 @@ Removing a tag from an asset::
 Accessing tag of an entry or asset::
 
         entry._metadata['tags'] or asset._metadata['tags']  # will return a list of tags
+
 Content Types
 -------------
 
@@ -1266,7 +1252,7 @@ To use the logger, use the standard library ``logging`` module::
 License
 -------
 
-Copyright (c) 2017 Contentful GmbH. See `LICENSE <./LICENSE>`_ for further details.
+Copyright (c) 2017 Contentful GmbH. See LICENSE for details.
 
 Contributing
 ------------
