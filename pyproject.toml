@@ -1,0 +1,91 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "contentful_management"
+description = "Contentful Management API Client"
+long_description = "README.rst"
+long_description_content_type = "text/x-rst"
+dynamic = ["version"]
+readme = "README.rst"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["contentful", "management", "cma", "cms", "content"]
+authors = [{name = "Contentful GmbH", email="prd-ecosystem-dx@contentful.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "requests==2.32.3",
+    "python-dateutil==2.9.0.post0"
+]
+
+[project.urls]
+Homepage = "https://www.contentful.com/"
+Repository = "https://github.com/contentful/contentful-management.py"
+Documentation = "https://www.contentful.com/developers/docs/references/content-management-api/"
+Changelog = "https://github.com/contentful/contentful-management.py/changelog/"
+
+[project.optional-dependencies]
+test = [
+    "vcrpy==6.0.1",
+    "tox==4.20.0",
+    "coverage",
+]
+dev = [
+    "flake8",
+    "black",
+    "isort",
+    "sphinx>=7.1.2",
+    "pdm",
+]
+
+[tool.pdm.scripts]
+clean = {composite = ["clean-build", "clean-pyc", "clean-test"], help = "Remove all build, test, coverage and Python artifacts"}
+clean-build = {shell = "rm -rf build/ dist/ *.egg-info", help = "Remove build artifacts"}
+clean-pyc = {shell = """
+    find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
+    """, help = "Remove Python file artifacts"}
+clean-test = {shell = """
+    rm -fr .tox/
+	rm -f .coverage
+	rm -fr htmlcov/
+    """, help = "Remove test and coverage artifacts"}
+lint = {shell = "tox -e lint", help = "Run flake8 linter"}
+test = { cmd = "python -m unittest discover", help = "Run tests with unittest" }
+test-all = {shell = "tox", help = "Run tests on all Python versions with tox"}
+coverage = { shell = "tox -e lint && tox -e coverage", help = "Run tests with coverage"}
+docs.shell = """
+    rm -f _docs/contentful_management.rst
+	rm -f _docs/modules.rst
+	rm -rf _docs/_build/*
+	sphinx-apidoc -o _docs/ contentful_management
+	make -C _docs html
+	cp _docs/LICENSE _docs/_build/html/
+	rm -rf docs
+	cp -r _docs/_build/html docs
+	open docs/index.html
+	"""
+docs.help = "Generate Sphinx HTML documentation, including API docs"
+docs.env = {SPHINXOPTS = "", SPHINXBUILD = "sphinx-build", PAPER = "", BUILDDIR = "_build",PAPEROPT_a4 = "-D latex_paper_size=a4", PAPEROPT_letter = "-D latex_paper_size=letter", ALLSPHINXOPTS = "-d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .", I18NSPHINXOPTS="$(PAPEROPT_$(PAPER)) $(SPHINXOPTS) ."}
+git-docs = {composite = ["docs", "git add docs", "git commit --amend -C HEAD"], help = "Generate and commit documentation"}
+release = {composite = ["clean", "git-docs", "pdm publish"], help = "Package and upload a release"}
+
+
+[tool.pdm]
+includes = ["contentful_management"]
+
+[tool.pdm.python]
+version = ">=3.8,<4.0"
+
+[tool.pdm.version]
+source = "file"
+path = "contentful_management/__init__.py"

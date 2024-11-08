@@ -49,6 +49,7 @@ FIELD_WITH_DEFAULT_VALUE = {
     'defaultValue': 'bar'
 }
 
+
 class ContentTypeFieldTest(TestCase):
     def test_simple_field_test(self):
         field = ContentTypeField(SIMPLE_FIELD)

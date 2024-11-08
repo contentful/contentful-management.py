@@ -238,7 +238,7 @@ class UIExtensionTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/ui_extensions/all.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/all.yaml', decode_compressed_response=True)
     def test_ui_extensions_all(self):
         ui_extensions = CLIENT.ui_extensions('arqlnkt58eul', 'master').all()
 
@@ -249,13 +249,13 @@ class UIExtensionTest(TestCase):
         self.assertEqual(str(ui_extensions[2]), "<UIExtension[Hello World Editor] id='hello-world' field_types=['Text']>")
         self.assertEqual(ui_extensions[2].source, ui_extensions[2].extension['src'])
 
-    @vcr.use_cassette('fixtures/ui_extensions/find.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/find.yaml', decode_compressed_response=True)
     def test_ui_extensions_find(self):
         ui_extension = CLIENT.ui_extensions('arqlnkt58eul', 'master').find('2ZJduY1pKEma6G8Y2ImqYU')
 
         self.assertEqual(str(ui_extension), "<UIExtension[My awesome extension by srcDoc] id='2ZJduY1pKEma6G8Y2ImqYU' field_types=['Symbol', 'Text']>")
 
-    @vcr.use_cassette('fixtures/ui_extensions/create.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/create.yaml', decode_compressed_response=True)
     def test_ui_extensions_create(self):
         ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').create('test-extension', {
             "extension": {
@@ -268,7 +268,7 @@ class UIExtensionTest(TestCase):
 
         self.assertEqual(str(ui_extension), "<UIExtension[Test Extension] id='test-extension' field_types=['Symbol']>")
 
-    @vcr.use_cassette('fixtures/ui_extensions/find_2.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/find_2.yaml', decode_compressed_response=True)
     def test_ui_extensions_update(self):
         ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').find('test-extension')
 
@@ -278,11 +278,11 @@ class UIExtensionTest(TestCase):
             ui_extension.name = 'Update Test Extension'
             ui_extension.save()
 
-        with vcr.use_cassette('fixtures/ui_extensions/find_3.yaml'):
+        with vcr.use_cassette('fixtures/ui_extensions/find_3.yaml', decode_compressed_response=True):
             ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').find('test-extension')
             self.assertEqual(str(ui_extension), "<UIExtension[Update Test Extension] id='test-extension' field_types=['Symbol']>")
 
-    @vcr.use_cassette('fixtures/ui_extensions/find_3.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/find_3.yaml', decode_compressed_response=True)
     def test_ui_extensions_delete(self):
         ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').find('test-extension')
 
@@ -293,7 +293,7 @@ class UIExtensionTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').find('test-extension')
 
-    @vcr.use_cassette('fixtures/ui_extensions/create_with_parameters.yaml')
+    @vcr.use_cassette('fixtures/ui_extensions/create_with_parameters.yaml', decode_compressed_response=True)
     def test_ui_extensions_create_with_parameters(self):
         ui_extension = CLIENT.ui_extensions(PLAYGROUND_SPACE, 'master').create('test-with-parameters', {
             "extension": {

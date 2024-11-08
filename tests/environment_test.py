@@ -20,6 +20,7 @@ BASE_ENVIRONMENT_ITEM = {
     'name': 'foo'
 }
 
+
 class EnvironmentTest(TestCase):
     def test_entry(self):
         entry = Environment(BASE_ENVIRONMENT_ITEM)
@@ -42,20 +43,20 @@ class EnvironmentTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/environment/all.yaml')
+    @vcr.use_cassette('fixtures/environment/all.yaml', decode_compressed_response=True)
     def test_environments(self):
         environments = CLIENT.environments(PLAYGROUND_SPACE).all()
 
         self.assertEqual(str(environments[0]), "<Environment[master] id='master'>")
 
-    @vcr.use_cassette('fixtures/environment/no_id_create.yaml')
+    @vcr.use_cassette('fixtures/environment/no_id_create.yaml', decode_compressed_response=True)
     def test_create_environment_without_id_raises_404(self):
         with self.assertRaises(NotFoundError):
             CLIENT.environments(PLAYGROUND_SPACE).create(None, {
                 'name': 'SDK Tests - No ID'
             })
 
-    @vcr.use_cassette('fixtures/environment/create.yaml')
+    @vcr.use_cassette('fixtures/environment/create.yaml', decode_compressed_response=True)
     def test_create_environment_with_id(self):
         environment = CLIENT.environments(PLAYGROUND_SPACE).create('sdk_tests', {
             'name': 'SDK Tests'
@@ -64,7 +65,7 @@ class EnvironmentTest(TestCase):
         self.assertEqual(environment.name, 'SDK Tests')
         self.assertEqual(environment.id, 'sdk_tests')
 
-    @vcr.use_cassette('fixtures/environment/create_different_source.yaml')
+    @vcr.use_cassette('fixtures/environment/create_different_source.yaml', decode_compressed_response=True)
     def test_create_environment_with_different_source(self):
         master = CLIENT.environments(PLAYGROUND_SPACE).find('master')
 
@@ -79,7 +80,7 @@ class EnvironmentTest(TestCase):
 
         self.assertEqual(len(non_master_source.entries().all()), 0)
 
-    @vcr.use_cassette('fixtures/environment/find.yaml')
+    @vcr.use_cassette('fixtures/environment/find.yaml', decode_compressed_response=True)
     def test_update_environment(self):
         environment = CLIENT.environments(PLAYGROUND_SPACE).find('sdk_tests')
 
@@ -91,7 +92,7 @@ class EnvironmentTest(TestCase):
 
         self.assertEqual(environment.name, 'something else')
 
-    @vcr.use_cassette('fixtures/environment/find.yaml')
+    @vcr.use_cassette('fixtures/environment/find.yaml', decode_compressed_response=True)
     def test_delete_environment(self):
         environment = CLIENT.environments(PLAYGROUND_SPACE).find('sdk_tests')
 
@@ -102,11 +103,11 @@ class EnvironmentTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.environments(PLAYGROUND_SPACE).find('sdk_tests')
 
-    @vcr.use_cassette('fixtures/environment/delete.yaml')
+    @vcr.use_cassette('fixtures/environment/delete.yaml', decode_compressed_response=True)
     def test_delete_environment_directly_from_client_proxy(self):
         CLIENT.environments(PLAYGROUND_SPACE).delete('sdk_tests')
 
-    @vcr.use_cassette('fixtures/environment/find_2.yaml')
+    @vcr.use_cassette('fixtures/environment/find_2.yaml', decode_compressed_response=True)
     def test_fetch_entries_from_an_environment(self):
         environment = CLIENT.environments(PLAYGROUND_SPACE).find('testing')
 
@@ -114,7 +115,7 @@ class EnvironmentTest(TestCase):
             entries = environment.entries().all()
             self.assertEqual(str(entries[0]), "<Entry[cat] id='IJLRrADsqq2AmwcugoYeK'>")
 
-    @vcr.use_cassette('fixtures/environment/find_2.yaml')
+    @vcr.use_cassette('fixtures/environment/find_2.yaml', decode_compressed_response=True)
     def test_environment_proxies(self):
         environment = CLIENT.environments(PLAYGROUND_SPACE).find('testing')
 

@@ -92,21 +92,21 @@ class SpaceMembershipTest(TestCase):
             }
         })
 
-    @vcr.use_cassette('fixtures/memberships/all.yaml')
+    @vcr.use_cassette('fixtures/memberships/all.yaml', decode_compressed_response=True)
     def test_space_memberships_all(self):
         memberships = CLIENT.memberships(PLAYGROUND_SPACE).all()
 
         self.assertTrue(memberships)
         self.assertEqual(str(memberships[0]), "<SpaceMembership id='1NI22o8oAxT9Jnu2J9wJSu' admin=True>")
 
-    @vcr.use_cassette('fixtures/memberships/find.yaml')
+    @vcr.use_cassette('fixtures/memberships/find.yaml', decode_compressed_response=True)
     def test_space_memberships_find(self):
         membership = CLIENT.memberships(PLAYGROUND_SPACE).find('1NI22o8oAxT9Jnu2J9wJSu')
 
         self.assertTrue(membership)
         self.assertEqual(str(membership), "<SpaceMembership id='1NI22o8oAxT9Jnu2J9wJSu' admin=True>")
 
-    @vcr.use_cassette('fixtures/memberships/create.yaml')
+    @vcr.use_cassette('fixtures/memberships/create.yaml', decode_compressed_response=True)
     def test_space_memberships_create(self):
         membership = CLIENT.memberships(PLAYGROUND_SPACE).create({
             "admin": False,
@@ -122,7 +122,7 @@ class SpaceMembershipTest(TestCase):
 
         self.assertEqual(str(membership), "<SpaceMembership id='3x8XW8RsuC70XSmtlkrbLg' admin=False>")
 
-    @vcr.use_cassette('fixtures/memberships/update.yaml')
+    @vcr.use_cassette('fixtures/memberships/update.yaml', decode_compressed_response=True)
     def test_space_memberships_update(self):
         membership = CLIENT.memberships(PLAYGROUND_SPACE).find('3x8XW8RsuC70XSmtlkrbLg')
         self.assertEqual(str(membership), "<SpaceMembership id='3x8XW8RsuC70XSmtlkrbLg' admin=False>")
@@ -133,7 +133,7 @@ class SpaceMembershipTest(TestCase):
         membership = CLIENT.memberships(PLAYGROUND_SPACE).find('3x8XW8RsuC70XSmtlkrbLg')
         self.assertEqual(str(membership), "<SpaceMembership id='3x8XW8RsuC70XSmtlkrbLg' admin=True>")
 
-    @vcr.use_cassette('fixtures/memberships/delete.yaml')
+    @vcr.use_cassette('fixtures/memberships/delete.yaml', decode_compressed_response=True)
     def test_space_memberships_delete(self):
         membership = CLIENT.memberships(PLAYGROUND_SPACE).find('3x8XW8RsuC70XSmtlkrbLg')
         self.assertEqual(str(membership), "<SpaceMembership id='3x8XW8RsuC70XSmtlkrbLg' admin=True>")

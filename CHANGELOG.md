@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Fixed issue with `Tag` serialization.
+* Migrated to `pdm` for package management.
 
 ## v2.14.2
 * Updated `pyyaml` version to fix a vulnerability.

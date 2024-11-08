@@ -11,7 +11,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
         self.assertEqual(str(proxy), "<ContentTypeEntriesProxy space_id='{0}' environment_id='master' content_type_id='foo'>".format(PLAYGROUND_SPACE))
 
-    @vcr.use_cassette('fixtures/entry/all_content_type.yaml')
+    @vcr.use_cassette('fixtures/entry/all_content_type.yaml', decode_compressed_response=True)
     def test_content_types_entries_proxy_all(self):
         proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
@@ -23,7 +23,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
         self.assertTrue(entries)
 
-    @vcr.use_cassette('fixtures/entry/find_content_type.yaml')
+    @vcr.use_cassette('fixtures/entry/find_content_type.yaml', decode_compressed_response=True)
     def test_content_types_entries_proxy_find(self):
         proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
@@ -31,7 +31,7 @@ class ContentTypesEntriesProxyTest(TestCase):
 
         self.assertEqual(entry.name, 'foobar')
 
-    @vcr.use_cassette('fixtures/entry/create_content_type.yaml')
+    @vcr.use_cassette('fixtures/entry/create_content_type.yaml', decode_compressed_response=True)
     def test_content_types_entries_proxy_create(self):
         proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 
@@ -46,7 +46,7 @@ class ContentTypesEntriesProxyTest(TestCase):
         self.assertEqual(entry.name, 'test')
         self.assertEqual(entry.id, 'id_create_content_type_proxy_test')
 
-    @vcr.use_cassette('fixtures/entry/delete_content_type.yaml')
+    @vcr.use_cassette('fixtures/entry/delete_content_type.yaml', decode_compressed_response=True)
     def test_content_types_entries_proxy_delete(self):
         proxy = ContentTypeEntriesProxy(CLIENT, PLAYGROUND_SPACE, 'master', 'foo')
 

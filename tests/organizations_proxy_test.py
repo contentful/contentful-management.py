@@ -10,7 +10,7 @@ class OrganizationsProxyTest(TestCase):
 
         self.assertEqual(str(proxy), "<OrganizationsProxy>")
 
-    @vcr.use_cassette('fixtures/organization/all.yaml')
+    @vcr.use_cassette('fixtures/organization/all.yaml', decode_compressed_response=True)
     def test_organizations_proxy_all(self):
         proxy = OrganizationsProxy(CLIENT)
 

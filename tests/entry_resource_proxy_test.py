@@ -7,4 +7,3 @@ class EntryResourceProxyTest(TestCase):
     def test_resource_proxy_must_be_implemented(self):
         with self.assertRaises(Exception):
             EntryResourceProxy(CLIENT, PLAYGROUND_SPACE, 'foo', 'master')
-

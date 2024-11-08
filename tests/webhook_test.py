@@ -81,7 +81,7 @@ class WebhookTest(TestCase):
                 'url': 'https://example.com'
             })
 
-    @vcr.use_cassette('fixtures/webhook/create.yaml')
+    @vcr.use_cassette('fixtures/webhook/create.yaml', decode_compressed_response=True)
     def test_create_webhook(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).create({
             'name': 'Klingon',
@@ -92,7 +92,7 @@ class WebhookTest(TestCase):
         self.assertEqual(webhook.name, 'Klingon')
         self.assertEqual(webhook.url, 'https://example.com')
 
-    @vcr.use_cassette('fixtures/webhook/find.yaml')
+    @vcr.use_cassette('fixtures/webhook/find.yaml', decode_compressed_response=True)
     def test_update_webhook(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).find('2xzNZ8gOsq0sz4ueoytkeW')
 
@@ -102,7 +102,7 @@ class WebhookTest(TestCase):
 
         self.assertEqual(webhook.name, 'Not Klingon')
 
-    @vcr.use_cassette('fixtures/webhook/find_2.yaml')
+    @vcr.use_cassette('fixtures/webhook/find_2.yaml', decode_compressed_response=True)
     def test_delete_webhook(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).find('2xzNZ8gOsq0sz4ueoytkeW')
 
@@ -113,7 +113,7 @@ class WebhookTest(TestCase):
             with self.assertRaises(NotFoundError):
                 CLIENT.webhooks(PLAYGROUND_SPACE).find('2xzNZ8gOsq0sz4ueoytkeW')
 
-    @vcr.use_cassette('fixtures/webhook/create_with_filter.yaml')
+    @vcr.use_cassette('fixtures/webhook/create_with_filter.yaml', decode_compressed_response=True)
     def test_create_with_filter(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).create({
             'name': 'Test Filters',
@@ -124,7 +124,7 @@ class WebhookTest(TestCase):
 
         self.assertEqual(webhook.filters[0], {"equals": [{"doc": "sys.environment.sys.id"}, "some-env-id"]})
 
-    @vcr.use_cassette('fixtures/webhook/create_with_transformation.yaml')
+    @vcr.use_cassette('fixtures/webhook/create_with_transformation.yaml', decode_compressed_response=True)
     def test_create_with_transformation(self):
         webhook = CLIENT.webhooks(PLAYGROUND_SPACE).create({
             'name': 'Test Transformation',

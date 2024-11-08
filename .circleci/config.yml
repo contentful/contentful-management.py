@@ -9,8 +9,15 @@ jobs:
       - image: cimg/python:<< parameters.python-version >>
     steps:
       - checkout
-      - run: pip install -r requirements.txt
-      - run: make coverage
+      - run:
+          name: Install PDM
+          command: pip install pdm
+      - run:
+          name: Install Dependencies
+          command: pdm install --group test
+      - run:
+          name: Run Tests
+          command: pdm run coverage
 
 workflows:
   version: 2
@@ -19,4 +26,4 @@ workflows:
       - test:
           matrix:
             parameters:
-              python-version: ["3.8", "3.9", "3.10", "3.11"]
+              python-version: ["3.9", "3.10", "3.11", "3.12"]
