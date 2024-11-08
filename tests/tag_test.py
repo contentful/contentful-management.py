@@ -120,3 +120,15 @@ class TagTest(TestCase):
         })
 
         self.assertEqual(len(asset._metadata['tags']), 1)
+
+    def test_tag_to_json(self):
+        tag = Tag(TAG_ITEM)
+
+        self.assertEqual(tag.to_json(), {
+            'name': 'NY Campaign',
+            'sys': {
+                'visibility': 'public',
+                'id': 'nyCampaign',
+                'type': 'Tag'
+            }
+        })

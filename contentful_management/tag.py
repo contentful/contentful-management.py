@@ -35,6 +35,17 @@ class Tag(Resource):
             headers=self._update_headers()
         )
 
+    def to_json(self):
+        """
+        Returns the JSON representation of the tag.
+        """
+
+        result = super(Tag, self).to_json()
+        result.update({
+            'name': self.name
+        })
+        return result
+
     def __repr__(self):
         return "<Tag id='{0}' name='{1}'>".format(
             self.sys.get('id', ''),

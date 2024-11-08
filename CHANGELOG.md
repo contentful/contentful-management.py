@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
+* Fixed issue with `Tag` serialization.
 * Migrated to `pdm` for package management.
 
 ## v2.14.2
