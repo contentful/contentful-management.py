@@ -185,7 +185,6 @@ def str_type():
     if sys.version_info[0] >= 3:
         return str
 
-    global basestring
     return basestring
 
 
