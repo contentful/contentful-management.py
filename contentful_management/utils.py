@@ -44,7 +44,7 @@ def string_class():
     depends on the Python version."""
     if sys.version_info[0] >= 3:
         return str
-    return basestring
+    return basestring # noqa: F821
 
 
 def json_error_class():
@@ -185,7 +185,7 @@ def str_type():
     if sys.version_info[0] >= 3:
         return str
 
-    return basestring
+    return basestring # noqa: F821
 
 
 def sanitize_date(date):
