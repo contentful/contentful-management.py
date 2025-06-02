@@ -28,6 +28,12 @@ logging.getLogger(__name__).addHandler(NullHandler())
 log = logging.getLogger(__name__)
 
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
+
 def unicode_class():
     """
     Returns the class that allows for unicode encoded strings
@@ -184,8 +190,6 @@ def str_type():
 
     if sys.version_info[0] >= 3:
         return str
-
-    global basestring
     return basestring
 
 

@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 import vcr
 import re
 from unittest import TestCase
@@ -7,6 +9,12 @@ from .test_helper import CLIENT, PLAYGROUND_SPACE, PLAYGROUND_KEY
 
 
 class ClientTest(TestCase):
+    def test_foo(self):
+        # usage1 = CLIENT.space_periodic_usages('4kQeJmhUWIKtNNmMkketza').all()
+        # usage2= CLIENT.space_periodic_usages('4kQeJmhUWIKtNNmMkketza').all({'metric[in]': ['cda'], 'dateRange.startAt': (date.today() - timedelta(days=1)).isoformat()})
+        # usage3 = CLIENT.space_periodic_usages('4kQeJmhUWIKtNNmMkketza').all({'metric[in]': ['cda'],'dateRange.startAt': '2024-02-02','dateRange.endAt': '2024-02-03'})
+        print(1)
+
     def test_client(self):
         self.assertEqual(str(CLIENT), "<contentful_management.Client access_token='{0}' default_locale='en-US'>".format(PLAYGROUND_KEY))
 
