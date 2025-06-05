@@ -3,6 +3,7 @@
 ## Unreleased
 * Fixed issue with `Tag` serialization.
 * Migrated to `pdm` for package management.
+* Fixed Python 3 compatibility issue with `basestring` in utils.py.
 
 ## v2.14.2
 * Updated `pyyaml` version to fix a vulnerability.
