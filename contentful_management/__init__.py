@@ -15,6 +15,6 @@ from .content_type import ContentType  # noqa: F401
 from .content_type_field import ContentTypeField  # noqa: F401
 
 
-__version__ = "2.14.4"
+__version__ = "2.14.6"
 __author__ = "Contentful GmbH"
 __email__ = "prd-ecosystem-dx@contentful.com"

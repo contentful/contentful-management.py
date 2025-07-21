@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-## v2.14.3
+## v2.14.6
+* Fix security vulnerability: Update requests from 2.32.3 to 2.32.4
+
+## v2.14.5
+* Removed invalid global and added comments to suppress warnings
+
+## v2.14.4
 * Fixed issue with `Tag` serialization.
 * Migrated to `pdm` for package management.
 

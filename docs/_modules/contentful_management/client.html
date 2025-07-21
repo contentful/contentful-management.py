@@ -1,26 +1,15 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>contentful_management.client &#8212; Contentful Management 2.14.2 documentation</title>
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '2.14.2',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contentful_management.client &#8212; Contentful Management 2.14.6 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6c6282b3"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
    
@@ -29,8 +18,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body>
+  </head><body>
   
 
     <div class="document">
@@ -94,7 +82,7 @@
 
 
 <div class="viewcode-block" id="Client"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client">[docs]</a><span class="k">class</span> <span class="nc">Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Constructs the API client.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Constructs the API client.</span>
 
 <span class="sd">    :param access_token: API access token.</span>
 <span class="sd">    :param api_url: (optional) URL of the Contentful API,</span>
@@ -180,7 +168,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_configuration</span><span class="p">()</span>
 
 <div class="viewcode-block" id="Client.spaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.spaces">[docs]</a>    <span class="k">def</span> <span class="nf">spaces</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to space management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/spaces</span>
@@ -197,7 +185,7 @@
         <span class="k">return</span> <span class="n">SpacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.memberships"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.memberships">[docs]</a>    <span class="k">def</span> <span class="nf">memberships</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to space membership management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/space-memberships</span>
@@ -214,7 +202,7 @@
         <span class="k">return</span> <span class="n">SpaceMembershipsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.organizations"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.organizations">[docs]</a>    <span class="k">def</span> <span class="nf">organizations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to organization management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/organizations</span>
@@ -231,7 +219,7 @@
         <span class="k">return</span> <span class="n">OrganizationsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.organization_periodic_usages"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.organization_periodic_usages">[docs]</a>    <span class="k">def</span> <span class="nf">organization_periodic_usages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to an organizations usage periods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</span>
@@ -248,7 +236,7 @@
         <span class="k">return</span> <span class="n">OrganizationPeriodicUsagesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.space_periodic_usages"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.space_periodic_usages">[docs]</a>    <span class="k">def</span> <span class="nf">space_periodic_usages</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to an organizations usage periods grouped by space.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</span>
@@ -265,7 +253,7 @@
         <span class="k">return</span> <span class="n">SpacePeriodicUsagesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.users"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.users">[docs]</a>    <span class="k">def</span> <span class="nf">users</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to user management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/users</span>
@@ -282,7 +270,7 @@
         <span class="k">return</span> <span class="n">UsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.content_types"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_types">[docs]</a>    <span class="k">def</span> <span class="nf">content_types</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to content type management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types</span>
@@ -299,7 +287,7 @@
         <span class="k">return</span> <span class="n">ContentTypesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.entries"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entries">[docs]</a>    <span class="k">def</span> <span class="nf">entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to entry management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/entries</span>
@@ -316,7 +304,7 @@
         <span class="k">return</span> <span class="n">EntriesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.assets"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.assets">[docs]</a>    <span class="k">def</span> <span class="nf">assets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to asset management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/assets</span>
@@ -333,7 +321,7 @@
         <span class="k">return</span> <span class="n">AssetsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.locales"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.locales">[docs]</a>    <span class="k">def</span> <span class="nf">locales</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to locale management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/locales</span>
@@ -350,7 +338,7 @@
         <span class="k">return</span> <span class="n">LocalesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.webhooks"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhooks">[docs]</a>    <span class="k">def</span> <span class="nf">webhooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to webhook management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhooks</span>
@@ -367,7 +355,7 @@
         <span class="k">return</span> <span class="n">WebhooksProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.webhook_calls"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhook_calls">[docs]</a>    <span class="k">def</span> <span class="nf">webhook_calls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to webhook call information.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls</span>
@@ -384,7 +372,7 @@
         <span class="k">return</span> <span class="n">WebhooksCallProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.webhook_health"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.webhook_health">[docs]</a>    <span class="k">def</span> <span class="nf">webhook_health</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to webhook health information.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/webhook-calls/webhook-health</span>
@@ -401,7 +389,7 @@
         <span class="k">return</span> <span class="n">WebhooksHealthProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">webhook_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to API key management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys</span>
@@ -418,7 +406,7 @@
         <span class="k">return</span> <span class="n">ApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.preview_api_keys"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.preview_api_keys">[docs]</a>    <span class="k">def</span> <span class="nf">preview_api_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to Preview API key management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/api-keys/preview-api-key/get-a-single-preview-api-key</span>
@@ -435,7 +423,7 @@
         <span class="k">return</span> <span class="n">PreviewApiKeysProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.personal_access_tokens"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.personal_access_tokens">[docs]</a>    <span class="k">def</span> <span class="nf">personal_access_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to personal access token management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/personal-access-tokens</span>
@@ -452,7 +440,7 @@
         <span class="k">return</span> <span class="n">PersonalAccessTokensProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.roles"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.roles">[docs]</a>    <span class="k">def</span> <span class="nf">roles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to role management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/roles</span>
@@ -469,7 +457,7 @@
         <span class="k">return</span> <span class="n">RolesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.ui_extensions"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.ui_extensions">[docs]</a>    <span class="k">def</span> <span class="nf">ui_extensions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to UI extensions management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/ui-extensions</span>
@@ -486,7 +474,7 @@
         <span class="k">return</span> <span class="n">UIExtensionsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.editor_interfaces"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.editor_interfaces">[docs]</a>    <span class="k">def</span> <span class="nf">editor_interfaces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to editor interfaces management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/editor-interface</span>
@@ -503,7 +491,7 @@
         <span class="k">return</span> <span class="n">EditorInterfacesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="o">=</span><span class="s1">&#39;entries&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to snapshot management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
@@ -523,7 +511,7 @@
         <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">resource_id</span><span class="p">,</span> <span class="n">resource_kind</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.entry_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.entry_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">entry_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to entry snapshot management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
@@ -540,7 +528,7 @@
         <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">,</span> <span class="s1">&#39;entries&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.content_type_snapshots"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.content_type_snapshots">[docs]</a>    <span class="k">def</span> <span class="nf">content_type_snapshots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to content type snapshot management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/snapshots</span>
@@ -557,7 +545,7 @@
         <span class="k">return</span> <span class="n">SnapshotsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">,</span> <span class="n">content_type_id</span><span class="p">,</span> <span class="s1">&#39;content_types&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.uploads"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.uploads">[docs]</a>    <span class="k">def</span> <span class="nf">uploads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to upload management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/uploads</span>
@@ -574,7 +562,7 @@
         <span class="k">return</span> <span class="n">UploadsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.environments"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.environments">[docs]</a>    <span class="k">def</span> <span class="nf">environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to environment management methods.</span>
 
 <span class="sd">        API reference: TBD</span>
@@ -591,7 +579,7 @@
         <span class="k">return</span> <span class="n">EnvironmentsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Client.tags"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.tags">[docs]</a>    <span class="k">def</span> <span class="nf">tags</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Provides access to tag management methods.</span>
 
 <span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/tags</span>
@@ -607,7 +595,7 @@
         <span class="k">return</span> <span class="n">TagsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates that required parameters are present.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -629,7 +617,7 @@
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_contentful_user_agent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the X-Contentful-User-Agent header.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">header</span> <span class="o">=</span> <span class="p">{}</span>
@@ -678,7 +666,7 @@
         <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_request_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the default request headers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -699,7 +687,7 @@
         <span class="k">return</span> <span class="n">headers</span>
 
     <span class="k">def</span> <span class="nf">_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">file_upload</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates the request URL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -717,7 +705,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_normalize_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts arrays in the query to comma</span>
 <span class="sd">        separated lists for proper API handling.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -727,7 +715,7 @@
                 <span class="n">query</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_http_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">request_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the requested HTTP request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -757,7 +745,7 @@
         <span class="k">return</span> <span class="n">response</span>
 
     <span class="k">def</span> <span class="nf">_http_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the HTTP GET request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -768,7 +756,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_http_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the HTTP POST request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -780,7 +768,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_http_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the HTTP PUT request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -789,14 +777,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_http_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">_data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the HTTP DELETE request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query_or_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wrapper for the HTTP requests,</span>
 <span class="sd">        rate limit backoff is handled here,</span>
 <span class="sd">        responses are processed with ResourceBuilder.</span>
@@ -828,28 +816,28 @@
         <span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wrapper for the HTTP GET request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wrapper for the HTTP POST request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wrapper for the HTTP PUT request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Wrapper for the HTTP DELETE request.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -867,14 +855,14 @@
         <span class="k">return</span> <span class="n">response</span>
 
     <span class="k">def</span> <span class="nf">_has_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if a proxy was set.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy_host</span>
 
     <span class="k">def</span> <span class="nf">_proxy_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Builds proxy parameters dict from</span>
 <span class="sd">        client options.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -911,7 +899,29 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><div class="relations">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Contentful Management</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=contentful&repo=contentful-management.py&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">contentful_management</a></li>
+</ul>
+
+<div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
@@ -921,15 +931,23 @@
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
