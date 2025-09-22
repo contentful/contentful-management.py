@@ -3,7 +3,7 @@ import re
 from unittest import TestCase
 from contentful_management import Client
 from contentful_management.utils import ConfigurationException
-from .test_helper import CLIENT, PLAYGROUND_SPACE, PLAYGROUND_KEY
+from .test_helper import CLIENT, PLAYGROUND_SPACE, PLAYGROUND_KEY, PLAYGROUND_ORG
 
 
 class ClientTest(TestCase):
@@ -44,6 +44,10 @@ class ClientTest(TestCase):
         proxy = CLIENT.tags(PLAYGROUND_SPACE, 'master')
 
         self.assertEqual(str(proxy), "<TagsProxy space_id='{0}' environment_id='master'>".format(PLAYGROUND_SPACE))
+
+    def test_client_taxonomy_concepts(self):
+        proxy = CLIENT.taxonomy_concepts(PLAYGROUND_ORG)
+        self.assertEqual(str(proxy), f"<TaxonomyConceptsProxy organization_id='{PLAYGROUND_ORG}'>")
 
     def test_client_configuration_errors(self):
         with self.assertRaises(ConfigurationException):

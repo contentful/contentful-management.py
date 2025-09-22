@@ -1,0 +1,79 @@
+interactions:
+- request:
+    body: '{"prefLabel": {"en-US": "Home Products"}, "definition": {"en-US": ""},
+      "topConcepts": [{"sys": {"id": "5KHXWlmxvntrrB09szapUp"}}], "concepts": [{"sys":
+      {"id": "5KHXWlmxvntrrB09szapUp"}}]}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '187'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/24.6.0;
+    method: POST
+    uri: https://api.contentful.com/organizations/4kQeJmhUWIKtNNmMkketza/taxonomy/concept-schemes
+  response:
+    body:
+      string: '{"sys":{"id":"2hNivoHTKM4MbTM4519T5E","type":"TaxonomyConceptScheme","createdAt":"2025-09-14T06:37:32.431Z","updatedAt":"2025-09-14T06:37:32.431Z","organization":{"sys":{"id":"4kQeJmhUWIKtNNmMkketza","type":"Link","linkType":"Organization"}},"createdBy":{"sys":{"id":"59Erm8D1JuuD273aXNb65T","type":"Link","linkType":"User"}},"updatedBy":{"sys":{"id":"59Erm8D1JuuD273aXNb65T","type":"Link","linkType":"User"}},"version":1},"uri":null,"topConcepts":[{"sys":{"id":"5KHXWlmxvntrrB09szapUp","type":"Link","linkType":"TaxonomyConcept"}}],"concepts":[{"sys":{"id":"5KHXWlmxvntrrB09szapUp","type":"Link","linkType":"TaxonomyConcept"}}],"totalConcepts":1,"prefLabel":{"en-US":"Home
+        Products"},"definition":{"en-US":""}}'
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '711'
+      Content-Type:
+      - application/json; charset=utf-8
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - taxonomy-service
+      Date:
+      - Sun, 14 Sep 2025 06:37:32 GMT
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      cache-control:
+      - no-cache
+      x-contentful-request-id:
+      - a8a77f03-02ac-4ea8-9c38-2b2e2b692538
+      x-contentful-route:
+      - /organizations/:organizationId/taxonomy/concept-schemes
+    status:
+      code: 201
+      message: Created
+version: 1

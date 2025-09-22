@@ -18,6 +18,8 @@ from .api_keys_proxy import ApiKeysProxy
 from .webhooks_proxy import WebhooksProxy
 from .snapshots_proxy import SnapshotsProxy
 from .environments_proxy import EnvironmentsProxy
+from .taxonomy_concepts_proxy import TaxonomyConceptsProxy
+from .taxonomy_concept_schemes_proxy import TaxonomyConceptSchemesProxy
 from .webhooks_call_proxy import WebhooksCallProxy
 from .ui_extensions_proxy import UIExtensionsProxy
 from .content_types_proxy import ContentTypesProxy
@@ -563,6 +565,38 @@ class Client(object):
 
         return TagsProxy(self, space_id, environment_id)
 
+    def taxonomy_concepts(self, organization_id):
+        """
+        Provides access to taxonomy concept management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept
+
+        :param organization_id: The ID of the organization.
+        :type organization_id: string
+        :return: :class:`TaxonomyConceptsProxy <contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy>` object.
+        :rtype: contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy
+
+        Usage:
+
+            >>> taxonomy_concepts_proxy = client.taxonomy_concepts('organization_id')
+            <TaxonomyConceptsProxy organization_id="organization_id">
+        """
+        return TaxonomyConceptsProxy(self, organization_id)
+
+    def taxonomy_concept_schemes(self, organization_id):
+        """
+        Provides access to taxonomy concept scheme management methods.
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept-scheme
+        :param organization_id: The ID of the organization.
+        :type organization_id: string
+        :return: :class:`TaxonomyConceptSchemesProxy <contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy>` object.
+        :rtype: contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy
+        Usage:
+            >>> taxonomy_concept_schemes_proxy = client.taxonomy_concept_schemes('organization_id')
+            <TaxonomyConceptSchemesProxy organization_id="organization_id">
+        """
+        return TaxonomyConceptSchemesProxy(self, organization_id)
+
     def _validate_configuration(self):
         """
         Validates that required parameters are present.
@@ -745,6 +779,15 @@ class Client(object):
 
         return self._http_request('put', url, kwargs)
 
+    def _http_patch(self, url, data, **kwargs):
+        """
+        Performs the HTTP PATCH request.
+        """
+
+        kwargs.update({'data': json.dumps(data)})
+
+        return self._http_request('patch', url, kwargs)
+
     def _http_delete(self, url, _data, **kwargs):
         """
         Performs the HTTP DELETE request.
@@ -804,6 +847,13 @@ class Client(object):
         """
 
         return self._request('put', url, attributes, **kwargs)
+
+    def _patch(self, url, attributes=None, **kwargs):
+        """
+        Wrapper for the HTTP PATCH request.
+        """
+
+        return self._request('patch', url, attributes, **kwargs)
 
     def _delete(self, url, **kwargs):
         """

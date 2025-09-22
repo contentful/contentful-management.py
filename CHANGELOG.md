@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
+* Added support for taxonomy endpoints.
 
 ## v2.14.6
 * Fix security vulnerability: Update requests from 2.32.3 to 2.32.4

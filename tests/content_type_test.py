@@ -2,6 +2,8 @@ import vcr
 from unittest import TestCase
 from contentful_management.content_type import ContentType
 from contentful_management.errors import NotFoundError
+from contentful_management.taxonomy_concept import TaxonomyConcept
+from contentful_management.taxonomy_concept_scheme import TaxonomyConceptScheme
 from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 BASE_CT_ITEM = {
@@ -246,3 +248,35 @@ class ContentTypeTest(TestCase):
         content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('cat')
 
         self.assertEqual(content_type.name, 'Foo Cat')
+
+    @vcr.use_cassette('fixtures/content_type/add_taxonomies_to_content_type.yaml', decode_compressed_response=True)
+    def test_update_content_type_with_taxonomy(self):
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('author')
+
+        content_type.update({
+            'metadata': {
+                'taxonomy': [
+                    {
+                        'required': False,
+                        'sys': {
+                            'type': 'Link',
+                            'linkType': 'TaxonomyConcept',
+                            'id': '5KHXWlmxvntrrB09szapUp'
+                        }
+                    },
+                    {
+                        'required': True,
+                        'sys': {
+                            'type': 'Link',
+                            'linkType': 'TaxonomyConceptScheme',
+                            'id': '2hNivoHTKM4MbTM4519T5E'
+                        }
+                    }
+                ]
+            }
+        })
+
+        content_type = CLIENT.content_types(PLAYGROUND_SPACE, 'master').find('author')
+        self.assertEqual(len(content_type.metadata.taxonomy), 2)
+        self.assertIsInstance(content_type.metadata.taxonomy[0], TaxonomyConcept)
+        self.assertIsInstance(content_type.metadata.taxonomy[1], TaxonomyConceptScheme)

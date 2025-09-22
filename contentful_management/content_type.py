@@ -1,5 +1,6 @@
 from .resource import Resource, PublishResource, EnvironmentAwareResource
 from .content_type_field import ContentTypeField
+from .content_type_metadata import ContentTypeMetadata
 from .content_type_entries_proxy import ContentTypeEntriesProxy
 from .content_type_snapshots_proxy import ContentTypeSnapshotsProxy
 from .content_type_editor_interfaces_proxy import ContentTypeEditorInterfacesProxy
@@ -30,6 +31,7 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
         self.display_field = item.get('displayField', '')
         self.fields = [ContentTypeField(field)
                        for field in item.get('fields', [])]
+        self.metadata = ContentTypeMetadata(item.get('metadata', {}))
 
     @classmethod
     def base_url(klass, space_id, resource_id=None, public=False, environment_id=None, **kwargs):
@@ -71,7 +73,8 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
             'name': '',
             'description': '',
             'display_field': '',
-            'fields': []
+            'fields': [],
+            'metadata': {}
         }
 
     def to_json(self):
@@ -86,6 +89,10 @@ class ContentType(Resource, PublishResource, EnvironmentAwareResource):
             'displayField': self.display_field,
             'fields': [f.to_json() for f in self.fields]
         })
+
+        if self.metadata and (self.metadata.taxonomy or self.metadata.raw):
+            result['metadata'] = self.metadata.to_json()
+
         return result
 
     def entries(self):

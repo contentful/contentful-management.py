@@ -523,6 +523,38 @@ Accessing tag of an entry or asset::
 
         entry._metadata['tags'] or asset._metadata['tags']  # will return a list of tags
 
+Adding taxonomy concepts to an entry::
+
+    entry.update({"_metadata": {"concepts": [{"sys": {"type": "Link", "linkType": "TaxonomyConcept", "id": "concept_id"}}], "tags": []}})
+
+Adding taxonomy concepts to an asset::
+
+    asset.update({"_metadata": {"concepts": [{"sys": {"type": "Link", "linkType": "TaxonomyConcept", "id": "concept_id"}}], "tags": []}})
+
+Removing taxonomy concepts from an entry::
+
+    entry.update({"_metadata": {"concepts": [], "tags": []}})
+
+Removing taxonomy concepts from an asset::
+
+    asset.update({"_metadata": {"concepts": [], "tags": []}})
+
+Accessing taxonomy concepts of an entry or asset::
+
+    entry._metadata['concepts'] or asset._metadata['concepts']  # will return a list of concept links
+
+Adding multiple taxonomy concepts::
+
+    entry.update({
+        "_metadata": {
+            "concepts": [
+                {"sys": {"type": "Link", "linkType": "TaxonomyConcept", "id": "concept_1"}},
+                {"sys": {"type": "Link", "linkType": "TaxonomyConcept", "id": "concept_2"}}
+            ],
+            "tags": []
+        }
+    })
+
 Content Types
 -------------
 
@@ -653,6 +685,160 @@ Removing a field from a content type::
 Validations:
 
     For information regarding available validations check the `reference documentation <https://www.contentful.com/developers/docs/references/content-management-api/#/reference/content-types/content-type>`_.
+
+Adding taxonomy metadata to a content type::
+
+    content_type.update({
+        'metadata': {
+            'taxonomy': [
+                {
+                    'required': False,
+                    'sys': {
+                        'type': 'Link',
+                        'linkType': 'TaxonomyConcept',
+                        'id': 'concept_id'
+                    }
+                },
+                {
+                    'required': True,
+                    'sys': {
+                        'type': 'Link',
+                        'linkType': 'TaxonomyConceptScheme',
+                        'id': 'concept_scheme_id'
+                    }
+                }
+            ]
+        }
+    })
+
+Accessing taxonomy metadata::
+
+    # Get all taxonomy objects from content type metadata
+    taxonomy_objects = content_type.metadata.taxonomy
+    
+    # Check the type of taxonomy objects
+    for taxonomy in content_type.metadata.taxonomy:
+        if isinstance(taxonomy, contentful_management.TaxonomyConcept):
+            print(f"Concept: {taxonomy.pref_label}")
+        elif isinstance(taxonomy, contentful_management.TaxonomyConceptScheme):
+            print(f"Concept Scheme: {taxonomy.pref_label}")
+
+Taxonomy Concepts
+-----------------
+
+Retrieving all taxonomy concepts in an organization::
+
+    concepts = client.taxonomy_concepts('organization_id').all()
+
+Retrieving a taxonomy concept by ID::
+
+    concept = client.taxonomy_concepts('organization_id').find('concept_id')
+
+Creating a taxonomy concept::
+
+    concept_attributes = {
+        'prefLabel': {
+            'en-US': 'Sofas'
+        },
+        'altLabels': {
+            'en-US': [
+                'Couches',
+                'Settees'
+            ]
+        },
+        'hiddenLabels': {
+            'en-US': [
+                'Davenports'
+            ]
+        },
+        'notations': [
+            'FURN0017B'
+        ]
+    }
+
+    new_concept = client.taxonomy_concepts('organization_id').create(concept_attributes)
+
+Updating a taxonomy concept::
+
+    patches = [
+        {
+            'op': 'replace',
+            'path': '/prefLabel/en-US',
+            'value': 'Updated Sofas'
+        }
+    ]
+
+    updated_concept = client.taxonomy_concepts('organization_id').update(
+        'concept_id',
+        concept.sys['version'],
+        patches
+    )
+
+Deleting a taxonomy concept::
+
+    client.taxonomy_concepts('organization_id').delete('concept_id', concept_version)
+
+Getting descendants of a concept::
+
+    descendants = client.taxonomy_concepts('organization_id').descendants('concept_id')
+
+Getting ancestors of a concept::
+
+    ancestors = client.taxonomy_concepts('organization_id').ancestors('concept_id')
+
+Getting total count of concepts::
+
+    response = client.taxonomy_concepts('organization_id').total()
+    total_count = response['total']
+
+Taxonomy Concept Schemes
+-------------------------
+
+Retrieving all taxonomy concept schemes in an organization::
+
+    schemes = client.taxonomy_concept_schemes('organization_id').all()
+
+Retrieving a taxonomy concept scheme by ID::
+
+    scheme = client.taxonomy_concept_schemes('organization_id').find('scheme_id')
+
+Creating a taxonomy concept scheme::
+
+    scheme_attributes = {
+        'prefLabel': {
+            'en-US': 'Product Categories'
+        },
+        'definition': {
+            'en-US': 'A classification scheme for products'
+        }
+    }
+
+    new_scheme = client.taxonomy_concept_schemes('organization_id').create(scheme_attributes)
+
+Updating a taxonomy concept scheme::
+
+    patches = [
+        {
+            'op': 'replace',
+            'path': '/prefLabel/en-US',
+            'value': 'Updated Product Categories'
+        }
+    ]
+
+    updated_scheme = client.taxonomy_concept_schemes('organization_id').update(
+        'scheme_id',
+        scheme.sys['version'],
+        patches
+    )
+
+Deleting a taxonomy concept scheme::
+
+    client.taxonomy_concept_schemes('organization_id').delete('scheme_id', scheme_version)
+
+Getting total count of concept schemes::
+
+    response = client.taxonomy_concept_schemes('organization_id').total()
+    total_count = response['total']
 
 Locales
 -------
