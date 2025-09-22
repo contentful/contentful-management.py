@@ -1,0 +1,152 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/24.5.0;
+    method: GET
+    uri: https://api.contentful.com/organizations/4kQeJmhUWIKtNNmMkketza/taxonomy/concepts/5iRG7dAusVFUOh9SrexDqQ
+  response:
+    body:
+      string: '{"sys":{"id":"5iRG7dAusVFUOh9SrexDqQ","type":"TaxonomyConcept","createdAt":"2025-03-21T05:54:15.434Z","updatedAt":"2025-08-29T15:33:06.894Z","organization":{"sys":{"id":"4kQeJmhUWIKtNNmMkketza","type":"Link","linkType":"Organization"}},"createdBy":{"sys":{"id":"59Erm8D1JuuD273aXNb65T","type":"Link","linkType":"User"}},"updatedBy":{"sys":{"id":"59Erm8D1JuuD273aXNb65T","type":"Link","linkType":"User"}},"version":8},"uri":"https://example/testconcept","notations":["SLR001"],"conceptSchemes":[{"sys":{"id":"4EQT881T6sG9XpzNwb9y9R","type":"Link","linkType":"TaxonomyConceptScheme"}}],"broader":[{"sys":{"id":"newConcept","type":"Link","linkType":"TaxonomyConcept"}}],"related":[],"prefLabel":{"en-US":"Updated
+        Sofas"},"altLabels":{"en-US":["Couches"]},"hiddenLabels":{"en-US":["Sopha"]},"note":{"en-US":"Excepteur
+        sint occaecat cupidatat non proident"},"changeNote":null,"definition":null,"editorialNote":{"en-US":""},"example":{"en-US":"Lorem
+        ipsum dolor sit amet"},"historyNote":{"en-US":""},"scopeNote":{"en-US":"consectetur
+        adipiscing elit"}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1046'
+      Content-Type:
+      - application/json; charset=utf-8
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - taxonomy-service
+      Date:
+      - Fri, 29 Aug 2025 16:34:24 GMT
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      Vary:
+      - accept-encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      accept-ranges:
+      - bytes
+      cache-control:
+      - no-cache
+      x-contentful-request-id:
+      - 9af12eae-eb72-4f27-bb05-ce9717cbdb5c
+      x-contentful-route:
+      - /organizations/:organizationId/taxonomy/concepts/:id
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/24.5.0;
+      X-Contentful-Version:
+      - '8'
+    method: DELETE
+    uri: https://api.contentful.com/organizations/4kQeJmhUWIKtNNmMkketza/taxonomy/concepts/5iRG7dAusVFUOh9SrexDqQ
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      Connection:
+      - keep-alive
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - taxonomy-service
+      Date:
+      - Fri, 29 Aug 2025 16:34:25 GMT
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      cache-control:
+      - no-cache
+      x-contentful-request-id:
+      - 36728843-89b1-4200-9d66-19d20d82da21
+      x-contentful-route:
+      - /organizations/:organizationId/taxonomy/concepts/:id
+    status:
+      code: 204
+      message: No Content
+version: 1

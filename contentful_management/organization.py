@@ -1,4 +1,5 @@
 from .resource import Resource
+from .taxonomy_concepts_proxy import TaxonomyConceptsProxy
 from .space_periodic_usages_proxy import SpacePeriodicUsagesProxy
 from .organization_periodic_usages_proxy import OrganizationPeriodicUsagesProxy
 from .organization_users_proxy import OrganizationUsersProxy
@@ -84,6 +85,22 @@ class Organization(Resource):
         """
 
         return OrganizationUsersProxy(self._client, self.id)
+
+    def taxonomy_concepts(self):
+        """
+        Provides access to taxonomy concept management methods.
+
+        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept
+
+        :return: :class:`TaxonomyConceptsProxy <contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy>` object.
+        :rtype: contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy
+
+        Usage:
+
+            >>> taxonomy_concepts_proxy = organization.taxonomy_concepts()
+            <TaxonomyConceptsProxy organization_id="organization_id">
+        """
+        return TaxonomyConceptsProxy(self._client, self.id)
 
     def __repr__(self):
         return "<Organization[{0}] id='{1}'>".format(

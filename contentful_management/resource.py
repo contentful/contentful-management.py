@@ -256,6 +256,8 @@ class MetadataResource(Resource):
         for k, v in item['metadata'].items():
             if k == 'tags':
                 metadata[k] = self.coerce_tags(v)
+            elif k == 'concepts':
+                metadata[k] = self.coerce_concepts(v)
             else:
                 metadata[k] = v
         return metadata
@@ -265,6 +267,12 @@ class MetadataResource(Resource):
         Coerces tags to the proper type.
         """
         return [self._build_link(tag) for tag in tags]
+
+    def coerce_concepts(self, concepts):
+        """
+        Coerces concepts to the proper type.
+        """
+        return [self._build_link(concept) for concept in concepts]
 
     @classmethod
     def create_attributes(klass, attributes, previous_object=None):

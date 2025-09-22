@@ -1,0 +1,254 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/25.0.0;
+    method: GET
+    uri: https://api.contentful.com/spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5
+  response:
+    body:
+      string: '{"metadata":{"tags":[],"concepts":[]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"o4h6g9w3pooi"}},"id":"56PfMcxCLyzuXP3k7k0yL5","type":"Asset","createdAt":"2025-09-20T09:30:12.704Z","updatedAt":"2025-09-20T09:33:27.040Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":7,"publishedAt":"2025-09-20T09:32:24.031Z","firstPublishedAt":"2025-09-20T09:32:24.031Z","createdBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"updatedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"publishedCounter":1,"version":12,"publishedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"fieldStatus":{"*":{"en-US":"published"}},"urn":"crn:contentful:::content:spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5"},"fields":{"title":{"en-US":"Casa
+        Padrino Designer Sofa"},"file":{"en-US":{"url":"https://images.secure.ctfassets.net/o4h6g9w3pooi/56PfMcxCLyzuXP3k7k0yL5/3f0dab93b4941ef001a2fbc1491f7237/Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_.JPG","details":{"size":173982,"image":{"width":1200,"height":809}},"fileName":"Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_1.JPG","contentType":"image/jpeg"}}}}
+
+        '
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      CF-Environment-Id:
+      - master
+      CF-Environment-Uuid:
+      - master
+      CF-Space-Id:
+      - o4h6g9w3pooi
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1410'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - content-api
+      Date:
+      - Sat, 20 Sep 2025 09:33:35 GMT
+      ETag:
+      - '"12727540586009054956"'
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      X-Contentful-Route:
+      - /spaces/:space/environments/:environment/assets/:id
+      x-contentful-request-id:
+      - 7f66b98d-ee25-425e-a44a-a9b7840c7fc2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"fields": {"title": {"en-US": "Casa Padrino Designer Sofa"}, "file": {"en-US":
+      {"url": "https://images.secure.ctfassets.net/o4h6g9w3pooi/56PfMcxCLyzuXP3k7k0yL5/3f0dab93b4941ef001a2fbc1491f7237/Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_.JPG",
+      "details": {"size": 173982, "image": {"width": 1200, "height": 809}}, "fileName":
+      "Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_1.JPG",
+      "contentType": "image/jpeg"}}}, "metadata": {"concepts": [{"sys": {"type": "Link",
+      "linkType": "TaxonomyConcept", "id": "greenSofas"}}], "tags": []}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '689'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/25.0.0;
+      x-contentful-version:
+      - '12'
+    method: PUT
+    uri: https://api.contentful.com/spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5
+  response:
+    body:
+      string: '{"metadata":{"tags":[],"concepts":[{"sys":{"type":"Link","linkType":"TaxonomyConcept","id":"greenSofas"}}]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"o4h6g9w3pooi"}},"id":"56PfMcxCLyzuXP3k7k0yL5","type":"Asset","createdAt":"2025-09-20T09:30:12.704Z","updatedAt":"2025-09-20T09:33:35.786Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":7,"publishedAt":"2025-09-20T09:32:24.031Z","firstPublishedAt":"2025-09-20T09:32:24.031Z","createdBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"updatedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"publishedCounter":1,"version":13,"publishedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"fieldStatus":{"*":{"en-US":"published"}},"urn":"crn:contentful:::content:spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5"},"fields":{"title":{"en-US":"Casa
+        Padrino Designer Sofa"},"file":{"en-US":{"url":"https://images.secure.ctfassets.net/o4h6g9w3pooi/56PfMcxCLyzuXP3k7k0yL5/3f0dab93b4941ef001a2fbc1491f7237/Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_.JPG","details":{"size":173982,"image":{"width":1200,"height":809}},"fileName":"Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_1.JPG","contentType":"image/jpeg"}}}}
+
+        '
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      CF-Environment-Id:
+      - master
+      CF-Environment-Uuid:
+      - master
+      CF-Space-Id:
+      - o4h6g9w3pooi
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1480'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - content-api
+      Date:
+      - Sat, 20 Sep 2025 09:33:36 GMT
+      ETag:
+      - '"9243798747359985111"'
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35998'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '8'
+      X-Contentful-Route:
+      - /spaces/:space/environments/:environment/assets/:id
+      x-contentful-request-id:
+      - 1cc8e7e6-9a4c-4ae8-af53-6ea6cb1c034e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Authorization:
+      - Bearer foobar
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      User-Agent:
+      - python-requests/2.32.4
+      X-Contentful-User-Agent:
+      - sdk contentful-management.py/2.14.6; platform python/3.12.7; os macOS/25.0.0;
+    method: GET
+    uri: https://api.contentful.com/spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5
+  response:
+    body:
+      string: '{"metadata":{"tags":[],"concepts":[{"sys":{"type":"Link","linkType":"TaxonomyConcept","id":"greenSofas"}}]},"sys":{"space":{"sys":{"type":"Link","linkType":"Space","id":"o4h6g9w3pooi"}},"id":"56PfMcxCLyzuXP3k7k0yL5","type":"Asset","createdAt":"2025-09-20T09:30:12.704Z","updatedAt":"2025-09-20T09:33:35.786Z","environment":{"sys":{"id":"master","type":"Link","linkType":"Environment"}},"publishedVersion":7,"publishedAt":"2025-09-20T09:32:24.031Z","firstPublishedAt":"2025-09-20T09:32:24.031Z","createdBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"updatedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"publishedCounter":1,"version":13,"publishedBy":{"sys":{"type":"Link","linkType":"User","id":"59Erm8D1JuuD273aXNb65T"}},"fieldStatus":{"*":{"en-US":"published"}},"urn":"crn:contentful:::content:spaces/o4h6g9w3pooi/environments/master/assets/56PfMcxCLyzuXP3k7k0yL5"},"fields":{"title":{"en-US":"Casa
+        Padrino Designer Sofa"},"file":{"en-US":{"url":"https://images.secure.ctfassets.net/o4h6g9w3pooi/56PfMcxCLyzuXP3k7k0yL5/3f0dab93b4941ef001a2fbc1491f7237/Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_.JPG","details":{"size":173982,"image":{"width":1200,"height":809}},"fileName":"Casa-Padrino-Designer-Sofa-Gruen-315-x-82-x-H--70-cm-Wohnzimmer-Sofa-Loft-Sofa-Hotel-Sofa-Lobby-Sofa-Luxus-Qualitaet-114738_1.JPG","contentType":"image/jpeg"}}}}
+
+        '
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Headers:
+      - Accept,Accept-Language,Authorization,Cache-Control,CF-Context,Content-Length,Content-Range,Content-Type,DNT,Destination,Expires,If-Match,If-Modified-Since,If-None-Match,Keep-Alive,Last-Modified,Origin,Pragma,Range,User-Agent,X-Http-Method-Override,X-Mx-ReqToken,X-Requested-With,X-Contentful-Version,X-Contentful-Content-Type,X-Contentful-Organization,X-Contentful-Skip-Transformation,X-Contentful-Tag-Visibility,X-Contentful-User-Agent,X-Contentful-Enable-Alpha-Feature,X-Contentful-Source-Environment,X-Contentful-Team,X-Contentful-Parent-Id,x-contentful-validate-only,X-Contentful-Skip-UI-Draft-Validation,X-Contentful-Marketplace,X-Contentful-UI-Content-Auto-Save,cf-trace,X-Contentful-Comment-Body-Format,X-Contentful-Parent-Entity-Reference,X-Contentful-Include-Invocation-Metadata,X-Contentful-Async-Ai-Action
+      Access-Control-Allow-Methods:
+      - DELETE,GET,HEAD,POST,PUT,PATCH,OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Etag,x-contentful-request-id,x-contentful-ai-actions-ratelimit-reset
+      Access-Control-Max-Age:
+      - '1728000'
+      CF-Environment-Id:
+      - master
+      CF-Environment-Uuid:
+      - master
+      CF-Space-Id:
+      - o4h6g9w3pooi
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1480'
+      Content-Type:
+      - application/vnd.contentful.management.v1+json
+      Contentful-Api:
+      - cma
+      Contentful-Upstream:
+      - content-api
+      Date:
+      - Sat, 20 Sep 2025 09:33:36 GMT
+      ETag:
+      - '"9243798747359985111"'
+      Server:
+      - Contentful
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Content-Type-Options:
+      - nosniff
+      X-Contentful-RateLimit-Hour-Limit:
+      - '36000'
+      X-Contentful-RateLimit-Hour-Remaining:
+      - '35999'
+      X-Contentful-RateLimit-Reset:
+      - '0'
+      X-Contentful-RateLimit-Second-Limit:
+      - '10'
+      X-Contentful-RateLimit-Second-Remaining:
+      - '9'
+      X-Contentful-Route:
+      - /spaces/:space/environments/:environment/assets/:id
+      x-contentful-request-id:
+      - 8dd570d0-7aa2-440b-9c39-5f2ae87dd159
+    status:
+      code: 200
+      message: OK
+version: 1

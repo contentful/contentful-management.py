@@ -22,6 +22,8 @@ from .space_membership import SpaceMembership
 from .space_periodic_usage import SpacePeriodicUsage
 from .personal_access_token import PersonalAccessToken
 from .organization_periodic_usage import OrganizationPeriodicUsage
+from .taxonomy_concept import TaxonomyConcept
+from .taxonomy_concept_scheme import TaxonomyConceptScheme
 
 
 """
@@ -82,7 +84,9 @@ class ResourceBuilder(object):
             'SpacePeriodicUsage': SpacePeriodicUsage,
             'WebhookCallOverview': WebhookCall,
             'PersonalAccessToken': PersonalAccessToken,
-            'OrganizationPeriodicUsage': OrganizationPeriodicUsage
+            'OrganizationPeriodicUsage': OrganizationPeriodicUsage,
+            'TaxonomyConcept': TaxonomyConcept,
+            'TaxonomyConceptScheme': TaxonomyConceptScheme
         }
 
         item_type = item['sys']['type']
