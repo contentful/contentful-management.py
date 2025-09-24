@@ -586,12 +586,16 @@ class Client(object):
     def taxonomy_concept_schemes(self, organization_id):
         """
         Provides access to taxonomy concept scheme management methods.
+
         API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept-scheme
+
         :param organization_id: The ID of the organization.
         :type organization_id: string
         :return: :class:`TaxonomyConceptSchemesProxy <contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy>` object.
         :rtype: contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy
+
         Usage:
+
             >>> taxonomy_concept_schemes_proxy = client.taxonomy_concept_schemes('organization_id')
             <TaxonomyConceptSchemesProxy organization_id="organization_id">
         """
