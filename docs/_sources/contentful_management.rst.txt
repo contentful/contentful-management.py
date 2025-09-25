@@ -108,6 +108,14 @@ contentful\_management.content\_type\_field\_validation module
    :undoc-members:
    :show-inheritance:
 
+contentful\_management.content\_type\_metadata module
+-----------------------------------------------------
+
+.. automodule:: contentful_management.content_type_metadata
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 contentful\_management.content\_type\_resource\_proxy module
 ------------------------------------------------------------
 
@@ -512,6 +520,38 @@ contentful\_management.tags\_proxy module
 -----------------------------------------
 
 .. automodule:: contentful_management.tags_proxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+contentful\_management.taxonomy\_concept module
+-----------------------------------------------
+
+.. automodule:: contentful_management.taxonomy_concept
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+contentful\_management.taxonomy\_concept\_scheme module
+-------------------------------------------------------
+
+.. automodule:: contentful_management.taxonomy_concept_scheme
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+contentful\_management.taxonomy\_concept\_schemes\_proxy module
+---------------------------------------------------------------
+
+.. automodule:: contentful_management.taxonomy_concept_schemes_proxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+contentful\_management.taxonomy\_concepts\_proxy module
+-------------------------------------------------------
+
+.. automodule:: contentful_management.taxonomy_concepts_proxy
    :members:
    :undoc-members:
    :show-inheritance:

@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>contentful_management.resource_builder &#8212; Contentful Management 2.14.6 documentation</title>
+    <title>contentful_management.resource_builder &#8212; Contentful Management 2.15.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6c6282b3"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=7246dc3e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -53,6 +53,8 @@
 <span class="kn">from</span> <span class="nn">.space_periodic_usage</span> <span class="kn">import</span> <span class="n">SpacePeriodicUsage</span>
 <span class="kn">from</span> <span class="nn">.personal_access_token</span> <span class="kn">import</span> <span class="n">PersonalAccessToken</span>
 <span class="kn">from</span> <span class="nn">.organization_periodic_usage</span> <span class="kn">import</span> <span class="n">OrganizationPeriodicUsage</span>
+<span class="kn">from</span> <span class="nn">.taxonomy_concept</span> <span class="kn">import</span> <span class="n">TaxonomyConcept</span>
+<span class="kn">from</span> <span class="nn">.taxonomy_concept_scheme</span> <span class="kn">import</span> <span class="n">TaxonomyConceptScheme</span>
 
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -113,7 +115,9 @@
             <span class="s1">&#39;SpacePeriodicUsage&#39;</span><span class="p">:</span> <span class="n">SpacePeriodicUsage</span><span class="p">,</span>
             <span class="s1">&#39;WebhookCallOverview&#39;</span><span class="p">:</span> <span class="n">WebhookCall</span><span class="p">,</span>
             <span class="s1">&#39;PersonalAccessToken&#39;</span><span class="p">:</span> <span class="n">PersonalAccessToken</span><span class="p">,</span>
-            <span class="s1">&#39;OrganizationPeriodicUsage&#39;</span><span class="p">:</span> <span class="n">OrganizationPeriodicUsage</span>
+            <span class="s1">&#39;OrganizationPeriodicUsage&#39;</span><span class="p">:</span> <span class="n">OrganizationPeriodicUsage</span><span class="p">,</span>
+            <span class="s1">&#39;TaxonomyConcept&#39;</span><span class="p">:</span> <span class="n">TaxonomyConcept</span><span class="p">,</span>
+            <span class="s1">&#39;TaxonomyConceptScheme&#39;</span><span class="p">:</span> <span class="n">TaxonomyConceptScheme</span>
         <span class="p">}</span>
 
         <span class="n">item_type</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;sys&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span>

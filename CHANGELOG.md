@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.15.0
 * Added support for taxonomy endpoints.
 
 ## v2.14.6

@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>contentful_management.client &#8212; Contentful Management 2.14.6 documentation</title>
+    <title>contentful_management.client &#8212; Contentful Management 2.15.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6c6282b3"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=7246dc3e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -49,6 +49,8 @@
 <span class="kn">from</span> <span class="nn">.webhooks_proxy</span> <span class="kn">import</span> <span class="n">WebhooksProxy</span>
 <span class="kn">from</span> <span class="nn">.snapshots_proxy</span> <span class="kn">import</span> <span class="n">SnapshotsProxy</span>
 <span class="kn">from</span> <span class="nn">.environments_proxy</span> <span class="kn">import</span> <span class="n">EnvironmentsProxy</span>
+<span class="kn">from</span> <span class="nn">.taxonomy_concepts_proxy</span> <span class="kn">import</span> <span class="n">TaxonomyConceptsProxy</span>
+<span class="kn">from</span> <span class="nn">.taxonomy_concept_schemes_proxy</span> <span class="kn">import</span> <span class="n">TaxonomyConceptSchemesProxy</span>
 <span class="kn">from</span> <span class="nn">.webhooks_call_proxy</span> <span class="kn">import</span> <span class="n">WebhooksCallProxy</span>
 <span class="kn">from</span> <span class="nn">.ui_extensions_proxy</span> <span class="kn">import</span> <span class="n">UIExtensionsProxy</span>
 <span class="kn">from</span> <span class="nn">.content_types_proxy</span> <span class="kn">import</span> <span class="n">ContentTypesProxy</span>
@@ -594,6 +596,42 @@
 
         <span class="k">return</span> <span class="n">TagsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">space_id</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></div>
 
+<div class="viewcode-block" id="Client.taxonomy_concepts"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.taxonomy_concepts">[docs]</a>    <span class="k">def</span> <span class="nf">taxonomy_concepts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to taxonomy concept management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept</span>
+
+<span class="sd">        :param organization_id: The ID of the organization.</span>
+<span class="sd">        :type organization_id: string</span>
+<span class="sd">        :return: :class:`TaxonomyConceptsProxy &lt;contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; taxonomy_concepts_proxy = client.taxonomy_concepts(&#39;organization_id&#39;)</span>
+<span class="sd">            &lt;TaxonomyConceptsProxy organization_id=&quot;organization_id&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TaxonomyConceptsProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Client.taxonomy_concept_schemes"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.client.Client.taxonomy_concept_schemes">[docs]</a>    <span class="k">def</span> <span class="nf">taxonomy_concept_schemes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to taxonomy concept scheme management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept-scheme</span>
+
+<span class="sd">        :param organization_id: The ID of the organization.</span>
+<span class="sd">        :type organization_id: string</span>
+<span class="sd">        :return: :class:`TaxonomyConceptSchemesProxy &lt;contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful_management.taxonomy_concept_schemes_proxy.TaxonomyConceptSchemesProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; taxonomy_concept_schemes_proxy = client.taxonomy_concept_schemes(&#39;organization_id&#39;)</span>
+<span class="sd">            &lt;TaxonomyConceptSchemesProxy organization_id=&quot;organization_id&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TaxonomyConceptSchemesProxy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">organization_id</span><span class="p">)</span></div>
+
     <span class="k">def</span> <span class="nf">_validate_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates that required parameters are present.</span>
@@ -776,6 +814,15 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">_http_patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs the HTTP PATCH request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)})</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_request</span><span class="p">(</span><span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
     <span class="k">def</span> <span class="nf">_http_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">_data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Performs the HTTP DELETE request.</span>
@@ -835,6 +882,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_patch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrapper for the HTTP PATCH request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>

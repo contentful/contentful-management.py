@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>contentful_management.organization &#8212; Contentful Management 2.14.6 documentation</title>
+    <title>contentful_management.organization &#8212; Contentful Management 2.15.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6c6282b3"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=7246dc3e"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -30,6 +30,7 @@
             
   <h1>Source code for contentful_management.organization</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">.resource</span> <span class="kn">import</span> <span class="n">Resource</span>
+<span class="kn">from</span> <span class="nn">.taxonomy_concepts_proxy</span> <span class="kn">import</span> <span class="n">TaxonomyConceptsProxy</span>
 <span class="kn">from</span> <span class="nn">.space_periodic_usages_proxy</span> <span class="kn">import</span> <span class="n">SpacePeriodicUsagesProxy</span>
 <span class="kn">from</span> <span class="nn">.organization_periodic_usages_proxy</span> <span class="kn">import</span> <span class="n">OrganizationPeriodicUsagesProxy</span>
 <span class="kn">from</span> <span class="nn">.organization_users_proxy</span> <span class="kn">import</span> <span class="n">OrganizationUsersProxy</span>
@@ -115,6 +116,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">OrganizationUsersProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Organization.taxonomy_concepts"><a class="viewcode-back" href="../../contentful_management.html#contentful_management.organization.Organization.taxonomy_concepts">[docs]</a>    <span class="k">def</span> <span class="nf">taxonomy_concepts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides access to taxonomy concept management methods.</span>
+
+<span class="sd">        API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/taxonomy/concept</span>
+
+<span class="sd">        :return: :class:`TaxonomyConceptsProxy &lt;contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy&gt;` object.</span>
+<span class="sd">        :rtype: contentful_management.taxonomy_concepts_proxy.TaxonomyConceptsProxy</span>
+
+<span class="sd">        Usage:</span>
+
+<span class="sd">            &gt;&gt;&gt; taxonomy_concepts_proxy = organization.taxonomy_concepts()</span>
+<span class="sd">            &lt;TaxonomyConceptsProxy organization_id=&quot;organization_id&quot;&gt;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">TaxonomyConceptsProxy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;&lt;Organization[</span><span class="si">{0}</span><span class="s2">] id=&#39;</span><span class="si">{1}</span><span class="s2">&#39;&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
