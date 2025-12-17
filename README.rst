@@ -758,6 +758,20 @@ Creating a taxonomy concept::
 
     new_concept = client.taxonomy_concepts('organization_id').create(concept_attributes)
 
+Creating a taxonomy concept with user-defined ID::
+
+    concept_attributes = {
+        'uri': '',
+        'prefLabel': {
+            'en-US': 'Sofas'
+        }
+    }
+
+    new_concept = client.taxonomy_concepts('organization_id').create(
+        '3kZdDUXy9n0l2Xi2cq8TPc',
+        concept_attributes
+    )
+
 Updating a taxonomy concept::
 
     patches = [
@@ -814,6 +828,23 @@ Creating a taxonomy concept scheme::
     }
 
     new_scheme = client.taxonomy_concept_schemes('organization_id').create(scheme_attributes)
+
+Creating a taxonomy concept scheme with user-defined ID::
+
+    scheme_attributes = {
+        'uri': '',
+        'prefLabel': {
+            'en-US': 'Home Products'
+        },
+        'definition': {
+            'en-US': ''
+        }
+    }
+
+    new_scheme = client.taxonomy_concept_schemes('organization_id').create(
+        '2s0F7127ajju1AVToMaCtE',
+        scheme_attributes
+    )
 
 Updating a taxonomy concept scheme::
 

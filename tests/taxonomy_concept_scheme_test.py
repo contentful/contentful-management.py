@@ -57,6 +57,25 @@ class TaxonomyConceptSchemeTest(TestCase):
         self.assertEqual(scheme.top_concepts[0]['sys']['id'], '5KHXWlmxvntrrB09szapUp')
         self.assertEqual(scheme.concepts[0]['sys']['id'], '5KHXWlmxvntrrB09szapUp')
 
+    @vcr.use_cassette('fixtures/taxonomy/concept_scheme/create_with_id.yaml', decode_compressed_response=True)
+    def test_create_taxonomy_concept_scheme_with_id(self):
+        scheme_attributes = {
+            "uri": "",
+            "prefLabel": {
+                "en-US": "Home Products"
+            },
+            "definition": {
+                "en-US": ""
+            }
+        }
+
+        scheme = CLIENT.taxonomy_concept_schemes(PLAYGROUND_ORG).create(
+            '2s0F7127ajju1AoMaCtE',
+            attributes=scheme_attributes
+        )
+        self.assertEqual(scheme.sys['id'], '2s0F7127ajju1AoMaCtE')
+        self.assertEqual(scheme.pref_label['en-US'], 'Home Products')
+
     @vcr.use_cassette('fixtures/taxonomy/concept_scheme/all.yaml', decode_compressed_response=True)
     def test_all_taxonomy_concept_schemes(self):
         schemes = CLIENT.taxonomy_concept_schemes(PLAYGROUND_ORG).all()
