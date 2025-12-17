@@ -27,14 +27,27 @@ class TaxonomyConceptsProxy(ClientProxy):
         """
         return super(TaxonomyConceptsProxy, self).all(query=query)
 
-    def create(self, attributes=None, **kwargs):
+    def create(self, resource_id=None, attributes=None, **kwargs):
         """
-        Creates a taxonomy concept.
+        Creates a taxonomy concept with an optional user-defined ID.
         """
-        return super(TaxonomyConceptsProxy, self).create(
-            resource_id=None,
-            attributes=attributes
-        )
+        if attributes is None:
+            attributes = {}
+
+        if resource_id is None:
+            result = self.client._post(
+                self._url(),
+                self._resource_class.create_attributes(attributes),
+                headers=self._resource_class.create_headers(attributes)
+            )
+        else:
+            result = self.client._put(
+                self._url(resource_id=resource_id),
+                self._resource_class.create_attributes(attributes),
+                headers=self._resource_class.create_headers(attributes)
+            )
+
+        return result
 
     def update(self, concept_id, version, attributes):
         """

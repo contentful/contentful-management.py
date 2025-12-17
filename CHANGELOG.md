@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
+* Added support for creating taxonomy concepts and concept schemes with user-defined IDs.
 
 ## v2.15.0
 * Added support for taxonomy endpoints.

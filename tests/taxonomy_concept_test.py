@@ -63,6 +63,23 @@ class TaxonomyConceptTest(TestCase):
         self.assertEqual(concept.notations, ['FURN0017B'])
         self.assertTrue(concept.id)
 
+    @vcr.use_cassette('fixtures/taxonomy/concept/create_with_id.yaml', decode_compressed_response=True)
+    def test_create_taxonomy_concept_with_id(self):
+        concept_attributes = {
+            "uri": "",
+            "prefLabel": {
+                "en-US": "Sofas"
+            }
+        }
+
+        concept = CLIENT.taxonomy_concepts(PLAYGROUND_ORG).create(
+            resource_id='3kZdDUXy9n0l2Xi2cq8TPc',
+            attributes=concept_attributes
+        )
+
+        self.assertEqual(concept.sys['id'], '3kZdDUXy9n0l2Xi2cq8TPc')
+        self.assertEqual(concept.pref_label['en-US'], 'Sofas')
+
     @vcr.use_cassette('fixtures/taxonomy/concept/all.yaml', decode_compressed_response=True)
     def test_all_taxonomy_concepts(self):
         concepts = CLIENT.taxonomy_concepts(PLAYGROUND_ORG).all()
