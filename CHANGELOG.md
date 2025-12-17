@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.15.1
 * Added support for creating taxonomy concepts and concept schemes with user-defined IDs.
 
 ## v2.15.0
