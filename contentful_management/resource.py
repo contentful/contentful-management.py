@@ -27,6 +27,9 @@ class Resource(object):
     API reference: https://www.contentful.com/developers/docs/references/content-delivery-api/#/introduction/common-resource-attributes
     """
 
+    LINKABLE_FIELDS = ['space', 'contentType', 'createdBy',
+                       'updatedBy', 'publishedBy', 'environment']
+
     def __init__(self, item, default_locale='en-US', client=None):
         self.raw = item
         self.default_locale = default_locale
@@ -159,12 +162,13 @@ class Resource(object):
         Returns the JSON representation of the resource.
         """
 
+        linkable_fields_snake = [snake_case(field) for field in self.LINKABLE_FIELDS]
+
         result = {
             'sys': {}
         }
         for k, v in self.sys.items():
-            if k in ['space', 'content_type', 'created_by',
-                     'updated_by', 'published_by']:
+            if k in linkable_fields_snake:
                 v = v.to_json()
             if k in ['created_at', 'updated_at', 'deleted_at',
                      'first_published_at', 'published_at', 'expires_at']:
@@ -184,8 +188,7 @@ class Resource(object):
         return sys
 
     def _linkables(self):
-        return ['space', 'contentType', 'createdBy',
-                'updatedBy', 'publishedBy', 'environment']
+        return self.LINKABLE_FIELDS
 
     def _dateables(self):
         return ['createdAt', 'updatedAt', 'deletedAt',

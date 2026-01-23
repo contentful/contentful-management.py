@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Unreleased
+* Fixed missing `environment` field in `Resource.to_json()` serialization.
 
 ## v2.15.1
 * Added support for creating taxonomy concepts and concept schemes with user-defined IDs.
