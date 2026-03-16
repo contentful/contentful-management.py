@@ -4,7 +4,7 @@ Contentful Management API SDK
 .. image:: https://travis-ci.org/contentful/contentful-management.py.svg?branch=master
     :target: https://travis-ci.org/contentful/contentful-management.py
 
-`Contentful <https://www.contentful.com>`_ provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
+`Contentful <https://www.contentful.com>`_ provides a content infrastructure for digital teams to power content in websites, apps and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
 
 Installation
 ------------
