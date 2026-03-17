@@ -15,6 +15,13 @@ BASE_ENTRY_ITEM = {
                 'linkType': 'Space'
             }
         },
+        'environment': {
+            'sys': {
+                'id': 'master',
+                'type': 'Link',
+                'linkType': 'Environment'
+            }
+        },
         'contentType': {
             'sys': {
                 'id': 'foo',
@@ -60,6 +67,13 @@ class EntryTest(TestCase):
                         'id': 'foobar',
                         'type': 'Link',
                         'linkType': 'Space'
+                    }
+                },
+                'environment': {
+                    'sys': {
+                        'id': 'master',
+                        'type': 'Link',
+                        'linkType': 'Environment'
                     }
                 },
                 'contentType': {

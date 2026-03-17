@@ -14,6 +14,13 @@ BASE_ASSET_ITEM = {
                 'type': 'Link',
                 'linkType': 'Space'
             }
+        },
+        'environment': {
+            'sys': {
+                'id': 'master',
+                'type': 'Link',
+                'linkType': 'Environment'
+            }
         }
     },
     'fields': {
@@ -57,6 +64,13 @@ class AssetTest(TestCase):
                         'id': 'foobar',
                         'type': 'Link',
                         'linkType': 'Space'
+                    }
+                },
+                'environment': {
+                    'sys': {
+                        'id': 'master',
+                        'type': 'Link',
+                        'linkType': 'Environment'
                     }
                 }
             },
