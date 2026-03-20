@@ -1,8 +1,8 @@
 Contentful Management API SDK
 =============================
 
-.. image:: https://travis-ci.org/contentful/contentful-management.py.svg?branch=master
-    :target: https://travis-ci.org/contentful/contentful-management.py
+.. image:: https://github.com/contentful/contentful-management.py/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/contentful/contentful-management.py/actions/workflows/ci.yml
 
 `Contentful <https://www.contentful.com>`_ provides a content infrastructure for digital teams to power content in websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management and delivery APIs, and a customizable web app that enable developers and content creators to ship digital products faster.
 
@@ -1475,3 +1475,11 @@ Contributing
 ------------
 
 Feel free to improve this tool by submitting a Pull Request.
+
+For a reproducible local setup, open this repository in its included dev container. The container installs the project dependencies automatically when it is created.
+
+To verify the environment, run::
+
+    pdm run coverage
+
+See `CONTRIBUTING.md <./CONTRIBUTING.md>`_ for the full contributor workflow.
