@@ -18,12 +18,14 @@ jobs:
       matrix:
         python-version: ["3.9", "3.10", "3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      - name: Install devcontainer CLI
+        run: npm install -g @devcontainers/cli@0
 
       - name: Run test suite in dev container
-        uses: devcontainers/ci@v0.3
         env:
           PYTHON_VERSION: ${{ matrix.python-version }}
-        with:
-          push: never
-          runCmd: pdm run coverage
+        run: |
+          devcontainer up --workspace-folder .
+          devcontainer exec --workspace-folder . bash -lc "pdm run coverage"
