@@ -1,6 +1,5 @@
 Contentful Management API SDK
 =============================
-
 .. image:: https://github.com/contentful/contentful-management.py/actions/workflows/ci.yml/badge.svg
     :target: https://github.com/contentful/contentful-management.py/actions/workflows/ci.yml
 
