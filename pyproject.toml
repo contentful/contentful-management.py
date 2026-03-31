@@ -21,8 +21,8 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "requests==2.32.4",
-    "python-dateutil==2.9.0.post0"
+    "requests>=2.33.0",
+    "python-dateutil>=2.9.0.post0"
 ]
 
 [project.urls]
