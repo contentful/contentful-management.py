@@ -1,6 +1,8 @@
 # CHANGELOG
 
 ## Unreleased
+
+## v2.15.2
 * Fixed missing `environment` field in `Resource.to_json()` serialization.
 * Loosened `requests` pin from `==2.32.4` to `>=2.32.4,<3` to unblock consumers blocked by the strict equality constraint and allow security patches to resolve (fixes CVE-2026-40175 on Python 3.10+). Python 3.8/3.9 continue to resolve to 2.32.4.
 * Loosened `python-dateutil` pin from `==2.9.0.post0` to `>=2.9.0.post0`.
