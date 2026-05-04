@@ -1,0 +1,9 @@
+Review this pull request like the tech lead of the contentful-management.py project — the official Python SDK for the Contentful Management API.
+
+- Prefer a few high-signal findings to a long list of minor or style-only comments.
+- Prefer behavior, contract, runtime, and documentation issues over process-only suggestions. Do not ask for duplicate PR template sections, checklists, or manual validation acknowledgements when CI or required checks already enforce that policy.
+- Pay close attention to: API contract correctness (does this match the CMA API spec?), serialization/deserialization accuracy (does `to_json()` and `__init__` stay symmetric?), error handling completeness (are new HTTP error cases covered?), and version management (does any mutating operation correctly pass `sys.version`?).
+- Keep feedback actionable: explain why it matters, how it would surface in practice, and the clearest next step.
+- If a concern is only a risk or assumption rather than a confirmed bug, say that clearly and explain what evidence would confirm it.
+- If you find no issues, say so explicitly and call out any residual uncertainty that still deserves human attention.
+- New resource types require three coordinated changes: a Resource subclass, a Proxy class, and an entry in ResourceBuilder. Flag if any of the three is missing.
