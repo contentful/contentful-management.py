@@ -1,0 +1,28 @@
+Critical invariants for the contentful-management.py SDK:
+
+VERSIONING
+- Every CMA mutating operation (update, publish, unpublish, delete, archive, unarchive) requires passing the current sys.version from the resource. Missing or stale versions cause HTTP 409 VersionMismatchError. Always verify version is threaded through in new mutating operations.
+
+RESOURCE BUILDER COMPLETENESS
+- Every new resource type must be registered in ResourceBuilder._build_item's `buildables` dict. If it's missing, the SDK raises "Resource not buildable" at runtime when the API returns that type. A new resource type without a ResourceBuilder entry is always a bug.
+
+PROXY PATTERN
+- Proxy classes hold scope (space_id, environment_id) but do not own HTTP logic — that lives in Client._get/_post/_put/_delete. Do not add HTTP calls directly to proxy classes; route through the Client.
+
+SERIALIZATION SYMMETRY
+- Resource.to_json() and Resource.__init__() must stay symmetric: what you serialize must be deserializable back into the same object state. When adding new fields to a resource, ensure both paths are updated.
+
+SCOPE BOUNDARIES
+- Taxonomy resources (TaxonomyConcept, TaxonomyConceptScheme) are organization-scoped, not space/environment-scoped. Do not pass space_id or environment_id to taxonomy proxies.
+- Most content resources (entries, assets, content types, locales, tags) are environment-scoped and require both space_id and environment_id.
+- Some resources (webhooks, API keys, roles) are space-scoped — they take space_id but no environment_id.
+
+TESTING
+- All tests use VCR cassettes for HTTP mocking. Do not add tests that make live API calls. Do not fabricate cassettes manually — record them against the real API.
+- Test files mirror source files: tests/entry_test.py tests contentful_management/entry.py.
+
+DOCS GENERATION
+- docs/ is auto-generated. Never hand-edit files in docs/. Edit _docs/ and regenerate with pdm run docs.
+
+DEFAULT BRANCH
+- The default branch is `master`, not `main`. PRs and releases target master.
