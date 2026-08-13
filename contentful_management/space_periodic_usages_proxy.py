@@ -18,6 +18,11 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class SpacePeriodicUsagesProxy(ClientProxy):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
+
+    .. deprecated::
+        This proxy wraps the legacy space_periodic_usages endpoint, which is
+        deprecated in favor of the new Usage API and will be removed on
+        2027-02-28.
     """
 
     def __init__(self, client, organization_id):
@@ -31,6 +36,11 @@ class SpacePeriodicUsagesProxy(ClientProxy):
     def all(self, query=None, *args, **kwargs):
         """
         Gets all organization periodic usage grouped by space.
+
+        .. deprecated::
+            Calls the legacy space_periodic_usages endpoint, which is
+            deprecated in favor of the new Usage API and will be removed on
+            2027-02-28.
         """
 
         if query is None:

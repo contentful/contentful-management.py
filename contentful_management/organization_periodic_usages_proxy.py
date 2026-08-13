@@ -18,6 +18,11 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class OrganizationPeriodicUsagesProxy(ClientProxy):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
+
+    .. deprecated::
+        This proxy wraps the legacy organization_periodic_usages endpoint,
+        which is deprecated in favor of the new Usage API and will be
+        removed on 2027-02-28.
     """
 
     def __init__(self, client, organization_id):
@@ -31,6 +36,11 @@ class OrganizationPeriodicUsagesProxy(ClientProxy):
     def all(self, query=None, *args, **kwargs):
         """
         Gets all organization periodic usage.
+
+        .. deprecated::
+            Calls the legacy organization_periodic_usages endpoint, which is
+            deprecated in favor of the new Usage API and will be removed on
+            2027-02-28.
         """
 
         if query is None:

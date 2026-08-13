@@ -1,5 +1,6 @@
 import requests
 import platform
+import warnings
 from re import sub
 
 from .resource_builder import ResourceBuilder
@@ -202,7 +203,20 @@ class Client(object):
 
             >>> organization_periodic_usages = client.organization_periodic_usages('organization_id')
             <OrganizationPeriodicUsagesProxy organization_id='organization_id'>
+
+        .. deprecated::
+            The ``GET /organizations/:organization_id/organization_periodic_usages``
+            endpoint is deprecated in favor of the new Usage API. It will be
+            removed on 2027-02-28, after which requests will return 410 Gone.
         """
+
+        warnings.warn(
+            "client.organization_periodic_usages() calls the legacy "
+            "organization_periodic_usages endpoint, which is deprecated and will "
+            "be removed on 2027-02-28. Migrate to the new Usage API.",
+            DeprecationWarning,
+            stacklevel=2
+        )
 
         return OrganizationPeriodicUsagesProxy(self, organization_id)
 
@@ -219,7 +233,20 @@ class Client(object):
 
             >>> space_periodic_usages = client.space_periodic_usages('organization_id')
             <SpacePeriodicUsagesProxy organization_id='organization_id'>
+
+        .. deprecated::
+            The ``GET /organizations/:organization_id/space_periodic_usages``
+            endpoint is deprecated in favor of the new Usage API. It will be
+            removed on 2027-02-28, after which requests will return 410 Gone.
         """
+
+        warnings.warn(
+            "client.space_periodic_usages() calls the legacy "
+            "space_periodic_usages endpoint, which is deprecated and will be "
+            "removed on 2027-02-28. Migrate to the new Usage API.",
+            DeprecationWarning,
+            stacklevel=2
+        )
 
         return SpacePeriodicUsagesProxy(self, organization_id)
 
