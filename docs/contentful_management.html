@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>contentful_management package &#8212; Contentful Management 2.15.2 documentation</title>
+    <title>contentful_management package &#8212; Contentful Management 2.16.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e1c6d24d"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e03902d5"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -434,6 +434,11 @@ for retry after RateLimitError, defaults to 60.</p></li>
 <span class="go">&lt;OrganizationPeriodicUsagesProxy organization_id=&#39;organization_id&#39;&gt;</span>
 </pre></div>
 </div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version The: </span><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/organizations/:organization_id/organization_periodic_usages</span></code>
+endpoint is deprecated in favor of the new Usage API. It will be
+removed on 2027-02-28, after which requests will return 410 Gone.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -557,6 +562,11 @@ for retry after RateLimitError, defaults to 60.</p></li>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">space_periodic_usages</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">space_periodic_usages</span><span class="p">(</span><span class="s1">&#39;organization_id&#39;</span><span class="p">)</span>
 <span class="go">&lt;SpacePeriodicUsagesProxy organization_id=&#39;organization_id&#39;&gt;</span>
 </pre></div>
+</div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version The: </span><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/organizations/:organization_id/space_periodic_usages</span></code>
+endpoint is deprecated in favor of the new Usage API. It will be
+removed on 2027-02-28, after which requests will return 410 Gone.</p>
 </div>
 </dd></dl>
 
@@ -1987,6 +1997,11 @@ Include resolution and other particular processing is done for CDA only.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contentful_management.organization_periodic_usage.</span></span><span class="sig-name descname"><span class="pre">OrganizationPeriodicUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization_periodic_usage.html#OrganizationPeriodicUsage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.organization_periodic_usage.OrganizationPeriodicUsage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</a></p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Backed: </span>by the legacy organization_periodic_usages endpoint, which is
+deprecated in favor of the new Usage API and will be removed on
+2027-02-28.</p>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="contentful_management.organization_periodic_usage.OrganizationPeriodicUsage.base_url">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">organization_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization_periodic_usage.html#OrganizationPeriodicUsage.base_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.organization_periodic_usage.OrganizationPeriodicUsage.base_url" title="Permalink to this definition">¶</a></dt>
@@ -2003,10 +2018,20 @@ Include resolution and other particular processing is done for CDA only.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contentful_management.organization_periodic_usages_proxy.</span></span><span class="sig-name descname"><span class="pre">OrganizationPeriodicUsagesProxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organization_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization_periodic_usages_proxy.html#OrganizationPeriodicUsagesProxy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</a></p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version This: </span>proxy wraps the legacy organization_periodic_usages endpoint,
+which is deprecated in favor of the new Usage API and will be
+removed on 2027-02-28.</p>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy.all">
 <span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/organization_periodic_usages_proxy.html#OrganizationPeriodicUsagesProxy.all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.organization_periodic_usages_proxy.OrganizationPeriodicUsagesProxy.all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all organization periodic usage.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Calls: </span>the legacy organization_periodic_usages endpoint, which is
+deprecated in favor of the new Usage API and will be removed on
+2027-02-28.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -2770,6 +2795,11 @@ Returns False if resource has not been published before.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contentful_management.space_periodic_usage.</span></span><span class="sig-name descname"><span class="pre">SpacePeriodicUsage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_periodic_usage.html#SpacePeriodicUsage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.space_periodic_usage.SpacePeriodicUsage" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.resource.Resource" title="contentful_management.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resource</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</a></p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Backed: </span>by the legacy space_periodic_usages endpoint, which is
+deprecated in favor of the new Usage API and will be removed on
+2027-02-28.</p>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="contentful_management.space_periodic_usage.SpacePeriodicUsage.base_url">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">base_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">organization_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_periodic_usage.html#SpacePeriodicUsage.base_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.space_periodic_usage.SpacePeriodicUsage.base_url" title="Permalink to this definition">¶</a></dt>
@@ -2786,10 +2816,20 @@ Returns False if resource has not been published before.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">contentful_management.space_periodic_usages_proxy.</span></span><span class="sig-name descname"><span class="pre">SpacePeriodicUsagesProxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">organization_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_periodic_usages_proxy.html#SpacePeriodicUsagesProxy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#contentful_management.client_proxy.ClientProxy" title="contentful_management.client_proxy.ClientProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClientProxy</span></code></a></p>
 <p>API reference: <a class="reference external" href="https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage">https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage</a></p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version This: </span>proxy wraps the legacy space_periodic_usages endpoint, which is
+deprecated in favor of the new Usage API and will be removed on
+2027-02-28.</p>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.all">
 <span class="sig-name descname"><span class="pre">all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/contentful_management/space_periodic_usages_proxy.html#SpacePeriodicUsagesProxy.all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#contentful_management.space_periodic_usages_proxy.SpacePeriodicUsagesProxy.all" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets all organization periodic usage grouped by space.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version Calls: </span>the legacy space_periodic_usages endpoint, which is
+deprecated in favor of the new Usage API and will be removed on
+2027-02-28.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
