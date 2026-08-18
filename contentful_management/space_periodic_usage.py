@@ -17,6 +17,11 @@ API reference: https://www.contentful.com/developers/docs/references/content-man
 class SpacePeriodicUsage(Resource):
     """
     API reference: https://www.contentful.com/developers/docs/references/content-management-api/#/reference/usage
+
+    .. deprecated::
+        Backed by the legacy space_periodic_usages endpoint, which is
+        deprecated in favor of the new Usage API and will be removed on
+        2027-02-28.
     """
 
     def __init__(self, item, **kwargs):
