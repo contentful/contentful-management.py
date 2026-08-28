@@ -22,7 +22,8 @@ TESTING
 - Test files mirror source files: tests/entry_test.py tests contentful_management/entry.py.
 
 DOCS GENERATION
-- docs/ is auto-generated. Never hand-edit files in docs/. Edit _docs/ and regenerate with pdm run docs.
+- docs/ is auto-generated everywhere except docs/ADRs/. Never hand-edit files under docs/ other than docs/ADRs/. Edit _docs/ and regenerate with pdm run docs.
+- ADRs live in docs/ADRs/, which the docs build explicitly excludes from its prune. Specs live in AI_context/specs/. Both are human-maintained.
 
 DEFAULT BRANCH
 - The default branch is `master`, not `main`. PRs and releases target master.

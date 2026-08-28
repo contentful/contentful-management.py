@@ -44,8 +44,9 @@ Regeneration is wired into release, not into CI. `pyproject.toml` →
 ```
 docs      → sphinx-apidoc -o _docs/ contentful_management
             make -C _docs html
-            rm -rf docs
-            cp -r _docs/_build/html docs
+            mkdir -p docs
+            find docs -mindepth 1 -maxdepth 1 ! -name ADRs -exec rm -rf {} +
+            cp -R _docs/_build/html/. docs/
 git-docs  → composite: docs, git add docs, git commit --amend -C HEAD
 release   → composite: clean, git-docs, pdm publish
 ```
@@ -66,9 +67,13 @@ default branch. `docs/` is generated output under version control: it is
 produced only by `pdm run docs`, and it is refreshed as part of `pdm run
 release`, folded into the version-bump commit by `pdm run git-docs`.
 
-`docs/` is therefore not hand-editable. Documentation changes are made in
-`_docs/` (or in the Python docstrings that `sphinx-apidoc` reads) and reach
-`docs/` only through a rebuild.
+The build **empties every entry directly under `docs/` except `docs/ADRs/`**
+rather than removing the whole directory. `docs/ADRs/` is the single
+hand-authored carve-out; everything else under `docs/` is generated.
+
+`docs/` is therefore not hand-editable outside `docs/ADRs/`. Documentation
+changes are made in `_docs/` (or in the Python docstrings that `sphinx-apidoc`
+reads) and reach `docs/` only through a rebuild.
 
 ## Consequences
 
@@ -78,19 +83,31 @@ release`, folded into the version-bump commit by `pdm run git-docs`.
 - Documentation is only as fresh as the last release. Because CI never builds
   the docs, a merged change to a docstring is not reflected in `docs/` until
   someone runs `pdm run release`. There is no check that would catch the drift.
-- `pdm run docs` starts with `rm -rf docs`. **Anything added to `docs/` by hand is
-  deleted by the next docs build.** This is why this record lives at
-  `AI_context/ADRs/` and not `docs/ADRs/`. It was first drafted under `docs/ADRs/`
-  to match the directory named by the AI harness readiness controls
-  ([DX-1312](https://contentful.atlassian.net/browse/DX-1312), parent
-  [DX-1296](https://contentful.atlassian.net/browse/DX-1296)); left there, the
-  next `pdm run docs` or `pdm run release` would have deleted it silently and no
-  release step would have flagged the loss. Moving it to `AI_context/ADRs/` — the
-  repo's existing ADR home, where records 001-004 already live and where
-  `AGENTS.md` points — resolves the collision without teaching the release script
-  to carve out an exception inside generated output. It is numbered **005**,
-  continuing that sequence in the same index, so there is one ADR location rather
-  than two.
+- **`docs/ADRs/` is the one place under `docs/` where hand-authored files
+  survive a build.** `pdm run docs` previously started with `rm -rf docs`, which
+  deleted anything added by hand. It now prunes entry-by-entry and skips
+  `docs/ADRs/`. Everything else under `docs/` is still wiped on every build.
+- The carve-out is required, not a convenience. The AI harness readiness
+  controls ([DX-1312](https://contentful.atlassian.net/browse/DX-1312), parent
+  [DX-1296](https://contentful.atlassian.net/browse/DX-1296)) recognise decision
+  records only at `docs/ADRs/`, `docs/adr/`, `docs/decision-records/` or
+  `docs/decisions/` — all four inside `docs/`. Relocating the records outside
+  `docs/` trades a build that deletes them for an audit that cannot see them, so
+  the generator has to stop owning the whole directory instead. This is the same
+  conclusion reached in
+  [node-apps-toolkit#857](https://github.com/contentful/node-apps-toolkit/pull/857).
+- The carve-out lives in the prune rather than in a `docs/api/` subdirectory
+  because this repository is served by **legacy** GitHub Pages from
+  `master:/docs`, and legacy Pages accepts only `/` or `/docs` as its source
+  path. Moving the built HTML down a level would 404 the site root and shift
+  every published API URL under `/api/`. Keeping generated output at the `docs/`
+  root preserves all existing documentation URLs.
+- Records 001–004 moved from `AI_context/ADRs/` to `docs/ADRs/` alongside 005 so
+  there is one ADR location rather than two. `AI_context/` retains only
+  `specs/`.
+- Nothing in CI verifies that a docs build preserves tracked files under
+  `docs/ADRs/`. A regression in the prune would delete the records silently, the
+  same way `rm -rf docs` did.
 - `pdm run docs` ends with `open docs/index.html`, a macOS-only command. The
   script fails on Linux and inside the dev container after the HTML has already
   been written, so `git-docs` and `release` are effectively macOS-local

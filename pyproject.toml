@@ -70,8 +70,9 @@ docs.shell = """
 	sphinx-apidoc -o _docs/ contentful_management
 	make -C _docs html
 	cp _docs/LICENSE _docs/_build/html/
-	rm -rf docs
-	cp -r _docs/_build/html docs
+	mkdir -p docs
+	find docs -mindepth 1 -maxdepth 1 ! -name ADRs -exec rm -rf {} +
+	cp -R _docs/_build/html/. docs/
 	open docs/index.html
 	"""
 docs.help = "Generate Sphinx HTML documentation, including API docs"
