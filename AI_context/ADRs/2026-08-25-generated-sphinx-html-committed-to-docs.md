@@ -78,12 +78,19 @@ release`, folded into the version-bump commit by `pdm run git-docs`.
 - Documentation is only as fresh as the last release. Because CI never builds
   the docs, a merged change to a docstring is not reflected in `docs/` until
   someone runs `pdm run release`. There is no check that would catch the drift.
-- `pdm run docs` starts with `rm -rf docs`. **Anything added to `docs/` by hand
-  is deleted by the next docs build, including this directory.** The AI harness
-  readiness controls require decision records under `docs/ADRs/`, so this record
-  lives inside a directory that the release process wipes. Until the `docs`
-  script is changed to preserve `docs/ADRs/` (or the control accepts another
-  location), whoever runs a release must re-add `docs/ADRs/` afterwards.
+- `pdm run docs` starts with `rm -rf docs`. **Anything added to `docs/` by hand is
+  deleted by the next docs build.** This is why this record lives at
+  `AI_context/ADRs/` and not `docs/ADRs/`. It was first drafted under `docs/ADRs/`
+  to match the directory named by the AI harness readiness controls
+  ([DX-1312](https://contentful.atlassian.net/browse/DX-1312), parent
+  [DX-1296](https://contentful.atlassian.net/browse/DX-1296)); left there, the
+  next `pdm run docs` or `pdm run release` would have deleted it silently and no
+  release step would have flagged the loss. Moving it to `AI_context/ADRs/` — the
+  repo's existing ADR home, where records 001-004 already live and where
+  `AGENTS.md` points — resolves the collision without teaching the release script
+  to carve out an exception inside generated output. It is numbered **005**,
+  continuing that sequence in the same index, so there is one ADR location rather
+  than two.
 - `pdm run docs` ends with `open docs/index.html`, a macOS-only command. The
   script fails on Linux and inside the dev container after the HTML has already
   been written, so `git-docs` and `release` are effectively macOS-local

@@ -8,3 +8,4 @@
 | [002](./2021-06-01-vcr-cassettes-for-testing.md) | 2021-06-01 | Accepted | VCR Cassettes for Testing |
 | [003](./2021-08-01-circleci-to-github-actions.md) | 2021-08-01 | Accepted | CI/CD Migration: Travis CI → CircleCI → GitHub Actions |
 | [004](./2022-09-01-pdm-package-manager.md) | 2022-09-01 | Accepted | PDM as Package Manager |
+| [005](./2026-08-25-generated-sphinx-html-committed-to-docs.md) | 2026-08-25 | Accepted | Generated Sphinx HTML is Committed to `docs/`, Sources Live in `_docs/` |
