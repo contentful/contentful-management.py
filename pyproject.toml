@@ -34,7 +34,7 @@ Changelog = "https://github.com/contentful/contentful-management.py/changelog/"
 [project.optional-dependencies]
 test = [
     "vcrpy==6.0.1",
-    "tox==4.20.0",
+    "tox==4.61.2",
     "coverage",
 ]
 dev = [
