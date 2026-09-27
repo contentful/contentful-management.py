@@ -1,6 +1,7 @@
 import vcr
 from copy import deepcopy
 from unittest import TestCase
+from contentful_management.resource import Link
 from .test_helper import CLIENT, PLAYGROUND_SPACE
 
 
@@ -17,6 +18,11 @@ class ResourceTest(TestCase):
 
 
 class LinkTest(TestCase):
+    def test_to_link_preserves_link_type(self):
+        link = Link({'sys': {'id': 'foo', 'type': 'Link', 'linkType': 'Entry'}})
+
+        self.assertEqual(link.to_link().to_json(), link.to_json())
+
     @vcr.use_cassette('fixtures/link/space_resolve.yaml', decode_compressed_response=True)
     def test_space_link_resolve(self):
         space = CLIENT.spaces().find(PLAYGROUND_SPACE)
