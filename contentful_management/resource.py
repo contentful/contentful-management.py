@@ -150,7 +150,7 @@ class Resource(object):
         Returns a link for the resource.
         """
 
-        link_type = self.link_type if self.type == 'Link' else self.type
+        link_type = self.sys['link_type'] if self.sys['type'] == 'Link' else self.sys['type']
 
         return Link({'sys': {'linkType': link_type, 'id': self.sys.get('id')}}, client=self._client)
 

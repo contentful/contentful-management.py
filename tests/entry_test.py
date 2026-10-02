@@ -1,4 +1,5 @@
 import vcr
+from copy import deepcopy
 from unittest import TestCase
 from contentful_management.entry import Entry
 from contentful_management.errors import NotFoundError
@@ -101,6 +102,35 @@ class EntryTest(TestCase):
                 'linkType': 'Entry'
             }
         })
+
+    def test_entry_to_link_uses_metadata_type(self):
+        for field_type in ['article', 'Link', None]:
+            with self.subTest(field_type=field_type):
+                item = deepcopy(BASE_ENTRY_ITEM)
+                item['fields']['type'] = {'en-US': field_type}
+                entry = Entry(item)
+
+                self.assertEqual(entry.type, field_type)
+                self.assertEqual(entry.to_link().to_json(), {
+                    'sys': {'id': 'foo', 'type': 'Link', 'linkType': 'Entry'}
+                })
+                self.assertEqual(entry.to_json()['fields']['type'], {'en-US': field_type})
+
+    def test_entry_serializes_references_with_type_fields(self):
+        target_item = deepcopy(BASE_ENTRY_ITEM)
+        target_item['fields']['type'] = {'en-US': 'article'}
+        target = Entry(target_item)
+        item = deepcopy(BASE_ENTRY_ITEM)
+        item['fields']['reference'] = {'en-US': None}
+        item['fields']['references'] = {'en-US': []}
+        entry = Entry(item)
+        entry.reference = target
+        entry.references = [target]
+
+        fields = entry.to_json()['fields']
+        expected = {'sys': {'id': 'foo', 'type': 'Link', 'linkType': 'Entry'}}
+        self.assertEqual(fields['reference']['en-US'], expected)
+        self.assertEqual(fields['references']['en-US'], [expected])
 
     def test_entry_with_link(self):
         entry_data = {
