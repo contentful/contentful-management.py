@@ -33,7 +33,7 @@ Changelog = "https://github.com/contentful/contentful-management.py/changelog/"
 
 [project.optional-dependencies]
 test = [
-    "vcrpy==6.0.1",
+    "vcrpy==8.2.1",
     "tox==4.20.0",
     "coverage",
 ]
